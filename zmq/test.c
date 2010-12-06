@@ -58,6 +58,14 @@ int main()
 
 	ctx  = zmq_init(0);
 
+	// ok version!
+	// pull = zmq_socket(ctx, ZMQ_PULL);
+	// zmq_bind(pull, "inproc://mygod");
+	//
+	// push = zmq_socket(ctx, ZMQ_PUSH);
+	// zmq_connect(push, "inproc://mygod");
+
+	// fail version!	
 	push = zmq_socket(ctx, ZMQ_PUSH);
 	zmq_bind(push, "inproc://mygod");
 
