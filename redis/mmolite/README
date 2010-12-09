@@ -1,0 +1,15 @@
+MMO-Lite, a MMORPG server-side demo using redis as the backend storage
+
+DEPENDENCIES
+redis, http://code.google.com/p/redis/
+redis-luabinding, https://github.com/nrk/redis-lua/
+luasocket, http://luaforge.net/projects/luasocket/
+
+TODO
+ * Player Prop
+ * Item Prop
+ * Chat System
+ * Cash System
+
+DONE
+
