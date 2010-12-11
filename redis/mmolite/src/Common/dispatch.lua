@@ -8,7 +8,7 @@ local base = _G
 local table = require("table")
 local socket = require("socket")
 local coroutine = require("coroutine")
-module("dispatch")
+module("Common.dispatch")
 
 -- if too much time goes by without any activity in one of our sockets, we
 -- just kill it
