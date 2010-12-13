@@ -1,13 +1,17 @@
 module("Manager.CmdHandler", package.seeall)
 
 local CmdTbl = {
-["LOGIN"] = Cmd.Login, 
+["LOGIN"]   = Cmd.Login, 
+["NEWUSER"] = Cmd.NewUser, 
+["LOGOUT"]  = Cmd.Logout, 
+["RMUSER"]  = Cmd.RemoveUser, 
 }
 
 function ProcessCmd(peer, cmd, ...)
+    cmd = string.upper(cmd)
     local fn = CmdTbl[cmd]
     if not fn then
-        print("err fn: "..cmd)
+        peer:sendline("cmd err!")
         return
     end
 
@@ -15,5 +19,5 @@ function ProcessCmd(peer, cmd, ...)
 end
 
 function PeerClose(peer)
-    print("peer closed:", peer)
+    Cmd.LogoutInternal(peer)
 end

@@ -12,13 +12,14 @@ assert(server:listen(32))
 handler:start(function()
     while true do
         local client = assert(server:accept())
-        print("peer connected:", client)
+        client.sendline = function (self, line)
+            self:send(line.."\n")
+        end
         assert(client:settimeout(0))
         handler:start(function()
             while true do
                 local line, err = client:receive()
                 if err and err == 'closed' then
-                    print("peer closed:", client)
                     Manager.CmdHandler.PeerClose(client)
                     return
                 end

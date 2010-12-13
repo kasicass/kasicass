@@ -1,3 +1,7 @@
+==== db layout ====
+p/<uid>/prop    base prop(hp, mp, lv, name, password), hash
+p/<uid>/cash    [gold,silver,copper], list
+
 ==== Cash System ====
 
 

@@ -1,4 +1,4 @@
-module('Redis', package.seeall)
+module('Common.redis', package.seeall)
 
 local socket = require('socket')
 local uri    = require('socket.url')
