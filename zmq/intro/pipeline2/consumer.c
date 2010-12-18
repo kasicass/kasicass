@@ -8,7 +8,7 @@ int main()
 
     ctx = zmq_init(1);
     pull = zmq_socket(ctx, ZMQ_PULL);
-    zmq_connect(pull, "tcp://127.0.0.1:8888");
+    zmq_bind(pull, "tcp://127.0.0.1:8888");
 
     while (1)
     {
