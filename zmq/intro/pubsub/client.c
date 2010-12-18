@@ -11,9 +11,15 @@ int main(int argc, char *argv[])
     sub = zmq_socket(ctx, ZMQ_SUB);
     zmq_connect(sub, "tcp://127.0.0.1:8888");
     if ( argc > 1 )
-        zmq_setsockopt(sub, ZMQ_SUBSCRIBE, argv[1], strlen(argv[1]));
+    {
+        int i;
+        for ( i = 1; i < argc; i++ )
+            zmq_setsockopt(sub, ZMQ_SUBSCRIBE, argv[i], strlen(argv[i]));
+    }
     else
+    {
         zmq_setsockopt(sub, ZMQ_SUBSCRIBE, "", 0);
+    }
 
     while (1)
     {
