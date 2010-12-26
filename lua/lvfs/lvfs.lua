@@ -63,15 +63,21 @@ local function vfs_isfile(self, vpath)
 end
 
 local function vfs_listdir(self, vpath)
-	local ospath = self:ospath(vpath)
-	local _, dirobj = lfs.dir(ospath)
 	local files = {}
-	local v = dirobj:next()
-	while v do
-		if v ~= "." and v ~= ".." then
-			table.insert(files, v)
+	if vpath == '/' then
+		for k, _ in pairs(self._vpath2ospath) do
+			table.insert(files, string.sub(k, 2))
 		end
-		v = dirobj:next()
+	else
+		local ospath = self:ospath(vpath)
+		local _, dirobj = lfs.dir(ospath)
+		local v = dirobj:next()
+		while v do
+			if v ~= "." and v ~= ".." then
+				table.insert(files, v)
+			end
+			v = dirobj:next()
+		end
 	end
 	return files
 end
