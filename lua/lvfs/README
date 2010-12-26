@@ -1,0 +1,40 @@
+lvfs, lua virtual file system
+* inspired by frs(http://opensource.everydo.com/frs/), but is more simpler.
+
+==== FEATURES ====
+* mount on native file system
+* unique filepath access method
+* dir create/remove
+* file touch/remove/move/copy
+
+==== API ====
+/tmp/lvfs/d1/foo
+/tmp/lvfs/god/d2/hello
+/tmp/lvfs/god/d2/good
+
+> require("lvfs")
+> root = lvfs.new_vfs()
+> root:listdir('/')
+{}
+
+> root:mount('/d1', '/tmp/lvfs/d1')
+> root:mount('/d2', '/tmp/lvfs/god/d2')
+
+> root:listdir('/')
+{'d1', 'd2'}
+> root:listdir('/d1')
+{'foo'}
+
+> root:isdir('/d1/foo')
+false
+> root:isfile('/d1/foo')
+true
+
+> root:touch('/d1/bar')
+> root:remove('/d1/bar')
+> root:move('/d1/foo', '/d2/foo')
+> root:copy('/d2/foo', '/d1/foo')
+
+> f = root:open("/d1/foo', "rb")
+f, a lua file object
+
