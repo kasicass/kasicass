@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<project name="hello-avro" default="package">
+
+  <path id="prj.classpath">
+    <pathelement location="../jar/avro-1.5.0.jar" />
+    <pathelement location="../jar/avro-compiler-1.5.0.jar" />
+    <pathelement location="../jar/avro-ipc-1.5.0.jar" />
+    <pathelement location="../jar/avro-mapred-1.5.0.jar" />
+    <pathelement location="../jar/avro-maven-plugin-1.5.0.jar" />
+    <pathelement location="../jar/avro-tools-1.5.0.jar" />
+  </path>
+
+  <target name="init">
+    <mkdir dir="build/classes" />
+    <mkdir dir="dist" />
+  </target>
+
+  <target name="compile" depends="init" description="Compile Java Code">
+    <javac srcdir="src" destdir="build/classes" includeantruntime="on">
+      <classpath refid="prj.classpath" />
+      <compilerarg value="-Xlint:unchecked" />
+    </javac>
+  </target>
+
+  <target name="package" depends="compile" description="Generate JAR file">
+    <jar destfile="dist/hello-avro.jar" basedir="build/classes">
+      <manifest>
+        <attribute name="Main-Class" value="kcode.avro.java.HelloAvro" />
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="package">
+    <exec executable="java">
+      <arg line="-classpath ../jar/avro-1.5.0.jar:../jar/jackson-core-asl-1.7.4.jar:../jar/jackson-mapper-asl-1.7.4.jar:dist/hello-avro.jar kcode.avro.java.HelloAvro readtest" />
+    </exec>
+  </target>
+
+  <target name="clean" description="Deletes generated directories">
+    <delete dir="build" />
+    <delete dir="dist" />
+  </target>
+
+</project>
