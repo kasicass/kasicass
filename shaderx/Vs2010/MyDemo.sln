@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloHLSL", "MyDemo\HelloHLSL.vcxproj", "{4C484171-DA35-475F-8F95-5D3A4979BAD6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9} = {D41AC15C-363E-493F-85C2-3E54B1A325B9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KCore", "KCore\KCore.vcxproj", "{D41AC15C-363E-493F-85C2-3E54B1A325B9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextureHLSL", "MyDemo\TextureHLSL.vcxproj", "{C2BB1AC3-EA97-41BC-BA4F-02D7C24B8234}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9} = {D41AC15C-363E-493F-85C2-3E54B1A325B9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObjViewer", "MyDemo\ObjViewer.vcxproj", "{074DE1E3-498F-41B4-B1AE-29EE61516B52}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9} = {D41AC15C-363E-493F-85C2-3E54B1A325B9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextureFix", "MyDemo\TextureFix.vcxproj", "{7385D11C-EC39-459D-AC55-0836CA2158ED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9} = {D41AC15C-363E-493F-85C2-3E54B1A325B9}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C484171-DA35-475F-8F95-5D3A4979BAD6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4C484171-DA35-475F-8F95-5D3A4979BAD6}.Debug|Win32.Build.0 = Debug|Win32
+		{4C484171-DA35-475F-8F95-5D3A4979BAD6}.Release|Win32.ActiveCfg = Release|Win32
+		{4C484171-DA35-475F-8F95-5D3A4979BAD6}.Release|Win32.Build.0 = Release|Win32
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9}.Debug|Win32.Build.0 = Debug|Win32
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9}.Release|Win32.ActiveCfg = Release|Win32
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9}.Release|Win32.Build.0 = Release|Win32
+		{C2BB1AC3-EA97-41BC-BA4F-02D7C24B8234}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C2BB1AC3-EA97-41BC-BA4F-02D7C24B8234}.Debug|Win32.Build.0 = Debug|Win32
+		{C2BB1AC3-EA97-41BC-BA4F-02D7C24B8234}.Release|Win32.ActiveCfg = Release|Win32
+		{C2BB1AC3-EA97-41BC-BA4F-02D7C24B8234}.Release|Win32.Build.0 = Release|Win32
+		{074DE1E3-498F-41B4-B1AE-29EE61516B52}.Debug|Win32.ActiveCfg = Debug|Win32
+		{074DE1E3-498F-41B4-B1AE-29EE61516B52}.Debug|Win32.Build.0 = Debug|Win32
+		{074DE1E3-498F-41B4-B1AE-29EE61516B52}.Release|Win32.ActiveCfg = Release|Win32
+		{074DE1E3-498F-41B4-B1AE-29EE61516B52}.Release|Win32.Build.0 = Release|Win32
+		{7385D11C-EC39-459D-AC55-0836CA2158ED}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7385D11C-EC39-459D-AC55-0836CA2158ED}.Debug|Win32.Build.0 = Debug|Win32
+		{7385D11C-EC39-459D-AC55-0836CA2158ED}.Release|Win32.ActiveCfg = Release|Win32
+		{7385D11C-EC39-459D-AC55-0836CA2158ED}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

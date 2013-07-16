@@ -1,0 +1,6 @@
+K1Renderer, a simple 3D model renderer
+ * only render models (.obj)
+ * software/dx9/ogl renderer
+
+.obj format
+http://en.wikipedia.org/wiki/Wavefront_.obj_file

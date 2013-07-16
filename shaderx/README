@@ -1,0 +1,24 @@
+Implementation of effects in books, ShaderX.
+
+Features
+ + DX9 API
+ + win32 only, no unicode
+ + VS2010 sln
+
+shaderx, ShaderX: Vertex and Pixel Shader Tips and Tricks
+
+[Bin]                 demo .exe
+[Build]               Intermedia files
+[Lib]                 KCore.lib (static link)
+
+[Media]               Resource
+
+[Src/KCore]           KCore Framework
+[Src/ShaderX]         ShaderX demos
+[Src/ShaderX2]        ShaderX2 demos
+...
+
+[Vs2010/KCore]        KCore solution
+[Vs2010/ShaderX]      ShaderX solution
+[Vs2010/MyDemo]       MyDemo solution
+

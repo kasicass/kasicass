@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\src\K1RPropList.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RWin32Platform.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RWindowWin32.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RBase.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RDefines.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RRenderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RRenderLib.h" />
+    <ClInclude Include="..\..\src\K1RControllerWin32.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RController.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RRenderableObject.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RRenderableObjectList.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RColor.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RAsset.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RShader.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RMatrix.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RDX9Shader.h">
+      <Filter>RendererDX9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RDX9Defines.h">
+      <Filter>RendererDX9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RDX9RenderableObject.h">
+      <Filter>RendererDX9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\K1RDX9Renderer.h">
+      <Filter>RendererDX9</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\K1RPropList.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RWin32Platform.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RWindow.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RWindowWin32.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RRenderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RControllerWin32.cpp">
+      <Filter>Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RRenderableObject.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RRenderableObjectList.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RAsset.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RShader.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RDX9Defines.cpp">
+      <Filter>RendererDX9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RDX9RenderableObject.cpp">
+      <Filter>RendererDX9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RDX9Renderer.cpp">
+      <Filter>RendererDX9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\K1RDX9Shader.cpp">
+      <Filter>RendererDX9</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Util">
+      <UniqueIdentifier>{03074ce4-f0a7-4647-b243-b6fa2e6647fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{8df94077-0d40-4b1e-82a5-aac583f97109}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{e8a889f3-c2ff-4165-8603-bfcf2feec125}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{b434eb0a-752a-4f5c-9192-e43baa8c6f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controller">
+      <UniqueIdentifier>{37e215a2-cba6-4753-b25e-0dd0e8bc514f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{4abb9a03-bef4-4cc5-aee1-c34d5fcc09a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{7287924a-b29a-4a0c-98cd-7c16bb124d58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RendererDX9">
+      <UniqueIdentifier>{9bec33dd-e30f-43cf-9e06-4e3a19170a67}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3 @@
+#include "resource.h"
+IDR_IMAGE_NORMAL			BITMAP			"normal.bmp"
+IDR_IMAGE_DOWN				BITMAP			"down.bmp"

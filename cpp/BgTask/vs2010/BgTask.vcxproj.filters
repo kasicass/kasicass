@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\BgTask.cpp" />
+    <ClCompile Include="..\src\KThread.cpp" />
+    <ClCompile Include="..\src\KMutex.cpp" />
+    <ClCompile Include="..\src\KSemaphore.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\BgTask.h" />
+    <ClInclude Include="..\src\KThread.h" />
+    <ClInclude Include="..\src\KThreadQueue.h" />
+    <ClInclude Include="..\src\KMutex.h" />
+    <ClInclude Include="..\src\KSemaphore.h" />
+  </ItemGroup>
+</Project>

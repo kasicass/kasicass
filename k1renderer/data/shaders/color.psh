@@ -1,0 +1,5 @@
+float4 psmain(float4 inColor : COLOR0) : COLOR0
+{
+	inColor.r *= 0.1;
+	return inColor;
+}

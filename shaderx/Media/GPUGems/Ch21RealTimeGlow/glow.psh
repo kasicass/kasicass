@@ -1,0 +1,40 @@
+; c0-c5, offset
+; c6,
+
+ps.2.0
+dcl t0.xyzw
+dcl_2d s0
+
+texld r0, t0, s0
+
+add r2, t0, c0
+texld r1, r2, s0
+mul r1, r1, c6
+add r0, r1
+
+add r2, t0, c1
+texld r1, r2, s0
+mul r1, r1, c6
+add r0, r1
+
+add r2, t0, c2
+texld r1, r2, s0
+mul r1, r1, c6
+add r0, r1
+
+add r2, t0, c3
+texld r1, r2, s0
+mul r1, r1, c6
+add r0, r1
+
+add r2, t0, c4
+texld r1, r2, s0
+mul r1, r1, c6
+add r0, r1
+
+add r2, t0, c5
+texld r1, r2, s0
+mul r1, r1, c6
+add r0, r1
+
+mov oC0, r0

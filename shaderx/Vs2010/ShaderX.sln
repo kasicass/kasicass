@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KCore", "KCore\KCore.vcxproj", "{D41AC15C-363E-493F-85C2-3E54B1A325B9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RacorX", "ShaderX\RacorX.vcxproj", "{EDBF2BB4-81DA-4983-A788-665CE2A86E5A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9} = {D41AC15C-363E-493F-85C2-3E54B1A325B9}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9}.Debug|Win32.Build.0 = Debug|Win32
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9}.Release|Win32.ActiveCfg = Release|Win32
+		{D41AC15C-363E-493F-85C2-3E54B1A325B9}.Release|Win32.Build.0 = Release|Win32
+		{EDBF2BB4-81DA-4983-A788-665CE2A86E5A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EDBF2BB4-81DA-4983-A788-665CE2A86E5A}.Debug|Win32.Build.0 = Debug|Win32
+		{EDBF2BB4-81DA-4983-A788-665CE2A86E5A}.Release|Win32.ActiveCfg = Release|Win32
+		{EDBF2BB4-81DA-4983-A788-665CE2A86E5A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

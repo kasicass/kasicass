@@ -1,0 +1,8 @@
+TODO
+ + .obj vertex/color rendering
+ + .obj material rendering
+ + text drawing
+
+DONE
+ + key/mouse control
+ + vertex/index buffer

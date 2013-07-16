@@ -1,0 +1,10 @@
+CREATE DATABASE dbName;
+DROP DATABASE dbName;
+USE dbName;
+
+CREATE TABLE tableName;
+DROP TABLE tableName;
+SHOW TABLES;
+
+SELECT ...;
+

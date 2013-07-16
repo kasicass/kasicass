@@ -1,0 +1,11 @@
+files
+{
+	["HelloWorld"]
+	(source)
+	HelloWorld.cpp
+}
+
+subprojects
+{
+	iwgx
+}

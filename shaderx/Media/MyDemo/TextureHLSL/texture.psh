@@ -1,0 +1,23 @@
+texture myTexture;
+
+sampler2D mySampler = sampler_state {
+	Texture   = (myTexture);
+	MinFilter = Linear;
+	MagFilter = Linear;
+	AddressU  = Clamp;
+	AddressV  = Clamp;
+};
+
+struct VS_OUTPUT
+{
+	float4 Pos      : POSITION0;
+	float2 TexCoord : TEXCOORD0;
+};
+
+float4 PSShaderMain(VS_OUTPUT input) : COLOR0
+{
+	float4 oColor = tex2D(mySampler, input.TexCoord);
+	oColor.a = 1;
+	return oColor;
+}
+

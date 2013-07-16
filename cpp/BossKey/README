@@ -1,0 +1,24 @@
+==== Intro ====
+Implementation of BossKey function in win32.
+All windows using the registered class name will be shown/hided by pressing the hotkey.
+
+
+==== Usage ====
+
+BossKey::Init("YourProduct");
+
+BossKey::AddWindowClsName("OneWinCls");
+BossKey::AddWindowClsName("AnotherWinCls");
+BossKey::RegisterHotkey("Shift + D");
+BossKey::RegisterHotkey("Ctrl + Shift + E");
+BossKey::RegisterHotkey("Ctrl + F10");
+ 
+while (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+{
+  if (BossKey::Process(&msg))
+    continue;
+
+  ...
+}
+
+BossKey::Shutdown();
