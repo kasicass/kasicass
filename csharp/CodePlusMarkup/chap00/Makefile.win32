@@ -1,0 +1,4 @@
+#REFFLAGS = /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll"
+
+all:
+	csc.exe /nologo /out:TextWithUnicodeChar.exe /target:winexe $(REFFLAGS) TextWithUnicodeChar.cs
