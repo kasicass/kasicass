@@ -4,3 +4,4 @@ all:
 	csc.exe /nologo /out:SayHello.exe /target:winexe $(REFFLAGS) SayHello.cs
 	csc.exe /nologo /out:HandleAnEvent.exe /target:winexe $(REFFLAGS) HandleAnEvent.cs
 	csc.exe /nologo /out:InheritTheApp.exe /target:winexe $(REFFLAGS) InheritTheApp.cs
+	csc.exe /nologo /out:ThrowWindowParty.exe /target:winexe $(REFFLAGS) ThrowWindowParty.cs
