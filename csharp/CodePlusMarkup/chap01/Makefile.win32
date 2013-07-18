@@ -2,3 +2,5 @@ REFFLAGS = /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.
 
 all:
 	csc.exe /nologo /out:SayHello.exe /target:winexe $(REFFLAGS) SayHello.cs
+	csc.exe /nologo /out:HandleAnEvent.exe /target:winexe $(REFFLAGS) HandleAnEvent.cs
+	csc.exe /nologo /out:InheritTheApp.exe /target:winexe $(REFFLAGS) InheritTheApp.cs
