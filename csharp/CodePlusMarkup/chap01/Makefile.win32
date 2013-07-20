@@ -5,3 +5,5 @@ all:
 	csc.exe /nologo /out:HandleAnEvent.exe /target:winexe $(REFFLAGS) HandleAnEvent.cs
 	csc.exe /nologo /out:InheritTheApp.exe /target:winexe $(REFFLAGS) InheritTheApp.cs
 	csc.exe /nologo /out:ThrowWindowParty.exe /target:winexe $(REFFLAGS) ThrowWindowParty.cs
+	csc.exe /nologo /out:GrowAndShrink.exe /target:winexe $(REFFLAGS) GrowAndShrink.cs
+	csc.exe /nologo /out:TypeYourTitle.exe /target:winexe $(REFFLAGS) TypeYourTitle.cs
