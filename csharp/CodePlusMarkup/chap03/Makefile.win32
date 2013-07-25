@@ -1,0 +1,8 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:DisplaySomeText.exe /target:winexe $(REFFLAGS) DisplaySomeText.cs
+	csc.exe /nologo /out:RecordKeystrokes.exe /target:winexe $(REFFLAGS) RecordKeystrokes.cs
+	csc.exe /nologo /out:ShowMyFace.exe /target:winexe $(REFFLAGS) ShowMyFace.cs
+	csc.exe /nologo /out:ShapeAnEllipse.exe /target:winexe $(REFFLAGS) ShapeAnEllipse.cs
