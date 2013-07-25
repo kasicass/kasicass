@@ -1,0 +1,13 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:ClickTheButton.exe /target:winexe $(REFFLAGS) ClickTheButton.cs
+	csc.exe /nologo /out:FormatTheButton.exe /target:winexe $(REFFLAGS) FormatTheButton.cs
+	csc.exe /nologo /out:ImageTheButton.exe /target:winexe $(REFFLAGS) ImageTheButton.cs
+	csc.exe /nologo /out:CommandTheButton.exe /target:winexe $(REFFLAGS) CommandTheButton.cs
+	csc.exe /nologo /out:ToggleTheButton.exe /target:winexe $(REFFLAGS) ToggleTheButton.cs
+	csc.exe /nologo /out:BindTheButton.exe /target:winexe $(REFFLAGS) BindTheButton.cs
+	csc.exe /nologo /out:NavigateTheWeb.exe /target:winexe $(REFFLAGS) NavigateTheWeb.cs UriDialog.cs
+	csc.exe /nologo /out:EditSomeText.exe /target:winexe $(REFFLAGS) EditSomeText.cs
+	csc.exe /nologo /out:EditSomeRichText.exe /target:winexe $(REFFLAGS) EditSomeRichText.cs
