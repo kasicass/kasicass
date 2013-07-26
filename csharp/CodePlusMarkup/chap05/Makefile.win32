@@ -1,0 +1,10 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:StackTenButtons.exe /target:winexe $(REFFLAGS) StackTenButtons.cs
+	csc.exe /nologo /out:StackThirtyButtons.exe /target:winexe $(REFFLAGS) StackThirtyButtons.cs
+	csc.exe /nologo /out:ScrollFiftyButtons.exe /target:winexe $(REFFLAGS) ScrollFiftyButtons.cs
+	csc.exe /nologo /out:DesignAButton.exe /target:winexe $(REFFLAGS) DesignAButton.cs
+	csc.exe /nologo /out:TuneTheRadio.exe /target:winexe $(REFFLAGS) TuneTheRadio.cs
+	csc.exe /nologo /out:ExploreDirectories.exe /target:winexe $(REFFLAGS) ExploreDirectories.cs FileSystemInfoButton.cs
