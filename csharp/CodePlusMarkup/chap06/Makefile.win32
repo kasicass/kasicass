@@ -1,0 +1,12 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:DockAroundTheBlock.exe /target:winexe $(REFFLAGS) DockAroundTheBlock.cs
+	csc.exe /nologo /out:MeetTheDockers.exe /target:winexe $(REFFLAGS) MeetTheDockers.cs
+	csc.exe /nologo /out:CalculateYourLife.exe /target:winexe $(REFFLAGS) CalculateYourLife.cs
+	csc.exe /nologo /out:EnterTheGrid.exe /target:winexe $(REFFLAGS) EnterTheGrid.cs
+	csc.exe /nologo /out:SpanTheCells.exe /target:winexe $(REFFLAGS) SpanTheCells.cs
+	csc.exe /nologo /out:SplitNine.exe /target:winexe $(REFFLAGS) SplitNine.cs
+	csc.exe /nologo /out:SplitTheClient.exe /target:winexe $(REFFLAGS) SplitTheClient.cs
+	csc.exe /nologo /out:ScrollCustomColors.exe /target:winexe $(REFFLAGS) ScrollCustomColors.cs
