@@ -1,0 +1,6 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:PaintTheButton.exe /target:winexe $(REFFLAGS) PaintTheButton.cs
+	csc.exe /nologo /out:PlayJeuDeTacquin.exe /target:winexe $(REFFLAGS) PlayJeuDeTacquin.cs Tile.cs Empty.cs
