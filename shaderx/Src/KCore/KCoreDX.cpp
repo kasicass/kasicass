@@ -2,6 +2,8 @@
 #include "WinUtil.h"
 #include <stdio.h>
 #include <dxerr.h>
+#include <string>
+#include <sstream>
 
 struct DXState
 {
@@ -10,6 +12,7 @@ struct DXState
 
 	// dx9 stuff
 	IDirect3DDevice9* pd3dDevice;
+	//D3DADAPTER_IDENTIFIER9 adapterIdentifier;
 
 	// callback
 	KCORE_CREATE_DEVICE_CALLBACK  onCreateDevice;
@@ -79,6 +82,29 @@ void KCDXCreateWindow(const char *title, int width, int height)
 	g_DXState.hWnd = winMaker.Create(title);
 }
 
+static void KCDXShowDisplayCardVendors(IDirect3D9* pd3d)
+{
+	D3DADAPTER_IDENTIFIER9 ai;
+
+	for (UINT i = 0; i < pd3d->GetAdapterCount(); i++)
+	{
+		HRESULT hr = pd3d->GetAdapterIdentifier(i, 0, &ai);
+		KCDX_HR_FAILCHECK(hr, "pd3d->GetAdapterIdentifier");
+
+		std::stringstream ss;
+		ss << "[KCore] DiaplayCard #" << i
+			<< ", Description: " << ai.Description
+			<< ", Vendor: " << ai.Driver
+			<< ", Version: " << HIWORD(ai.DriverVersion.HighPart)
+			<< "." << LOWORD(ai.DriverVersion.HighPart)
+			<< "." << HIWORD(ai.DriverVersion.LowPart)
+			<< "." << LOWORD(ai.DriverVersion.LowPart)
+			<< ", VendorId: " << ((ai.VendorId == PCIV_ATI) ? "ati" : ((ai.VendorId == PCIV_nVidia) ? "nVidia" : ((ai.VendorId == PCIV_Intel) ? "intel" : "other")));
+
+		OutputDebugString(ss.str().c_str());
+	}
+}
+
 void KCDXCreateDevice()
 {
 	IDirect3D9* pd3d;
@@ -104,6 +130,7 @@ void KCDXCreateDevice()
                                       &d3dpp, &pd3dDevice );
 	KCDX_HR_FAILCHECK(hr, "pd3d->CreateDevice");
 
+	KCDXShowDisplayCardVendors(pd3d);
 	KSAFE_RELEASE(pd3d);
 
 	g_DXState.pd3dDevice = pd3dDevice;
