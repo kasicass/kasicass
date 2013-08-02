@@ -3,3 +3,4 @@ REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(A
 
 all:
 	csc.exe /nologo /out:SetFontSizeProperty.exe /target:winexe $(REFFLAGS) SetFontSizeProperty.cs
+	csc.exe /nologo /out:SetSpaceProperty.exe /target:winexe $(REFFLAGS) SetSpaceProperty.cs SpaceButton.cs SpaceWindow.cs
