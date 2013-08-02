@@ -1,0 +1,6 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:ExamineRoutedEvents.exe /target:winexe $(REFFLAGS) ExamineRoutedEvents.cs
+	csc.exe /nologo /out:DrawCircles.exe /target:winexe $(REFFLAGS) DrawCircles.cs

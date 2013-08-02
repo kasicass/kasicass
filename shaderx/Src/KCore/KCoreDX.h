@@ -16,6 +16,12 @@
 #pragma comment(lib, "DxErr.lib")
 #endif
 
+enum PCI_Vendors
+{
+	PCIV_ATI    = 0x1002,
+	PCIV_nVidia = 0x10DE,
+	PCIV_Intel  = 0x8086
+};
 
 typedef HRESULT (*KCORE_CREATE_DEVICE_CALLBACK)(IDirect3DDevice9* pd3dDevice);
 typedef void (*KCORE_FRAME_RENDER_CALLBACK)(IDirect3DDevice9* pd3dDevice);
