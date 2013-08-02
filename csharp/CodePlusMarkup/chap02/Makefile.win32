@@ -1,0 +1,13 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:VaryTheBackground.exe /target:winexe $(REFFLAGS) VaryTheBackground.cs
+	csc.exe /nologo /out:FlipThroughTheBrushes.exe /target:winexe $(REFFLAGS) FlipThroughTheBrushes.cs
+	csc.exe /nologo /out:GradiateTheBrush.exe /target:winexe $(REFFLAGS) GradiateTheBrush.cs
+	csc.exe /nologo /out:AdjustTheGradient.exe /target:winexe $(REFFLAGS) AdjustTheGradient.cs
+	csc.exe /nologo /out:FollowTheRainbow.exe /target:winexe $(REFFLAGS) FollowTheRainbow.cs
+	csc.exe /nologo /out:CircleTheRainbow.exe /target:winexe $(REFFLAGS) CircleTheRainbow.cs
+	csc.exe /nologo /out:ClickTheGradientCenter.exe /target:winexe $(REFFLAGS) ClickTheGradientCenter.cs
+	csc.exe /nologo /out:RotateTheGradientOrigin.exe /target:winexe $(REFFLAGS) RotateTheGradientOrigin.cs
+	csc.exe /nologo /out:ClickTheThickness.exe /target:winexe $(REFFLAGS) ClickTheThickness.cs
