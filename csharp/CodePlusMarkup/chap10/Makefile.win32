@@ -1,0 +1,7 @@
+ASMDIR = C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:RenderTheEllipse.exe /target:winexe $(REFFLAGS) RenderTheEllipse.cs SimpleEllipse.cs
+	csc.exe /nologo /out:RenderTheBetterEllipse.exe /target:winexe $(REFFLAGS) RenderTheBetterEllipse.cs BetterEllipse.cs
+	csc.exe /nologo /out:GetMedieval.exe /target:winexe $(REFFLAGS) GetMedieval.cs MedievalButton.cs
