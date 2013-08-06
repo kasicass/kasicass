@@ -1,0 +1,8 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:EncloseElementInEllipse.exe /target:winexe $(REFFLAGS) EncloseElementInEllipse.cs EllipseWithChild.cs BetterEllipse.cs
+	csc.exe /nologo /out:CalculateInHex.exe /target:winexe $(REFFLAGS) CalculateInHex.cs RoundedButtonDecorator.cs RoundedButton.cs
+	csc.exe /nologo /out:BuildButtonFactory.exe /target:winexe $(REFFLAGS) BuildButtonFactory.cs
+	csc.exe /nologo /out:SelectColor.exe /target:winexe $(REFFLAGS) SelectColor.cs ColorCell.cs ColorGrid.cs
