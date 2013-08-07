@@ -1,0 +1,8 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:DuplicateUniformGrid.exe /target:winexe $(REFFLAGS) UniformGridAlmost.cs DuplicateUniformGrid.cs
+	csc.exe /nologo /out:PaintOnCanvasClone.exe /target:winexe $(REFFLAGS) PaintOnCanvasClone.cs CanvasClone.cs
+	csc.exe /nologo /out:DiagonalizeTheButtons.exe /target:winexe $(REFFLAGS) DiagonalizeTheButtons.cs DiagonalPanel.cs
+	csc.exe /nologo /out:CircleTheButtons.exe /target:winexe $(REFFLAGS) CircleTheButtons.cs RadialPanel.cs RadialPanelOrientation.cs
