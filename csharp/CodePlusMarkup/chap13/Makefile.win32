@@ -1,4 +1,4 @@
-ASMDIR = C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
 REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
 
 all:
@@ -8,3 +8,8 @@ all:
 	csc.exe /nologo /out:ListNamedBrushes.exe /target:winexe $(REFFLAGS) ListNamedBrushes.cs NamedBrush.cs
 	csc.exe /nologo /out:ListColorShapes.exe /target:winexe $(REFFLAGS) ListColorShapes.cs
 	csc.exe /nologo /out:ListColoredLabels.exe /target:winexe $(REFFLAGS) ListColoredLabels.cs
+	csc.exe /nologo /out:ListWithListBoxItem.exe /target:winexe $(REFFLAGS) ListWithListBoxItem.cs
+	csc.exe /nologo /out:ListColorsElegantly.exe /target:winexe $(REFFLAGS) ListColorsElegantly.cs ColorListBox.cs ColorListBoxItem.cs
+	csc.exe /nologo /out:ListColorsEvenElegantlier.exe /target:winexe $(REFFLAGS) ListColorsEvenElegantlier.cs NamedBrush.cs
+	csc.exe /nologo /out:SelectColorFromGrid.exe /target:winexe $(REFFLAGS) SelectColorFromGrid.cs ColorGridBox.cs
+	csc.exe /nologo /out:SelectColorFromWheel.exe /target:winexe $(REFFLAGS) SelectColorFromWheel.cs RadialPanel.cs RadialPanelOrientation.cs ColorWheel.cs
