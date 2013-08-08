@@ -1,0 +1,8 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:PeruseTheMenu.exe /target:winexe $(REFFLAGS) PeruseTheMenu.cs
+	csc.exe /nologo /out:CheckTheWindowStyle.exe /target:winexe $(REFFLAGS) CheckTheWindowStyle.cs
+	csc.exe /nologo /out:CheckTheColor.exe /target:winexe $(REFFLAGS) CheckTheColor.cs
+	csc.exe /nologo /out:SelectColorFromMenuGrid.exe /target:winexe $(REFFLAGS) SelectColorFromMenuGrid.cs ColorGridBox.cs
