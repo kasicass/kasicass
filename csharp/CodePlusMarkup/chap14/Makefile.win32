@@ -6,3 +6,7 @@ all:
 	csc.exe /nologo /out:CheckTheWindowStyle.exe /target:winexe $(REFFLAGS) CheckTheWindowStyle.cs
 	csc.exe /nologo /out:CheckTheColor.exe /target:winexe $(REFFLAGS) CheckTheColor.cs
 	csc.exe /nologo /out:SelectColorFromMenuGrid.exe /target:winexe $(REFFLAGS) SelectColorFromMenuGrid.cs ColorGridBox.cs
+	csc.exe /nologo /out:CutCopyAndPaste.exe /target:winexe $(REFFLAGS) CutCopyAndPaste.cs
+	csc.exe /nologo /out:ControlXCV.exe /target:winexe /main:Petzold.ControlXCV.ControlXCV $(REFFLAGS) CutCopyAndPaste.cs ControlXCV.cs
+	csc.exe /nologo /out:CommandTheMenu.exe /target:winexe $(REFFLAGS) CommandTheMenu.cs
+	csc.exe /nologo /out:PopupContextMenu.exe /target:winexe $(REFFLAGS) PopupContextMenu.cs
