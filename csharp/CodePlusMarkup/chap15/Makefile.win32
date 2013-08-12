@@ -3,3 +3,4 @@ REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(A
 
 all:
 	csc.exe /nologo /out:CraftTheToolbar.exe /target:winexe $(REFFLAGS) CraftTheToolbar.cs
+	csc.exe /nologo /out:MoveTheToolbar.exe /target:winexe $(REFFLAGS) MoveTheToolbar.cs
