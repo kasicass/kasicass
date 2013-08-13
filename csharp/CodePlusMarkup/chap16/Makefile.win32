@@ -1,0 +1,9 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll"
+
+all:
+	csc.exe /nologo /out:ManuallyPopulateTreeView.exe /target:winexe $(REFFLAGS) ManuallyPopulateTreeView.cs
+	csc.exe /nologo /out:RecurseDirectoriesInefficiently.exe /target:winexe $(REFFLAGS) RecurseDirectoriesInefficiently.cs
+	csc.exe /nologo /out:RecurseDirectoriesIncrementally.exe /target:winexe $(REFFLAGS) RecurseDirectoriesIncrementally.cs ImagedTreeViewItem.cs DirectoryTreeViewItem.cs DirectoryTreeView.cs
+	csc.exe /nologo /out:TemplateTheTree.exe /target:winexe $(REFFLAGS) TemplateTheTree.cs DiskDirectory.cs
+	csc.exe /nologo /out:ShowClassHierarchy.exe /target:winexe $(REFFLAGS) ShowClassHierarchy.cs TypeTreeViewItem.cs ClassHierarchyTreeView.cs
