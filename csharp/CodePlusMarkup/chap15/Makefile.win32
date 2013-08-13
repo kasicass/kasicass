@@ -4,3 +4,4 @@ REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(A
 all:
 	csc.exe /nologo /out:CraftTheToolbar.exe /target:winexe $(REFFLAGS) CraftTheToolbar.cs
 	csc.exe /nologo /out:MoveTheToolbar.exe /target:winexe $(REFFLAGS) MoveTheToolbar.cs
+	csc.exe /nologo /out:FormatRichText.exe /target:winexe $(REFFLAGS) FormatRichText.cs FormatRichText.Edit.cs FormatRichText.File.cs FormatRichText.Param.cs FormatRichText.Status.cs FormatRichText.Char.cs ColorGridBox.cs
