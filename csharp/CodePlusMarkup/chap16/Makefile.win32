@@ -7,3 +7,6 @@ all:
 	csc.exe /nologo /out:RecurseDirectoriesIncrementally.exe /target:winexe $(REFFLAGS) RecurseDirectoriesIncrementally.cs ImagedTreeViewItem.cs DirectoryTreeViewItem.cs DirectoryTreeView.cs
 	csc.exe /nologo /out:TemplateTheTree.exe /target:winexe $(REFFLAGS) TemplateTheTree.cs DiskDirectory.cs
 	csc.exe /nologo /out:ShowClassHierarchy.exe /target:winexe $(REFFLAGS) ShowClassHierarchy.cs TypeTreeViewItem.cs ClassHierarchyTreeView.cs
+	csc.exe /nologo /out:ListSystemParameters.exe /target:winexe $(REFFLAGS) ListSystemParameters.cs SystemParam.cs
+	csc.exe /nologo /out:ListSortedSystemParameters.exe /target:winexe $(REFFLAGS) ListSortedSystemParameters.cs SystemParam.cs
+	csc.exe /nologo /out:ExploreDependencyProperties.exe /target:winexe $(REFFLAGS) ExploreDependencyProperties.cs TypeToString.cs MetadataToFlags.cs DependencyPropertyListView.cs ClassHierarchyTreeView.cs TypeTreeViewItem.cs
