@@ -1,0 +1,9 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll" /r:"$(ASMDIR)\System.Printing.dll" /r:"$(ASMDIR)\ReachFramework.dll"
+
+all:
+	csc.exe /nologo /out:PrintEllipse.exe /target:winexe $(REFFLAGS) PrintEllipse.cs
+	csc.exe /nologo /out:PrintWithMargins.exe /target:winexe $(REFFLAGS) PrintWithMargins.cs PageMarginsDialog.cs
+	csc.exe /nologo /out:PrintaBunchaButtons.exe /target:winexe $(REFFLAGS) PrintaBunchaButtons.cs
+	csc.exe /nologo /out:PrintBanner.exe /target:winexe $(REFFLAGS) PrintBanner.cs BannerDocumentPaginator.cs
+	csc.exe /nologo /out:ChooseFont.exe /target:winexe $(REFFLAGS) ChooseFont.cs FontDialog.cs TextBoxWithLister.cs Lister.cs
