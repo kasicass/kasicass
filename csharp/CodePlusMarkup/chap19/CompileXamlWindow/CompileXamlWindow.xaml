@@ -1,0 +1,17 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Petzold.CompileXamlWindow.CompileXamlWindow"
+	Title="Compile XAML Window"
+	SizeToContent="WidthAndHeight"
+	ResizeMode="CanMinimize">
+
+	<StackPanel>
+		<Button HorizontalAlignment="Center" Margin="24" Click="ButtonOnClick">
+			Click the Button
+		</Button>
+
+		<Ellipse Name="elips" Width="200" Height="100" Margin="24" Stroke="Black" />
+
+		<ListBox Name="lstbox" Width="150" Height="150" Margin="24" SelectionChanged="ListBoxOnSelection" />
+	</StackPanel>	
+</Window>

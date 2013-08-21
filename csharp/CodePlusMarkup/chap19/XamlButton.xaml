@@ -1,0 +1,3 @@
+<Button xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Foreground="LightSeaGreen" FontSize="24pt">
+  Hello, XAML!
+</Button>

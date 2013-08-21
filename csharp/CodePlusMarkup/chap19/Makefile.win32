@@ -1,0 +1,8 @@
+ASMDIR = C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0
+REFFLAGS = /r:"$(ASMDIR)\System.Xaml.dll" /r:"$(ASMDIR)\WindowsBase.dll" /r:"$(ASMDIR)\PresentationCore.dll" /r:"$(ASMDIR)\PresentationFramework.dll" /r:"$(ASMDIR)\System.Printing.dll" /r:"$(ASMDIR)\ReachFramework.dll"
+
+all:
+	csc.exe /nologo /out:LoadEmbeddedXaml.exe /target:winexe $(REFFLAGS) LoadEmbeddedXaml.cs
+	csc.exe /nologo /out:XamlViewer.exe /target:winexe $(REFFLAGS) XamlViewer.cs
+	csc.exe /nologo /out:LoadXamlResource.exe /target:winexe $(REFFLAGS) LoadXamlResource.cs
+	csc.exe /nologo /out:LoadXamlWindow.exe /target:winexe $(REFFLAGS) LoadXamlWindow.cs
