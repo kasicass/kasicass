@@ -1,0 +1,21 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:src="clr-namespace:Petzold.SelectColorFromGrid"
+	x:Class="Petzold.UseCustomClass.UseCustomClass"
+	Title="Use Custom Class"
+	SizeToContent="WidthAndHeight"
+	ResizeMode="CanMinimize">
+
+	<StackPanel Orientation="Horizontal">
+		<Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="24">
+			Do-nothing button to test tablling
+		</Button>
+
+		<src:ColorGridBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="24"
+			SelectionChanged="ColorGridBoxOnSelectionChanged" />
+
+		<Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="24">
+			Do-nothing button to test tablling
+		</Button>
+	</StackPanel>
+</Window>
