@@ -16,7 +16,7 @@ public:
 	void initComponents()
 	{
 		Ux::ButtonPtr btn = Ux::createButton(IDR_BUTTON_1);
-		btn->x(100);
+		btn->x(200);
 		btn->y(100);
 		this->addComponent(btn);
 	}

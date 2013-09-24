@@ -11,6 +11,7 @@ public:
 	Button(UINT id);
 	virtual ~Button();
 
+	virtual void createMe(HWND hParent);
 	virtual void onDraw(Gdiplus::Graphics& g);
 	virtual void onDestroy();
 

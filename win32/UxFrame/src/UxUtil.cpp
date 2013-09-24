@@ -9,7 +9,7 @@ namespace Ux {
 
 WinClassMaker::WinClassMaker(HINSTANCE hInstance, LPCTSTR sClassName, WNDPROC WndProc)
 {
-	clsEx_.cbSize        = sizeof(WNDCLASSEX); 
+	clsEx_.cbSize        = sizeof(WNDCLASSEX);
 	clsEx_.hInstance     = hInstance;
 	clsEx_.lpszClassName = sClassName;
 	clsEx_.lpfnWndProc   = WndProc;
@@ -39,7 +39,7 @@ void WinClassMaker::registerMe()
 WinMaker::WinMaker(HINSTANCE hInstance, LPCTSTR sClassName)
   : m_hInstance(hInstance),
     m_sClassName(sClassName),
-    m_dwStyle(WS_OVERLAPPED | WS_SYSMENU),
+    m_dwStyle(WS_SIZEBOX),
 	m_dwExStyle(WS_EX_LAYERED),
 	m_x(100), m_y(100),
 	m_iWidth(800), m_iHeight(600)
@@ -69,6 +69,54 @@ HWND WinMaker::create(LPCTSTR sTitle, void *pData)
 		m_iWidth,
 		m_iHeight,
 		NULL,			// parent
+		NULL,			// menu
+		m_hInstance,
+		pData);			// data
+
+	SetWindowLong(hWnd, GWL_STYLE, 0); // remove all style (no title bar)
+
+	assert(hWnd != 0);
+	return hWnd;
+}
+
+
+//
+// ChildWinMaker
+//
+
+ChildWinMaker::ChildWinMaker(HINSTANCE hInstance, LPCTSTR sClassName)
+  : m_hInstance(hInstance),
+    m_sClassName(sClassName),
+    m_dwStyle(WS_CHILDWINDOW),
+	m_dwExStyle(0),
+	m_x(0), m_y(0),
+	m_iWidth(50), m_iHeight(50)
+ { }
+
+void ChildWinMaker::setPos(int x, int y)
+{
+	m_x = x;
+	m_y = y;
+}
+
+void ChildWinMaker::setSize(int iWidth, int iHeight)
+{
+	m_iWidth  = iWidth;
+	m_iHeight = iHeight;
+}
+
+HWND ChildWinMaker::create(HWND hParent, void* pData)
+{
+	HWND hWnd = ::CreateWindowEx(
+		m_dwExStyle,
+		m_sClassName,
+		NULL,
+		m_dwStyle,
+		m_x,
+		m_y,
+		m_iWidth,
+		m_iHeight,
+		hParent,		// parent
 		NULL,			// menu
 		m_hInstance,
 		pData);			// data

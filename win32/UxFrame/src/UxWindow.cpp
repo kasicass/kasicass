@@ -9,6 +9,7 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM l
 Window::Window(UINT id) : hWnd_(0)
 {
 	HINSTANCE hInst = App::instance().getHINSTANCE();
+
 	WinClassMaker wcm(hInst, "UxWindow", WndProc);
 	wcm.registerMe();
 
@@ -65,6 +66,7 @@ void Window::draw()
 
 void Window::addComponent(ComponentPtr child)
 {
+	child->createMe(hWnd_);
 	children_.push_back(child);
 }
 
@@ -95,8 +97,8 @@ static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 		::PostQuitMessage(0);
 		return 0;
 
-	case WM_NCHITTEST:
-		return HTCAPTION;
+	//case WM_NCHITTEST:
+	//	return HTCAPTION;
 
 	/*
 	case WM_KEYDOWN:
