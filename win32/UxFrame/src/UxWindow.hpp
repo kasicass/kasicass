@@ -22,6 +22,7 @@ public:
 
 	void draw();
 	void show();
+	void addComponent(ComponentPtr child);
 
 	virtual void onDestroy();
 
@@ -31,5 +32,11 @@ private:
 	std::vector<ComponentPtr> children_;
 };
 typedef std::shared_ptr<Window> WindowPtr;
+
+template <typename T>
+WindowPtr createWindow(UINT id)
+{
+	return std::make_shared<T>(id);
+}
 
 }

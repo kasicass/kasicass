@@ -12,6 +12,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_SimpleWindow", "tests\01
 		{78DC6B59-5A90-4F29-A0A5-31CB9EE7E844} = {78DC6B59-5A90-4F29-A0A5-31CB9EE7E844}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_Button", "tests\02_Button.vcxproj", "{FAB26020-BD3D-4351-98C5-9BB8D46CE2D0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{78DC6B59-5A90-4F29-A0A5-31CB9EE7E844} = {78DC6B59-5A90-4F29-A0A5-31CB9EE7E844}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -26,6 +31,10 @@ Global
 		{C473277E-2A06-4A9A-B0BB-CE09DC3BE02B}.Debug|Win32.Build.0 = Debug|Win32
 		{C473277E-2A06-4A9A-B0BB-CE09DC3BE02B}.Release|Win32.ActiveCfg = Release|Win32
 		{C473277E-2A06-4A9A-B0BB-CE09DC3BE02B}.Release|Win32.Build.0 = Release|Win32
+		{FAB26020-BD3D-4351-98C5-9BB8D46CE2D0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FAB26020-BD3D-4351-98C5-9BB8D46CE2D0}.Debug|Win32.Build.0 = Debug|Win32
+		{FAB26020-BD3D-4351-98C5-9BB8D46CE2D0}.Release|Win32.ActiveCfg = Release|Win32
+		{FAB26020-BD3D-4351-98C5-9BB8D46CE2D0}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -33,5 +42,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{78DC6B59-5A90-4F29-A0A5-31CB9EE7E844} = {0A9102B1-9B4F-41C0-8FBB-1AA31C74C903}
 		{C473277E-2A06-4A9A-B0BB-CE09DC3BE02B} = {8AA3FCA6-0415-4959-8421-3355C9F63801}
+		{FAB26020-BD3D-4351-98C5-9BB8D46CE2D0} = {8AA3FCA6-0415-4959-8421-3355C9F63801}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,4 @@
+#include "Resource.h"
+IDR_BGIMAGE       RCDATA       "background.png"
+IDR_BUTTON_1      RCDATA       "button1.png"
+

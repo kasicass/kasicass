@@ -25,8 +25,10 @@ WinClassMaker::WinClassMaker(HINSTANCE hInstance, LPCTSTR sClassName, WNDPROC Wn
 
 void WinClassMaker::registerMe()
 {
-	ATOM ret = ::RegisterClassEx(&clsEx_);
-	assert(ret != 0);
+	::RegisterClassEx(&clsEx_);
+
+	// ATOM ret = ::RegisterClassEx(&clsEx_);
+	// assert(ret != 0);
 }
 
 

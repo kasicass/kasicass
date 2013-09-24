@@ -25,6 +25,9 @@
     <ClCompile Include="..\src\UxDC.cpp">
       <Filter>Other</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\UxComponent.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\UxFrame.hpp" />

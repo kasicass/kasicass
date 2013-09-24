@@ -12,9 +12,6 @@ Window::Window(UINT id) : hWnd_(0)
 	WinClassMaker wcm(hInst, "UxWindow", WndProc);
 	wcm.registerMe();
 
-	WinClassMaker wcm2(hInst, "UxWindow", WndProc);
-	wcm2.registerMe();
-
 	WinMaker wm(hInst, "UxWindow");
 	hWnd_ = wm.create("Hello UxWindow!", this);
 
@@ -62,11 +59,22 @@ void Window::draw()
 	size.cy = bgImage_.height();
 	POINT src = {0, 0};
 
-	UpdateLayeredWindow(hWnd_, dc, NULL, &size, memdc, &src, RGB(255, 255, 255), &blend, ULW_ALPHA);
+	// UpdateLayeredWindow(hWnd_, dc, NULL, &size, memdc, &src, RGB(255, 0, 255), &blend, ULW_ALPHA);
+	UpdateLayeredWindow(hWnd_, dc, NULL, &size, memdc, &src, RGB(255, 0, 255), &blend, ULW_COLORKEY);
+}
+
+void Window::addComponent(ComponentPtr child)
+{
+	children_.push_back(child);
 }
 
 void Window::onDestroy()
 {
+	for (auto it = children_.cbegin(); it != children_.end(); ++it)
+	{
+		(*it)->onDestroy();
+	}
+
 	bgImage_.release(); // make sure GdiPlusBitmap release before gdiPlusShutdown()
 }
 
@@ -86,6 +94,10 @@ static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 		pWin->onDestroy();
 		::PostQuitMessage(0);
 		return 0;
+
+	case WM_NCHITTEST:
+		return HTCAPTION;
+
 	/*
 	case WM_KEYDOWN:
 		{
