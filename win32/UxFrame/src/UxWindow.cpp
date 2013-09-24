@@ -12,6 +12,9 @@ Window::Window(UINT id) : hWnd_(0)
 	WinClassMaker wcm(hInst, "UxWindow", WndProc);
 	wcm.registerMe();
 
+	WinClassMaker wcm2(hInst, "UxWindow", WndProc);
+	wcm2.registerMe();
+
 	WinMaker wm(hInst, "UxWindow");
 	hWnd_ = wm.create("Hello UxWindow!", this);
 
@@ -42,8 +45,8 @@ void Window::draw()
 
 		for (auto it = children_.cbegin(); it != children_.cend(); ++it)
 		{
-			if (!it->visible()) continue;
-			it->onDraw(graph);
+			if (!(*it)->visible()) continue;
+			(*it)->onDraw(g);
 		}
 	}
 
