@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UxFrame", "UxFrame.vcxproj", "{78DC6B59-5A90-4F29-A0A5-31CB9EE7E844}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{0A9102B1-9B4F-41C0-8FBB-1AA31C74C903}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8AA3FCA6-0415-4959-8421-3355C9F63801}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_SimpleWindow", "tests\01_SimpleWindow.vcxproj", "{C473277E-2A06-4A9A-B0BB-CE09DC3BE02B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78DC6B59-5A90-4F29-A0A5-31CB9EE7E844}.Debug|Win32.ActiveCfg = Debug|Win32
+		{78DC6B59-5A90-4F29-A0A5-31CB9EE7E844}.Debug|Win32.Build.0 = Debug|Win32
+		{78DC6B59-5A90-4F29-A0A5-31CB9EE7E844}.Release|Win32.ActiveCfg = Release|Win32
+		{78DC6B59-5A90-4F29-A0A5-31CB9EE7E844}.Release|Win32.Build.0 = Release|Win32
+		{C473277E-2A06-4A9A-B0BB-CE09DC3BE02B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C473277E-2A06-4A9A-B0BB-CE09DC3BE02B}.Debug|Win32.Build.0 = Debug|Win32
+		{C473277E-2A06-4A9A-B0BB-CE09DC3BE02B}.Release|Win32.ActiveCfg = Release|Win32
+		{C473277E-2A06-4A9A-B0BB-CE09DC3BE02B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{78DC6B59-5A90-4F29-A0A5-31CB9EE7E844} = {0A9102B1-9B4F-41C0-8FBB-1AA31C74C903}
+		{C473277E-2A06-4A9A-B0BB-CE09DC3BE02B} = {8AA3FCA6-0415-4959-8421-3355C9F63801}
+	EndGlobalSection
+EndGlobal
