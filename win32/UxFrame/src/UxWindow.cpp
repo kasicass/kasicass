@@ -1,11 +1,12 @@
 #include "UxWindow.hpp"
 #include "UxUtil.hpp"
 #include "UxApp.hpp"
+#include "UxDC.hpp"
 
 namespace Ux {
 
 static LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
-Window::Window() : hWnd_(0)
+Window::Window(UINT id) : hWnd_(0)
 {
 	HINSTANCE hInst = App::instance().getHINSTANCE();
 	WinClassMaker wcm(hInst, "UxWindow", WndProc);
@@ -13,6 +14,8 @@ Window::Window() : hWnd_(0)
 
 	WinMaker wm(hInst, "UxWindow");
 	hWnd_ = wm.create("Hello UxWindow!", this);
+
+	bgImage_.load(id);
 }
 
 Window::~Window()
@@ -21,17 +24,47 @@ Window::~Window()
 
 void Window::show()
 {
+	draw();
+
 	::ShowWindow(hWnd_, SW_SHOWNORMAL);
 	::UpdateWindow(hWnd_);
 }
 
-void Window::onDestroy()
+void Window::draw()
 {
+	WndDC dc(hWnd_);
+	MemoryDC memdc(dc, bgImage_.width(), bgImage_.height());
+
+	// draw window && children
+	{
+		Gdiplus::Graphics g(memdc);
+		g.DrawImage(bgImage_, 0, 0, bgImage_.width(), bgImage_.height());
+
+		for (auto it = children_.cbegin(); it != children_.cend(); ++it)
+		{
+			if (!it->visible()) continue;
+			it->onDraw(graph);
+		}
+	}
+
+	// blend to system
+	BLENDFUNCTION blend;
+	ZeroMemory(&blend, sizeof(blend));
+	blend.BlendOp = AC_SRC_OVER;
+	blend.AlphaFormat = AC_SRC_ALPHA;
+	blend.SourceConstantAlpha = 255;
+
+	SIZE size;
+	size.cx = bgImage_.width();
+	size.cy = bgImage_.height();
+	POINT src = {0, 0};
+
+	UpdateLayeredWindow(hWnd_, dc, NULL, &size, memdc, &src, RGB(255, 255, 255), &blend, ULW_ALPHA);
 }
 
-WindowPtr createWindow()
+void Window::onDestroy()
 {
-	return std::make_shared<Window>();
+	bgImage_.release(); // make sure GdiPlusBitmap release before gdiPlusShutdown()
 }
 
 static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)

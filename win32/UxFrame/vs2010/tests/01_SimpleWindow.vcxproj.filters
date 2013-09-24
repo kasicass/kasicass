@@ -3,4 +3,10 @@
   <ItemGroup>
     <ClCompile Include="..\..\tests\01_SimpleWindow\Main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\tests\01_SimpleWindow\Resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\tests\01_SimpleWindow\01_SimpleWindow.rc" />
+  </ItemGroup>
 </Project>

@@ -44,13 +44,3 @@ HINSTANCE App::getHINSTANCE()
 
 }
 
-int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
-{
-	Ux::App &app = Ux::App::instance();
-	app.setHINSTANCE(hInstance);
-
-	if (app.onInit())
-		app.run();
-
-	return 0;
-}

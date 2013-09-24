@@ -12,12 +12,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\UxApp.cpp" />
+    <ClCompile Include="..\src\UxButton.cpp" />
+    <ClCompile Include="..\src\UxDC.cpp" />
+    <ClCompile Include="..\src\UxGdiPlus.cpp" />
+    <ClCompile Include="..\src\UxGdiPlusBitmap.cpp" />
     <ClCompile Include="..\src\UxUtil.cpp" />
     <ClCompile Include="..\src\UxWindow.cpp" />
+    <ClCompile Include="..\src\UxWinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\UxApp.hpp" />
+    <ClInclude Include="..\src\UxButton.hpp" />
+    <ClInclude Include="..\src\UxComponent.hpp" />
+    <ClInclude Include="..\src\UxDC.hpp" />
     <ClInclude Include="..\src\UxFrame.hpp" />
+    <ClInclude Include="..\src\UxGdiPlus.hpp" />
+    <ClInclude Include="..\src\UxGdiPlusBitmap.hpp" />
     <ClInclude Include="..\src\UxUtil.hpp" />
     <ClInclude Include="..\src\UxWindow.hpp" />
   </ItemGroup>
@@ -66,7 +76,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CRTDBG_MAP_ALLOC;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

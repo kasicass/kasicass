@@ -10,6 +10,21 @@
     <ClCompile Include="..\src\UxUtil.cpp">
       <Filter>Other</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\UxGdiPlusBitmap.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxGdiPlus.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxWinMain.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxButton.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxDC.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\UxFrame.hpp" />
@@ -20,6 +35,21 @@
       <Filter>Widgets</Filter>
     </ClInclude>
     <ClInclude Include="..\src\UxUtil.hpp">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxGdiPlusBitmap.hpp">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxGdiPlus.hpp">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxComponent.hpp">
+      <Filter>Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxButton.hpp">
+      <Filter>Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxDC.hpp">
       <Filter>Other</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,7 +13,7 @@ WinClassMaker::WinClassMaker(HINSTANCE hInstance, LPCTSTR sClassName, WNDPROC Wn
 	clsEx_.hInstance     = hInstance;
 	clsEx_.lpszClassName = sClassName;
 	clsEx_.lpfnWndProc   = WndProc;
-	clsEx_.style         = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;
+	clsEx_.style         = CS_HREDRAW | CS_VREDRAW;
 	clsEx_.cbClsExtra    = 0;
 	clsEx_.cbWndExtra    = 0;
 	clsEx_.hCursor       = LoadCursor(NULL, IDC_ARROW);
@@ -33,13 +33,12 @@ void WinClassMaker::registerMe()
 //
 // WinMaker
 //
-#define MY_WINDOW_STYLE		(WS_OVERLAPPED|WS_SYSMENU|WS_CAPTION|WS_MINIMIZEBOX)
 
 WinMaker::WinMaker(HINSTANCE hInstance, LPCTSTR sClassName)
   : m_hInstance(hInstance),
     m_sClassName(sClassName),
-    m_dwStyle(MY_WINDOW_STYLE),
-	m_dwExStyle(0),
+    m_dwStyle(WS_OVERLAPPED | WS_SYSMENU),
+	m_dwExStyle(WS_EX_LAYERED),
 	m_x(100), m_y(100),
 	m_iWidth(800), m_iHeight(600)
  { }
