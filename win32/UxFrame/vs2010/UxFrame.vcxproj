@@ -12,11 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\UxApp.cpp" />
+    <ClCompile Include="..\src\UxUtil.cpp" />
     <ClCompile Include="..\src\UxWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\UxApp.hpp" />
     <ClInclude Include="..\src\UxFrame.hpp" />
+    <ClInclude Include="..\src\UxUtil.hpp" />
     <ClInclude Include="..\src\UxWindow.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

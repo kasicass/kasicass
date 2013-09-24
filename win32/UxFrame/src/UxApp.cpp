@@ -1,9 +1,6 @@
 #include "UxApp.hpp"
 #include <assert.h>
 
-#define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
-
 namespace Ux {
 
 App* App::s_app = nullptr;
@@ -14,7 +11,7 @@ App& App::instance()
 	return *s_app;
 }
 
-App::App()
+App::App() : hInstance_(0)
 {
 	assert(s_app == nullptr);  // only one Ux::App instance.
 	s_app = this;
@@ -24,10 +21,36 @@ App::~App()
 {
 }
 
+void App::run()
+{
+	MSG msg;
+	ZeroMemory(&msg, sizeof(msg));
+	while (::GetMessage(&msg, NULL, 0, 0))
+	{
+		::TranslateMessage(&msg);
+		::DispatchMessage(&msg);
+	}
+}
+
+void App::setHINSTANCE(HINSTANCE hInstance)
+{
+	hInstance_ = hInstance;
+}
+
+HINSTANCE App::getHINSTANCE()
+{
+	return hInstance_;
+}
+
 }
 
 int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	Ux::App::instance().onInit();
+	Ux::App &app = Ux::App::instance();
+	app.setHINSTANCE(hInstance);
+
+	if (app.onInit())
+		app.run();
+
 	return 0;
 }
