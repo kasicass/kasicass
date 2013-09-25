@@ -27,7 +27,8 @@ Button::~Button()
 
 void Button::createMe(HWND hParent)
 {
-	hParentWnd_ = hParent;
+	Component::createMe(hParent);
+
 	HINSTANCE hInst = App::instance().getHINSTANCE();
 
 	WinClassMaker wcm(hInst, "UxButton", ButtonWndProc);

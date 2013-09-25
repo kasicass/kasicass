@@ -20,7 +20,7 @@ public:
 	void x(int x);
 	void y(int y);
 
-	virtual void createMe(HWND hParent) = 0;
+	virtual void createMe(HWND hParent);
 	virtual void onDraw(Gdiplus::Graphics& g) = 0;
 	virtual void onDestroy() = 0;
 

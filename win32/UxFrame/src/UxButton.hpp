@@ -14,10 +14,7 @@ public:
 	Button(UINT normal, UINT down, UINT over, UINT disable);
 	virtual ~Button();
 
-	virtual void createMe(HWND hParent);
-	virtual void onDraw(Gdiplus::Graphics& g);
-	virtual void onDestroy();
-
+	// my methods
 	bool disable() const;
 	void disable(bool d);
 
@@ -31,6 +28,11 @@ public:
 	void onMouseLeave();
 
 	void updateButtonState();
+
+	// Component methods
+	virtual void createMe(HWND hParent);
+	virtual void onDraw(Gdiplus::Graphics& g);
+	virtual void onDestroy();
 
 private:
 	enum BUTTON_STATE

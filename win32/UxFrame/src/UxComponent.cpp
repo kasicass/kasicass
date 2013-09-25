@@ -38,11 +38,18 @@ int Component::y() const
 void Component::x(int x)
 {
 	x_ = x;
+	notifyRedraw();
 }
 
 void Component::y(int y)
 {
 	y_ = y;
+	notifyRedraw();
+}
+
+void Component::createMe(HWND hParent)
+{
+	hParentWnd_ = hParent;
 }
 
 #define WM_UXWINDOW_REDRAW (WM_USER+1)

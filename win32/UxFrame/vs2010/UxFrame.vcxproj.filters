@@ -28,6 +28,9 @@
     <ClCompile Include="..\src\UxComponent.cpp">
       <Filter>Widgets</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\UxProgressBar.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\UxFrame.hpp" />
@@ -54,6 +57,9 @@
     </ClInclude>
     <ClInclude Include="..\src\UxDC.hpp">
       <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxProgressBar.hpp">
+      <Filter>Widgets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
