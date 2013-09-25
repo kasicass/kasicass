@@ -16,11 +16,11 @@ WinClassMaker::WinClassMaker(HINSTANCE hInstance, LPCTSTR sClassName, WNDPROC Wn
 	clsEx_.style         = CS_HREDRAW | CS_VREDRAW;
 	clsEx_.cbClsExtra    = 0;
 	clsEx_.cbWndExtra    = 0;
-	clsEx_.hCursor       = LoadCursor(NULL, IDC_ARROW);
+	clsEx_.hCursor       = ::LoadCursor(NULL, IDC_ARROW);
 	clsEx_.hbrBackground = NULL;
 	clsEx_.lpszMenuName  = (LPCTSTR)NULL;
-	clsEx_.hIcon         = NULL;
-	clsEx_.hIconSm       = NULL;
+	clsEx_.hIcon     = NULL;
+	clsEx_.hIconSm   = NULL;
 }
 
 void WinClassMaker::registerMe()

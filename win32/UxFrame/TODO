@@ -1,7 +1,12 @@
 ==== TODO ====
- * app icon
+ * Ux::ProgressBar
+ * Ux::IE
 
 ==== DONE ====
+2013.09.25
+ * Ux::Button done
+ * app icon
+
 2013.09.24
  * simple window, supports any-shape
 
