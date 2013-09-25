@@ -1,6 +1,11 @@
 #include <UxFrame.hpp>
 #include "Resource.h"
 
+void onButtonClick(Ux::Button *btn)
+{
+	btn->disable(true);
+}
+
 class MyWindow : public Ux::Window
 {
 public:
@@ -19,7 +24,7 @@ public:
 			IDR_BUTTON_DOWN, IDR_BUTTON_OVER, IDR_BUTTON_DISABLE);
 		btn->x(200);
 		btn->y(100);
-		btn->disable(true);
+		btn->setClickFunc(onButtonClick);
 		this->addComponent(btn);
 	}
 };

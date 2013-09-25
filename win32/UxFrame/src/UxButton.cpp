@@ -12,7 +12,8 @@ Button::Button(UINT normal, UINT down, UINT over, UINT disable) :
 	mouseDown_(false),
 	mouseOver_(false),
 	isDisable_(false),
-	currState_(ST_NORMAL)
+	currState_(ST_NORMAL),
+	clickFunc_(0)
 {
 	bitmaps_[ST_NORMAL].load(normal);
 	bitmaps_[ST_DOWN].load(down);
@@ -70,6 +71,11 @@ void Button::disable(bool d)
 	updateButtonState();
 }
 
+void Button::setClickFunc(CLICK_FUNC fn)
+{
+	clickFunc_ = fn;
+}
+
 void Button::onLButtonDown()
 {
 	mouseDown_ = true;
@@ -80,6 +86,11 @@ void Button::onLButtonUp()
 {
 	mouseDown_ = false;
 	updateButtonState();
+
+	if (clickFunc_)
+	{
+		clickFunc_(this);
+	}
 }
 
 void Button::onMouseMove(int x, int y)
