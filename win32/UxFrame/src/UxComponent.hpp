@@ -24,10 +24,12 @@ public:
 	virtual void onDraw(Gdiplus::Graphics& g) = 0;
 	virtual void onDestroy() = 0;
 
+	void notifyRedraw();
 	HWND getHWND() const { return hWnd_; }
 
 protected:
 	HWND hWnd_;
+	HWND hParentWnd_;
 	bool visible_;
 	int x_, y_;
 };

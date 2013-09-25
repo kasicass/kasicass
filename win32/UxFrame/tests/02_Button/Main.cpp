@@ -15,9 +15,11 @@ public:
 
 	void initComponents()
 	{
-		Ux::ButtonPtr btn = Ux::createButton(IDR_BUTTON_1);
+		Ux::ButtonPtr btn = Ux::createButton(IDR_BUTTON_NORMAL,
+			IDR_BUTTON_DOWN, IDR_BUTTON_OVER, IDR_BUTTON_DISABLE);
 		btn->x(200);
 		btn->y(100);
+		btn->disable(true);
 		this->addComponent(btn);
 	}
 };

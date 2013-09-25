@@ -80,6 +80,7 @@ void Window::onDestroy()
 	bgImage_.release(); // make sure GdiPlusBitmap release before gdiPlusShutdown()
 }
 
+#define WM_UXWINDOW_REDRAW (WM_USER+1)
 static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	static Window *pWin = nullptr;
@@ -92,13 +93,17 @@ static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 		}
 		break;
 
+	case WM_UXWINDOW_REDRAW:
+		pWin->draw();
+		return 0;
+
 	case WM_DESTROY:
 		pWin->onDestroy();
 		::PostQuitMessage(0);
 		return 0;
 
-	//case WM_NCHITTEST:
-	//	return HTCAPTION;
+	case WM_NCHITTEST:
+		return HTCAPTION;
 
 	/*
 	case WM_KEYDOWN:

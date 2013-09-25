@@ -39,7 +39,7 @@ void WinClassMaker::registerMe()
 WinMaker::WinMaker(HINSTANCE hInstance, LPCTSTR sClassName)
   : m_hInstance(hInstance),
     m_sClassName(sClassName),
-    m_dwStyle(WS_SIZEBOX),
+    m_dwStyle(WS_OVERLAPPED|WS_SYSMENU),
 	m_dwExStyle(WS_EX_LAYERED),
 	m_x(100), m_y(100),
 	m_iWidth(800), m_iHeight(600)
@@ -73,7 +73,7 @@ HWND WinMaker::create(LPCTSTR sTitle, void *pData)
 		m_hInstance,
 		pData);			// data
 
-	SetWindowLong(hWnd, GWL_STYLE, 0); // remove all style (no title bar)
+	// SetWindowLong(hWnd, GWL_STYLE, 0); // remove all style (no title bar)
 
 	assert(hWnd != 0);
 	return hWnd;

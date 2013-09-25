@@ -2,7 +2,12 @@
 
 namespace Ux {
 
-Component::Component() : hWnd_(0), visible_(true), x_(0), y_(0)
+Component::Component() :
+	hWnd_(0),
+	hParentWnd_(0),
+	visible_(true),
+	x_(0),
+	y_(0)
 {
 }
 
@@ -38,6 +43,15 @@ void Component::x(int x)
 void Component::y(int y)
 {
 	y_ = y;
+}
+
+#define WM_UXWINDOW_REDRAW (WM_USER+1)
+void Component::notifyRedraw()
+{
+	if (hParentWnd_)
+	{
+		::PostMessage(hParentWnd_, WM_UXWINDOW_REDRAW, 0, 0);
+	}
 }
 
 }
