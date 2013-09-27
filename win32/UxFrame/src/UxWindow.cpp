@@ -60,8 +60,11 @@ void Window::draw()
 	size.cy = bgImage_.height();
 	POINT src = {0, 0};
 
-	// UpdateLayeredWindow(hWnd_, dc, NULL, &size, memdc, &src, RGB(255, 0, 255), &blend, ULW_ALPHA);
-	UpdateLayeredWindow(hWnd_, dc, NULL, &size, memdc, &src, RGB(255, 0, 255), &blend, ULW_COLORKEY);
+	// use alpha blend
+	UpdateLayeredWindow(hWnd_, dc, NULL, &size, memdc, &src, RGB(255, 0, 255), &blend, ULW_ALPHA);
+
+	// use color key
+	//UpdateLayeredWindow(hWnd_, dc, NULL, &size, memdc, &src, RGB(255, 0, 255), &blend, ULW_COLORKEY);
 }
 
 void Window::addComponent(ComponentPtr child)

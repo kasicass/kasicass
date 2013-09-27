@@ -1,8 +1,13 @@
 ==== TODO ====
- * Ux::ProgressBar
+ * nonclient area offset problem
  * Ux::IE
 
 ==== DONE ====
+2013.09.27
+ * Ux::ProgressBar
+ * the .png files DPI problem
+ * background, use .png's tranparent information
+
 2013.09.25
  * Ux::Button done
  * app icon
