@@ -1,5 +1,4 @@
 ==== TODO ====
- * nonclient area offset problem
  * Ux::IE
 
 ==== DONE ====
@@ -7,6 +6,7 @@
  * Ux::ProgressBar
  * the .png files DPI problem
  * background, use .png's tranparent information
+ * nonclient area offset problem
 
 2013.09.25
  * Ux::Button done
