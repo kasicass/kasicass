@@ -32,7 +32,7 @@ void ProgressBar::onDraw(Gdiplus::Graphics& g, int x, int y)
 
 	int w = int(foreground_.width() * percent_);
 	int h = foreground_.height();
-	g.DrawImage(foreground_, x+x_, x+y_, 0, 0, w, h, Gdiplus::UnitPixel);
+	g.DrawImage(foreground_, x+x_, y+y_, 0, 0, w, h, Gdiplus::UnitPixel);
 }
 
 void ProgressBar::onDestroy()
