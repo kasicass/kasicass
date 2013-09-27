@@ -39,7 +39,7 @@ void Window::draw()
 	// draw window && children
 	{
 		Gdiplus::Graphics g(memdc);
-		g.DrawImage(bgImage_, 0, 0, bgImage_.width(), bgImage_.height());
+		g.DrawImage(bgImage_, 0, 0);
 
 		for (auto it = children_.cbegin(); it != children_.cend(); ++it)
 		{

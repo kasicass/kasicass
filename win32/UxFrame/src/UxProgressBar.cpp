@@ -28,17 +28,11 @@ void ProgressBar::percent(float p)
 
 void ProgressBar::onDraw(Gdiplus::Graphics& g)
 {
-	int w = background_.width();
-	int h = background_.height();
-	g.DrawImage(background_, x_, y_, w, h);
-	g.DrawImage(background_, x_, y_+100);
+	g.DrawImage(background_, x_, y_);
 
-	//w = int(foreground_.width() * percent_);
-	//h = foreground_.height();
-
-	//w = int(w * percent_);
-	//g.DrawImage(foreground_, x_, y_, 0, 0, 100, 20, Gdiplus::UnitPixel);
-	// g.DrawImage(foreground_, x_, y_, w, h);
+	int w = int(foreground_.width() * percent_);
+	int h = foreground_.height();
+	g.DrawImage(foreground_, x_, y_, 0, 0, w, h, Gdiplus::UnitPixel);
 }
 
 void ProgressBar::onDestroy()
