@@ -38,13 +38,16 @@ void Window::draw()
 
 	// draw window && children
 	{
+		int x = ::GetSystemMetrics(SM_CXBORDER);
+		int y = ::GetSystemMetrics(SM_CYCAPTION);
+
 		Gdiplus::Graphics g(memdc);
 		g.DrawImage(bgImage_, 0, 0);
 
 		for (auto it = children_.cbegin(); it != children_.cend(); ++it)
 		{
 			if (!(*it)->visible()) continue;
-			(*it)->onDraw(g);
+			(*it)->onDraw(g, x, y);
 		}
 	}
 

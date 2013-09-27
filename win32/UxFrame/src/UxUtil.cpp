@@ -59,6 +59,9 @@ void WinMaker::setSize(int iWidth, int iHeight)
 
 HWND WinMaker::create(LPCTSTR sTitle, void *pData)
 {
+	//RECT rect = {0, 0, m_iWidth, m_iHeight};
+	//AdjustWindowRect(&rect, m_dwStyle, TRUE);
+
 	HWND hWnd = ::CreateWindowEx(
 		m_dwExStyle,
 		m_sClassName,
@@ -66,8 +69,8 @@ HWND WinMaker::create(LPCTSTR sTitle, void *pData)
 		m_dwStyle,
 		m_x,
 		m_y,
-		m_iWidth,
-		m_iHeight,
+		m_iWidth, //rect.right - rect.left,
+		m_iHeight, //rect.bottom - rect.top + 300,
 		NULL,			// parent
 		NULL,			// menu
 		m_hInstance,

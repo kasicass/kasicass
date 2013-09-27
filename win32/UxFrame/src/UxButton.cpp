@@ -43,9 +43,9 @@ void Button::createMe(HWND hParent)
 	::UpdateWindow(hWnd_);
 }
 
-void Button::onDraw(Gdiplus::Graphics& g)
+void Button::onDraw(Gdiplus::Graphics& g, int x, int y)
 {
-	g.DrawImage(bitmaps_[currState_], x_, y_);
+	g.DrawImage(bitmaps_[currState_], x+x_, y+y_);
 }
 
 void Button::onDestroy()

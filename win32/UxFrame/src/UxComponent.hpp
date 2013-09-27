@@ -21,7 +21,7 @@ public:
 	void y(int y);
 
 	virtual void createMe(HWND hParent);
-	virtual void onDraw(Gdiplus::Graphics& g) = 0;
+	virtual void onDraw(Gdiplus::Graphics& g, int x, int y) = 0;
 	virtual void onDestroy() = 0;
 
 	void notifyRedraw();

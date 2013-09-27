@@ -31,7 +31,7 @@ public:
 
 	// Component methods
 	virtual void createMe(HWND hParent);
-	virtual void onDraw(Gdiplus::Graphics& g);
+	virtual void onDraw(Gdiplus::Graphics& g, int x, int y);
 	virtual void onDestroy();
 
 private:
