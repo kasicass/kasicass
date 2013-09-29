@@ -1,9 +1,12 @@
 ==== TODO ====
  * Ux::Timer
- * Ux::Label
+ * Ux::Label, Gdiplus DrawString, Chinese character problem
  * Ux::IE
 
 ==== DONE ====
+2013.09.29
+ * Ux::Label
+
 2013.09.27
  * Ux::ProgressBar
  * the .png files DPI problem
