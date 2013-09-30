@@ -11,12 +11,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\UxApp.cpp" />
     <ClCompile Include="..\src\UxButton.cpp" />
     <ClCompile Include="..\src\UxComponent.cpp" />
     <ClCompile Include="..\src\UxDC.cpp" />
     <ClCompile Include="..\src\UxGdiPlus.cpp" />
     <ClCompile Include="..\src\UxGdiPlusBitmap.cpp" />
+    <ClCompile Include="..\src\UxGlobal.cpp" />
     <ClCompile Include="..\src\UxLabel.cpp" />
     <ClCompile Include="..\src\UxProgressBar.cpp" />
     <ClCompile Include="..\src\UxTimer.cpp" />
@@ -25,13 +25,13 @@
     <ClCompile Include="..\src\UxWinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\UxApp.hpp" />
     <ClInclude Include="..\src\UxButton.hpp" />
     <ClInclude Include="..\src\UxComponent.hpp" />
     <ClInclude Include="..\src\UxDC.hpp" />
     <ClInclude Include="..\src\UxFrame.hpp" />
     <ClInclude Include="..\src\UxGdiPlus.hpp" />
     <ClInclude Include="..\src\UxGdiPlusBitmap.hpp" />
+    <ClInclude Include="..\src\UxGlobal.hpp" />
     <ClInclude Include="..\src\UxLabel.hpp" />
     <ClInclude Include="..\src\UxProgressBar.hpp" />
     <ClInclude Include="..\src\UxTimer.hpp" />

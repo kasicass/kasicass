@@ -29,29 +29,13 @@ public:
 		tmr1_->start();
 	}
 
-	virtual void onDestroy()
-	{
-		tmr1_->stop();
-		Ux::Window::onDestroy();
-	}
-
 private:
 	Ux::TimerPtr tmr1_;
 };
 
-class MyApp : public Ux::App
+int main()
 {
-public:
-	virtual bool onInit()
-	{
-		wnd_ = Ux::createWindow<MyWindow>(IDR_BGIMAGE);
-		wnd_->show();
-
-		return true;
-	}
-
-private:
-	Ux::WindowPtr wnd_;
-};
-
-MyApp theApp;
+	Ux::WindowPtr wnd = Ux::createWindow<MyWindow>(IDR_BGIMAGE);
+	wnd->show();
+	return 0;
+}

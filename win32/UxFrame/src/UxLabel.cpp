@@ -67,10 +67,6 @@ void Label::onDraw(Gdiplus::Graphics& g, int x, int y)
 	g.DrawString(text_.c_str(), text_.length(), &font, pointF, &solidBrush);
 }
 
-void Label::onDestroy()
-{
-}
-
 LabelPtr createLabel()
 {
 	return std::make_shared<Label>();

@@ -1,10 +1,11 @@
-#include "UxApp.hpp"
+#include "UxGlobal.hpp"
 #include "UxGdiPlus.hpp"
 
 #if defined(DEBUG) || defined(_DEBUG)
 #include <crtdbg.h>
 #endif
 
+extern int main();
 int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 #if defined(DEBUG) || defined(_DEBUG)
@@ -14,11 +15,8 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	if (!Ux::gdiPlusInit())
 		return 0;
 
-	Ux::App &app = Ux::App::instance();
-	app.setHINSTANCE(hInstance);
-
-	if (app.onInit())
-		app.run();
+	Ux::Global::setHINSTANCE(hInstance);
+	main();
 
 	Ux::gdiPlusShutdown();
 	return 0;

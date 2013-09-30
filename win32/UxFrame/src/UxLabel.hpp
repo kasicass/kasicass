@@ -26,7 +26,6 @@ public:
 
 	// Component methods
 	virtual void onDraw(Gdiplus::Graphics& g, int x, int y);
-	virtual void onDestroy();
 
 private:
 	std::wstring text_;

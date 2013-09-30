@@ -35,12 +35,6 @@ void ProgressBar::onDraw(Gdiplus::Graphics& g, int x, int y)
 	g.DrawImage(foreground_, x+x_, y+y_, 0, 0, w, h, Gdiplus::UnitPixel);
 }
 
-void ProgressBar::onDestroy()
-{
-	foreground_.release();
-	background_.release();
-}
-
 ProgressBarPtr createProgressBar(UINT fg, UINT bg)
 {
 	return std::make_shared<ProgressBar>(fg, bg);

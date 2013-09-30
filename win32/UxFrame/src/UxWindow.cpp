@@ -1,6 +1,6 @@
 #include "UxWindow.hpp"
+#include "UxGlobal.hpp"
 #include "UxUtil.hpp"
-#include "UxApp.hpp"
 #include "UxDC.hpp"
 
 namespace Ux {
@@ -8,7 +8,7 @@ namespace Ux {
 static LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 Window::Window(UINT id) : hWnd_(0)
 {
-	HINSTANCE hInst = App::instance().getHINSTANCE();
+	HINSTANCE hInst = Global::getHINSTANCE();
 
 	WinClassMaker wcm(hInst, "UxWindow", WndProc);
 	wcm.registerMe();
@@ -29,6 +29,14 @@ void Window::show()
 
 	::ShowWindow(hWnd_, SW_SHOWNORMAL);
 	::UpdateWindow(hWnd_);
+
+	MSG msg;
+	ZeroMemory(&msg, sizeof(msg));
+	while (::GetMessage(&msg, NULL, 0, 0))
+	{
+		::TranslateMessage(&msg);
+		::DispatchMessage(&msg);
+	}
 }
 
 void Window::draw()
@@ -76,16 +84,6 @@ void Window::addComponent(ComponentPtr child)
 	children_.push_back(child);
 }
 
-void Window::onDestroy()
-{
-	for (auto it = children_.cbegin(); it != children_.end(); ++it)
-	{
-		(*it)->onDestroy();
-	}
-
-	bgImage_.release(); // make sure GdiPlusBitmap release before gdiPlusShutdown()
-}
-
 #define WM_UXWINDOW_REDRAW (WM_USER+1)
 static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -104,7 +102,6 @@ static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 		return 0;
 
 	case WM_DESTROY:
-		pWin->onDestroy();
 		::PostQuitMessage(0);
 		return 0;
 

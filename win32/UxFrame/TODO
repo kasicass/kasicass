@@ -1,9 +1,13 @@
 ==== TODO ====
- * Ux::Timer
+ * commandline parsing
  * Ux::Label, Gdiplus DrawString, Chinese character problem
  * Ux::IE
 
 ==== DONE ====
+2013.09.30
+ * Ux::Timer
+ * the Ux::App lifecycle problem, remove onDestroy() && UxApp
+
 2013.09.29
  * Ux::Label
 

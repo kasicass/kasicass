@@ -17,7 +17,6 @@ public:
 
 	// Component methods
 	virtual void onDraw(Gdiplus::Graphics& g, int x, int y);
-	virtual void onDestroy();
 
 private:
 	GdiPlusBitmapResource foreground_;

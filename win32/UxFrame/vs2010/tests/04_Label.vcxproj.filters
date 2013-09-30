@@ -4,9 +4,6 @@
     <ResourceCompile Include="..\..\tests\04_Label\app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\tests\04_Label\background.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\tests\04_Label\Main.cpp" />
   </ItemGroup>
   <ItemGroup>

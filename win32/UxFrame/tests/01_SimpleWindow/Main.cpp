@@ -1,19 +1,9 @@
 #include <UxFrame.hpp>
 #include "Resource.h"
 
-class MyApp : public Ux::App
+int main()
 {
-public:
-	virtual bool onInit()
-	{
-		wnd_ = Ux::createWindow<Ux::Window>(IDR_BGIMAGE);
-		wnd_->show();
-
-		return true;
-	}
-
-private:
-	Ux::WindowPtr wnd_;
-};
-
-MyApp theApp;
+	Ux::WindowPtr wnd = Ux::createWindow<Ux::Window>(IDR_BGIMAGE);
+	wnd->show();
+	return 0;
+}

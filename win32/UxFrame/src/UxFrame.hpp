@@ -2,7 +2,6 @@
 
 #include <Windows.h>
 
-#include "UxApp.hpp"
 #include "UxWindow.hpp"
 #include "UxButton.hpp"
 #include "UxProgressBar.hpp"

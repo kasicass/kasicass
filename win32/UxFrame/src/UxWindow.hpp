@@ -25,8 +25,6 @@ public:
 	void show();
 	void addComponent(ComponentPtr child);
 
-	virtual void onDestroy();
-
 private:
 	HWND hWnd_;
 	GdiPlusBitmapResource bgImage_;

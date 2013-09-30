@@ -85,11 +85,6 @@
     <ResourceCompile Include="..\..\tests\05_Timer\app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\tests\05_Timer\background.png" />
-    <None Include="..\..\tests\05_Timer\progress_bg.png" />
-    <None Include="..\..\tests\05_Timer\progress_fg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\tests\05_Timer\Main.cpp" />
   </ItemGroup>
   <ItemGroup>

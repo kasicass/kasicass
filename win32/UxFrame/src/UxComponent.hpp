@@ -22,7 +22,6 @@ public:
 
 	virtual void createMe(HWND hParent);
 	virtual void onDraw(Gdiplus::Graphics& g, int x, int y) = 0;
-	virtual void onDestroy() = 0;
 
 	void notifyRedraw();
 	HWND getHWND() const { return hWnd_; }

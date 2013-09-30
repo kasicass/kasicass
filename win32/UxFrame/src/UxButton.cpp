@@ -1,6 +1,6 @@
 #include "UxButton.hpp"
 #include "UxUtil.hpp"
-#include "UxApp.hpp"
+#include "UxGlobal.hpp"
 #include <unordered_map>
 
 
@@ -29,7 +29,7 @@ void Button::createMe(HWND hParent)
 {
 	Component::createMe(hParent);
 
-	HINSTANCE hInst = App::instance().getHINSTANCE();
+	HINSTANCE hInst = Global::getHINSTANCE();
 
 	WinClassMaker wcm(hInst, "UxButton", ButtonWndProc);
 	wcm.registerMe();
@@ -46,14 +46,6 @@ void Button::createMe(HWND hParent)
 void Button::onDraw(Gdiplus::Graphics& g, int x, int y)
 {
 	g.DrawImage(bitmaps_[currState_], x+x_, y+y_);
-}
-
-void Button::onDestroy()
-{
-	for (int i = 0; i < ST_NUM; i++)
-	{
-		bitmaps_[i].release();
-	}
 }
 
 bool Button::disable() const
