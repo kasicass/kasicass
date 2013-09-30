@@ -34,6 +34,9 @@
     <ClCompile Include="..\src\UxLabel.cpp">
       <Filter>Widgets</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\UxTimer.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\UxFrame.hpp" />
@@ -65,6 +68,9 @@
       <Filter>Widgets</Filter>
     </ClInclude>
     <ClInclude Include="..\src\UxLabel.hpp">
+      <Filter>Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxTimer.hpp">
       <Filter>Widgets</Filter>
     </ClInclude>
   </ItemGroup>
