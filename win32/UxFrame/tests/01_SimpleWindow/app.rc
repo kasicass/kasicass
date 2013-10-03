@@ -1,0 +1,3 @@
+#include "Resource.h"
+IDR_BGIMAGE       RCDATA       "background.png"
+IDR_APPICON       ICON         "app.ico"

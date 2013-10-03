@@ -1,0 +1,5 @@
+#include "Resource.h"
+IDR_BGIMAGE          RCDATA       "background.png"
+IDR_PROGRESS_BG      RCDATA       "progress_bg.png"
+IDR_PROGRESS_FG      RCDATA       "progress_fg.png"
+

@@ -1,0 +1,4 @@
+LIBRARY "PRINTME"
+EXPORTS
+  printMe  @1
+

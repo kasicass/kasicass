@@ -1,0 +1,26 @@
+==== TODO ====
+ * commandline parsing
+ * Ux::Label, Gdiplus DrawString, Chinese character problem
+ * Ux::IE
+
+==== DONE ====
+2013.09.30
+ * Ux::Timer
+ * the Ux::App lifecycle problem, remove onDestroy() && UxApp
+
+2013.09.29
+ * Ux::Label
+
+2013.09.27
+ * Ux::ProgressBar
+ * the .png files DPI problem
+ * background, use .png's tranparent information
+ * nonclient area offset problem
+
+2013.09.25
+ * Ux::Button done
+ * app icon
+
+2013.09.24
+ * simple window, supports any-shape
+

@@ -1,0 +1,7 @@
+#include "Resource.h"
+IDR_BGIMAGE          RCDATA       "background.png"
+IDR_BUTTON_NORMAL    RCDATA       "btn_normal.png"
+IDR_BUTTON_DOWN      RCDATA       "btn_down.png"
+IDR_BUTTON_OVER      RCDATA       "btn_over.png"
+IDR_BUTTON_DISABLE   RCDATA       "btn_disable.png"
+

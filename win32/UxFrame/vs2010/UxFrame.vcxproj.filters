@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\UxWindow.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxUtil.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxGdiPlusBitmap.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxGdiPlus.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxWinMain.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxButton.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxDC.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxComponent.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxProgressBar.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxLabel.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxTimer.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UxGlobal.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\UxFrame.hpp" />
+    <ClInclude Include="..\src\UxWindow.hpp">
+      <Filter>Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxUtil.hpp">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxGdiPlusBitmap.hpp">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxGdiPlus.hpp">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxComponent.hpp">
+      <Filter>Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxButton.hpp">
+      <Filter>Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxDC.hpp">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxProgressBar.hpp">
+      <Filter>Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxLabel.hpp">
+      <Filter>Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxTimer.hpp">
+      <Filter>Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UxGlobal.hpp">
+      <Filter>Framework</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{69b20970-6891-43c3-b3f7-c80813979afe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Widgets">
+      <UniqueIdentifier>{4a8d6ab8-4c95-457f-b36c-7b9bbda791f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Other">
+      <UniqueIdentifier>{03836587-fcd2-4e51-b9e9-48e51305df3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

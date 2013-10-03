@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ResourceCompile Include="..\..\tests\05_Timer\app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\tests\05_Timer\Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\tests\05_Timer\Resource.h" />
+  </ItemGroup>
+</Project>
