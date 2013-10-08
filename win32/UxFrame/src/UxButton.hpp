@@ -2,14 +2,12 @@
 
 #include "UxComponent.hpp"
 #include "UxGdiPlusBitmap.hpp"
+#include <functional>
 
 namespace Ux {
 
 class Button : public Component
 {
-public:
-	typedef void (*CLICK_FUNC)(Button*);
-
 public:
 	Button(UINT normal, UINT down, UINT over, UINT disable);
 	virtual ~Button();
@@ -18,7 +16,7 @@ public:
 	bool disable() const;
 	void disable(bool d);
 
-	void setClickFunc(CLICK_FUNC fn);
+	void setClickFunc(std::function<void(Button*)> fn);
 
 	// WndProc event
 	void onLButtonDown();
@@ -50,7 +48,7 @@ private:
 	bool mouseDown_;
 	bool mouseOver_;
 	bool isDisable_;
-	CLICK_FUNC clickFunc_;
+	std::function<void(Button*)> clickFunc_;
 };
 typedef std::shared_ptr<Button> ButtonPtr;
 
