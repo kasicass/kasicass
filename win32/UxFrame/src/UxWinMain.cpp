@@ -5,7 +5,7 @@
 #include <crtdbg.h>
 #endif
 
-extern int main();
+extern int main(int argc, char* argv[]);
 int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 #if defined(DEBUG) || defined(_DEBUG)
@@ -16,7 +16,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		return 0;
 
 	Ux::Global::setHINSTANCE(hInstance);
-	main();
+	main(__argc, __argv);
 
 	Ux::gdiPlusShutdown();
 	return 0;

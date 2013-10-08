@@ -33,7 +33,7 @@ private:
 	Ux::TimerPtr tmr1_;
 };
 
-int main()
+int main(int argc, char* argv[])
 {
 	Ux::WindowPtr wnd = Ux::createWindow<MyWindow>(IDR_BGIMAGE);
 	wnd->show();
