@@ -1,0 +1,7 @@
+#include "resource.h"
+
+STRINGTABLE
+BEGIN
+	IDR_MAINFRAME    "My First WTL Win!"
+END
+
