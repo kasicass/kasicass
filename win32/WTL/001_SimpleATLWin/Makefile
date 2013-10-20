@@ -8,7 +8,7 @@
 
 SRC = Main.cpp
 OBJ = Main.obj
-CFLAGS = /c /EHsc /Zc:wchar_t /fp:precise /D "_UNICODE" /D "UNICODE" /D "_WINDOWS" /MD
+CFLAGS = /nologo /c /EHsc /Zc:wchar_t /fp:precise /D "_UNICODE" /D "UNICODE" /D "_WINDOWS" /MD
 LDFLAGS = /SUBSYSTEM:WINDOWS
 
 all:
