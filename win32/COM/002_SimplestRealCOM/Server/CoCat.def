@@ -1,0 +1,4 @@
+LIBRARY "COCAT"
+EXPORTS
+  DllGetClassObject   PRIVATE
+  DllCanUnloadNow     PRIVATE

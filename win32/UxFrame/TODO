@@ -4,6 +4,9 @@
  * Ux::IE
 
 ==== DONE ====
+2013.10.08
+ * 
+
 2013.09.30
  * Ux::Timer
  * the Ux::App lifecycle problem, remove onDestroy() && UxApp

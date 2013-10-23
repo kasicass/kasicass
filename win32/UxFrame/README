@@ -1,0 +1,7 @@
+UxWindow, a simplest win32 gui library.
+
+==== USAGE ====
+1. copy app.rc/Resource.h/Main.cpp from a test project to your project
+2. modify app.rc/Resource.h manually, not using VS.
+3. modify something and make it runs
+
