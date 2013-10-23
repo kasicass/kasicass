@@ -1,13 +1,12 @@
-# a simplest hard-coded COM server emulation
-SRC = main.cpp CoCat.cpp CoCatFactory.cpp iids.cpp
-OBJ = main.obj CoCat.obj CoCatFactory.obj iids.obj
-CFLAGS = /c /EHsc /Zc:wchar_t /fp:precise /D_WIN32_WINNT=0x0500 /D "_MBCS" /D "_CONSOLE" /MD
-LDFLAGS = /SUBSYSTEM:CONSOLE
+SRC = CoCat.cpp CoCatFactory.cpp iids.cpp DllMain.cpp
+OBJ = CoCat.obj CoCatFactory.obj iids.obj DllMain.obj
+CFLAGS = /c /nologo /Od /MTd /EHsc /D "_MBCS" /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "_USERDLL" /D "_WINDLL"
+LDFLAGS = /nologo /OUT:"CoCat.dll" /DLL /SUBSYSTEM:WINDOWS /DEF:".\CoCat.def"
 
 all:
 	cl $(CFLAGS) $(SRC)
-	link /OUT:cat.exe $(LDFLAGS) $(OBJ) OleAut32.lib
+	link $(LDFLAGS) $(OBJ) OleAut32.lib
 
 clean:
-	del *.obj *.exe
+	del *.obj *.dll *.exp *.lib
 

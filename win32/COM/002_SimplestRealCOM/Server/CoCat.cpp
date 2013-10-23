@@ -3,13 +3,16 @@
 #include "CoCat.hpp"
 #include <iostream>
 
+extern ULONG g_objCount;
 CoCat::CoCat() : refCount_(0)
 {
+	g_objCount++;
 	name_ = SysAllocString(L"Default Name");
 }
 
 CoCat::~CoCat()
 {
+	g_objCount--;
 	if (name_)
 		SysFreeString(name_);
 }
