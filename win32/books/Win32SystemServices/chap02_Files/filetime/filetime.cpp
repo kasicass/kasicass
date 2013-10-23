@@ -33,5 +33,7 @@ int main(int argc, char* argv[])
 	ShowTime("Create Time:      ", create);
 	ShowTime("Last Access Time: ", lastAccess);
 	ShowTime("Last Write Time:  ", lastWrite);
+
+	CloseHandle(hFile);
 	return 0;
 }
