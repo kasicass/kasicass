@@ -38,7 +38,7 @@ STDMETHODIMP_(ULONG) CoCatFactory::Release()
 	return refCount_;
 }
 
-STDMETHODIMP CreateInstance(LPUNKNOWN pUnk, REFIID riid, void** pIFace)
+STDMETHODIMP CoCatFactory::CreateInstance(LPUNKNOWN pUnk, REFIID riid, void** pIFace)
 {
 	// We do not support aggregation in this class object
 	if (pUnk != NULL)
@@ -51,7 +51,7 @@ STDMETHODIMP CreateInstance(LPUNKNOWN pUnk, REFIID riid, void** pIFace)
 	return hr;
 }
 
-extern int g_lockCount;
+extern ULONG g_lockCount;
 STDMETHODIMP CoCatFactory::LockServer(BOOL fLock)
 {
 	if (fLock) ++g_lockCount;
