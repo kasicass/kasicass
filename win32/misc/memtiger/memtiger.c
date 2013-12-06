@@ -20,13 +20,17 @@ int main(int argc, char* argv[])
 
 	while (currSize < maxSize)
 	{
-		currSize++;
 		p = malloc(ONE_MB_SIZE);
-		assert(p);
+		if (p == NULL)
+		{
+			break;
+		}
+		currSize++;
 		memset(p, 0, ONE_MB_SIZE);
 		Sleep(10);
 	}
 
+	printf("allocated %dMb\n", currSize);
 	return 0;
 }
 
