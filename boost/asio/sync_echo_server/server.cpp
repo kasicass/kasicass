@@ -13,7 +13,7 @@ void client_session(socket_ptr sock)
 		char data[256];
 		boost::system::error_code ec;
 		size_t len = sock->read_some(buffer(data), ec);
-		if (ec.value() != boost::system::errc::success)
+		if (!ec)  // equals "if (ec.value() != boost::system::errc::success)"
 		{
 			std::cerr << "err: " << ec.value() << ", err msg: " << ec.message() << std::endl;
 			return;

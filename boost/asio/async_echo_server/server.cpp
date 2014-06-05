@@ -22,8 +22,24 @@ public:
 
 	void start()
 	{
-		async_read(socket_, buffer(data_, sizeof(data_)), boost::bind(&tcp_connection::handle_read,
+		std::cout << "async_read" << std::endl;
+		socket_.async_read_some(buffer(data_, sizeof(data_)), boost::bind(&tcp_connection::handle_read,
 			shared_from_this(), placeholders::error, placeholders::bytes_transferred));
+#if 0
+		std::cout << "sync_read" << std::endl;
+		boost::system::error_code ec;
+		size_t len = socket_.read_some(buffer(data_, 512), ec);
+		if (!ec)
+		{
+			socket_.write_some(buffer(data_, len), ec);
+		}
+#endif
+	}
+
+public:
+	~tcp_connection()
+	{
+		std::cout << "~tcp_connection" << std::endl;
 	}
 
 private:
@@ -76,7 +92,6 @@ private:
 	{
 		if (!ec)
 		{
-			std::cout << "start" << std::endl;
 			new_conn->start();
 		}
 
