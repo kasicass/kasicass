@@ -4,8 +4,8 @@
 
 namespace mm {
 
-void RecordAlloc(size_t sz);
-void RecordDealloc(size_t sz);
+void RecordAlloc(RECORD_TAG tag, size_t sz);
+void RecordDealloc(RECORD_TAG tag, size_t sz);
 
 std::string MemReport();
 

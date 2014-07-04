@@ -1,6 +1,7 @@
 #include "mm_report.hpp"
 #include <atomic>
 #include <sstream>
+#include <iostream>
 
 namespace mm {
 
@@ -17,8 +18,8 @@ public:
 	ReportManager();
 	~ReportManager();
 
-	void alloc(size_t sz);
-	void dealloc(size_t sz);
+	void alloc(RECORD_TAG tag, size_t sz);
+	void dealloc(RECORD_TAG tag, size_t sz);
 
 	std::string report();
 
@@ -27,7 +28,7 @@ private:
 	ReportManager& operator=(const ReportManager& rhs);
 
 private:
-	std::atomic_size_t total_;
+	std::atomic_size_t tags_[TAG_COUNT];
 };
 
 ReportManager& ReportManager::instance()
@@ -36,7 +37,7 @@ ReportManager& ReportManager::instance()
 	return s_instance;
 }
 
-ReportManager::ReportManager() : total_(0)
+ReportManager::ReportManager()
 {
 }
 
@@ -44,20 +45,27 @@ ReportManager::~ReportManager()
 {
 }
 
-void ReportManager::alloc(size_t sz)
+void ReportManager::alloc(RECORD_TAG tag, size_t sz)
 {
-	total_ += sz;
+	tags_[tag] += sz;
 }
 
-void ReportManager::dealloc(size_t sz)
+void ReportManager::dealloc(RECORD_TAG tag, size_t sz)
 {
-	total_ -= sz;
+	tags_[tag] -= sz;
 }
 
 std::string ReportManager::report()
 {
 	std::stringstream ss;
-	ss << "Total: " << total_ << " bytes";
+	size_t total = 0;
+	for (size_t i = 0; i < TAG_COUNT; ++i)
+	{
+		total += tags_[i];
+		ss << GetTagName((mm::RECORD_TAG)i) << ": " << tags_[i] << " bytes" << std::endl;
+	}
+	ss << "---------------" << std::endl;
+	ss << "total: " << total << std::endl;
 	return ss.str();
 }
 
@@ -66,14 +74,14 @@ std::string ReportManager::report()
 // mm::XXX() func
 //
 
-void RecordAlloc(size_t sz)
+void RecordAlloc(RECORD_TAG tag, size_t sz)
 {
-	ReportManager::instance().alloc(sz);
+	ReportManager::instance().alloc(tag, sz);
 }
 
-void RecordDealloc(size_t sz)
+void RecordDealloc(RECORD_TAG tag, size_t sz)
 {
-	ReportManager::instance().dealloc(sz);
+	ReportManager::instance().dealloc(tag, sz);
 }
 
 std::string MemReport()

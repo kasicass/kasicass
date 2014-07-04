@@ -3,17 +3,24 @@
 
 namespace mm {
 
-#define MALLOC_TAG 0x80000000
-void* Malloc(size_t sz)
-{
-	assert((sz & MALLOC_TAG) == 0);
+struct MallocOverhead {
+	size_t sz;
+	RECORD_TAG tag;
+};
 
-	void *p = malloc(sz + sizeof(size_t));
+#define MM_MALLOC_MASK 0x80000000
+void* Malloc(RECORD_TAG tag, size_t sz)
+{
+	assert((sz & MM_MALLOC_MASK) == 0);
+
+	void *p = malloc(sz + sizeof(MallocOverhead));
 	if (p)
 	{
-		*((size_t*)p) = (sz | MALLOC_TAG);
-		RecordAlloc(sz);
-		return (size_t*)p + 1;
+		MallocOverhead *mo = (MallocOverhead*)p;
+		mo->sz  = (sz | MM_MALLOC_MASK);
+		mo->tag = tag;
+		RecordAlloc(tag, sz);
+		return ((MallocOverhead *)p + 1);
 	}
 	else
 	{
@@ -25,11 +32,11 @@ void Free(void* p)
 {
 	if (p)
 	{
-		size_t sz = *((size_t*)p - 1);
-		assert((sz & MALLOC_TAG) == MALLOC_TAG);
-		sz = (sz & ~MALLOC_TAG);
-		RecordDealloc(sz);
-		free(((size_t*)p - 1));
+		MallocOverhead *mo = ((MallocOverhead*)p - 1);
+		assert((mo->sz & MM_MALLOC_MASK) == MM_MALLOC_MASK);
+		mo->sz = (mo->sz & ~MM_MALLOC_MASK);
+		RecordDealloc(mo->tag, mo->sz);
+		free(mo);
 	}
 }
 

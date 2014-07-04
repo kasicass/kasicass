@@ -4,7 +4,7 @@
 
 namespace mm {
 
-template <typename T>
+template <typename T, RECORD_TAG tag = TAG_MISC>
 class allocator
 {
 public:
@@ -36,11 +36,11 @@ public:
 		if (cnt == 0) return 0;
 		size_type sz = cnt * sizeof(T);
 		pointer p = reinterpret_cast<pointer>(::operator new(sz));
-		if (p) RecordAlloc(sz);
+		if (p) RecordAlloc(tag, sz);
 		return p;
 	}
 	inline void deallocate(pointer p, size_type cnt) {
-		if (p) RecordDealloc(cnt * sizeof(T));
+		if (p) RecordDealloc(tag, cnt * sizeof(T));
 		::operator delete(p);
 	}
 
