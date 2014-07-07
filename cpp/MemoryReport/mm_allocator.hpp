@@ -18,14 +18,14 @@ public:
 
 public:
 	template <typename U>
-	struct rebind { typedef allocator<U> other; };
+	struct rebind { typedef allocator<U, tag> other; };
 
 public:
 	inline explicit allocator() {}
 	inline ~allocator() {}
 	inline explicit allocator(allocator const&) {}
 	template <typename U>
-	inline explicit allocator(allocator<U> const&) {}
+	inline explicit allocator(allocator<U, tag> const&) {}
 
 	// address
 	inline pointer address(reference r) { return &r; }

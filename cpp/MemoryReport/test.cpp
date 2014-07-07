@@ -2,6 +2,8 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <list>
+#include <unordered_map>
 
 class Foo {
 	int a;
@@ -25,6 +27,20 @@ int main()
 	vv.push_back(20);
 	std::cout << mm::MemReport() << std::endl;
 	vv.reserve(100);
+	std::cout << mm::MemReport() << std::endl;
+
+	std::list<int, mm::allocator<int, mm::TAG_LIST_INT>> ll;
+	std::cout << mm::MemReport() << std::endl;
+	ll.push_back(10);
+	std::cout << mm::MemReport() << std::endl;
+	ll.push_back(20);
+	std::cout << mm::MemReport() << std::endl;
+
+	std::unordered_map<int, int, std::hash<int>, std::equal_to<int>, mm::allocator<std::pair<int, int>, mm::TAG_MAP>> um;
+	std::cout << mm::MemReport() << std::endl;
+	um[10] = 10;
+	std::cout << mm::MemReport() << std::endl;
+	um[20] = 20;
 	std::cout << mm::MemReport() << std::endl;
 }
 
