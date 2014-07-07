@@ -3,6 +3,8 @@
 
 namespace mm {
 
+#if defined(MEMORY_REPORT_ENABLE)
+
 struct MallocOverhead {
 	size_t sz;
 	RECORD_TAG tag;
@@ -45,6 +47,20 @@ void Free(void* p)
 		free(mo);
 	}
 }
+
+#else
+
+void* Malloc(RECORD_TAG tag, size_t sz)
+{
+	return malloc(sz);
+}
+
+void Free(void* p)
+{
+	free(p);
+}
+
+#endif
 
 }
 

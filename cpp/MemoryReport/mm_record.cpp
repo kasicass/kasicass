@@ -5,6 +5,8 @@
 
 namespace mm {
 
+#if defined(MEMORY_REPORT_ENABLE)
+
 //
 // ReportManager
 //
@@ -89,6 +91,23 @@ std::string MemReport()
 {
 	return ReportManager::instance().report();
 }
+
+#else
+
+void RecordAlloc(RECORD_TAG tag, size_t sz)
+{
+}
+
+void RecordDealloc(RECORD_TAG tag, size_t sz)
+{
+}
+
+std::string MemReport()
+{
+	return std::string("MemoryReport not enabled");
+}
+
+#endif
 
 }
 

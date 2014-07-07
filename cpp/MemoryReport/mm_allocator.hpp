@@ -1,8 +1,14 @@
 #pragma once
 
+#if defined(MEMORY_REPORT_ENABLE)
 #include <limits>
+#else
+#include <memory>
+#endif
 
 namespace mm {
+
+#if defined(MEMORY_REPORT_ENABLE)
 
 template <typename T, RECORD_TAG tag = TAG_MISC>
 class allocator
@@ -56,6 +62,13 @@ public:
 	inline bool operator==(allocator const&) { return true; }
 	inline bool operator!=(allocator const& a) { return !operator==(a); }
 };
+
+#else
+
+template <typename T, RECORD_TAG tag = TAG_MISC>
+class allocator : public std::allocator<T> {};
+
+#endif
 
 }
 
