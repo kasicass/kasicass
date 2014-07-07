@@ -4,9 +4,18 @@
 #include <vector>
 #include <list>
 #include <unordered_map>
+#include <string>
 
 class Foo {
 	int a;
+};
+
+class Bar {
+public:
+	Bar(const std::string& v) { v_ = v; }
+
+private:
+	std::string v_;
 };
 
 int main()
@@ -14,6 +23,11 @@ int main()
 	Foo *p = mm::New<Foo>(mm::TAG_FOO);
 	std::cout << mm::MemReport() << std::endl;
 	mm::Delete(p);
+	std::cout << mm::MemReport() << std::endl;
+
+	Bar *b = mm::New<Bar>(mm::TAG_FOO, "Hello");
+	std::cout << mm::MemReport() << std::endl;
+	mm::Delete(b);
 	std::cout << mm::MemReport() << std::endl;
 
 	char *v = (char *) mm::Malloc(mm::TAG_BUFFER, 10);
