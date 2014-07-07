@@ -4,6 +4,16 @@ namespace mm {
 
 #if defined(MEMORY_REPORT_ENABLE)
 
+#if 0   // Variadic Templates (vs2013)
+template <typename T, typename... Arguments>
+T* New(RECORD_TAG tag, Arguments... args)
+{
+	T* p = (T*)Malloc(tag, sizeof(T));
+	::new (p) T(args...);
+	return p;
+}
+#endif
+
 template <typename T>
 T* New(RECORD_TAG tag)
 {
@@ -128,6 +138,7 @@ T* New(RECORD_TAG tag, const X1& arg1, const X2& arg2, const X3& arg3, const X4&
 {
 	return new T(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
+
 
 template <typename T>
 void Delete(T* p)
