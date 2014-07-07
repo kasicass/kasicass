@@ -3,7 +3,8 @@
 namespace mm {
 
 enum RECORD_TAG {
-	TAG_MISC = 0,
+	TAG_MM_SELF = 0,   // MemoryReport self memory usage
+	TAG_MISC,
 	TAG_FOO,
 	TAG_BAR,
 	TAG_VECTOR_INT,

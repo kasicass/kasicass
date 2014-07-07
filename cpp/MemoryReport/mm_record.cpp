@@ -39,6 +39,7 @@ ReportManager& ReportManager::instance()
 
 ReportManager::ReportManager()
 {
+	tags_[TAG_MM_SELF] = sizeof(*this);
 }
 
 ReportManager::~ReportManager()

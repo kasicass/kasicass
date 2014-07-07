@@ -19,7 +19,10 @@ void* Malloc(RECORD_TAG tag, size_t sz)
 		MallocOverhead *mo = (MallocOverhead*)p;
 		mo->sz  = (sz | MM_MALLOC_MASK);
 		mo->tag = tag;
+
 		RecordAlloc(tag, sz);
+		RecordAlloc(TAG_MM_SELF, sizeof(MallocOverhead));
+
 		return ((MallocOverhead *)p + 1);
 	}
 	else
@@ -35,7 +38,10 @@ void Free(void* p)
 		MallocOverhead *mo = ((MallocOverhead*)p - 1);
 		assert((mo->sz & MM_MALLOC_MASK) == MM_MALLOC_MASK);
 		mo->sz = (mo->sz & ~MM_MALLOC_MASK);
+
+		RecordDealloc(TAG_MM_SELF, sizeof(MallocOverhead));
 		RecordDealloc(mo->tag, mo->sz);
+
 		free(mo);
 	}
 }

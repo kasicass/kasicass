@@ -3,6 +3,7 @@
 namespace mm {
 
 static const char* const g_tagNames[] = {
+	"mm_system",
 	"misc",
 	"foo",
 	"bar",
