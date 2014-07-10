@@ -6,3 +6,4 @@
 #include "mm_newdelete.hpp"
 #include "mm_classnewdelete.hpp"
 #include "mm_allocator.hpp"
+#include "mm_stlwrapper.hpp"

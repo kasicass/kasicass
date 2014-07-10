@@ -12,6 +12,9 @@ enum RECORD_TAG {
 	TAG_MAP,
 	TAG_BUFFER,
 
+	TAG_VECTOR_A,
+	TAG_VECTOR_B,
+
 	TAG_COUNT,
 };
 

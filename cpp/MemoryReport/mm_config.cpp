@@ -13,6 +13,8 @@ static const char* const g_tagNames[] = {
 	"list<int>",
 	"map",
 	"buffer",
+	"vector_a",
+	"vector_b",
 };
 
 const char* GetTagName(RECORD_TAG tag)

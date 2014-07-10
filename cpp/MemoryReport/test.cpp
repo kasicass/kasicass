@@ -20,10 +20,18 @@ private:
 
 int main()
 {
+	mm::vector<int, mm::TAG_VECTOR_A> a;
+	mm::vector<int, mm::TAG_VECTOR_B> b;
+
+	a.push_back(10);
+	// b = a; // error, not support
+
+/*
 	Foo *p = new Foo();
 	std::cout << mm::MemReport() << std::endl;
 	delete p;
 	std::cout << mm::MemReport() << std::endl;
+*/
 	
 
 	/*

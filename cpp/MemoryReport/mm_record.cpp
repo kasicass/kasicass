@@ -23,6 +23,9 @@ public:
 	void alloc(RECORD_TAG tag, size_t sz);
 	void dealloc(RECORD_TAG tag, size_t sz);
 
+	void inccnt(RECORD_TAG tag, size_t cnt);
+	void deccnt(RECORD_TAG tag, size_t cnt);
+
 	std::string report();
 
 private:
@@ -31,6 +34,8 @@ private:
 
 private:
 	std::atomic_size_t tags_[TAG_COUNT];
+	std::atomic_size_t cnts_[TAG_COUNT];
+	std::atomic_size_t peekcnts_[TAG_COUNT];
 };
 
 ReportManager& ReportManager::instance()
@@ -58,17 +63,39 @@ void ReportManager::dealloc(RECORD_TAG tag, size_t sz)
 	tags_[tag] -= sz;
 }
 
+void ReportManager::inccnt(RECORD_TAG tag, size_t cnt)
+{
+	cnts_[tag] += cnt;
+	if (cnts_[tag] > peekcnts_[tag])
+	{
+		// thread-unsafe
+		size_t v = cnts_[tag];
+		peekcnts_[tag] = v;
+	}
+}
+
+void ReportManager::deccnt(RECORD_TAG tag, size_t cnt)
+{
+	cnts_[tag] -= cnt;
+}
+
 std::string ReportManager::report()
 {
 	std::stringstream ss;
 	size_t total = 0;
+	ss << "[MM] **** MmSystem Memory Report ****" << std::endl;
+
 	for (size_t i = 0; i < TAG_COUNT; ++i)
 	{
 		total += tags_[i];
-		ss << GetTagName((mm::RECORD_TAG)i) << ": " << tags_[i] << " bytes" << std::endl;
+		ss << "[MM] " << GetTagName((mm::RECORD_TAG)i) << ": "
+		   << tags_[i] << " bytes(" << float(tags_[i]) / 1024.f / 1024.f << " Mb), "
+		   << "(" << cnts_[i] << "/" << peekcnts_[i] << ") cnts"
+		   << std::endl;
 	}
-	ss << "---------------" << std::endl;
-	ss << "total: " << total << std::endl;
+	ss << "[MM] ---------------" << std::endl;
+	ss << "[MM] total: " << total << " bytes(" << float(total) / 1024.f / 1024.f << " Mb)" << std::endl;
+
 	return ss.str();
 }
 
@@ -87,6 +114,16 @@ void RecordDealloc(RECORD_TAG tag, size_t sz)
 	ReportManager::instance().dealloc(tag, sz);
 }
 
+void RecordIncCount(RECORD_TAG tag, size_t cnt)
+{
+	ReportManager::instance().inccnt(tag, cnt);
+}
+
+void RecordDecCount(RECORD_TAG tag, size_t cnt)
+{
+	ReportManager::instance().deccnt(tag, cnt);
+}
+
 std::string MemReport()
 {
 	return ReportManager::instance().report();
@@ -99,6 +136,14 @@ void RecordAlloc(RECORD_TAG tag, size_t sz)
 }
 
 void RecordDealloc(RECORD_TAG tag, size_t sz)
+{
+}
+
+void RecordIncCount(RECORD_TAG tag, size_t cnt)
+{
+}
+
+void RecordDecCount(RECORD_TAG tag, size_t cnt)
 {
 }
 
