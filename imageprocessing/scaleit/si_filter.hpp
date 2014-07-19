@@ -1,6 +1,7 @@
 #pragma once
 
 #include "si_image.hpp"
+#include <string>
 
 namespace si {
 
@@ -21,11 +22,7 @@ protected:
 };
 typedef std::shared_ptr<Filter> FilterPtr;
 
-enum FILTER_TYPE
-{
-	FILTER_LINEAR,
-};
-FilterPtr makeFilter(FILTER_TYPE ftype);
+FilterPtr makeFilter(const std::string& ftype);
 
 }
 

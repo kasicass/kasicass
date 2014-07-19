@@ -37,16 +37,10 @@ protected:
 	}
 };
 
-FilterPtr makeFilter(FILTER_TYPE ftype)
+FilterPtr makeFilter(const std::string& ftype)
 {
-	switch (ftype)
-	{
-	case FILTER_LINEAR:
-		return std::make_shared<LinearFilter>();
-
-	default:
-		return std::make_shared<LinearFilter>();
-	}
+	if (ftype == "linear") return std::make_shared<LinearFilter>();
+	else return std::make_shared<LinearFilter>();
 }
 
 }

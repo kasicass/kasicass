@@ -4,8 +4,8 @@
 
 namespace si {
 
-Scaler::Scaler(const std::string& infile, float rate, const std::string& filter) :
-	infile_(infile), rate_(rate), filter_(filter)
+Scaler::Scaler(const std::string& infile, float rate, const std::string& ftype) :
+	infile_(infile), rate_(rate), ftype_(ftype)
 {
 }
 
@@ -16,9 +16,7 @@ Scaler::~Scaler()
 void Scaler::run()
 {
 	ImagePtr img = io::readFromPpm(infile_);
-	FILTER_TYPE ftype = FILTER_LINEAR;
-	if (filter_ == "linear") ftype = FILTER_LINEAR;
-	FilterPtr filter = makeFilter(ftype);
+	FilterPtr filter = makeFilter(ftype_);
 	filter->setInfo(img, rate_);
 
 	int width  = int(rate_ * img->width());
