@@ -70,6 +70,10 @@ ImagePtr readFromPpm(const std::string& filename)
 				x += 1;
 				if (x == width) { x = 0; y += 1; }
 				break;
+
+			default:
+				assert(0 && "ERROR PPM PARSER STATE");
+				break;
 			}
 		}
 	}

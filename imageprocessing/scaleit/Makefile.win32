@@ -1,5 +1,5 @@
-SRC = si_main.cpp si_ppm.cpp si_image.cpp
-OBJ = si_main.obj si_ppm.obj si_image.obj
+SRC = si_main.cpp si_ppm.cpp si_image.cpp si_filter.cpp si_scaler.cpp
+OBJ = si_main.obj si_ppm.obj si_image.obj si_filter.obj si_scaler.obj
 CFLAGS = /c /EHsc /Zc:wchar_t /fp:precise /D_WIN32_WINNT=0x0500 /D "_MBCS" /D "_CONSOLE" /MD
 LDFLAGS = /SUBSYSTEM:CONSOLE
 
