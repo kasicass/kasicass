@@ -4,8 +4,8 @@
 
 namespace si {
 
-Scaler::Scaler(const std::string& infile, float rate, const std::string& ftype) :
-	infile_(infile), rate_(rate), ftype_(ftype)
+Scaler::Scaler(const std::string& infile, const std::string& outfile, float rate, const std::string& ftype) :
+	infile_(infile), outfile_(outfile), rate_(rate), ftype_(ftype)
 {
 }
 
@@ -30,7 +30,7 @@ void Scaler::run()
 		}
 	}
 
-	io::writeToPpm(outImg, "output.ppm");
+	io::writeToPpm(outImg, outfile_);
 }
 
 }
