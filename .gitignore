@@ -9,3 +9,5 @@ Lib
 ipch
 *.exe
 *.aps
+*.obj
+*.swp
