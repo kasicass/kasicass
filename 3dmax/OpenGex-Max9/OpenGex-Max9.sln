@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGex-Max9", "OpenGex-Max9.vcxproj", "{334CDD3F-6FF5-4559-B8E9-7E50567F873B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{334CDD3F-6FF5-4559-B8E9-7E50567F873B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{334CDD3F-6FF5-4559-B8E9-7E50567F873B}.Debug|Win32.Build.0 = Debug|Win32
+		{334CDD3F-6FF5-4559-B8E9-7E50567F873B}.Release|Win32.ActiveCfg = Release|Win32
+		{334CDD3F-6FF5-4559-B8E9-7E50567F873B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
