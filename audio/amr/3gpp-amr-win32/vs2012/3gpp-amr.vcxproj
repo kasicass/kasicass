@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\agc.c" />
+    <ClCompile Include="..\src\autocorr.c" />
+    <ClCompile Include="..\src\az_lsp.c" />
+    <ClCompile Include="..\src\a_refl.c" />
+    <ClCompile Include="..\src\basicop2.c" />
+    <ClCompile Include="..\src\bgnscd.c" />
+    <ClCompile Include="..\src\bits2prm.c" />
+    <ClCompile Include="..\src\b_cn_cod.c" />
+    <ClCompile Include="..\src\c1035pf.c" />
+    <ClCompile Include="..\src\c2_11pf.c" />
+    <ClCompile Include="..\src\c2_9pf.c" />
+    <ClCompile Include="..\src\c3_14pf.c" />
+    <ClCompile Include="..\src\c4_17pf.c" />
+    <ClCompile Include="..\src\c8_31pf.c" />
+    <ClCompile Include="..\src\calc_cor.c" />
+    <ClCompile Include="..\src\calc_en.c" />
+    <ClCompile Include="..\src\cbsearch.c" />
+    <ClCompile Include="..\src\cl_ltp.c" />
+    <ClCompile Include="..\src\cod_amr.c" />
+    <ClCompile Include="..\src\convolve.c" />
+    <ClCompile Include="..\src\copy.c" />
+    <ClCompile Include="..\src\cor_h.c" />
+    <ClCompile Include="..\src\count.c" />
+    <ClCompile Include="..\src\c_g_aver.c" />
+    <ClCompile Include="..\src\d1035pf.c" />
+    <ClCompile Include="..\src\d2_11pf.c" />
+    <ClCompile Include="..\src\d2_9pf.c" />
+    <ClCompile Include="..\src\d3_14pf.c" />
+    <ClCompile Include="..\src\d4_17pf.c" />
+    <ClCompile Include="..\src\d8_31pf.c" />
+    <ClCompile Include="..\src\dec_amr.c" />
+    <ClCompile Include="..\src\dec_gain.c" />
+    <ClCompile Include="..\src\dec_lag3.c" />
+    <ClCompile Include="..\src\dec_lag6.c" />
+    <ClCompile Include="..\src\dtx_dec.c" />
+    <ClCompile Include="..\src\dtx_enc.c" />
+    <ClCompile Include="..\src\d_gain_c.c" />
+    <ClCompile Include="..\src\d_gain_p.c" />
+    <ClCompile Include="..\src\d_homing.c" />
+    <ClCompile Include="..\src\d_plsf.c" />
+    <ClCompile Include="..\src\d_plsf_3.c" />
+    <ClCompile Include="..\src\d_plsf_5.c" />
+    <ClCompile Include="..\src\ec_gains.c" />
+    <ClCompile Include="..\src\enc_lag3.c" />
+    <ClCompile Include="..\src\enc_lag6.c" />
+    <ClCompile Include="..\src\ex_ctrl.c" />
+    <ClCompile Include="..\src\e_homing.c" />
+    <ClCompile Include="..\src\gain_q.c" />
+    <ClCompile Include="..\src\gc_pred.c" />
+    <ClCompile Include="..\src\gmed_n.c" />
+    <ClCompile Include="..\src\g_adapt.c" />
+    <ClCompile Include="..\src\g_code.c" />
+    <ClCompile Include="..\src\g_pitch.c" />
+    <ClCompile Include="..\src\hp_max.c" />
+    <ClCompile Include="..\src\inter_36.c" />
+    <ClCompile Include="..\src\int_lpc.c" />
+    <ClCompile Include="..\src\int_lsf.c" />
+    <ClCompile Include="..\src\inv_sqrt.c" />
+    <ClCompile Include="..\src\lag_wind.c" />
+    <ClCompile Include="..\src\levinson.c" />
+    <ClCompile Include="..\src\lflg_upd.c" />
+    <ClCompile Include="..\src\log2.c" />
+    <ClCompile Include="..\src\lpc.c" />
+    <ClCompile Include="..\src\lsfwt.c" />
+    <ClCompile Include="..\src\lsp.c" />
+    <ClCompile Include="..\src\lsp_avg.c" />
+    <ClCompile Include="..\src\lsp_az.c" />
+    <ClCompile Include="..\src\lsp_lsf.c" />
+    <ClCompile Include="..\src\mac_32.c" />
+    <ClCompile Include="..\src\n_proc.c" />
+    <ClCompile Include="..\src\ol_ltp.c" />
+    <ClCompile Include="..\src\oper_32b.c" />
+    <ClCompile Include="..\src\ph_disp.c" />
+    <ClCompile Include="..\src\pitch_fr.c" />
+    <ClCompile Include="..\src\pitch_ol.c" />
+    <ClCompile Include="..\src\post_pro.c" />
+    <ClCompile Include="..\src\pow2.c" />
+    <ClCompile Include="..\src\pred_lt.c" />
+    <ClCompile Include="..\src\preemph.c" />
+    <ClCompile Include="..\src\pre_big.c" />
+    <ClCompile Include="..\src\pre_proc.c" />
+    <ClCompile Include="..\src\prm2bits.c" />
+    <ClCompile Include="..\src\pstfilt.c" />
+    <ClCompile Include="..\src\p_ol_wgh.c" />
+    <ClCompile Include="..\src\qgain475.c" />
+    <ClCompile Include="..\src\qgain795.c" />
+    <ClCompile Include="..\src\qua_gain.c" />
+    <ClCompile Include="..\src\q_gain_c.c" />
+    <ClCompile Include="..\src\q_gain_p.c" />
+    <ClCompile Include="..\src\q_plsf.c" />
+    <ClCompile Include="..\src\q_plsf_3.c" />
+    <ClCompile Include="..\src\q_plsf_5.c" />
+    <ClCompile Include="..\src\reorder.c" />
+    <ClCompile Include="..\src\residu.c" />
+    <ClCompile Include="..\src\r_fft.c" />
+    <ClCompile Include="..\src\s10_8pf.c" />
+    <ClCompile Include="..\src\set_sign.c" />
+    <ClCompile Include="..\src\set_zero.c" />
+    <ClCompile Include="..\src\sid_sync.c" />
+    <ClCompile Include="..\src\spreproc.c" />
+    <ClCompile Include="..\src\spstproc.c" />
+    <ClCompile Include="..\src\sp_dec.c" />
+    <ClCompile Include="..\src\sp_enc.c" />
+    <ClCompile Include="..\src\sqrt_l.c" />
+    <ClCompile Include="..\src\strfunc.c" />
+    <ClCompile Include="..\src\syn_filt.c" />
+    <ClCompile Include="..\src\ton_stab.c" />
+    <ClCompile Include="..\src\vad1.c" />
+    <ClCompile Include="..\src\vad2.c" />
+    <ClCompile Include="..\src\vadname.c" />
+    <ClCompile Include="..\src\weight_a.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\agc.h" />
+    <ClInclude Include="..\src\autocorr.h" />
+    <ClInclude Include="..\src\az_lsp.h" />
+    <ClInclude Include="..\src\a_refl.h" />
+    <ClInclude Include="..\src\basic_op.h" />
+    <ClInclude Include="..\src\bgnscd.h" />
+    <ClInclude Include="..\src\bits2prm.h" />
+    <ClInclude Include="..\src\b_cn_cod.h" />
+    <ClInclude Include="..\src\c1035pf.h" />
+    <ClInclude Include="..\src\c2_11pf.h" />
+    <ClInclude Include="..\src\c2_9pf.h" />
+    <ClInclude Include="..\src\c3_14pf.h" />
+    <ClInclude Include="..\src\c4_17pf.h" />
+    <ClInclude Include="..\src\c8_31pf.h" />
+    <ClInclude Include="..\src\calc_cor.h" />
+    <ClInclude Include="..\src\calc_en.h" />
+    <ClInclude Include="..\src\cbsearch.h" />
+    <ClInclude Include="..\src\cl_ltp.h" />
+    <ClInclude Include="..\src\cnst.h" />
+    <ClInclude Include="..\src\cnst_vad.h" />
+    <ClInclude Include="..\src\cod_amr.h" />
+    <ClInclude Include="..\src\convolve.h" />
+    <ClInclude Include="..\src\copy.h" />
+    <ClInclude Include="..\src\cor_h.h" />
+    <ClInclude Include="..\src\count.h" />
+    <ClInclude Include="..\src\c_g_aver.h" />
+    <ClInclude Include="..\src\d1035pf.h" />
+    <ClInclude Include="..\src\d2_11pf.h" />
+    <ClInclude Include="..\src\d2_9pf.h" />
+    <ClInclude Include="..\src\d3_14pf.h" />
+    <ClInclude Include="..\src\d4_17pf.h" />
+    <ClInclude Include="..\src\d8_31pf.h" />
+    <ClInclude Include="..\src\dec_amr.h" />
+    <ClInclude Include="..\src\dec_gain.h" />
+    <ClInclude Include="..\src\dec_lag3.h" />
+    <ClInclude Include="..\src\dec_lag6.h" />
+    <ClInclude Include="..\src\dtx_dec.h" />
+    <ClInclude Include="..\src\dtx_enc.h" />
+    <ClInclude Include="..\src\d_gain_c.h" />
+    <ClInclude Include="..\src\d_gain_p.h" />
+    <ClInclude Include="..\src\d_homing.h" />
+    <ClInclude Include="..\src\d_plsf.h" />
+    <ClInclude Include="..\src\ec_gains.h" />
+    <ClInclude Include="..\src\enc_lag3.h" />
+    <ClInclude Include="..\src\enc_lag6.h" />
+    <ClInclude Include="..\src\ex_ctrl.h" />
+    <ClInclude Include="..\src\e_homing.h" />
+    <ClInclude Include="..\src\frame.h" />
+    <ClInclude Include="..\src\gain_q.h" />
+    <ClInclude Include="..\src\gc_pred.h" />
+    <ClInclude Include="..\src\gmed_n.h" />
+    <ClInclude Include="..\src\g_adapt.h" />
+    <ClInclude Include="..\src\g_code.h" />
+    <ClInclude Include="..\src\g_pitch.h" />
+    <ClInclude Include="..\src\hp_max.h" />
+    <ClInclude Include="..\src\inter_36.h" />
+    <ClInclude Include="..\src\int_lpc.h" />
+    <ClInclude Include="..\src\int_lsf.h" />
+    <ClInclude Include="..\src\inv_sqrt.h" />
+    <ClInclude Include="..\src\lag_wind.h" />
+    <ClInclude Include="..\src\levinson.h" />
+    <ClInclude Include="..\src\log2.h" />
+    <ClInclude Include="..\src\lpc.h" />
+    <ClInclude Include="..\src\lsfwt.h" />
+    <ClInclude Include="..\src\lsp.h" />
+    <ClInclude Include="..\src\lsp_avg.h" />
+    <ClInclude Include="..\src\lsp_az.h" />
+    <ClInclude Include="..\src\lsp_lsf.h" />
+    <ClInclude Include="..\src\mac_32.h" />
+    <ClInclude Include="..\src\mode.h" />
+    <ClInclude Include="..\src\n_proc.h" />
+    <ClInclude Include="..\src\ol_ltp.h" />
+    <ClInclude Include="..\src\oper_32b.h" />
+    <ClInclude Include="..\src\ph_disp.h" />
+    <ClInclude Include="..\src\pitch_fr.h" />
+    <ClInclude Include="..\src\pitch_ol.h" />
+    <ClInclude Include="..\src\post_pro.h" />
+    <ClInclude Include="..\src\pow2.h" />
+    <ClInclude Include="..\src\pred_lt.h" />
+    <ClInclude Include="..\src\preemph.h" />
+    <ClInclude Include="..\src\pre_big.h" />
+    <ClInclude Include="..\src\pre_proc.h" />
+    <ClInclude Include="..\src\prm2bits.h" />
+    <ClInclude Include="..\src\pstfilt.h" />
+    <ClInclude Include="..\src\p_ol_wgh.h" />
+    <ClInclude Include="..\src\qgain475.h" />
+    <ClInclude Include="..\src\qgain795.h" />
+    <ClInclude Include="..\src\qua_gain.h" />
+    <ClInclude Include="..\src\q_gain_c.h" />
+    <ClInclude Include="..\src\q_gain_p.h" />
+    <ClInclude Include="..\src\q_plsf.h" />
+    <ClInclude Include="..\src\reorder.h" />
+    <ClInclude Include="..\src\residu.h" />
+    <ClInclude Include="..\src\s10_8pf.h" />
+    <ClInclude Include="..\src\set_sign.h" />
+    <ClInclude Include="..\src\set_zero.h" />
+    <ClInclude Include="..\src\sid_sync.h" />
+    <ClInclude Include="..\src\spreproc.h" />
+    <ClInclude Include="..\src\spstproc.h" />
+    <ClInclude Include="..\src\sp_dec.h" />
+    <ClInclude Include="..\src\sp_enc.h" />
+    <ClInclude Include="..\src\sqrt_l.h" />
+    <ClInclude Include="..\src\strfunc.h" />
+    <ClInclude Include="..\src\syn_filt.h" />
+    <ClInclude Include="..\src\ton_stab.h" />
+    <ClInclude Include="..\src\typedef.h" />
+    <ClInclude Include="..\src\typedefs.h" />
+    <ClInclude Include="..\src\vad.h" />
+    <ClInclude Include="..\src\vad1.h" />
+    <ClInclude Include="..\src\vad2.h" />
+    <ClInclude Include="..\src\vadname.h" />
+    <ClInclude Include="..\src\weight_a.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\spch_do2.cod" />
+    <None Include="..\src\spch_dos.cod" />
+    <None Include="..\src\spch_un2.cod" />
+    <None Include="..\src\spch_unx.cod" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B2879F5D-ACD9-45DC-A918-F9222EFCDBE9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>3gppamr</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\lib\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\build\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\lib\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\build\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;MMS_IO;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;MMS_IO;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

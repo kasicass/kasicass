@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3gpp-amr", "3gpp-amr.vcxproj", "{B2879F5D-ACD9-45DC-A918-F9222EFCDBE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F16EFA2-148C-48A1-8D1B-C248872DD05A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{3BBAC653-7537-4949-8742-F15E87C044F2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "encoder", "tests\encoder.vcxproj", "{C950D404-4FCE-4BFA-AA2C-03D73AA361D2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decoder", "tests\decoder.vcxproj", "{DC705AFA-CD95-4583-B5B1-F75097D3BE3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2879F5D-ACD9-45DC-A918-F9222EFCDBE9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B2879F5D-ACD9-45DC-A918-F9222EFCDBE9}.Debug|Win32.Build.0 = Debug|Win32
+		{B2879F5D-ACD9-45DC-A918-F9222EFCDBE9}.Release|Win32.ActiveCfg = Release|Win32
+		{B2879F5D-ACD9-45DC-A918-F9222EFCDBE9}.Release|Win32.Build.0 = Release|Win32
+		{C950D404-4FCE-4BFA-AA2C-03D73AA361D2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C950D404-4FCE-4BFA-AA2C-03D73AA361D2}.Debug|Win32.Build.0 = Debug|Win32
+		{C950D404-4FCE-4BFA-AA2C-03D73AA361D2}.Release|Win32.ActiveCfg = Release|Win32
+		{C950D404-4FCE-4BFA-AA2C-03D73AA361D2}.Release|Win32.Build.0 = Release|Win32
+		{DC705AFA-CD95-4583-B5B1-F75097D3BE3C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DC705AFA-CD95-4583-B5B1-F75097D3BE3C}.Debug|Win32.Build.0 = Debug|Win32
+		{DC705AFA-CD95-4583-B5B1-F75097D3BE3C}.Release|Win32.ActiveCfg = Release|Win32
+		{DC705AFA-CD95-4583-B5B1-F75097D3BE3C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B2879F5D-ACD9-45DC-A918-F9222EFCDBE9} = {3BBAC653-7537-4949-8742-F15E87C044F2}
+		{C950D404-4FCE-4BFA-AA2C-03D73AA361D2} = {0F16EFA2-148C-48A1-8D1B-C248872DD05A}
+		{DC705AFA-CD95-4583-B5B1-F75097D3BE3C} = {0F16EFA2-148C-48A1-8D1B-C248872DD05A}
+	EndGlobalSection
+EndGlobal

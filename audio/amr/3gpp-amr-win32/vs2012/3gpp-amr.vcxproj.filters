@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d7d600c7-5513-481e-ad13-32216b02fd89}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\a_refl.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\agc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\autocorr.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\az_lsp.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\b_cn_cod.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basicop2.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bgnscd.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bits2prm.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\c_g_aver.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\c2_9pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\c2_11pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\c3_14pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\c4_17pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\c8_31pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\c1035pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\calc_cor.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\calc_en.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\cbsearch.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\cl_ltp.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\cod_amr.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\convolve.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\copy.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\cor_h.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\count.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d_gain_c.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d_gain_p.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d_homing.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d_plsf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d_plsf_3.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d_plsf_5.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d2_9pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d2_11pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d3_14pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d4_17pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d8_31pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\d1035pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\dec_amr.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\dec_gain.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\dec_lag3.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\dec_lag6.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\dtx_dec.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\dtx_enc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\e_homing.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ec_gains.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\enc_lag3.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\enc_lag6.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ex_ctrl.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\g_adapt.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\g_code.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\g_pitch.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gain_q.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gc_pred.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gmed_n.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\hp_max.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\int_lpc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\int_lsf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\inter_36.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\inv_sqrt.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lag_wind.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\levinson.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lflg_upd.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\log2.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lpc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lsfwt.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lsp.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lsp_avg.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lsp_az.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lsp_lsf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mac_32.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\n_proc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ol_ltp.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\oper_32b.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\p_ol_wgh.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ph_disp.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pitch_fr.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pitch_ol.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\post_pro.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pow2.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pre_big.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pre_proc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pred_lt.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\preemph.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\prm2bits.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pstfilt.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\q_gain_c.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\q_gain_p.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\q_plsf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\q_plsf_3.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\q_plsf_5.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\qgain475.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\qgain795.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\qua_gain.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\r_fft.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\reorder.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\residu.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\s10_8pf.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\set_sign.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\set_zero.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sid_sync.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sp_dec.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sp_enc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spreproc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spstproc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sqrt_l.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\strfunc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\syn_filt.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ton_stab.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\vad1.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\vad2.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\vadname.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\weight_a.c">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\a_refl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\agc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\autocorr.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\az_lsp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\b_cn_cod.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basic_op.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\bgnscd.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\bits2prm.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\c_g_aver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\c2_9pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\c2_11pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\c3_14pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\c4_17pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\c8_31pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\c1035pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\calc_cor.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\calc_en.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\cbsearch.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\cl_ltp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\cnst.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\cnst_vad.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\cod_amr.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\convolve.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\copy.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\cor_h.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\count.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\d_gain_c.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\d_gain_p.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\d_homing.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\d_plsf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\d2_9pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\d2_11pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\d3_14pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\d4_17pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\d8_31pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\d1035pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\dec_amr.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\dec_gain.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\dec_lag3.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\dec_lag6.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\dtx_dec.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\dtx_enc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\e_homing.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ec_gains.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\enc_lag3.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\enc_lag6.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ex_ctrl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\frame.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\g_adapt.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\g_code.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\g_pitch.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gain_q.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gc_pred.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gmed_n.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\hp_max.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\int_lpc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\int_lsf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\inter_36.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\inv_sqrt.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lag_wind.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\levinson.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\log2.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lpc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lsfwt.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lsp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lsp_avg.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lsp_az.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lsp_lsf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mac_32.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mode.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\n_proc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ol_ltp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\oper_32b.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\p_ol_wgh.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ph_disp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pitch_fr.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pitch_ol.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\post_pro.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pow2.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pre_big.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pre_proc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pred_lt.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\preemph.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\prm2bits.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pstfilt.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\q_gain_c.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\q_gain_p.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\q_plsf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\qgain475.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\qgain795.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\qua_gain.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\reorder.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\residu.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\s10_8pf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\set_sign.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\set_zero.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\sid_sync.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\sp_dec.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\sp_enc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\spreproc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\spstproc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\sqrt_l.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\strfunc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\syn_filt.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ton_stab.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\typedef.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\typedefs.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\vad.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\vad1.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\vad2.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\vadname.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\weight_a.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\spch_do2.cod">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\spch_dos.cod">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\spch_un2.cod">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\spch_unx.cod">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+</Project>
