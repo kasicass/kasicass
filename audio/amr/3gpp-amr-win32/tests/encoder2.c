@@ -1,36 +1,5 @@
 /*
 *****************************************************************************
-*
-*      GSM AMR-NB speech codec   R98   Version 7.6.0   December 12, 2001
-*                                R99   Version 3.3.0                
-*                                REL-4 Version 4.1.0                
-*
-*****************************************************************************
-*
-*      File             : coder.c
-*      Purpose          : Speech encoder main program.
-*
-*****************************************************************************
-*
-*    Usage : coder speech_file  bitstream_file
-*
-*    Format for speech_file:
-*      Speech is read from a binary file of 16 bits data.
-*
-*    Format for bitstream_file:
-*        1 word (2-byte) for the TX frame type
-*          (see frame.h for possible values)
-*      244 words (2-byte) containing 244 bits.
-*          Bit 0 = 0x0000 and Bit 1 = 0x0001
-*        1 word (2-byte) for the mode indication
-*          (see mode.h for possible values)
-*        4 words for future use, currently written as zero
-*
-*****************************************************************************
-*/
- 
-/*
-*****************************************************************************
 *                         INCLUDE FILES
 *****************************************************************************
 */
@@ -55,6 +24,7 @@
 
 #ifdef MMS_IO
 #define AMR_MAGIC_NUMBER "#!AMR\n"
+#define AMR_MAGIC_NUMBER_LEN (sizeof(AMR_MAGIC_NUMBER)-1)
 #define MAX_PACKED_SIZE (MAX_SERIAL_SIZE / 8 + 2)
 #endif
 
@@ -62,6 +32,13 @@ const char coder_id[] = "@(#)$Id $";
 
 /* frame size in serial bitstream file (frame type + serial stream + flags) */
 #define SERIAL_FRAMESIZE (1+MAX_SERIAL_SIZE+5)
+
+
+/*
+********************************************************************************
+*                         LOCAL PROGRAM CODE
+********************************************************************************
+*/
 
 struct OutputBuffer {
 	char *data;
@@ -130,7 +107,7 @@ struct OutputBuffer* encodePCMtoAMR(const char *buf, unsigned int len)
 
 #ifdef MMS_IO
 	/* write magic number to indicate single channel AMR file storage format */
-	OB_Append(ob, AMR_MAGIC_NUMBER, strlen(AMR_MAGIC_NUMBER));
+	OB_Append(ob, AMR_MAGIC_NUMBER, AMR_MAGIC_NUMBER_LEN);
 #endif
 
 	/*-----------------------------------------------------------------------*
