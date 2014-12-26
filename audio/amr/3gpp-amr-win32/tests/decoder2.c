@@ -91,6 +91,11 @@ struct OutputBuffer* decodeAMRtoPCM(const char *buf, unsigned int len)
 
 #ifdef MMS_IO
 	/* read and verify magic number */
+	if (curr_len < AMR_MAGIC_NUMBER_LEN)
+	{
+		return NULL;
+	}
+
 	if (strncmp(curr_buf, AMR_MAGIC_NUMBER, AMR_MAGIC_NUMBER_LEN) != 0)
 	{
 		return NULL;
