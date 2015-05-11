@@ -1,0 +1,8 @@
+all:
+	csc /out:MyServiceInterface.dll /t:library ServiceInterface.cs
+	csc /out:MyServiceImpl.dll /t:library /r:MyServiceInterface.dll Service.cs
+	csc /out:MyHost.exe /t:exe /r:MyServiceInterface.dll /r:MyServiceImpl.dll Host.cs
+	csc /out:MyClient.exe /t:exe /r:MyServiceInterface.dll Client.cs
+	
+clean:
+	del *.exe *.dll
