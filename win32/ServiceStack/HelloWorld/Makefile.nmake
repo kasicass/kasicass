@@ -1,0 +1,13 @@
+# ServiceStack 4.0
+#
+# ServiceStack.dll
+# ServiceStack.Client.dll
+# ServiceStack.Common.dll
+# ServiceStack.Interfaces.dll
+# ServiceStack.Text.dll
+
+all:
+	csc /out:HelloWorld.exe -r:ServiceStack.dll -r:ServiceStack.Interfaces.dll HelloWorld.cs
+	
+clean:
+	del *.exe

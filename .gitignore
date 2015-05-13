@@ -11,3 +11,4 @@ ipch
 *.aps
 *.obj
 *.swp
+*.dll
