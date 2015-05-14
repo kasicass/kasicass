@@ -1,0 +1,30 @@
+.Compiler         = 'D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe'
+.Librarian        = 'D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\lib.exe'
+.Linker           = 'D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe'
+.CompilerOptions  = '%1 /Fo%2 /c'
+.LibrarianOptions = '/OUT:%2 %1'
+.LinkerOptions    = '/OUT:%2 %1 /SUBSYSTEM:CONSOLE /MACHINE:X86'
+
+Library('libPrint')
+{
+	.CompilerInputPath  = 'src\libPrint\'
+	.CompilerOutputPath = 'out\lib\'
+	.LibrarianOutput    = 'out\libPrint.lib'
+}
+
+ObjectList('main')
+{
+	.CompilerInputPath  = 'src\main\'
+	.CompilerOutputPath = 'out\main\'
+}
+
+Executable('app')
+{
+	.Libraries    = { 'main', 'libPrint' }
+	.LinkerOutput = 'out\app.exe'
+}
+
+Alias('all')
+{
+	.Targets = { 'app' }
+}
