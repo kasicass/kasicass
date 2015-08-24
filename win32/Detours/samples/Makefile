@@ -53,10 +53,6 @@ all:
     @$(MAKE) /NOLOGO /$(MAKEFLAGS)
     cd "$(MAKEDIR)\findfunc"
     @$(MAKE) /NOLOGO /$(MAKEFLAGS)
-!IF "$(DETOURS_TARGET_PROCESSOR)" != "ARM"
-    cd "$(MAKEDIR)\member"
-    @$(MAKE) /NOLOGO /$(MAKEFLAGS)
-!ENDIF
 !IF "$(DETOURS_TARGET_PROCESSOR)" == "X64" || "$(DETOURS_TARGET_PROCESSOR)" == "IA64"
     cd "$(MAKEDIR)\talloc"
     @$(MAKE) /NOLOGO /$(MAKEFLAGS)
@@ -118,8 +114,6 @@ clean:
     @$(MAKE) /NOLOGO /$(MAKEFLAGS) clean
     cd "$(MAKEDIR)\findfunc"
     @$(MAKE) /NOLOGO /$(MAKEFLAGS) clean
-    cd "$(MAKEDIR)\member"
-    @$(MAKE) /NOLOGO /$(MAKEFLAGS) clean
     cd "$(MAKEDIR)\talloc"
     @$(MAKE) /NOLOGO /$(MAKEFLAGS) clean
     cd "$(MAKEDIR)\traceapi"
@@ -179,8 +173,6 @@ realclean:
     cd "$(MAKEDIR)\commem"
     @$(MAKE) /NOLOGO /$(MAKEFLAGS) realclean
     cd "$(MAKEDIR)\findfunc"
-    @$(MAKE) /NOLOGO /$(MAKEFLAGS) realclean
-    cd "$(MAKEDIR)\member"
     @$(MAKE) /NOLOGO /$(MAKEFLAGS) realclean
     cd "$(MAKEDIR)\talloc"
     @$(MAKE) /NOLOGO /$(MAKEFLAGS) realclean
@@ -245,8 +237,6 @@ test:
     cd "$(MAKEDIR)\commem"
     @$(MAKE) /NOLOGO /$(MAKEFLAGS) test
     cd "$(MAKEDIR)\findfunc"
-    @$(MAKE) /NOLOGO /$(MAKEFLAGS) test
-    cd "$(MAKEDIR)\member"
     @$(MAKE) /NOLOGO /$(MAKEFLAGS) test
 !IF "$(DETOURS_TARGET_PROCESSOR)" == "X64" || "$(DETOURS_TARGET_PROCESSOR)" == "IA64"
     cd "$(MAKEDIR)\talloc"
