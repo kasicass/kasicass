@@ -1,9 +1,42 @@
-.Compiler         = 'D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe'
-.Librarian        = 'D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\lib.exe'
-.Linker           = 'D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe'
+.VSBasePath         = 'D:\Program Files (x86)\Microsoft Visual Studio 12.0\'
+.WindowsSDKBasePath	= 'C:\Program Files (x86)\Windows Kits\8.1\'
+
+Compiler( 'Compiler-x86' )
+{
+	.Root		= '$VSBasePath$\VC\bin'
+	.Executable	= '$Root$\cl.exe'
+	.ExtraFiles = { '$Root$\c1.dll'
+					'$Root$\c1ast.dll',
+					'$Root$\c1xx.dll',
+					'$Root$\c1xxast.dll',
+					'$Root$\c2.dll',
+					'$Root$\msobj120.dll'
+					'$Root$\mspdb120.dll'
+					'$Root$\mspdbsrv.exe'
+					'$Root$\mspdbcore.dll'
+					'$Root$\mspft120.dll'
+					'$Root$\1033\clui.dll'
+					'$VSBasePath$\VC\redist\x86\Microsoft.VC120.CRT\msvcp120.dll'
+					'$VSBasePath$\VC\redist\x86\Microsoft.VC120.CRT\msvcr120.dll'
+					'$VSBasePath$\VC\redist\x86\Microsoft.VC120.CRT\vccorlib120.dll'
+				  }
+}
+
+.Compiler         = 'Compiler-x86'
+.Librarian        = '$VSBasePath$\VC\bin\lib.exe'
+.Linker           = '$VSBasePath$\VC\bin\link.exe'
+
+.BaseIncludePaths = ' /I"./"'
+                  + ' /I"$VSBasePath$/VC/include/"'
+                  + ' /I"$WindowsSDKBasePath$/include/um"'
+                  + ' /I"$WindowsSDKBasePath$/include/shared"'
 .CompilerOptions  = '%1 /Fo%2 /c'
+                  + .BaseIncludePaths
+
 .LibrarianOptions = '/OUT:%2 %1'
 .LinkerOptions    = '/OUT:%2 %1 /SUBSYSTEM:CONSOLE /MACHINE:X86'
+                  + ' /LIBPATH:"$WindowsSDKBasePath$\lib\winv6.3\um\x86"'
+                  + ' /LIBPATH:"$VSBasePath$\VC\lib"'
 
 Library('libPrint')
 {
