@@ -1,0 +1,32 @@
+// csc.exe args
+//
+// /t:exe, console
+// /t:winexe, win32 exe
+// /t:library, dll
+//
+// /r:refdlls
+
+.CSBasePath         = 'C:\Windows\Microsoft.NET\Framework\v4.0.30319'
+
+CSAssembly('PrintService')
+{
+	.Compiler           = '$CSBasePath$\csc.exe'
+	.CompilerOptions    = '/out:%2 /t:library %1'
+	.CompilerOutput     = 'PrintService.dll'
+	.CompilerInputPath  = 'src/PrintService'
+}
+
+CSAssembly('Hello')
+{
+	.Compiler           = '$CSBasePath$\csc.exe'
+	.CompilerOptions    = '/out:%2 /t:exe /r:%3 %1'
+	.CompilerOutput     = 'Hello.exe'
+	.CompilerInputPath  = 'src/Hello'
+	.CompilerReferences = { 'PrintService.dll' }
+}
+
+Alias('all')
+{
+	.Targets = { 'PrintService', 'Hello' }
+}
+
