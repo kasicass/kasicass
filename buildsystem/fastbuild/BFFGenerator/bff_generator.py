@@ -17,7 +17,7 @@ class ObjectList(object):
 		self.CompilerOptions = '??'
 
 	def toBFF(self):
-		files = "{ " + ", ".join(self.CompilerInputFiles) + " }"
+		files = "{ '" + "', '".join(self.CompilerInputFiles) + "' }"
 		return """
 ObjectList('%s')
 {
