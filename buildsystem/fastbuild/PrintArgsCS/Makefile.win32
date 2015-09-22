@@ -1,0 +1,5 @@
+all:
+  csc.exe /out:PrintArgs.exe /t:exe PrintArgs.cs
+  
+clean:
+  del /S *.exe
