@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flyweight_01_basic", "Flyweight\Flyweight_01_basic.vcxproj", "{2E219CC5-30D8-4384-A579-ED1C953A4988}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Flyweight", "Flyweight", "{4850BDC1-BE96-4B9E-A659-5CA45AFF4587}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E219CC5-30D8-4384-A579-ED1C953A4988}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2E219CC5-30D8-4384-A579-ED1C953A4988}.Debug|Win32.Build.0 = Debug|Win32
+		{2E219CC5-30D8-4384-A579-ED1C953A4988}.Release|Win32.ActiveCfg = Release|Win32
+		{2E219CC5-30D8-4384-A579-ED1C953A4988}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2E219CC5-30D8-4384-A579-ED1C953A4988} = {4850BDC1-BE96-4B9E-A659-5CA45AFF4587}
+	EndGlobalSection
+EndGlobal
