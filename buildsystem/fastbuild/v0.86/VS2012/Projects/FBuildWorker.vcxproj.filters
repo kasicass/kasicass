@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Worker">
+      <UniqueIdentifier>{8c4fb99a-590e-4ef9-acac-7ce23cfea59a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildWorker\Worker\IdleDetection.cpp">
+      <Filter>Worker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildWorker\Worker\Worker.cpp">
+      <Filter>Worker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildWorker\Worker\WorkerSettings.cpp">
+      <Filter>Worker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildWorker\Worker\WorkerWindow.cpp">
+      <Filter>Worker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildWorker\FBuildWorkerOptions.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildWorker\Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildWorker\Worker\IdleDetection.h">
+      <Filter>Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildWorker\Worker\Worker.h">
+      <Filter>Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildWorker\Worker\WorkerSettings.h">
+      <Filter>Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildWorker\Worker\WorkerWindow.h">
+      <Filter>Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildWorker\FBuildWorkerOptions.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildWorker\resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\Code\Tools\FBuild\FBuildWorker\MainWindowResource.rc" />
+  </ItemGroup>
+</Project>

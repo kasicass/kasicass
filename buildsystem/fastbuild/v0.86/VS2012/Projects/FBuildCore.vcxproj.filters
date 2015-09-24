@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="BFF">
+      <UniqueIdentifier>{7f4374d0-c720-4ffc-8ac3-c59c8b4dce6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BFF\Functions">
+      <UniqueIdentifier>{740f332f-d95e-435e-83ab-c9b9ee316a3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cache">
+      <UniqueIdentifier>{72acaaee-39fa-412d-9497-a548ce9d4448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graph">
+      <UniqueIdentifier>{70e965a6-55d6-4b78-90e1-f5d9a06bc5f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graph\MetaData">
+      <UniqueIdentifier>{c69bb3cc-fa11-4f99-9706-74670f2ccf99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{5997e009-2e3d-4e5f-9cf4-2b5928d3a2e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{e8ddd52f-2d82-4f2e-b1b7-98e6fbda1e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkerPool">
+      <UniqueIdentifier>{c6d67181-0c2d-492c-bc70-10ae4a194a3c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFIterator.cpp">
+      <Filter>BFF</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFParser.cpp">
+      <Filter>BFF</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFStackFrame.cpp">
+      <Filter>BFF</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFVariable.cpp">
+      <Filter>BFF</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\Function.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionAlias.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCompiler.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCopy.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCopyDir.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCSAssembly.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionDLL.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionExec.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionExecutable.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionForEach.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionLibrary.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionObjectList.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionPrint.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionSettings.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionSLN.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionTest.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionUnity.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionUsing.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionVCXProject.cpp">
+      <Filter>BFF\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\Cache.cpp">
+      <Filter>Cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\CachePlugin.cpp">
+      <Filter>Cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\MetaData\Meta_Name.cpp">
+      <Filter>Graph\MetaData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\AliasNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CompilerNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CopyDirNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CopyNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CSNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\Dependencies.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\DirectoryListNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\DLLNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ExecNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ExeNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\FileNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\LibraryNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\LinkerNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\Node.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\NodeGraph.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\NodeProxy.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ObjectListNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ObjectNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\SLNNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\TestNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\UnityNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\VCXProjectNode.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Args.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\CIncludeParser.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Compressor.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\FBuildStats.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Report.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ResponseFile.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\SLNGenerator.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolManifest.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\VSProjectGenerator.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Client.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Protocol.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Server.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\Job.cpp">
+      <Filter>WorkerPool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\JobQueue.cpp">
+      <Filter>WorkerPool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\JobQueueRemote.cpp">
+      <Filter>WorkerPool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerBrokerage.cpp">
+      <Filter>WorkerPool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerThread.cpp">
+      <Filter>WorkerPool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerThreadRemote.cpp">
+      <Filter>WorkerPool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Error.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\FBuild.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\FBuildOptions.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\FLog.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\PrecompiledHeader.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Encoder.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolchainHack.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFIterator.h">
+      <Filter>BFF</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFParser.h">
+      <Filter>BFF</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFStackFrame.h">
+      <Filter>BFF</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFVariable.h">
+      <Filter>BFF</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\Function.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionAlias.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCompiler.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCopy.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCopyDir.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCSAssembly.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionDLL.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionExec.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionExecutable.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionForEach.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionLibrary.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionObjectList.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionPrint.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionSettings.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionSLN.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionTest.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionUnity.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionUsing.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionVCXProject.h">
+      <Filter>BFF\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\Cache.h">
+      <Filter>Cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\CachePlugin.h">
+      <Filter>Cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\CachePluginInterface.h">
+      <Filter>Cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\ICache.h">
+      <Filter>Cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\MetaData\Meta_Name.h">
+      <Filter>Graph\MetaData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\AliasNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CompilerNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CopyDirNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CopyNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CSNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\Dependencies.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\DirectoryListNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\DLLNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ExecNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ExeNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\FileNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\LibraryNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\LinkerNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\Node.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\NodeGraph.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\NodeProxy.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ObjectListNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ObjectNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\SLNNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\TestNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\UnityNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\VCXProjectNode.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Args.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\CIncludeParser.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Compressor.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\FBuildStats.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Report.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ResponseFile.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\SLNGenerator.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolManifest.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\VSProjectGenerator.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Client.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Protocol.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Server.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\Job.h">
+      <Filter>WorkerPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\JobQueue.h">
+      <Filter>WorkerPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\JobQueueRemote.h">
+      <Filter>WorkerPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerBrokerage.h">
+      <Filter>WorkerPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerThread.h">
+      <Filter>WorkerPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerThreadRemote.h">
+      <Filter>WorkerPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Error.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\FBuild.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\FBuildOptions.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\FBuildVersion.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\FLog.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\PrecompiledHeader.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Encoder.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolchainHack.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

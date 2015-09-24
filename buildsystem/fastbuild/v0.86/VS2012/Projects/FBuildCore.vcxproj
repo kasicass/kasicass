@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFIterator.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFParser.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFStackFrame.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFVariable.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\Function.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionAlias.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCompiler.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCopy.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCopyDir.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCSAssembly.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionDLL.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionExec.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionExecutable.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionForEach.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionLibrary.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionObjectList.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionPrint.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionSettings.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionSLN.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionTest.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionUnity.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionUsing.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionVCXProject.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\Cache.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\CachePlugin.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Error.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\FBuild.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\FBuildOptions.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\FLog.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\AliasNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CompilerNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CopyDirNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CopyNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CSNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\Dependencies.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\DirectoryListNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\DLLNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ExecNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ExeNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\FileNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\LibraryNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\LinkerNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\MetaData\Meta_Name.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\Node.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\NodeGraph.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\NodeProxy.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ObjectListNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ObjectNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\SLNNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\TestNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\UnityNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\VCXProjectNode.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Args.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\CIncludeParser.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Compressor.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Encoder.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\FBuildStats.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Report.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ResponseFile.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\SLNGenerator.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolchainHack.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolManifest.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\VSProjectGenerator.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\PrecompiledHeader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Client.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Protocol.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Server.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\Job.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\JobQueue.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\JobQueueRemote.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerBrokerage.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerThread.cpp" />
+    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerThreadRemote.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFIterator.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFParser.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFStackFrame.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFVariable.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\Function.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionAlias.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCompiler.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCopy.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCopyDir.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionCSAssembly.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionDLL.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionExec.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionExecutable.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionForEach.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionLibrary.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionObjectList.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionPrint.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionSettings.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionSLN.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionTest.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionUnity.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionUsing.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\Functions\FunctionVCXProject.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\Cache.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\CachePlugin.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\CachePluginInterface.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Cache\ICache.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Error.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\FBuild.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\FBuildOptions.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\FBuildVersion.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\FLog.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\AliasNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CompilerNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CopyDirNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CopyNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\CSNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\Dependencies.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\DirectoryListNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\DLLNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ExecNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ExeNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\FileNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\LibraryNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\LinkerNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\MetaData\Meta_Name.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\Node.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\NodeGraph.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\NodeProxy.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ObjectListNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\ObjectNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\SLNNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\TestNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\UnityNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Graph\VCXProjectNode.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Args.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\CIncludeParser.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Compressor.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Encoder.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\FBuildStats.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Report.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ResponseFile.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\SLNGenerator.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolchainHack.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolManifest.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\VSProjectGenerator.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\PrecompiledHeader.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Client.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Protocol.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Protocol\Server.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\Job.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\JobQueue.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\JobQueueRemote.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerBrokerage.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerThread.h" />
+    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\WorkerPool\WorkerThreadRemote.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5C378A01-7CF4-480D-8205-8446CA1692ED}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>FBuildCore</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;__WINDOWS__;WIN32;DEBUG;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Code;$(SolutionDir)..\External\LZ4\lz4-r127</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>Tools/FBuild/FBuildCore/PrecompiledHeader.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;__WINDOWS__;WIN64;DEBUG;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Code;$(SolutionDir)..\External\LZ4\lz4-r127</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>Tools/FBuild/FBuildCore/PrecompiledHeader.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;__WINDOWS__;WIN32;RELEASE;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Code;$(SolutionDir)..\External\LZ4\lz4-r127</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>Tools/FBuild/FBuildCore/PrecompiledHeader.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;__WINDOWS__;WIN64;RELEASE;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Code;$(SolutionDir)..\External\LZ4\lz4-r127</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>Tools/FBuild/FBuildCore/PrecompiledHeader.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

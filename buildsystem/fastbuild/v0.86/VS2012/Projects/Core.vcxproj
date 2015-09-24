@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Code\Core\Env\Assert.cpp" />
+    <ClCompile Include="..\..\Code\Core\Env\Env.cpp" />
+    <ClCompile Include="..\..\Code\Core\FileIO\ConstMemoryStream.cpp" />
+    <ClCompile Include="..\..\Code\Core\FileIO\FileIO.cpp" />
+    <ClCompile Include="..\..\Code\Core\FileIO\FileStream.cpp" />
+    <ClCompile Include="..\..\Code\Core\FileIO\IOStream.cpp" />
+    <ClCompile Include="..\..\Code\Core\FileIO\MemoryStream.cpp" />
+    <ClCompile Include="..\..\Code\Core\FileIO\PathUtils.cpp" />
+    <ClCompile Include="..\..\Code\Core\Math\AABB3.cpp" />
+    <ClCompile Include="..\..\Code\Core\Math\CRC32.cpp" />
+    <ClCompile Include="..\..\Code\Core\Math\Mat44.cpp" />
+    <ClCompile Include="..\..\Code\Core\Math\MurmurHash3\MurmurHash3.cpp" />
+    <ClCompile Include="..\..\Code\Core\Math\Random.cpp" />
+    <ClCompile Include="..\..\Code\Core\Math\Vec3.cpp" />
+    <ClCompile Include="..\..\Code\Core\Mem\Mem.cpp" />
+    <ClCompile Include="..\..\Code\Core\Mem\MemPoolBlock.cpp" />
+    <ClCompile Include="..\..\Code\Core\Mem\MemTracker.cpp" />
+    <ClCompile Include="..\..\Code\Core\Network\Network.cpp" />
+    <ClCompile Include="..\..\Code\Core\Network\NetworkStartupHelper.cpp" />
+    <ClCompile Include="..\..\Code\Core\Network\TCPConnectionPool.cpp" />
+    <ClCompile Include="..\..\Code\Core\PrecompiledHeader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\Code\Core\Process\Mutex.cpp" />
+    <ClCompile Include="..\..\Code\Core\Process\Process.cpp" />
+    <ClCompile Include="..\..\Code\Core\Process\Semaphore.cpp" />
+    <ClCompile Include="..\..\Code\Core\Process\SharedMemory.cpp" />
+    <ClCompile Include="..\..\Code\Core\Process\SystemMutex.cpp" />
+    <ClCompile Include="..\..\Code\Core\Process\Thread.cpp" />
+    <ClCompile Include="..\..\Code\Core\Profile\ProfileManager.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\BindReflection.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\Container.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\MetaData\MetaData.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\MetaData\Meta_File.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\MetaData\Meta_Optional.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\MetaData\Meta_Path.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\MetaData\Meta_Range.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\Object.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\PropertyType.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\ReflectedProperty.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\ReflectionInfo.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\ReflectionIter.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\RefObject.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\Serialization\TextReader.cpp" />
+    <ClCompile Include="..\..\Code\Core\Reflection\Serialization\TextWriter.cpp" />
+    <ClCompile Include="..\..\Code\Core\Strings\AString.cpp" />
+    <ClCompile Include="..\..\Code\Core\Time\Timer.cpp" />
+    <ClCompile Include="..\..\Code\Core\Tracing\Tracing.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Code\Core\Containers\Array.h" />
+    <ClInclude Include="..\..\Code\Core\Containers\AutoPtr.h" />
+    <ClInclude Include="..\..\Code\Core\Containers\Ref.h" />
+    <ClInclude Include="..\..\Code\Core\Containers\Singleton.h" />
+    <ClInclude Include="..\..\Code\Core\Containers\Sort.h" />
+    <ClInclude Include="..\..\Code\Core\Containers\WeakRef.h" />
+    <ClInclude Include="..\..\Code\Core\Env\Assert.h" />
+    <ClInclude Include="..\..\Code\Core\Env\Env.h" />
+    <ClInclude Include="..\..\Code\Core\Env\Types.h" />
+    <ClInclude Include="..\..\Code\Core\FileIO\ConstMemoryStream.h" />
+    <ClInclude Include="..\..\Code\Core\FileIO\FileIO.h" />
+    <ClInclude Include="..\..\Code\Core\FileIO\FileStream.h" />
+    <ClInclude Include="..\..\Code\Core\FileIO\IOStream.h" />
+    <ClInclude Include="..\..\Code\Core\FileIO\MemoryStream.h" />
+    <ClInclude Include="..\..\Code\Core\FileIO\PathUtils.h" />
+    <ClInclude Include="..\..\Code\Core\Math\AABB3.h" />
+    <ClInclude Include="..\..\Code\Core\Math\Constants.h" />
+    <ClInclude Include="..\..\Code\Core\Math\Conversions.h" />
+    <ClInclude Include="..\..\Code\Core\Math\CRC32.h" />
+    <ClInclude Include="..\..\Code\Core\Math\Mat44.h" />
+    <ClInclude Include="..\..\Code\Core\Math\Murmur3.h" />
+    <ClInclude Include="..\..\Code\Core\Math\MurmurHash3\MurmurHash3.h" />
+    <ClInclude Include="..\..\Code\Core\Math\Random.h" />
+    <ClInclude Include="..\..\Code\Core\Math\Ray3.h" />
+    <ClInclude Include="..\..\Code\Core\Math\Trig.h" />
+    <ClInclude Include="..\..\Code\Core\Math\Vec2.h" />
+    <ClInclude Include="..\..\Code\Core\Math\Vec3.h" />
+    <ClInclude Include="..\..\Code\Core\Math\Vec4.h" />
+    <ClInclude Include="..\..\Code\Core\Math\xxHash.h" />
+    <ClInclude Include="..\..\Code\Core\Mem\Mem.h" />
+    <ClInclude Include="..\..\Code\Core\Mem\MemPoolBlock.h" />
+    <ClInclude Include="..\..\Code\Core\Mem\MemTracker.h" />
+    <ClInclude Include="..\..\Code\Core\Network\Network.h" />
+    <ClInclude Include="..\..\Code\Core\Network\NetworkStartupHelper.h" />
+    <ClInclude Include="..\..\Code\Core\Network\TCPConnectionPool.h" />
+    <ClInclude Include="..\..\Code\Core\PrecompiledHeader.h" />
+    <ClInclude Include="..\..\Code\Core\Process\Atomic.h" />
+    <ClInclude Include="..\..\Code\Core\Process\Mutex.h" />
+    <ClInclude Include="..\..\Code\Core\Process\Process.h" />
+    <ClInclude Include="..\..\Code\Core\Process\Semaphore.h" />
+    <ClInclude Include="..\..\Code\Core\Process\SharedMemory.h" />
+    <ClInclude Include="..\..\Code\Core\Process\SystemMutex.h" />
+    <ClInclude Include="..\..\Code\Core\Process\Thread.h" />
+    <ClInclude Include="..\..\Code\Core\Profile\Profile.h" />
+    <ClInclude Include="..\..\Code\Core\Profile\ProfileManager.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\BindReflection.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\Container.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\MetaData\MetaData.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\MetaData\MetaDataInterface.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\MetaData\Meta_File.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\MetaData\Meta_Optional.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\MetaData\Meta_Path.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\MetaData\Meta_Range.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\Object.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\PropertyType.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\ReflectedProperty.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\ReflectionInfo.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\ReflectionIter.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\ReflectionMacros.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\ReflectionSettings.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\RefObject.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\Serialization\TextReader.h" />
+    <ClInclude Include="..\..\Code\Core\Reflection\Serialization\TextWriter.h" />
+    <ClInclude Include="..\..\Code\Core\Strings\AStackString.h" />
+    <ClInclude Include="..\..\Code\Core\Strings\AString.h" />
+    <ClInclude Include="..\..\Code\Core\Time\Timer.h" />
+    <ClInclude Include="..\..\Code\Core\Tracing\Tracing.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A6ABE8FE-491A-4D88-BAA1-604A4D9FD99F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Core</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\Lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINSOCK_DEPRECATED_NO_WARNINGS;__WINDOWS__;WIN32;DEBUG;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Core/PrecompiledHeader.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Code</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINSOCK_DEPRECATED_NO_WARNINGS;__WINDOWS__;WIN64;DEBUG;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Core/PrecompiledHeader.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Code</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINSOCK_DEPRECATED_NO_WARNINGS;__WINDOWS__;WIN32;RELEASE;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Core/PrecompiledHeader.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Code</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINSOCK_DEPRECATED_NO_WARNINGS;__WINDOWS__;WIN64;RELEASE;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Core/PrecompiledHeader.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Code</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
