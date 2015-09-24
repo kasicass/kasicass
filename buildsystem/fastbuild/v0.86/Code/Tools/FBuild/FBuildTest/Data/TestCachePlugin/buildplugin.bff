@@ -1,0 +1,39 @@
+//
+// Build an external cache plugin
+//
+//------------------------------------------------------------------------------
+#include "..\testcommon.bff"
+Using( .StandardEnvironment )
+Settings {} // Activate standard settings
+
+// Toolchain
+//------------------------------------------------------------------------------
+.Compiler			= .CompilerX64 // Build for X64 so we can load the DLL
+
+// Base compilation output
+//------------------------------------------------------------------------------
+.Out 				= "../../../../ftmp/Test/CachePlugin"
+
+// Plugin library
+//------------------------------------------------------------------------------
+ObjectList( "CachePlugin-Lib" )
+{
+	.CompilerOptions	+ .VisualStudioIncludePaths
+	.CompilerInputFiles	= "Data/TestCachePlugin/Plugin.cpp"
+	.CompilerOutputPath	= "$Out$/"
+}
+
+// Plugin DLL
+//------------------------------------------------------------------------------
+DLL( 'Plugin-DLL' )
+{
+	.LinkerOptions		+ ' /DLL'
+						+ ' LIBCMT.lib'
+						+ ' OLDNAMES.LIB'
+						+ ' kernel32.lib'
+						+ ' /LIBPATH:"$VisualStudioPath$\VC\lib\amd64"'
+						+ ' /LIBPATH:"$WindowsSDK$\Lib\winv6.3\um\x64"'
+
+	.LinkerOutput		= '$Out$/CachePlugin.dll'
+	.Libraries			= { 'CachePlugin-Lib' }
+}

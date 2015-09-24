@@ -1,0 +1,13 @@
+﻿Build started 7/3/2015 10:05:05 PM.
+     1>Project "C:\Users\Franta\p4\External\LZ4\lz4-r127\LZ4.vcxproj" on node 2 (Build target(s)).
+     1>Build:
+         cd C:\Users\Franta\p4\Code\Tools\FBuild\\..\..\ & fbuild -vs -dist -cache LZ4-x86Clang-Debug
+         Distributed Compilation : 1 Workers in pool
+         1> Lib: C:\Users\Franta\p4\tmp\x86Clang-Debug\LZ4\LZ4.lib
+         FBuild: OK: LZ4-x86Clang-Debug
+         Time: 0.048s
+     1>Done Building Project "C:\Users\Franta\p4\External\LZ4\lz4-r127\LZ4.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.09

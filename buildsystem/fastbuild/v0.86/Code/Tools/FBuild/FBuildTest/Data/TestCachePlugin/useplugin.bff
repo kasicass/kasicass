@@ -1,0 +1,21 @@
+//
+// Use the previously built cache plugin
+//
+//------------------------------------------------------------------------------
+#include "..\testcommon.bff"
+Using( .StandardEnvironment )
+.CachePluginDLL = '../../../../ftmp/Test/CachePlugin/CachePlugin.dll'
+.CachePath		= 'X:\' // passed to cache plugin
+Settings {} // Activate standard settings
+
+// Base compilation output
+//------------------------------------------------------------------------------
+.Out 				= '../../../../ftmp/Test/CachePlugin'
+
+// Plugin library
+//------------------------------------------------------------------------------
+ObjectList( 'TestFiles-Lib' )
+{
+	.CompilerInputFiles	= { 'Data/TestCachePlugin/TestA.cpp' }
+	.CompilerOutputPath	= '$Out$/'
+}
