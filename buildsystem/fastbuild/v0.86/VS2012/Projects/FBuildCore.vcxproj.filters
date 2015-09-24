@@ -230,12 +230,6 @@
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\FBuildOptions.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\FLog.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\PrecompiledHeader.cpp" />
-    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Encoder.cpp">
-      <Filter>Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolchainHack.cpp">
-      <Filter>Helpers</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\BFF\BFFIterator.h">
@@ -448,11 +442,5 @@
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\FBuildVersion.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\FLog.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\PrecompiledHeader.h" />
-    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Encoder.h">
-      <Filter>Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolchainHack.h">
-      <Filter>Helpers</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

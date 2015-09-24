@@ -74,12 +74,10 @@
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Args.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\CIncludeParser.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Compressor.cpp" />
-    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Encoder.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\FBuildStats.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Report.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ResponseFile.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\SLNGenerator.cpp" />
-    <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolchainHack.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolManifest.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\VSProjectGenerator.cpp" />
     <ClCompile Include="..\..\Code\Tools\FBuild\FBuildCore\PrecompiledHeader.cpp">
@@ -157,12 +155,10 @@
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Args.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\CIncludeParser.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Compressor.h" />
-    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Encoder.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\FBuildStats.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\Report.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ResponseFile.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\SLNGenerator.h" />
-    <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolchainHack.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\ToolManifest.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\Helpers\VSProjectGenerator.h" />
     <ClInclude Include="..\..\Code\Tools\FBuild\FBuildCore\PrecompiledHeader.h" />
@@ -197,7 +193,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>

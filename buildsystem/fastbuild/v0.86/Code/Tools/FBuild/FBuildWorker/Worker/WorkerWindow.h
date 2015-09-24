@@ -12,6 +12,7 @@
 
 // system
 #if defined( __WINDOWS__ )
+	#include <Winsock2.h>
     #include <windows.h>
     #include <shellapi.h>
 #endif

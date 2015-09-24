@@ -2,6 +2,7 @@
 //------------------------------------------------------------------------------
 
 #if defined( __WINDOWS__ )
+	#include <winsock2.h>
 	#include <windows.h>
 #endif
 
