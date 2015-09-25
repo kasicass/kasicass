@@ -8,8 +8,19 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{3F7E0E3D-0AEF-4038-AAC1-9F23795A44B6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hwserver", "samples\hwserver.vcxproj", "{096DB412-8E29-4B9B-93A0-999DCF458EE6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF74A723-1E25-41AE-B704-D14BA2364EFA} = {AF74A723-1E25-41AE-B704-D14BA2364EFA}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hwclient", "samples\hwclient.vcxproj", "{2D973233-BB75-4281-B650-2A1690AE9AC7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF74A723-1E25-41AE-B704-D14BA2364EFA} = {AF74A723-1E25-41AE-B704-D14BA2364EFA}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zmqversion", "samples\zmqversion.vcxproj", "{2D9465DA-968A-4E2E-839F-00CB92F85BF3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF74A723-1E25-41AE-B704-D14BA2364EFA} = {AF74A723-1E25-41AE-B704-D14BA2364EFA}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +40,10 @@ Global
 		{2D973233-BB75-4281-B650-2A1690AE9AC7}.Debug|Win32.Build.0 = Debug|Win32
 		{2D973233-BB75-4281-B650-2A1690AE9AC7}.Release|Win32.ActiveCfg = Release|Win32
 		{2D973233-BB75-4281-B650-2A1690AE9AC7}.Release|Win32.Build.0 = Release|Win32
+		{2D9465DA-968A-4E2E-839F-00CB92F85BF3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2D9465DA-968A-4E2E-839F-00CB92F85BF3}.Debug|Win32.Build.0 = Debug|Win32
+		{2D9465DA-968A-4E2E-839F-00CB92F85BF3}.Release|Win32.ActiveCfg = Release|Win32
+		{2D9465DA-968A-4E2E-839F-00CB92F85BF3}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +52,6 @@ Global
 		{AF74A723-1E25-41AE-B704-D14BA2364EFA} = {3F7E0E3D-0AEF-4038-AAC1-9F23795A44B6}
 		{096DB412-8E29-4B9B-93A0-999DCF458EE6} = {ADD9A2DB-CDB5-4C7B-BF5F-2AF2C19E3BE8}
 		{2D973233-BB75-4281-B650-2A1690AE9AC7} = {ADD9A2DB-CDB5-4C7B-BF5F-2AF2C19E3BE8}
+		{2D9465DA-968A-4E2E-839F-00CB92F85BF3} = {ADD9A2DB-CDB5-4C7B-BF5F-2AF2C19E3BE8}
 	EndGlobalSection
 EndGlobal
