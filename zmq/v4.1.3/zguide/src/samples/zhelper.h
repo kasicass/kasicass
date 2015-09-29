@@ -27,6 +27,7 @@
 
 #if (defined (WIN32))
 #   include <windows.h>
+#   pragma warning(disable:4996)  // warning C4996: 'strdup': The POSIX name for this item is deprecated.
 #endif
 
 //  Version checking, and patch up missing constants to match 2.1
