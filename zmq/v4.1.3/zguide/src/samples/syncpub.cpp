@@ -1,3 +1,5 @@
+// syncpub/syncsub doesn't work in win32, I don't know why.
+
 #include "zhelper.h"
 #define SUBSCRIBERS_EXPECTED 10
 

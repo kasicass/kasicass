@@ -10,7 +10,7 @@ int main()
 	zmq_setsockopt(subscriber, ZMQ_SUBSCRIBE, "", 0);
 
 	// 0MQ is so fast, ew need to wait a while...
-	s_sleep(1);
+	s_sleep(1000);
 
 	// Second, synchronize with publisher
 	void *syncclient = zmq_socket(context, ZMQ_REQ);
