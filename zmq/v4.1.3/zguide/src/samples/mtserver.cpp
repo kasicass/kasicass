@@ -1,44 +1,7 @@
 // Multithreaded Hello World server
 
 #include "zhelper.h"
-#include <process.h>
-#include <assert.h>
-
-class OSThread
-{
-public:
-	OSThread() : hThread_(NULL) {}
-	virtual ~OSThread() { join(); }
-
-	void run()
-	{
-		assert(hThread_ == NULL);
-		hThread_ = HANDLE( _beginthreadex(NULL, 0, OSThread::threadFunc, this, 0, NULL) );
-	}
-
-	void join()
-	{
-		if (hThread_)
-		{
-			::WaitForSingleObject(hThread_, INFINITE);
-			::CloseHandle(hThread_);
-			hThread_ = NULL;
-		}
-	}
-
-private:
-	virtual void workFunc() = 0;
-
-	static unsigned int __stdcall threadFunc(void* arg)
-	{
-		OSThread *thr = (OSThread *)arg;
-		thr->workFunc();
-		return 0;
-	}
-
-private:
-	HANDLE hThread_;
-};
+#include "zhelper_win32.h"
 
 class WorkerThread : public OSThread
 {
