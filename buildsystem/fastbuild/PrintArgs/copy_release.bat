@@ -1,5 +1,5 @@
-copy /Y bin\Release\PrintArgs.exe D:\myprj\toolchain\cl.exe
-copy /Y bin\Release\PrintArgs.exe D:\myprj\toolchain\lib.exe
-copy /Y bin\Release\PrintArgs.exe D:\myprj\toolchain\link.exe
-copy /Y bin\Release\PrintArgs.exe D:\myprj\toolchain\rc.exe
+copy /Y bin\Release\PrintArgs.exe bin\Release\cl.exe
+copy /Y bin\Release\PrintArgs.exe bin\Release\lib.exe
+copy /Y bin\Release\PrintArgs.exe bin\Release\link.exe
+copy /Y bin\Release\PrintArgs.exe bin\Release\rc.exe
 pause

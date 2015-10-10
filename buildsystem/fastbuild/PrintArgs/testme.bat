@@ -1,1 +1,1 @@
-msbuild.exe /t:Clean,Build /p:ExecutablePath="D:\myprj\toolchain" vs2012\PrintArgs.sln
+msbuild.exe /t:Clean,Build /p:ExecutablePath="%~dp0bin\Release" vs2012\PrintArgs.sln
