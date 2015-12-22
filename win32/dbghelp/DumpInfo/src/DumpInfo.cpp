@@ -3,6 +3,16 @@
 #include <DbgHelp.h>
 #include <stdio.h>
 
+// http://www.cnblogs.com/drunkard87/p/3509493.html
+// http://jpassing.com/2009/04/22/uniquely-identifying-a-modules-build/
+typedef struct _CV_INFO_PDB70
+{
+  ULONG CvSignature;
+  GUID Guid;
+  ULONG Age;
+  UCHAR PdbFileName[0];
+} CV_INFO_PDB70, *PCV_INFO_PDB70;
+
 int main(int argc, char* argv[])
 {
 	if (argc != 2)
@@ -61,12 +71,28 @@ int main(int argc, char* argv[])
 			{
 				PMINIDUMP_MODULE pModule = &pModuleList->Modules[j];
 				PMINIDUMP_STRING pString = (PMINIDUMP_STRING)((intptr_t)pFilePointer + pModule->ModuleNameRva);
-			
+
 				printf("Name: RVA=0x%x, Length=%u - %ws\n", pModule->ModuleNameRva, pString->Length, pString->Buffer);
 				printf("BaseOfImage: 0x%I64x\n", pModule->BaseOfImage);
 				printf("SizeOfImage: %u\n", pModule->SizeOfImage);
 				printf("CheckSum: %u\n", pModule->CheckSum);
-				printf("Stamp: %u\n\n", pModule->TimeDateStamp);
+				printf("Stamp: %u\n", pModule->TimeDateStamp);
+				printf("CvRecord: DataSize=%u, Rva=%u\n", pModule->CvRecord.DataSize, pModule->CvRecord.Rva);
+
+				if (pModule->CvRecord.Rva != 0)
+				{
+					PCV_INFO_PDB70 pCvInfo = (PCV_INFO_PDB70)((intptr_t)pFilePointer + pModule->CvRecord.Rva);
+					printf("  Age: %04X\n", pCvInfo->Age);
+					printf("  CvSignature: %04X\n", pCvInfo->CvSignature);
+					printf("  PdbFileName: %s\n", pCvInfo->PdbFileName);
+					printf("  Guid : %08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X\n",
+						pCvInfo->Guid.Data1, pCvInfo->Guid.Data2, pCvInfo->Guid.Data3,
+						pCvInfo->Guid.Data4[0], pCvInfo->Guid.Data4[1], pCvInfo->Guid.Data4[2], 
+						pCvInfo->Guid.Data4[3], pCvInfo->Guid.Data4[4], pCvInfo->Guid.Data4[5],
+						pCvInfo->Guid.Data4[6], pCvInfo->Guid.Data4[7]);
+				}
+
+				printf("\n");
 			}
 		}
 
