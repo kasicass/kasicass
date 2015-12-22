@@ -50,21 +50,24 @@ int main(int argc, char* argv[])
 
 	pMiniDirectory = (PMINIDUMP_DIRECTORY)((intptr_t)pFilePointer + pMiniHeader->StreamDirectoryRva);
 
-	RVA pModuleAddr = 0;
 	for (ULONG i=0; i<pMiniHeader->NumberOfStreams; ++i)
 	{
 		// find exe/dll module
 		if (pMiniDirectory->StreamType == ModuleListStream)
 		{
-			pModuleAddr = pMiniDirectory->Location.Rva + sizeof(intptr_t);  // why + sizeof(intptr_t)
+			PMINIDUMP_MODULE_LIST pModuleList = (PMINIDUMP_MODULE_LIST)((intptr_t)pFilePointer + pMiniDirectory->Location.Rva);
 
-			PMINIDUMP_MODULE pModule = (PMINIDUMP_MODULE)((intptr_t)pFilePointer + pModuleAddr);
-			PMINIDUMP_STRING pString = (PMINIDUMP_STRING)((intptr_t)pFilePointer + pModule->ModuleNameRva);
-			printf("Name: RVA=0x%x, Length=%u - %ws\n", pModule->ModuleNameRva, pString->Length, pString->Buffer);
-			printf("BaseOfImage: 0x%I64x\n", pModule->BaseOfImage);
-			printf("SizeOfImage: %u\n", pModule->SizeOfImage);
-			printf("CheckSum: %u\n", pModule->CheckSum);
-			printf("Stamp: %u\n", pModule->TimeDateStamp);
+			for (unsigned int j = 0; j < pModuleList->NumberOfModules; ++j)
+			{
+				PMINIDUMP_MODULE pModule = &pModuleList->Modules[j];
+				PMINIDUMP_STRING pString = (PMINIDUMP_STRING)((intptr_t)pFilePointer + pModule->ModuleNameRva);
+			
+				printf("Name: RVA=0x%x, Length=%u - %ws\n", pModule->ModuleNameRva, pString->Length, pString->Buffer);
+				printf("BaseOfImage: 0x%I64x\n", pModule->BaseOfImage);
+				printf("SizeOfImage: %u\n", pModule->SizeOfImage);
+				printf("CheckSum: %u\n", pModule->CheckSum);
+				printf("Stamp: %u\n\n", pModule->TimeDateStamp);
+			}
 		}
 
 		// printf("ModuleType: %u\n", pMiniDirectory->StreamType);
