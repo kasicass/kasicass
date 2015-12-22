@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DumpInfo", "DumpInfo.vcxproj", "{417DDD2B-F280-459E-9FA9-4792C835A1BE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PEInfo", "PEInfo.vcxproj", "{1E7EB681-379C-4C4D-ACC8-470BA7FE21D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +21,13 @@ Global
 		{417DDD2B-F280-459E-9FA9-4792C835A1BE}.Release|Win32.Build.0 = Release|Win32
 		{417DDD2B-F280-459E-9FA9-4792C835A1BE}.Release|x64.ActiveCfg = Release|x64
 		{417DDD2B-F280-459E-9FA9-4792C835A1BE}.Release|x64.Build.0 = Release|x64
+		{1E7EB681-379C-4C4D-ACC8-470BA7FE21D8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1E7EB681-379C-4C4D-ACC8-470BA7FE21D8}.Debug|Win32.Build.0 = Debug|Win32
+		{1E7EB681-379C-4C4D-ACC8-470BA7FE21D8}.Debug|x64.ActiveCfg = Debug|x64
+		{1E7EB681-379C-4C4D-ACC8-470BA7FE21D8}.Debug|x64.Build.0 = Debug|x64
+		{1E7EB681-379C-4C4D-ACC8-470BA7FE21D8}.Release|Win32.ActiveCfg = Release|Win32
+		{1E7EB681-379C-4C4D-ACC8-470BA7FE21D8}.Release|Win32.Build.0 = Release|Win32
+		{1E7EB681-379C-4C4D-ACC8-470BA7FE21D8}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
