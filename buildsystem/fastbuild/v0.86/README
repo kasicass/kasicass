@@ -1,0 +1,3 @@
+copy fbuild-vs2012.bff Code\
+cd Code
+fbuild.exe All-x86
