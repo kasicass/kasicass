@@ -23,12 +23,12 @@ public class NettyOioServer {
 			Unpooled.copiedBuffer("Hi!\r\n", Charset.forName("UTF-8"))
 		);
 
-		EventLoopGroup group = new OioEventLoopGroup();
+		EventLoopGroup group = new OioEventLoopGroup();  // NioEventLoopGroup
 
 		try {
 			ServerBootstrap b = new ServerBootstrap();
 			b.group(group)
-				.channel(OioServerSocketChannel.class)
+				.channel(OioServerSocketChannel.class)       // NioServerSocketChannel
 				.localAddress(new InetSocketAddress(port))
 				.childHandler(new ChannelInitializer<SocketChannel>() {
 					@Override
