@@ -12,3 +12,6 @@ ipch
 *.obj
 *.swp
 *.dll
+
+# java
+*.class
