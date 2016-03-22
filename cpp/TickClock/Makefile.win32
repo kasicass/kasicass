@@ -1,0 +1,8 @@
+all:
+	cl.exe /Fewin32clock.exe clocktest.cpp win32clock.cpp
+	cl.exe /Fechronoclock.exe /EHsc /DUSE_CHRONO_CLOCK clocktest.cpp chronoclock.cpp
+
+clean:
+	del.exe *.obj *.exe
+
+
