@@ -1,0 +1,5 @@
+all:
+	cl.exe /nologo /EHsc fsm.cpp main.cpp
+
+clean:
+	del.exe *.obj *.exe
