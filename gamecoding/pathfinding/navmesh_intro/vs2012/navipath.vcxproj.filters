@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\src\actor.h" />
+    <ClInclude Include="..\src\line2d.h" />
+    <ClInclude Include="..\src\mtxlib.h" />
+    <ClInclude Include="..\src\navigationcell.h" />
+    <ClInclude Include="..\src\navigationheap.h" />
+    <ClInclude Include="..\src\navigationmesh.h" />
+    <ClInclude Include="..\src\navigationpath.h" />
+    <ClInclude Include="..\src\plane.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\cone.cpp" />
+    <ClCompile Include="..\src\map.cpp" />
+    <ClCompile Include="..\src\mtxlib.cpp" />
+    <ClCompile Include="..\src\navigationcell.cpp" />
+    <ClCompile Include="..\src\navigationmesh.cpp" />
+    <ClCompile Include="..\src\navimesh.cpp" />
+    <ClCompile Include="..\src\playpen.cpp" />
+  </ItemGroup>
+</Project>
