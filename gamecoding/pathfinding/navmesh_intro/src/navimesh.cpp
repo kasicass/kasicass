@@ -81,7 +81,7 @@ int WINAPI WinMain(
   int nCmdShow              // show state
 )
 {
-
+  glutInit(&__argc, __argv);
   glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
   glutInitWindowPosition(200, 0);
   glutInitWindowSize(gWindowWidth, gWindowHeight);

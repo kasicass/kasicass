@@ -43,7 +43,7 @@
 #include <algorithm>
 #endif
 
-#include <function.h>
+#include <functional>
 
 /*	NavigationNode
 ------------------------------------------------------------------------------------------
