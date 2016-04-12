@@ -1,0 +1,8 @@
+all:
+	"C:\Python27\Scripts\cython.exe" --embed simple.py
+	cl /nologo /I"C:\Python27\Include" /c simple.c
+	link /nologo /LIBPATH:"C:\Python27\libs" /SUBSYSTEM:CONSOLE simple.obj
+
+clean:
+	del /S /Q *.exe *.exp *.lib *.obj *.c
+
