@@ -1,0 +1,1 @@
+int foovalue = 10;

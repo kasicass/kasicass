@@ -1,0 +1,9 @@
+all:
+	cl.exe /c /nologo /Ox /MD /W3 /GS- /DNDEBUG /Tcfoo.c /Fofoo.obj
+	link.exe /LIB /nologo foo.obj /OUT:foo.lib
+
+	cl.exe /c /nologo /Ox /MD /W3 /GS- /DNDEBUG /Tcmain.c /Fomain.obj
+	link.exe /nologo /SUBSYSTEM:CONSOLE foo.obj main.obj /OUT:main.exe
+
+clean:
+	del /S /Q *.obj *.exe *.lib *.manifest
