@@ -15,3 +15,5 @@ ipch
 
 # java
 *.class
+
+dist/
