@@ -5,7 +5,9 @@
 extern "C" {
 #endif
 
-int g_MyValue = 10;
+PyTypeObject PyType_Type = {
+	10, 1.2f,
+};
 
 void PrintMe()
 {

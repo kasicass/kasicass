@@ -12,7 +12,12 @@
 extern "C" {
 #endif
 
-PyAPI_DATA(int) g_MyValue;
+typedef struct _typeobject {
+  int value;
+  float fvalue;
+} PyTypeObject;
+
+PyAPI_DATA(PyTypeObject) PyType_Type;
 PyAPI_FUNC(void) PrintMe();
 
 #ifdef __cplusplus
