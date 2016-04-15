@@ -1,0 +1,6 @@
+Direct3D basic tutorial
+
+makefile.bkl			bakefile template for all tutorial sample (www.bakefile.org)
+
+00_d3d_window			创建基本的 windows 窗体，并与 D3D device 相关联
+01_render_vertices		绘制一个基本的三角形

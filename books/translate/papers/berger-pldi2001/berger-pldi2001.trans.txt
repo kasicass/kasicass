@@ -1,0 +1,22 @@
+目前的一些general-purpose memory allocator并不能满足高性能程序的要求，即使是高度优化的general-purpose allocator每次分配，都会消耗不少cycles，远不及custom memory allocator。因此，为获得更好的性能，许多人选择了艰难的道路————为自己的程序设计custom memory allocator。
+
+本文，将基于C++模板与继承，讨论一种效率与扩展性兼备的基础设施(infrastructure)，用以构建memory allocator。我们的精髓，是通过类似heap layers的继承体系，将一些简单的class组合成为custom and general-purpose allocator，而且不带来任何执行效率上额外的开销。我们将发现，这些基础设施将简化allocator的设计，且效率上等同甚至超过一些高度优化的allocator，例如Kinsley allocator、GNU obstack library。进一步，我们将演示如同通过这些基础设施构建快速地构建出堪舆Lea allocator媲美的allocator(Lea allocator是目前最优秀的单处理器内存分配器，one of the best uniprocessor allocators available)。我们以此证明一种简洁使用的分配器接口，集聚各类general and custom allocators有点于一身的设计(We thus demonstrate a clean, easy-to-use allocator interface that seamlessly combines the power and efficiency of any number of general and custom allocatos within a single application)。
+
+
+1. 简介
+
+虽然有许多C/C++的 general-purpose memory allocators 已经能使大部分程序获得good runtime and low fragmentation[15, 17]，但为自己程序量身定制的specialized allocator更能带来性能上的飞跃[4, 13, 26]。许多custom allocator一直为各种程序提供着原动力：SPEC2000 中十二个测试integer benchmarks的程序，其中有三个便使用custom allocator(parser,gcc,and vpr)。还有一些 server applications 也使用 custom allocators，例如 Apache web server、Microsoft's SQL Server。
+
+custom allocator 可更具软件的具体需求，量身裁衣，定制最实惠的内存管理方案。例如，当程序员需要分配许多小块内存，而这些内存的 life time 都相同时，可以选择 region allocator[11,19,23]，程序每次仅将小块内存返回给 region，最后再一次将整个 region 的内存归还系统。如此，每次申请/归还操作并不消耗太多 cycles (advancing a pointer and bounds-checking)，而通常 general-purpose allocator 却要消耗不少 cycles[11]。同理，在特定情况下，特定的 custom allocator 总是优于 general-purpose allocator。图一显示了 custom allcator 在 197.parser 中的功效，右图是换用了 system allocator 后的 benchmark，竟比原来多了 60% 的开销。
+
+为获得更高的运行效率，程序员常通过 macros 或 monolithic functions 来实现 custom allocator，避免了函数调用的开销。此方法屡试不爽，为程序老手们津津乐道[8,18]。然而，如此实现的 allocator 的代码却难于维护，也不便与程序一同改进，例如移植到多线程环境中。而且，撰写这样的 allocator，本就是困难且 bug 丛生的事情。优秀的 memory allocator 本身也应是复杂的软件，我们可带入一些工程学的思想，对其结构进行划分/组织。由于复杂度的缘故，目前来说，在一个软件中同时使用 custom 和 general-purpose allocator 共同管理一块内存是不可能的事情。
+
+本文，我们将介绍 heap layers —— 用于构建 custom 和 general-purpose allocator 的基础设施，其基于 C++ 模板与继承技术而实现(此技术也称为 mixins[7])。Mixins 其实就是一些类，其基类可在编译时按需要改变(Mixins are classes whose superclass may be changed)。利用 mixins，程序员可组合不同的类(功能块)而形成自己的 allocator，却交由编译器去组织 allocator 的实现代码。与上面介绍的方法不同(macros and monolithic functions)，我们的方法可以让程序员写出高度模块化、可重用的代码，且没有抽象开销(abstraction penalty，代指 virtual func 那类抽象方式的开销？？ heap layers 的实现里没有 virtual func)。后面，我们将通过组合 heap layers 中的功能块，完成几个高效的 allocator。同时，与一些 hand-tuned, monolithic C counterparts 对比，让您领略我们 allocator 的优雅实现之余，更惊叹于其的高效。
+
+更进一步，我们将证明 heap layers 亦可便捷、快速地构建高性能的 general-purpose allocator。我们使用 heap layers，花了大约三周，构建了两个 general-purpose allocator，并分别与 Kingsley allocator 与 Lea allocator 作比较。Kingsley allocator，一种高效的 general-purpose alloactor。Lea allocator，一种快速且低内存消耗的 allocator。我们构建的 allocator 还不能获得 Lea allocator 般的 fragmentation and performance 能力，但考虑到 Lea allocator 已经发展了七年[17]，也就不足为怪了。
+
+文章的结构如下：第二节介绍相关工作；第三节介绍我们的成果，通过组合 heap layers 中的功能块构建 allocator；第四节介绍所使用的性能检测方法；第五节介绍如果通过 heap layers 构建 real-world custom allocators，及其性能分析；第六节介绍两个 heap layers 构建的 general-purpose allocator，及其与 Kingsley/Lea allocators 的对比结果；第七节介绍 heap layers 中的软件工程思想；第八节讨论了如何使用 heap layers 做内存分配实验；最后，第九节总结了现有的工作，并提出下一步的研究方向。
+
+
+2. 相关工作 (Related Work)
+

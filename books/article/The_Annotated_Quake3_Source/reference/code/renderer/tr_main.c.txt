@@ -1,0 +1,22 @@
+﻿-------------------- R_CullLocalBox ---------------------
+
+#define	VectorMA(v, s, b, o)	((o)[0]=(v)[0]+(b)[0]*(s),(o)[1]=(v)[1]+(b)[1]*(s),(o)[2]=(v)[2]+(b)[2]*(s))
+
+o[0] = v[0] + b[0] * s
+o[1] = v[1] + b[1] * s
+o[2] = v[2] + b[2] * s
+
+transformed[i] = tr.or.origin
+
+transformed[i][0] = transformed[i][0] + tr.or.axis[0][0] * v[0]
+transformed[i][1] = transformed[i][1] + tr.or.axis[0][1] * v[0]
+transformed[i][2] = transformed[i][2] + tr.or.axis[0][2] * v[0]
+
+transformed[i][0] = transformed[i][0] + tr.or.axis[1][0] * v[1]
+transformed[i][1] = transformed[i][1] + tr.or.axis[1][1] * v[1]
+transformed[i][2] = transformed[i][2] + tr.or.axis[1][2] * v[1]
+
+transformed[i][0] = transformed[i][0] + tr.or.axis[2][0] * v[2]
+transformed[i][1] = transformed[i][1] + tr.or.axis[2][1] * v[2]
+transformed[i][2] = transformed[i][2] + tr.or.axis[2][2] * v[2]
+

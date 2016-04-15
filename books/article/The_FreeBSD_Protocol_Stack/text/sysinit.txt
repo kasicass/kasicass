@@ -1,0 +1,23 @@
+SYSINIT机制
+
+int val __attribute__((__section__("hello"))) __attribute__((__used__)) = 10;
+__attribute__((__section__("hello"))), 将数据放到某个section中
+__attribute__((__used__)), 无论数据是否被显示地引用，都将link到最终代码里面。
+
+typedef void (*sysinit_nfunc_t)(void *);
+typedef void (*sysinit_cfunc_t)(const void *);
+
+struct sysinit {
+    enum sysinit_sub_id subsystem;	/* subsystem identifier*/
+    enum sysinit_elem_order order;	/* init order within subsystem*/
+    sysinit_cfunc_t func;           /* function     */
+    const void  *udata;         	/* multiplexer/argument */
+};
+
+通过 SYSINIT， SYSUNINIT 可以定义出
+
+
+参考资料：
+http://www.freebsd.org/doc/en/books/arch-handbook/sysinit.html
+http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Attribute-Syntax.html
+http://tldp.org/LDP/LGNET/157/amurray.html

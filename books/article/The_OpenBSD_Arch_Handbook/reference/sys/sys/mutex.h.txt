@@ -1,0 +1,17 @@
+仅用于锁 cpu 的 mutex 的实现。
+实现位于：arch/i386/i386/mutex.S
+
+/*
+ * A mutex is:
+ *  - owned by a cpu.
+ *  - non-recursive.
+ *  - spinning.
+ *  - not providing mutual exclusion between processes, only cpus.
+ *  - providing interrupt blocking when necessary.
+ *
+ * Different mutexes can be nested, but not interleaved. This is ok:
+ * "mtx_enter(foo); mtx_enter(bar); mtx_leave(bar); mtx_leave(foo);"
+ * This is _not_ ok:
+ * "mtx_enter(foo); mtx_enter(bar); mtx_leave(foo); mtx_leave(bar);"
+ */
+

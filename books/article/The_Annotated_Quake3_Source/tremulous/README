@@ -1,0 +1,8 @@
+tremulous, http://tremulous.net/
+一个开源的 quake3 的改进版，正好在我的 Fedora 上能很方便的跑起来，资源也有。
+因此就以此版本为阅读基础。
+
+tremulous 是基于 ioquake，而 ioquake 来源于 quake3_1.23b。
+http://ioquake3.org/
+
+我的分析基于 tremulous-1.1.0-src

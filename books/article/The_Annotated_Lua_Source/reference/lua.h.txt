@@ -1,0 +1,3 @@
+void lua_pop (lua_State *L, int n);				*MANUAL, MACRO*
+Pops n elements from the stack.
+从栈中弹出 n 个元素

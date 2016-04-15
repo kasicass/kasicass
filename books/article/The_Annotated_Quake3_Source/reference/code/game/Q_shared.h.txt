@@ -1,0 +1,12 @@
+﻿// plane_t structure
+typedef struct cplane_s {
+	vec3_t	normal;			// 法向量
+	float	dist;			// 世界坐标系原点到平面的距离
+	byte	type;			// for fast side tests: 0,1,2 = axial, 3 = nonaxial
+	byte	signbits;		// signx + (signy<<1) + (signz<<2), used as lookup during collision
+	byte	pad[2];
+} cplane_t;
+
+判断一个点 v 在 plane 的 front or back 只需要
+float dist = DotProduct(v, plane.normal);
+dist > plane.dist ? "front" : "back"

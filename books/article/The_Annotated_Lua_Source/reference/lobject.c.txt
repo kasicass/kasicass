@@ -1,0 +1,12 @@
+
+
+
+// 尝试将 s 转换为 number 并保存在 result 中
+//
+// s      - [IN]  需要转换为 number 的 string
+// result - [OUT] 保存转换后 number 的变量
+//
+// RETURN:
+//    1 - ok
+//    0 - failed
+int luaO_str2d (const char *s, lua_Number *result);

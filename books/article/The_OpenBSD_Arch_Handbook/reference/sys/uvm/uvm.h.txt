@@ -1,0 +1,6 @@
+资料
+http://www.netbsd.org/docs/kernel/uvm.html
+Design and Implementation of UVM, http://chuck.cranor.org/p/diss.pdf
+The UVM Virtual Memory System, http://www.usenix.org/events/usenix99/full_papers/cranor/cranor.pdf
+
+UVM作者 Chuck Cranor's page, http://chuck.cranor.org/

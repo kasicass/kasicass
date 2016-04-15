@@ -1,0 +1,267 @@
+/*
+ * 驱动设备的相关定义在 sys/device.h, 而很多函数的实现，都是本文件中。
+ */
+
+
+/*
+ OpenBSD Device Driver System Architecture
+
+
+
+  +------------------------+
+  | special device stuff   |
+  |  like isa.c            |
+  +------------------------+
+       |     |     |
+      \|/   \|/   \|/
+  +------------------------+
+  |    subr_autoconfi.c    |
+  +------------------------+
+
+*/
+
+
+/*
+
+
+  alldevs (TAILQ_HEAD)
+     |
+      \
+   +---------------+
+   | struct device |
+   +---------------+       +---------------+
+   |   dv_list     | ----> | struct device | ----> ...
+   |   dv_cfdata   |-      +---------------+
+   |     ...       | \
+   +---------------+  \
+                       +---------------+
+                       | struct cfdata |
+                       +---------------+               +-----------------+
+                       |   cf_attach   | ------------- | struct cfattach |
+                       |   cf_driver   | -             +-----------------+
+                       |      ...      |  \            |      ...        |
+                       +---------------+   \           +-----------------+
+                            |               \
+                           /|\               |
+                            |       +-----------------+ 
+                            |       | struct cfdriver |
+                            |       +-----------------+
+                            |       |      ...        |
+                            |       +-----------------+
+                            |
+                            |
+ allcftables (TAILQ_HEAD)   |
+    |                       /
+     \                     /
+  +----------------+      /
+  | struct cftable |     /
+  +----------------+    /
+  |     tab        | --/        +----------------+
+  |     list       | ---------> | struct cftable | -------> ...
+  +----------------+            +----------------+
+
+*/
+
++-----------+
+| fatfatson |
++-----------+
+    /|\
+     |
++-----------+
+|
+
+/*
+对于 configuration，framework 支持 direct & indirect 两种，代码中可以看出两者实现上的区别。
+但具体含义还不理解。
+
+     The autoconfiguration framework supports direct configuration where the
+     bus driver can determine the devices present.
+
+     The autoconfiguration framework also supports indirect configuration
+     where the drivers must probe the bus looking for the presence of a de-
+     vice.  Direct configuration is preferred since it can find hardware re-
+     gardless of the presence of proper drivers.
+*/
+
+
+#include <sys/param.h>
+#include <sys/device.h>
+#include <sys/hotplug.h>
+#include <sys/limits.h>
+#include <sys/malloc.h>
+#include <sys/systm.h>
+/* Extra stuff from Matthias Drochner <drochner@zelux6.zel.kfa-juelich.de> */
+#include <sys/queue.h>
+#include <sys/proc.h>
+
+#include "hotplug.h"
+
+
+
+/*
+ * Autoconfiguration subroutines.
+ */
+
+typedef int (*cond_predicate_t)(struct device *, void *);
+
+/*
+ * ioconf.c exports exactly two names: cfdata and cfroots.  All system
+ * devices and drivers are found via these tables.
+ */
+extern short cfroots[];
+
+#define	ROOT ((struct device *)NULL)
+
+struct matchinfo {
+	cfmatch_t fn;
+	struct	device *parent;
+	void	*match, *aux;
+	int	indirect, pri;		/* indirect ??? */
+};
+
+struct cftable_head allcftables;
+
+static struct cftable staticcftable = {
+	cfdata
+};
+
+#ifndef AUTOCONF_VERBOSE
+#define AUTOCONF_VERBOSE 0
+#endif /* AUTOCONF_VERBOSE */
+int autoconf_verbose = AUTOCONF_VERBOSE;	/* trace probe calls */
+
+static void mapply(struct matchinfo *, struct cfdata *);
+
+struct deferred_config {
+	TAILQ_ENTRY(deferred_config) dc_queue;
+	struct device *dc_dev;
+	void (*dc_func)(struct device *);
+};
+
+TAILQ_HEAD(, deferred_config) deferred_config_queue;
+
+void config_process_deferred_children(struct device *);
+
+struct devicelist alldevs;		/* list of all devices */
+struct evcntlist allevents;		/* list of all event counters */
+
+__volatile int config_pending;		/* semaphore for mountroot */
+
+/*
+ * Initialize autoconfiguration data structures.  This occurs before console
+ * initialization as that might require use of this subsystem.  Furthermore
+ * this means that malloc et al. isn't yet available.
+ */
+void
+config_init(void);
+
+/*
+ * Apply the matching function and choose the best.  This is used
+ * a few times and we want to keep the code small.
+ */
+void
+mapply(struct matchinfo *m, struct cfdata *cf);
+
+
+/*
+ * 对 parent 的所有 children，调用指定的函数 fn，并返回满足条件的最优项(best match)
+ *
+ * Iterate over all potential children of some device, calling the given
+ * function (default being the child's match function) for each one.
+ * Nonzero returns are matches; the highest value returned is considered
+ * the best match.  Return the `found child' if we got a match, or NULL
+ * otherwise.  The `aux' pointer is simply passed on through.
+ *
+ * Note that this function is designed so that it can be used to apply
+ * an arbitrary function to all potential children (its return value
+ * can be ignored).
+ */
+void * config_search(cfmatch_t fn, struct device *parent, void *aux);
+
+
+
+/*
+ * 与 config_search() 类似，不过不关心 match 结果，仅仅是函数调用。
+ *
+ * Iterate over all potential children of some device, calling the given
+ * function for each one.
+ *
+ * Note that this function is designed so that it can be used to apply
+ * an arbitrary function to all potential children (its return value
+ * can be ignored).
+ */
+void config_scan(cfscan_t fn, struct device *parent);
+
+
+
+/*
+ * 根据 rootname 来找到一个 device ，并调用指定的函数 fn
+ *
+ * Find the given root device.
+ * This is much like config_search, but there is no parent.
+ */
+void * config_rootsearch(cfmatch_t fn, char *rootname, void *aux);
+
+
+
+/*
+ * Attach a found device.  Allocates memory for device variables.
+ */
+struct device *
+config_attach(struct device *parent, void *match, void *aux, cfprint_t print)
+
+
+/*
+ * 根据 cf 的内容，生成新的 struct device 配置之，并返回。
+ */
+struct device *
+config_make_softc(struct device *parent, struct cfdata *cf);
+
+
+/*
+ * open device
+ */
+int
+config_activate(struct device *dev);
+
+/*
+ * close device
+ */
+int
+config_deactivate(struct device *dev);
+
+
+/* 
+ * Lookup a device in the cfdriver device array.  Does not return a
+ * device if it is not active.
+ *
+ * Increments ref count on the device by one, reflecting the
+ * new reference created on the stack.
+ *
+ * Context: process only 
+ */
+struct device *
+device_lookup(struct cfdriver *cd, int unit);
+
+/*
+ * Increments the ref count on the device structure. The device
+ * structure is freed when the ref count hits 0.
+ *
+ * Context: process or interrupt
+ */
+void
+device_ref(struct device *dv);
+
+/*
+ * Decrement the ref count on the device structure.
+ *
+ * free's the structure when the ref count hits zero.
+ *
+ * Context: process or interrupt
+ */
+void
+device_unref(struct device *dv);
+
+
+
+

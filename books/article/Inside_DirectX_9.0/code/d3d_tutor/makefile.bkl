@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<makefile>
+  <exe id="myprogram">
+    <app-type>console</app-type>
+
+    <include>"C:\Program Files\Microsoft DirectX SDK (November 2007)\Include"</include>
+    <sources>main.cpp</sources>
+
+    <lib-path>"C:\Program Files\Microsoft DirectX SDK (November 2007)\Lib\x86"</lib-path>
+    <sys-lib>d3d9</sys-lib>
+    <sys-lib>kernel32</sys-lib>
+    <sys-lib>user32</sys-lib>
+  </exe>
+</makefile>

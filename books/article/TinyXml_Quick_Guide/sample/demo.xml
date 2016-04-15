@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<Data>
+	<!-- This is comment here. -->
+	<Player level="12" rate="0.2" desc='Great guy!'>Kasi</Player>
+	<Player>
+		<Name>Gosla</Name>
+		<Level>13</Level>
+		<Rate>0.3</Rate>
+		<Desc>Wonderful guy!</Desc>
+	</Player>
+</Data>

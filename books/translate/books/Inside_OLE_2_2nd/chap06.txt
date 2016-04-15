@@ -1,0 +1,68 @@
+Chapter 6 Local/Remote Transparency
+
+本地/远程透明性
+
+According to the Handbook of Chemistry and Physics,1 "Transparency of a layer of material is defined as the ratio of the intensity of the transmitted light to that of the incident light. Opacity is the reciprocal of the transparency. Optical density is the common logarithm of the opacity." In other words:
+
+Optical density = log10(Ii/It)
+
+根据《物理化学手册第一卷》上的描述，“物体的透明度定义为出射光与入射光的强度之比。不透明度是透明度的倒数。吸收度则是不透明度的常用对数。”也就是说：
+
+吸收度=log10(入射光强/出射光强)
+
+Obviously, then, a perfect transparency of 1.000 is achieved only when optical density (not necessarily physical density) is exactly 0. A total vacuum falls into this category, and high-quality lenses-for which professional photographers shell out tens of thousands of dollars-come rather close. A perfect opacity, on the other hand, has an infinite optical density. In this category, you'll find materials such as trees, concrete, electrical tape, other people's heads in movie theaters, and even the Handbook of Chemistry and Physics.
+
+显然，完全透明（透明度为1.000）等价于吸收度为0。真空属于此类，那些专业摄影师花几万美金买来的高纯度透镜也基本算得上是。相反，完全不透明，也就是吸收度为无穷大。这一类物品也很多，如树木、建筑、磁带、电影院里晃动的人头，以及《物理化学手册》此书自己。
+
+In the field of engineering acoustics, the notion called transmission loss is almost identical. Transmission loss measures sound through various types of wall construction, such as gypsum wallboard, 4-inch bricks, concrete, and piles of outdated Handbook of Chemistry and Physics volumes. The acoustics textbook I used in college2 describes transmission loss with this equation:
+
+TL = 10dB log10(Ii/It)
+
+在应用声学领域，有一个等价的概念“传输损耗”。很多介质都会导致传输损耗：石灰板、4英寸砖、建筑、一大堆老旧的《物理化学手册》等。在我大2读的声学课本上将传输损耗定义为：
+
+传输损耗 = 10分贝 * log10(入射声强/出射声强)
+
+The concepts of optical density and transmission loss, even those of electrical resistance and conductivity to some extent, relate exceptionally well to the member function calls that a client of some object makes through one of that object's interface pointers. As we saw in Chapter 5, the effective optical density-the transmission loss-for a call from a client to an in-process object is 0: there is nothing standing between the call made in the client and the code that implements that function in the object. Whatever piece of machine code in the client issues a call instruction, the next point of execution is at the beginning of the implementation of that function inside the object code itself.
+
+吸收度与传输损耗以及类似的概念，也同样存在于“通过对象的接口指针调用其方法”这一过程。正如在第5章所见，调用同一个进程内的对象方法最理想的吸收度（损耗）为0：没有任何中间层，仅以一条CALL指令来将执行点转移到函数的实现代码头部。
+
+With the aim of complete component integration, OLE and COM also allow clients to communicate with local and remote objects. Process and network boundaries are real and substantial, and significant work is required to change from one address space to another or to transmit information across network cables. For complete component integration to work, a function call made in a client must show up in any object as if no barrier existed at all. From the client's perspective, any function call to any object's interface is an in-process call, regardless of the boundaries between the client and the object. From the object's perspective, the object receives interface calls as if the client were in the same address space as well, and so the object enjoys perfect transmission.
+
+为了实现组件集成的目标，OLE和COM允许客户端与本地以及远程的对象进行通信。为了突破跨进程以及跨主机的限制，需要大量的工作来处理诸如地址空间转换、网络数据传输等事项。为使组件集成能正确运作，客户端发起的任何函数调用都必须正确应验在目标对象身上，而不管其间有多少阻碍。从客户端的观点看，对任何对象的调用都是进程内调用，而无须关心调用是否跨越了进程或主机。从对象的观点看，对象接收到的任何调用也都来自自己所在进程。
+
+The crux of Local/Remote Transparency is that somehow a server process has an interface pointer that it wants to make available to other processes. This always begins with a server's IClassFactory pointer-the first interface pointer of this kind that a server gives to COM. COM must then create the structures that allow clients in other processes to make function calls through this pointer. That's what ultimately matters. Of course, Local/Remote Transparency isn't at all important when a client is dealing with an in-process server. Only when a client is working with local or remote servers does sharing an interface pointer matter at all.
+
+本地/远程透明性的关键在于，服务器进程如何将自己拥有的接口指针共享给其它进程。通常这都会从一个IClassFactory指针开始————这是服务器进程注册给COM的第一个指针。然后COM会为其创建相应的数据结构以使其它进程内的客户端能通过该指针发起正确的函数调用。本质上就是这样，当然对于进程内服务器来说，本地/远程透明性意义不大，但对于需要与本地或远程进程服务器通信的客户端来说就非常重要了。
+
+Fortunately, COM makes the whole process utterly trivial: the server can just hand the pointer to COM, and COM sets up everything required for the client to make calls into the object. This is why COM is so powerful: there is so much work to make Local/Remote Transparency work, but the burden is all on COM, not on the client or the server.
+
+幸运的是，COM简化了这一切：服务器仅需将其接口指针传给COM，然后COM就会处理一切，客户端就可以正确调用对象的方法。这便是COM的强大之处：为了处理本地/远程透明性的大量工作都由COM搞定了，客户端和服务器都不用再操心了。
+
+The whole trick to this technology is to always have the client call some in-process code when making any interface call and to always have the object receive that call from some code in its own process. This chapter is about the mechanisms and devices that COM uses to achieve this. Called marshaling or remoting, these mechanisms determine how an object in a local or remote process communicates with a proxy in the client process. An object can employ different marshaling mechanisms-custom marshaling, in which the object controls the interprocess communication itself, or standard marshaling, in which OLE provides a default mechanism. With standard marshaling, OLE offers some facilities to support custom interfaces for cases in which standard marshaling support is not already built into the system. To wrap it all up, we'll also see concurrency management (also called message filtering), through which clients and objects can gracefully handle time-outs and rejected calls, informing the end user of the situation.
+
+整个把戏的关键在于使客户端发起的所有函数调用都在本进程内而服务器对象接收的所有调用也都来自本进程。这一章讲述的就是COM为实现此目的而采用的机制。这些被称为“列集”或“远程（调用）”的机制决定了“真实对象”如何与本地或远程进程内的“代理对象”通信。每个对象都可选择不同的列集机制，或用自定义列集以便完全控制跨进程通信过程；或用标准列集，其中OLE为自定义接口的列集提供了不少支持以弥补操作系统在这方面的欠缺。为了完全理解它们，我们也将讨论并发管理（又叫消息过滤），由此客户端与服务器能友好的处理超时与拒绝请求等事项，并将这些情况通知给终端用户。
+
+The idea of COM's Local/Remote Transparency is to make interface calls to local and remote objects as transparent as calls to in-process objects, regardless of how the interprocess or intermachine communication occurs. Because COM itself handles all of the work involved and allows you to make specific customizations of the underlying architecture, clients, servers, components, and objects don't care how it all works-they just know that calls go through without one shred of loss in transmission. Not only are calls transparent as far as transmission is concerned, they are also effortless to both clients and objects; just as effortless, in fact, as an in-process call-that is, a simple function call through an interface pointer. You get zero opacity, perfect transmission.
+
+COM本地/远程透明性的思想就是提供接口调用透明性，即不管调用的是本地对象还是远程对象的接口，看起来都跟调用进程内对象的接口一样，而不管这之后其实发生了大量跨进程、跨主机的事件。因为COM自己搞定了大部份工作，同时还允许你为某些底层机制提供自定义实现，这样一来，客户端、服务器、组件对象都不必再关心任何问题：在调用过程中没有损失任何信息。这种调用不仅透明，而且高效：对于进程内调用来说，就只是一次在接口指针上发起的函数调用，没有任何额外负担。
+
+Note: You can accomplish quite a lot with OLE without knowing much of the information in this chapter, which is fairly detailed. If you are interested primarily in high-level concepts, feel free to skip this chapter or simply peruse it quickly, but be sure to read "The OLE UI Library and the Busy Dialog Box" on page 316, which is relevant to material in other chapters. Otherwise, come back to specific sections when you need to understand a specific topic.
+
+注意：其实你并不需要很熟悉本章的内容也能用OLE完成许多工作，这一章是非常偏重细节。如果你主要是对高层概念感兴趣，那么可以先跳过本章或是快速泛读一遍，但是最好能读一下316页“OLE UI库和Busy对话框”那一节，在其它章节会用到这些材料。或者你也可以等到需要了解它们时再回过头来看看。
+
+
+
+1 65th ed. CRC Press Inc. Boca Raton Florida. 1984-85.
+
+
+
+2 Basic Acoustics by Donald E. Hall Harper & Row Publishers New York. 1987.
+
+
+
+
+
+
+
+? 1997 Microsoft Corporation. All rights reserved. Terms of use
+

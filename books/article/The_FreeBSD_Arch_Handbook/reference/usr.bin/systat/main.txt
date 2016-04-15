@@ -1,0 +1,187 @@
+﻿main.c
+整个程序就是察看 systat -cmd 使用了那个 cmd，然后对应显示 cmd 相关的信息。
+每个 cmd 的逻辑放在独立的文件中，比如：/usr.bin/systat/pigs.c
+
+sysctl -d kern.cp_time
+察看 kern.cp_time 的含义
+
+执行 systat 的任何时候，都可以通过 :cmd 来输入指令，切换不同的显示参数、状态。
+
+
+============= -pigs =============
+systat -pigs
+察看最消耗cpu的进程的情况。pigs，这个名字真是好玩。:-)
+通过 kvm_getprocs 获取当前所有进程的情况，然后排序、显示出来。
+
+long stime[CPUSTATES];
+size_t len = sizeof(stime);
+sysctlbyname("kern.cp_time", &stime, &len, NULL, 0);
+获取 CPU time statistics, 其中包括如下几个时间 (sys/resource.h)
+#define	CP_USER		0
+#define	CP_NICE		1
+#define	CP_SYS		2
+#define	CP_INTR		3
+#define	CP_IDLE		4
+#define	CPUSTATES	5
+
+运行一个死循环的 a.out，如下：
+                    /0   /1   /2   /3   /4   /5   /6   /7   /8   /9   /10
+     Load Average   |||
+
+                    /0   /10  /20  /30  /40  /50  /60  /70  /80  /90  /100
+kasicass      a.out XXXXXXXXX 
+ylhu      python2.5 XXXXXXXX   
+root     idle: cpu0 XXXXXXX    
+root     idle: cpu1 XXXXXX    
+root     idle: cpu2 XXXXXX    
+root     idle: cpu3 XXXXXX 
+             <idle> XXXX
+其中 a.out 后面的 XXX 是其综合消耗 multi-cpu 的总的比率。
+idle: cpu0 等显示的是当前时刻，每个 cpu 的 idle 情况。
+<idle> 是一个“虚拟”的 user process，显示了总的 idle 情况。
+
+
+============= -swap =============
+swap 信息
+
+
+============= -mbufs =============
+          /0   /5   /10  /15  /20  /25  /30  /35  /40  /45  /50  /55  /60
+Mbufs     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 10401
+
+10401 空闲的 mbuf 数量，其中前 60 个会以 "X" 的形式显示出来。如果 mbuf 不足 60 个，
+"X" 就不会占满屏幕的一行了。
+
+sysctlbyname("kern.ipc.mbstat", mbstat, &len, NULL, 0)
+/* sys/mbuf.h */
+struct mbstat {
+	u_long	m_mbufs;	/* XXX */
+	u_long	m_mclusts;	/* XXX */
+
+	u_long	m_drain;	/* times drained protocols for space */
+	u_long	m_mcfail;	/* XXX: times m_copym failed */
+	u_long	m_mpfail;	/* XXX: times m_pullup failed */
+	u_long	m_msize;	/* length of an mbuf */
+	u_long	m_mclbytes;	/* length of an mbuf cluster */
+	u_long	m_minclsize;	/* min length of data to allocate a cluster */
+	u_long	m_mlen;		/* length of data in an mbuf */
+	u_long	m_mhlen;	/* length of data in a header mbuf */
+
+	/* Number of mbtypes (gives # elems in mbtypes[] array: */
+	short	m_numtypes;
+
+	/* XXX: Sendfile stats should eventually move to their own struct */
+	u_long	sf_iocnt;	/* times sendfile had to do disk I/O */
+	u_long	sf_allocfail;	/* times sfbuf allocation failed */
+	u_long	sf_allocwait;	/* times sfbuf allocation had to wait */
+};
+
+
+============= -iostat =============
+显示当前 i/o设备(磁盘) 的消耗情况。
+
+          /0   /10  /20  /30  /40  /50  /60  /70  /80  /90  /100
+cpu  user|
+     nice|
+   system|
+interrupt|
+     idle|XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+              ad0              ad2
+            KB/t tps  MB/s   KB/t tps  MB/s
+            0.00   0  0.00   0.00   0  0.00 
+            2.40   2  0.00   0.00   0  0.00
+
+上半段显示了 cpu 的使用情况。
+下半段显示了 io 的情况。
+  KB/t - kb per transfer
+  tps  - transfer per second
+  MB/s - MB per second
+transfer 应该比较底层的参数，我们注意 MB/s 就好。
+
+-iostat 分为 numbers / bars 两种显示模式。上面那种就是 numbers。
+bars 显示如下：
+          /0   /10  /20  /30  /40  /50  /60  /70  /80  /90  /100
+ad0   MB/sXXXXXXXXXXXXXXXXXXXXXXXXX
+      tps|XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX406.32
+     KB/t|XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX127.28
+ad2   MB/s
+      tps|
+     KB/t|
+
+bars 模式下，默认没有 KB/t 的显示，可以用指令 :kbpt 来开启、关闭。
+
+
+============= -netstat =============
+netstat.c / netcmds.c
+在 main.c 中有一个 use_kvm 的开关。use_kvm = 1 会使用 kvm_xxx 等 api 来获取内核信息；而 = 0 则使用 sysctl
+来获。kvm 是允许访问任何内核结构体，而 sysctl 只能访问到部分，所以只有 root 时，才 use_kvm = 1。
+不过 systat -netstat 无论通过 kvm 还是 sysctl，获取到的信息都差不多，为何要区分这两种情况呢？不解！
+
+systat -netstat 默认启动时，显示如下内容，监听 tcp,udp 的情况。
+Local Address          Foreign Address        Proto Recv-Q Send-Q (state)
+foobar..30000          192.168.36.75.1202     tcp4       0      0 ESTABLISHED
+foobar..svn            *.*                    tcp4       0      0 LISTEN
+
+其中 Recv-Q, Send-Q 是此 socket 在系统的 rcv/sndbuf 中的 bytes 数量。
+进程A 给 进程B 发送数据，只要进程B不 read, 就可以看到 Recv-Q 中积累了内容。
+
+指令 :numbers 可以看 ip，域名；:names 则可切换回域名。
+Local Address          Foreign Address        Proto Recv-Q Send-Q (state)
+192.168.1.26.30000     192.168.36.75.1202     tcp4       0     52 ESTABLISHED
+192.168.1.26.3690      *.*                    tcp4       0      0 LISTEN
+
+其中 state 只有 tcp 才会有。
+:all 指令切换是否观看 Local Address == INADDR_ANY 的端口 (listening port)。
+Local Address          Foreign Address        Proto Recv-Q Send-Q (state)
+*.8080                 *.*                    tcp4       0      0 LISTEN
+*.32200                *.*                    tcp6       0      0 LISTEN
+*.32200                *.*                    tcp4       0      0 LISTEN
+*.4445                 *.*                    tcp4       0      0 LISTEN
+*.7024                 *.*                    tcp4       0      0 LISTEN
+
+:proto tcp/udp/all, 用于选择监听 tcp or udp or both
+
+:ignore smtp
+Local Address          Foreign Address        Proto Recv-Q Send-Q (state)
+192.168.1.26.30000     192.168.36.75.1202     tcp4       0     52 ESTABLISHED
+
+:show ports
+!smtp
+
+:display smtp
+Local Address          Foreign Address        Proto Recv-Q Send-Q (state)
+192.168.1.26.30000     192.168.36.75.1202     tcp4       0     52 ESTABLISHED
+localhost.foo.co.smtp  *.*                    tcp4       0      0 LISTEN
+
+:show ports
+smtp
+
+:ignore foobar
+Local Address          Foreign Address        Proto Recv-Q Send-Q (state)
+192.168.1.26.30000     192.168.36.75.1202     tcp4       0     52 ESTABLISHED
+
+:show hosts
+!foobar
+
+:display foobar
+Local Address          Foreign Address        Proto Recv-Q Send-Q (state)
+192.168.1.26.30000     192.168.36.75.1202     tcp4       0     52 ESTABLISHED
+foobar..svn            *.*                    tcp4       0      0 LISTEN
+
+:show hosts
+foobar
+
+通过 ignore/display 可以控制某个 port or host 的显示。而 show 指令则可以查看你当前的设置。
+注意，其中 port 只能是 service name, 比如 smtp；而不是数字，如 8080。
+
+
+============= -ifstat =============
+察看服务器网卡的 in/out 流量。
+:scale [auto|kbit|kbyte|mbit|mbyte|gbit|gbyte]		切换显示的单位，其实默认的 auto 就足够了
+      Interface           Traffic               Peak                Total
+           bge0  in    286.192 KB/s        327.438 KB/s            2.091 GB
+                 out   418.651 KB/s        475.283 KB/s            1.623 GB
+Traffic, 当前流量
+Peak, 峰值
+Total, 总流量

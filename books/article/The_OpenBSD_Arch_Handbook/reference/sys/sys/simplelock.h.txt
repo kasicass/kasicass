@@ -1,0 +1,31 @@
+// http://en.wikipedia.org/wiki/Spinlock
+// 简单的 spin lock 的实现
+// 
+// spin lock 是让 thread 可以做 while (1) { if (cond_ok) break; } 这样事情的机制，因此 spin lock 也是
+// busy waiting 的。spin lock 主要用于 thread "be locked for a short period of time"，用 busy waiting 的方式
+// 代替 re-scheduling(context switch) 带来的开销。
+//
+// spin lock 一般都依赖硬件的能力，才能实现，比如 atomic test-and-set operation。
+// 
+// 资料：
+// http://www.ibm.com/developerworks/cn/linux/l-cn-mcsspinlock/
+// http://www.ibm.com/developerworks/cn/linux/l-cn-spinlock/index.html
+/* http://bbs.cechinamag.com/ShowTopic.aspx?id=65510
+
+这两天经常有同事在问我spinlock和semaphore的相关问题，什么时候该用spinlock？什么时候该用semaphore？什么时候该用spinlock_irq？什么时候该用spinlock_irqsave？的确，对于初涉内核开发的人员来说，spinlock和semaphore的应用是一个比较大的疑问。这里，我来谈谈我对这两个概念的想法吧。
+
+Spinlock的实现机制可以描述如下：CPU首先将内存总线lock住，然后检测内存中的lock数据，如果数据为真，那么表示资源被人占用，无法获取。然后CPU会自璇检测该lock数据，直到数据不为真之后，lock该数据返回。在Linux中spinlock核心代码采用汇编语言实现，可以参考__raw_spin_lock函数。在2.6.25版本之后，Linux为了解决在多CPU平台上的不公平竞争，引入了排队自璇锁的算法。
+
+说道这里，需要讲一下的是，spinlock在up平台上为空函数的说法。这个说法不是很严格，实际上在非抢占的up平台上，spinlock的实现为空函数，在可抢占的up平台上，spinlock需要将抢占给disable掉，也就是说在spinlock的临界区，Linux无法抢占。在多CPU平台上，spinlock是有效的。
+
+Semaphore的实现机制可以描述如下：CPU首先会检测信号量是否可获取，如果无法获取该信号量，那么就会导致一次上下文调度操作。从实现机制上来看，semaphore操作效率比较低，而spinlock的效率相对较高，但是这种效率的高低与应用相关，如果临界区操作的时间过长，那么采用spinlock会浪费大量的CPU时间，还不如做几次上下文调度释放CPU资源呢。所以，spinlock的应用有一个原则，那就是临界区操作尽可能的短，让CPU不要自璇太多的时间，这一点从spinlock的实现代码上也可以看出一些端倪，Linux开发人员着这个地方花费了好多心计。
+
+从上面的机制描述，我想可以总结出如下几点：
+1、不允许睡眠的上下文需要采用spinlock，可以睡眠的上下文可以采用semaphore。在中断上下文中访问的竞争资源一定采用spinlock。
+2、临界区操作较长的应用建议采用semaphore，临界区很短的操作建议采用spinlock。
+3、需要关中断的场合需要调用spinlock_irq或者spinlock_irqsave，不明确当前中断状态的地方需要调用spinlock_irqsave，否则调用spinlock_irq。一个资源既在中断上下文中访问，又在用户上下文中访问，那么需要关中断，如果仅仅在用户上下文中被访问，那么无需关中断。
+*/
+
+----------- OpenBSD simplelock
+与上面说的不同，OpenBSD 中对于 uniprocessor，spinlock 就是空函数，并不会排斥其他'抢占'进程。
+其实 OpenBSD 中 simplelock.h 什么也没做，spin lock 的实现其实在 kern/kern_lock.c & sys/lock.h 中，这里已经被暂时废弃了。

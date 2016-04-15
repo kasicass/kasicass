@@ -1,0 +1,5 @@
+/* virtual memory system init code */
+
+仅包含函数 void uvm_init()。
+
+

@@ -1,0 +1,160 @@
+=============================================
+== Cbuf_XXX
+
+qcommon/cmd.c 是处理 script command 的模块。目前的理解，script command 应该就是游戏中的 console，然后可以输入一些指令，控制一下，作作弊啥的。比如星际的 show me the money，哈～～
+
+Cbuf_XXX 类函数，就是将一行行的 command 保存起来，然后一次全部  execute 掉。恩～太简单，没啥好分析的，看看下面的函数说明即可理解。ps. quake 的C代码清晰明了，个人认为堪称典范呵。
+
+-------------------------------------------
+// qcommon/cmd.c
+// Quake script command processing module
+
+#define MAX_CMD_BUFFER    16384
+#define MAX_CMD_LINE      1024
+
+typedef struct {
+        byte    *data;
+        int     maxsize;
+        int     cursize;
+} cmd_t;
+
+int         cmd_wait;    // 用于在 Cbuf_Execute() 延迟几帧 execute lines
+cmd_t       cmd_text;
+byte        cmd_text_buf[MAX_CMD_BUFFER];
+
+// cmd_text.data = cmd_text_buf;
+// cmd_text.maxsize = MAX_CMD_BUFFER;
+// cmd_text.cursize = 0;
+void Cbuf_Init (void);
+
+// execute cmd_text 中的所有 lines，其中 ';' '\n' '\r' 都是
+// 一个 lines 的分割符
+void Cbuf_Execute (void);
+
+// 将 text 放入 cmd_text 尾部，不以 '\n' 结尾
+void Cbuf_AddText( const char *text )
+
+// 将 text 放入 cmd_text 开头，同时以 '\n' 结尾
+// insert 的 text 会在 Cbuf_Execute 先被执行
+void Cbuf_InsertText( const char *text );
+
+// EXEC_INSERT - 调用 Cbuf_InsertText(text)
+// EXEC_APPEND - 调用 Cbuf_AddText(text)
+// EXEC_NOW    - text存在，就 Cmd_ExecuteString(text), 否则
+//               就执行 Cbuf_Execute() 将 cmd_text 中的所有
+//               lines execute 一下
+void Cbuf_ExecuteText (int exec_when, const char *text);
+
+
+
+
+=============================================
+== Cmd_XXX
+
+qcommon/cmd.c 中除了 Cbuf_XXX 之外，主要还实现了 Cmd_XXX 一类函数。
+还记得星际中的 show me the money，我们要在游戏中实现一个简单的 command interpreter，如何做？Cmd_XXX 给出了一个简单的方式。如下：
+
+// struct
+typedef void (*xcommand_t)(void);
+
+typedef struct cmd_function_s {
+        struct cmd_function_s   *next;
+        char                    *name;
+        xcommand_t              function;
+} cmd_function_t;
+
+// global var
+cmd_function_t *cmd_list = NULL;
+
+通过链表管理一个 name/fn pairs，每次输入 command，就遍历链表，找到对应的 fn，执行一下即可。:-) 实现简单，但又很实用。下面是我写的一个'具体而微'的版本，参考之。
+---------------------------- mycmd.c ---------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// macro
+#define MAX_LINE_SIZE           256
+
+// struct
+typedef void (*xcommand_t)(void);
+
+typedef struct cmd_function_s {
+        struct cmd_function_s   *next;
+        char                    *name;
+        xcommand_t              function;
+} cmd_function_t;
+
+// global var
+cmd_function_t *cmd_list = NULL;
+
+// func
+void Cmd_Execute(const char *context)
+{
+        cmd_function_t *cmd;
+        int found = 0;
+
+        for (cmd = cmd_list; cmd != NULL; cmd = cmd->next)
+        {
+                if ( strcmp(cmd->name, context) == 0 )
+                {
+                        found = 1;
+                        if ( cmd->function )
+                                cmd->function();
+                        break;
+                }
+        }
+
+        if (!found)
+                printf("[%s] cmd not found!\n", context);
+}
+
+void Cmd_AddCommand(const char *cmdname, xcommand_t fn)
+{
+        cmd_function_t *cmd;
+        int namelen;
+
+        cmd = malloc(sizeof(cmd_function_t));
+
+        namelen      = strlen(cmdname)+1;
+        cmd->name = malloc(namelen);
+        strncpy(cmd->name, cmdname, namelen);
+
+        cmd->function = fn;
+
+        cmd->next = cmd_list;
+        cmd_list     = cmd;
+}
+
+// ---- usage
+void Show_f()
+{
+        printf("my show\n");
+}
+
+void Goodday_f()
+{
+        printf("good day\n");
+}
+
+int main()
+{
+        char line[MAX_LINE_SIZE];
+
+        Cmd_AddCommand("show me the money", Show_f);
+        Cmd_AddCommand("gooday", Goodday_f);
+
+        while (1)
+        {
+                gets(line);
+                if ( strcmp(line, "quit") == 0 )
+                        break;
+
+                Cmd_Execute(line);
+        }
+
+        return 0;
+}
+---------------------------- mycmd.c ---------------------------
+
+:-) 如何，很简单吧。quake中的版本，只是再多加如了参数的概念，比这稍微复杂一点点而已。
+

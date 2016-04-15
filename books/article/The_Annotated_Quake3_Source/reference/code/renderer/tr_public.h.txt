@@ -1,0 +1,8 @@
+// renderer模块 提供给外部的接口
+struct refexport_t;
+
+// 所有 renderer模块 依赖的接口
+struct refimport_t;
+
+// 通过如下 API，renderer模块 获得 refimport_t* 并返回 refexport_t*
+refexport_t*GetRefAPI( int apiVersion, refimport_t *rimp );

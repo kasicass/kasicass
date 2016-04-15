@@ -1,0 +1,12 @@
+FreeBSD 8.0 协议栈代码阅读心得
+
+1. 分析TCP/IP的实现
+2. 分析一个 driver 的撰写
+
+因为 8.0 加入了 VNET/VIMAGE 的概念，可以实现 protocol stack visualization
+但由此可能影响阅读，所以先从 7.2 的代码开始分析
+
+dev/re/if_re.c
+RealTek 8101E/8102E/8102EL PCIe 10/100baseTX
+
+net/if_ethersubr.c

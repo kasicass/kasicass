@@ -1,0 +1,14 @@
+《Design and Implementation of UVM》 阅读笔记
+
+== chap02 background(基础知识)
+内核中 VM system 干啥的？就是让 process(进程) 与 physical addr 之间产生一个隔离层，process 只会用 virtual addr(虚拟地址) 来访问内存，而不知道 physical addr 为何物。当然，VM system 也是实现 fork 后 pages copy-on-write 的基础。
+
+UVM 是基于 BSD VM 的改良。BSD VM 最早来自 VAX VM，其对 VAX 硬件特性过于依赖，导致移植性很差（移植到其他硬件，需要在其他硬件上模拟 VAX 的行为，很痛苦）。Sun OS 3 还在用 VAX VM，但 Sun OS 4 之后就全部重新设计了。4.3BSD 本来也使用 VAX VM，但 4.3BSD Net/2 开始，就改从 Mach 2.5 移植了它的 VM；之后的 FreeBSD, BSDI 各自在 Mach 版 BSD VM 上改良了许多。而 UVM 则是在 Net/OpenBSD 的 VM 基础上，集合 SunOS4 & FreeBSD 的改进，化而为一的改良版。
+
+BSD VM System 分为两个部分 Machine-Dependent Layer 和 Machine-Independent Layer。 
+MDL: pmap_enter, pmap_remove, pmap_protect, pmap_page_protect, pmap_is_referenced, pmap_is_modified, pmap_clear_reference, pmap_clear_modify
+MIL: vmspace, vm_map, vm_object, vm_pager, vm_page
+
+这章里面有个 Figure 2.5，把 MIL 里面 vmspace, vm_map, ... 什么的都画得很清楚。对于 VM System，如何实现 process fork 时的 copy-on-write 很关键。
+*private* copy-on-write, fork 时没有 copy，真的是 write 的时候才 copy 的。多数 *nix 的实现。
+*copy* copy-on-write, fork 时其实就 copy 一份，什么时候 write 都不怕啦。

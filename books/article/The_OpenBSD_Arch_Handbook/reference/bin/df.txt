@@ -1,0 +1,3 @@
+df, 察看每个 mounted device 的大小等信息。
+
+程序整体结构很简单，通过 getmntinfo() 获取有哪些 mounted device，然后通过 statfs() 得到单个 mounted device 的详细信息。如果是 S_ISCHR() or S_ISBLK() device，则通过 bread() 替代 statfs() 获取详细信息。

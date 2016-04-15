@@ -1,0 +1,37 @@
+Object Identity
+对象标示
+
+
+
+The "ultimate question" raised earlier had a loaded catchphrase: "Given a way to identify an object of a class…" Corresponding to the four answers to the question itself, there are four basic ways to uniquely identify a class:
+前面提到的那个所谓“终结问题”有一个时髦的说法：提供一种标示一个类的一个对象的方法...和终结问题的四个答案相一致，同样也有四种方式可以唯一标识一个类
+
+
+
+
+By the name of the API function that creates or retrieves an object of the class
+By an object's position within the hierarchy of a component—that is, through the name of the interface function that provides access to it 
+By some internal structure or class name provided when the object is created and then exposed to outside clients
+By a globally unique class identifier, or CLSID
+通过可以创建或者获取某特定类的对象的API函数
+通过一个对象在某个组件的继承关系中的位置，也就是通过可以访问到该对象的接口函数
+通过一些内部的类或者结构体，这些类或者结构体可以创建供外部客户端使用的对象
+通过一个全局的类标识符，或者CLSID
+
+
+
+
+The key to all of these identifications is uniqueness. By design, the name of an API function is unique within the system and so is unique among all components and applications. Because interfaces are unique, so are the member functions they contain. Those functions that create new objects uniquely identify the class of object they create. Objects that are created within a client for the express purpose of communicating with another instance of an object—for example, an event sink—need be unique only within that client because there is no other way to get at the object. In such cases, a compiler will enforce a unique internal name.
+解决这些“标识性”问题在关键在一“唯一性”！设计的时候，一个系统的API函数是唯一的，也就是在所有的组件和应用中也是唯一的。因为接口是唯一的，所有接口的成员函数也是唯一的。这些成员函数所创建的新对象也就唯一标识的。当一个在客户端创建的目的为和其他对象的实例进行交互（例如an event sink）的对象只需要在那个客户端里面唯一就可以了，因为没有任何其他的方式可以获取这个对象。在这种情况下，编译器将强制的给一个对象设置唯一的内部名称
+
+
+
+
+The fourth method is a bit trickier: the case in which custom components are uniquely identified within an entire system and, in the future, across an entire network. The primary issue here is that distributed environments have potentially millions of components, objects, and interfaces that need unique identification. Using human-readable names for finding and binding to all of these elements (used for system APIs and internal class names) will certainly result in collision. The result of name-based identification will inevitably be the accidental connection of two or more software components that were not designed to interact with each other, and this will result in an error or a crash, even though the components and the system had no bugs and worked as designed.
+相对前三种方式，第四种方式有一点点困难：就是用户组件在整个系统中是唯一的（或者在将来，在整个网络上是唯一的）这种情况。基本的设定是整个环境具有无数的组件，对象以及接口，上述的这些都是需要唯一标识的。如果用human-readable的名字来查询，绑定给所有的这些元素（给系统api函数或者内部类使用的），出现碰撞也就是必然的了。基于名称的标识方式的结果将导致那些不是为交互使用所设计的组件出现严重的错误甚至崩溃，尽管这些组件和系统可能没有任何bug，并且能够按照设计的工作。
+
+
+
+
+The problem seems worse when you consider that many components and interfaces are developed at different times by different people in different places. How can you possibly guarantee uniqueness when there is no communication among vendors?
+当你需要整合的组件是在不同的时间，不同的地方，由不同的人开发的时候，问题会显现的更为严重！当这些开发商没有任何沟通的时候，你如何能保证这些组件的唯一性呢？

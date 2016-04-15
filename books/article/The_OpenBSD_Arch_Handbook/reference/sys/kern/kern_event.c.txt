@@ -1,0 +1,2 @@
+kqueue 的内核实现。kqueue 来源于 FreeBSD。
+有空把详细分析写于此。

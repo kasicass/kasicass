@@ -1,0 +1,10 @@
+
+
+
+/*
+** main search function
+*/
+
+
+// 返回 t[key] 的值，如果 t[key] 原来不存在，则自动建一个位置 t[key] = nil，并返回 t[key]
+TValue *luaH_set (lua_State *L, Table *t, const TValue *key);

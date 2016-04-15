@@ -1,0 +1,2 @@
+事件通知机制 kqueue 的实现。
+参见：sys/kern/kern_event.c

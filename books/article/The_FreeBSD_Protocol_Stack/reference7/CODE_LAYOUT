@@ -1,0 +1,34 @@
+net/						interface stuff
+netinet/					inet, Internet stuff
+
+--------------------
+
+sys/socket.h				address structure definitions
+
+sys/domain.h
+sys/protosw.h				protocol switch table
+kern/uipc_domain.c			DOMAIN_SET(9)
+
+net/if.h					interface structure definition
+net/if.c					generic interface code
+net/route.h					route entries
+
+net/netisr.h				network interrupt service routine
+net/netisr.c
+
+netinet/ip.h				IP header structure
+netinet/ip_input.c			IP input processing
+netinet/ip_output.c			IP output processing
+netinet/ip_cksum.c			Internet checksum algorithm
+
+netinet/in.h				Internet address definitions
+netinet/in_var.h			Internet interface definitions
+netinet/in.c				Internet initialization and utility functions
+netinet/if.c				Internet interface utility functions
+
+netinet/if_ether.h			Ethernet structures
+net/if_ethersubr.c			generic Ethernet functions
+dev/re/if_re.c				RealTek 8101E/8102E/8102EL PCIe 10/100baseTX
+
+net/if_loop.c				loopback dev
+

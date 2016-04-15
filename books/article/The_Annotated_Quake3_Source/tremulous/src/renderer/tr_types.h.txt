@@ -1,0 +1,5 @@
+
+定义了 Entity 的类别，Entity 就是不同的物件，有不同的参数，不同的绘制方式
+refEntityType_t
+
+

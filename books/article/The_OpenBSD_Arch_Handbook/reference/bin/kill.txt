@@ -1,0 +1,8 @@
+通过 kill()[singal.h] 给对应的 pid 发送 sig。
+
+kill -l
+通过
+[signal.h]
+extern char *sys_siglist[];
+extern char *sys_signame[];
+显示 sig 相关的信息。

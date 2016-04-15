@@ -1,0 +1,9 @@
+Linux GL Implematation
+
+使用 Xlib 实现的 GL Impl。
+
+// 把 X 的 KeySym 转为 quake 自己定义的 KeySym(client/keycodes.h)
+static char *XLateKey(XKeyEvent *ev, int *key);
+
+// 弄个看不见的 cursor
+static Cursor CreateNullCursor(Display *display, Window root);

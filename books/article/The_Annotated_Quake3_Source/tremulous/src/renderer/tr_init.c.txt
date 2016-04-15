@@ -1,0 +1,24 @@
+renderer 模块用到的 global var 都定义在此
+
+/* 整个 renderer 模块的初始化函数，包括调用下面的 InitOpenGL(), R_Register() ... */
+void R_Init( void );
+
+/* 初始化 platform-specific GL stuff，设置初始的 State
+ * SMP，其实就是启动了一个 render thread
+ */
+static void InitOpenGL( void );
+
+/* 若 glGetError() 有错误码，将 errstr 输出到 console */
+void GL_CheckErrors( void );
+
+/* screenshot 相关的几个函数，实现 tga/jpeg 的 screenshot */
+void RB_TakeScreenshot( int x, int y, int width, int height, char *fileName );
+void RB_TakeScreenshotJPEG( int x, int y, int width, int height, char *fileName );
+...
+
+/* 将游戏内容保存为 video(avi) 短篇 */
+const void *RB_TakeVideoFrameCmd( const void *data );
+
+/* 初始化了所有 renderer 提供给脚本使用的变量，同时 Cmd_AddCommand() 注册了几个脚本func */
+void R_Register( void );
+

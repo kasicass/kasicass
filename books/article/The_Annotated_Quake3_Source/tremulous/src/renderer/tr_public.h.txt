@@ -1,0 +1,9 @@
+/* renderer 模块导出给外部的所有接口 */
+struct refexport_t;
+
+/* renderer 模块需要外部提供的所有接口 */
+struct refimport_t;
+
+/* 实现于 tr_main.c , 外部传入 rimp，可以得到 refexport_t* */
+refexport_t*GetRefAPI( int apiVersion, refimport_t *rimp );
+

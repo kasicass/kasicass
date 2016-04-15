@@ -1,0 +1,70 @@
+Direct3D Function Reference Manual
+
+根据 D3D 的函数结构，详细理解每个参数的含义（也许很多内容就是 MSDN 的翻译），主要是作为参考文字，备查。
+
+
+D3D初始化流程
+=============
+
+//-----------------------------------------------------------------------------------------
+// Direct3DCreate9
+
+IDirect3D9 * Direct3DCreate9(
+  UINT SDKVersion
+);
+
+LPDIRECT3D9 g_pD3D = NULL;
+g_pD3D = Direct3DCreate9(D3D_SDK_VERSION);
+
+获取 IDirect3D9 interface 的唯一方法，通过 IDirect3D9 我们可以选择不同的 render device (选择不同的显卡 or software render?)。
+
+还可以通过 Direct3DCreate9Ex() 得到 IDirect3D9 Ex interface，不过看起来和上面的函数没什么区别。只是 return value 会多几个，可以确切知道 fail 在哪个地方。
+
+
+//-----------------------------------------------------------------------------------------
+// IDirect3D9::CreateDevice
+
+HRESULT CreateDevice(
+  UINT Adapter,
+  D3DDEVTYPE DeviceType,
+  HWND hFocusWindow,
+  DWORD BehaviorFlags,
+  D3DPRESENT_PARAMETERS * pPresentationParameters,
+  IDirect3DDevice9 ** ppReturnedDeviceInterface
+);
+
+
+if ( FAILED(g_pD3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, g_hWnd,
+	D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &g_pDevice)) )
+{
+    // ...
+}
+
+Adapter - 显示器编号，用于制定使用哪个硬件（显卡）。（个人理解，是否正确？)
+
+DeviceType - 设备类型。
+typedef enum D3DDEVTYPE
+{
+    D3DDEVTYPE_HAL = 1,
+    D3DDEVTYPE_NULLREF = 4,
+    D3DDEVTYPE_REF = 2,
+    D3DDEVTYPE_SW = 3,
+    D3DDEVTYPE_FORCE_DWORD = 0xffffffff,
+} D3DDEVTYPE, *LPD3DDEVTYPE;
+
+D3DDEVTYPE_HAL
+硬件光栅化渲染(hardware rasterization). Shading is done with software, hardware, or mixed transform and lighting. 
+
+D3DDEVTYPE_NULLREF
+在没有任何 [硬件/reference] rasterization 特性的机器上初始化 Direct3D。初始化出来的 g_pD3D，任何函数调用都会 fail。
+
+D3DDEVTYPE_REF
+所有 Direct3D 特性全部由软件实现，一个 pure software rasterizer。此模式下，会使用 cpu 提供的特殊指令，提高性能。reference device 完整地实现了 Direct3D 的所有功能，主要是用来 debug 的。如果自己的程序在 reference device 下也不能正确执行，就一定是自己程序的 bug 了。注意，reference device 只在安装了 DirectX SDK 的机器上才能使用。
+
+D3DDEVTYPE_SW
+使用 IDirect3D9::RegisterSoftwareDevice() 注册的 software device。Direct3D 支持自定义的 sofeware device，在一些硬件不支持的机器上，自己可以实现 software device，与 Direct3D 配合工作。细节参见 Direct3D Driver Development Kit (DDK)。
+
+D3DDEVTYPE_FORCE_DWORD
+This value is not used.
+
+

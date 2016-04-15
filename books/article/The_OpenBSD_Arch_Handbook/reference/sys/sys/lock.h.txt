@@ -1,0 +1,2 @@
+﻿// lock 的实现
+// 参见 kern/kern_lock.c

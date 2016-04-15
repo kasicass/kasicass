@@ -1,0 +1,11 @@
+== 程序入口 ==
+
+unix/unix_main.c
+win32/win32_main.c
+
+
+== 目录结构 ==
+[qcommon]        一些通用的模块
+[unix]           *nix 平台相关的内容
+[win32]          windows 平台相关内容
+

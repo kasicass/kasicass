@@ -1,0 +1,2 @@
+根据参数情况，分别调用 sethostname/gethostname() 设置/获得 hostname。
+OpenBSD 中，hostname 存放于 /etc/myname

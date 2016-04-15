@@ -1,0 +1,8 @@
+
+
+template<class T> inline T MIN (T i, T j) { return ((i < j) ? i : j); }
+template<class T> inline T MAX (T i, T j) { return ((i > j) ? i : j); }
+template<class T> inline T MOD (T i, T j) { return (i<0)?(j-1)-((-i-1)%j):i%j; }
+template<class T> inline T DIV (T i, T j) { return (i<0)?-((-i-1)/j)-1:i/j; }
+template<class T> inline T ABS (T i) { return (i>0)?i:-i; }
+template<class T> inline void SWAP(T &x, T &y) { T t; t=x,x=y,y=t; }

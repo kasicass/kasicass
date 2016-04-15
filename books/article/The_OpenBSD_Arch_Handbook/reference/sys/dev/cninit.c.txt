@@ -1,0 +1,7 @@
+console init 函数的实现。
+
+包含下面两个函数。
+
+void	cninit(void);		// 初始化所有 console
+int	cnset(dev_t);		// 根据 dev_t 切换 console
+

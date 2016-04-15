@@ -1,0 +1,11 @@
+/dev/pci/pcidevs
+保存了一份完整的 PCI code 列表。
+
+每个 PCI 设备的生产商，都会注册一个唯一的 PCI code，用以区别于其他厂商的产品，另外，还会定义自己的 subcode，用于识别自己的某一款产品。比如：
+#define	PCI_VENDOR_ATTANSIC	0x1969		/* Attansic Technology */
+#define	PCI_PRODUCT_ATTANSIC_L1	0x1048		/* L1 */
+
+其中 0x1969 是 PCI code，而 0x1048 则是 subcode，这两个值唯一识别了 Attansic 的一款网卡型号。
+
+从 /dev/pci/makefile 中可以知道，OpenBSD 使用 /dev/pci/pcidevs /dev/pci/devlist2h.awk 来生成 pcidevs.h pcidevs_data.h，以供程序之用。
+

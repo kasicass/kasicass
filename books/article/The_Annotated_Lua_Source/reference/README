@@ -1,0 +1,44 @@
+A reference of internal Lua functions
+
+*MANUAL*		有此标记，表示函数存在于 Lua manual 中（对外可见？）
+
+
+
+
+Source Code 分类 (LUA_CORE, LUA_LIB)
+
+---- LUA_CORE Matches (24 in 23 files) ----
+Lapi.c (src):#define LUA_CORE
+Lcode.c (src):#define LUA_CORE
+Ldebug.c (src):#define LUA_CORE
+Ldo.c (src):#define LUA_CORE
+Ldump.c (src):#define LUA_CORE
+Lfunc.c (src):#define LUA_CORE
+Lgc.c (src):#define LUA_CORE
+Llex.c (src):#define LUA_CORE
+Lmem.c (src):#define LUA_CORE
+Lobject.c (src):#define LUA_CORE
+Lopcodes.c (src):#define LUA_CORE
+Lparser.c (src):#define LUA_CORE
+Lstate.c (src):#define LUA_CORE
+Lstring.c (src):#define LUA_CORE
+Ltable.c (src):#define LUA_CORE
+Ltm.c (src):#define LUA_CORE
+Luac.c (src):#define LUA_CORE
+Lundump.c (src):#define LUA_CORE
+Lvm.c (src):#define LUA_CORE
+Lzio.c (src):#define LUA_CORE
+Noparser.c (etc):#define LUA_CORE
+Print.c (src):#define LUA_CORE
+
+---- LUA_LIB Matches (11 in 11 files) ----
+Lauxlib.c (src):#define LUA_LIB
+Lbaselib.c (src):#define LUA_LIB
+Ldblib.c (src):#define LUA_LIB
+Linit.c (src):#define LUA_LIB
+Liolib.c (src):#define LUA_LIB
+Lmathlib.c (src):#define LUA_LIB
+Loadlib.c (src):#define LUA_LIB
+Loslib.c (src):#define LUA_LIB
+Lstrlib.c (src):#define LUA_LIB
+Ltablib.c (src):#define LUA_LIB

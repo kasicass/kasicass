@@ -1,0 +1,55 @@
+==== History from OB cvs
+1996.08.02 合并 FreeBSD malloc 的实现，实现变为 phkmalloc
+           http://phk.freebsd.dk/pubs/malloc.pdf (phkmalloc_revisited.pdf)
+           phk malloc 也被证明为非常高效的 malloc 实现，Net/OpenBSD, 某些 linux distro 都使用它。同时因为其对输入参数的严格检查，还能帮助 programmer 查出许多不经意的错误。
+           https://buildsecurityin.us-cert.gov/daisy/bsi/306-BSI.html (phkmalloc_secure.pdf)
+1995.10.18 OpenBSD 正式从 NetBSD 1.1 中迁出，malloc 实现是古老的 kingsley allocator
+
+
+
+==== 《malloc(3) revisited》阅读笔记
+kernel 的内存管理 swap/segment => virtual memory/page，老式的 malloc(3) 不合时宜，phkmalloc 孕育而生。
+老式 malloc 存在的问题：
+1. brk/sbrk 的申请/释放是 FILO order，直接使用 brk/sbrk，符合硬件的习惯，但不符 userland programmer 上的思维。
+2. brk/sbrk 是 swap/segment 时代的产物，其实现的 malloc 对于 virutal memory/page 时代并不高效、适合。
+3. 老式 malloc 的实现，对于 valid acces 的 check 不足
+4. 其他的 malloc 实现，比如 gnumalloc，还不够好，效率不高
+phkmalloc 的改进：
+1. 老式 malloc 没有注意节约内存，也许一次 malloc/free 遍历 freelist 时，就导致了所有的 page 被 page in。而 phkmalloc 会让进程不怎么用到的 page 尽量不 page in。
+2. 如果一个 object 的 size 小于一个 page，那么不要让其横跨两个 page，减少内存占用（否则访问此 object 时，就需要 page in 两个 page）。 
+ps. phkmalloc 尽量使一个进程“正在使用的page”尽量的少，高频访问的 object 尽量放到一个 page 中。因此也可以解释，为何大话2/梦幻去掉 bsdmalloc 后，内存占用少了几百M。
+
+
+==== Revision 1.4 阅读分析 (Fri Aug 2 18:08:09 1996)
+
+static struct pginfo **page_dir;
+static unsigned malloc_ninfo;      // page_dir[malloc_ninfo]
+
+page_dir --> +----------+     
+             | pginfo * | --> MALLOC_FIRST
+             +----------+     
+             |    .     | --> MALLOC_FOLLOW
+             |    .     |
+
+static unsigned malloc_pagesize;   // 这台机器一个 page 的大小(bytes)
+static unsigned malloc_maxsize;    // ??, == (malloc_pagesize >> 1)
+static unsigned malloc_minsize;    // 最小每次能申请的内存, sizeof(pginfo) + bitmap_size
+
+
+// 初始化 process 最基本的内存管理数据
+static void malloc_init();
+
+// 申请 size bytes 的内存大小, 如果没有这么大的，map_pages(size/PAGE_SIZE);
+void * malloc_pages(size_t size);
+
+// 向操作系统要 pages 个 page
+static caddr_t map_pages(int pages);
+
+// size >= page_maxsize, 使用 malloc_pages()
+// size <  page_maxsize, 使用 malloc_bytes()
+// 超过一个 pagesize 的 object，放到连续的 page 中。
+void * malloc(size_t size);
+
+
+
+

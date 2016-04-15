@@ -1,0 +1,7 @@
+/*
+内核 timer 的实现。
+
+Linux, OpenBSD 的实现原理一样。都是 Hierarchy Time Wheel，有时间完成一份详细的timer实现分析。
+*/
+
+

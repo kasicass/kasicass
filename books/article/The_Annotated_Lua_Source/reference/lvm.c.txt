@@ -1,0 +1,95 @@
+// Lua virtual machine
+
+
+/* limit for table tag-method chains (to avoid loops) */
+#define MAXTAGLOOP	100
+
+// 尝试将 obj 转换为 number 并赋值给 n，成功返回 pointer to n，否则返回 NULL
+const TValue *luaV_tonumber (const TValue *obj, TValue *n);
+
+// 尝试将 obj 转换为 string，成功返回 1 并且 type(obj) == 'number'，否则返回 0
+int luaV_tostring (lua_State *L, StkId obj);
+
+
+// 调用 meta method f(p1, p2)，并将返回值保存在 res 中。
+// callTMres -> call tag method（Lua source 中 meta method 称为 tag method）, has return value
+static void callTMres (lua_State *L, StkId res, const TValue *f, const TValue *p1, const TValue *p2);
+
+// 调用 meta method f(p1, p2, p3)，没有返回值
+static void callTM (lua_State *L, const TValue *f, const TValue *p1,
+                    const TValue *p2, const TValue *p3)
+
+// val = t[key]，如果 t[key] 不存在，则检查 metatable 中是否有值，或是触发 meta method '__index'
+void luaV_gettable (lua_State *L, const TValue *t, TValue *key, StkId val);
+
+// t[key] = val，如果 t[key] 不存在，则尝试调用 meta method '__newindex'
+void luaV_settable (lua_State *L, const TValue *t, TValue *key, StkId val);
+
+
+// 找到 meta method 'event' f，先在 p1 中找，没有，则在 p2 中找。
+// 然后调用 f(p1, p2)，并将结果保存在 res 中
+static int call_binTM (lua_State *L, const TValue *p1, const TValue *p2, StkId res, TMS event);
+
+// 获取 meta method '__eq '
+// 虽然名字是“获取 compare 用的 meta method”，但 get_compTM() 里面使用了 fasttm，其实只能用于
+// 获取 <= TM_EQ 的 meta method，首先，<= TM_EQ 的 compare method 只有 TM_EQ；另外，所有代码中用到
+// 这个函数的地方，其实 event == TM_EQ
+static const TValue *get_compTM (lua_State *L, Table *mt1, Table *mt2, TMS event);
+
+// 根据 event 查找对应的 meta method f，并返回 f(p1, p2) 的值
+// （不知为何此函数称为 call order tag method，order 何解？）
+static int call_orderTM (lua_State *L, const TValue *p1, const TValue *p2,, TMS event);
+
+// 比较字符串 ls, rs 的大小（考虑了字符串中有 '\0' 情况的问题）
+static int l_strcmp (const TString *ls, const TString *rs);
+
+// 返回 l < r 的比较结果
+int luaV_lessthan (lua_State *L, const TValue *l, const TValue *r);
+
+static int lessequal (lua_State *L, const TValue *l, const TValue *r);
+
+// 返回 t1 == t2 比较的结果
+int luaV_equalval (lua_State *L, const TValue *t1, const TValue *t2);
+
+// 将 L.stack[last] ~ L.stack[last-total] 个元素合并起来，如果是字符串/数字，很简单，直接合并，
+// 否则尝试调用 meta method '__concat'
+void luaV_concat (lua_State *L, int total, int last);
+
+// L[ra] = rb op rc，将 rb, rc 将过 op 运算的结果保存到 L[ra] 中。如果 rb, rc 均为 number 则直接进行
+// 计算(使用 luai_numadd/luai_numsub ... 之类的宏，位于 luaconf.h)，否则执行 rb, rc 上的 meta method 'op'
+static void Arith (lua_State *L, StkId ra, const TValue *rb, const TValue *rc, TMS op);
+
+
+/*
+** some macros for common tasks in `luaV_execute'
+*/
+
+#define runtime_check(L, c)	{ if (!(c)) break; }
+
+#define RA(i)	(base+GETARG_A(i))
+/* to be used after possible stack reallocation */
+#define RB(i)	check_exp(getBMode(GET_OPCODE(i)) == OpArgR, base+GETARG_B(i))
+#define RC(i)	check_exp(getCMode(GET_OPCODE(i)) == OpArgR, base+GETARG_C(i))
+#define RKB(i)	check_exp(getBMode(GET_OPCODE(i)) == OpArgK, \
+	ISK(GETARG_B(i)) ? k+INDEXK(GETARG_B(i)) : base+GETARG_B(i))
+#define RKC(i)	check_exp(getCMode(GET_OPCODE(i)) == OpArgK, \
+	ISK(GETARG_C(i)) ? k+INDEXK(GETARG_C(i)) : base+GETARG_C(i))
+#define KBx(i)	check_exp(getBMode(GET_OPCODE(i)) == OpArgK, k+GETARG_Bx(i))
+
+
+#define dojump(L,pc,i)	{(pc) += (i); luai_threadyield(L);}
+
+
+#define Protect(x)	{ L->savedpc = pc; {x;}; base = L->base; }
+
+
+#define arith_op(op,tm) { \
+        TValue *rb = RKB(i); \
+        TValue *rc = RKC(i); \
+        if (ttisnumber(rb) && ttisnumber(rc)) { \
+          lua_Number nb = nvalue(rb), nc = nvalue(rc); \
+          setnvalue(ra, op(nb, nc)); \
+        } \
+        else \
+          Protect(Arith(L, ra, rb, rc, tm)); \
+      }

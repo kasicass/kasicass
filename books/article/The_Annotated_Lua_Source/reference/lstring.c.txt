@@ -1,0 +1,28 @@
+
+
+// resize G(L)->strt (string table)
+//
+// 新建一个 newsize 大小 GCObject * 的 array，将 G(L)->strt 中的 TString 移到新的 array 中，并
+// G(L)->strt.hash = array 替换之
+//
+void luaS_resize (lua_State *L, int newsize);
+
+// 根据 str, l, h 生成一个 TString, 并将其放入 G(L)->strt 中。（global_State 的 string table）
+//
+// str - string 内容
+// l   - str 长度
+// h   - hash value
+static TString *newlstr (lua_State *L, const char *str, size_t l, unsigned int h);
+
+
+// 根据 str, l 生成 hash value，并察看 G(L)->strt 中是否已存在对应的 TString，如果存在，则直接返回，否则
+// 调用 newlstr() 生成之。
+TString *luaS_newlstr (lua_State *L, const char *str, size_t l);
+
+
+// 新建一份 udata，此时 udata 中没有具体的数据内容。
+// udata 存放的位置比较搞笑，居然在 main thread lua_State 链表上。chain it on udata list (after main thread)
+//
+// s - udata size
+// e - udate environment (a table)
+Udata *luaS_newudata (lua_State *L, size_t s, Table *e);

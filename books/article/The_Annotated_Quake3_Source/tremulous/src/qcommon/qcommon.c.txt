@@ -1,0 +1,5 @@
+// 读取下一个 event，如果 com_journal == 2，则读取 journal file 中的数据
+// 否则读取系统的事件（如果此时 com_journal == 1，则将 event 写入 journal file），其实就是在录像了
+sysEvent_t  Com_GetRealEvent(void);
+
+

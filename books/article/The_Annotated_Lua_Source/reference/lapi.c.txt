@@ -1,0 +1,53 @@
+Lua API
+操控 Lua VM 的一些函数
+
+
+/*
+** get functions (Lua -> stack)
+*/
+
+void lua_getfield (lua_State *L, int index, const char *k);			*MANUAL*
+Pushes onto the stack the value t[k], where t is the value at the given valid index. As in Lua, this function may trigger a metamethod for the "index" event (see §2.8). 
+将 t[k] 中的元素压入栈顶。可能会引发 index 行为(metamethod)。
+t = L.stack[index]
+L.stack[top - 1] = t[k]
+
+void lua_rawget (lua_State *L, int index);					*MANUAL*
+Similar to lua_gettable, but does a raw access (i.e., without metamethods).
+将 t[k] 中的值入栈。与 lua_gettable 类似，但不进行 metamethod 操作。注意，操作后 L.stack[top - 1] 的内容改变了。
+t = L.stack[index]
+k = L.stack[top - 1]
+L.stack[top - 1] = t[k]
+
+
+
+/*
+** set functions (stack -> Lua)
+*/
+
+void lua_settable (lua_State *L, int idx)					*MANUAL*
+Does the equivalent to t[k] = v, where t is the value at the given valid index, v is the value at the top of the stack, and k is the value just below the top.
+This function pops both the key and the value from the stack. As in Lua, this function may trigger a metamethod for the "newindex" event (see §2.8).
+将一个值写入 table 中，过程
+t = L.stack[idx]
+k = L.stack[top - 2]
+v = L.stack[top - 1]
+t[k] = v
+在此过程中，可能出发 newindex 行为。
+
+
+
+/*
+** basic stack manipulation
+** 栈操作
+*/
+
+void lua_remove (lua_State *L, int index);					*MANUAL*
+Removes the element at the given valid index, shifting down the elements above this index to fill the gap. Cannot be called with a pseudo-index, because a pseudo-index is not an actual stack position.
+删除堆栈中 index 位置的元素，并将其他元素依次移动。
+L.stack[index] = nil
+for n = index, top-2 do L.stack[n] = L.stack[n+1] end
+
+void lua_pushvalue (lua_State *L, int idx)					*MANUAL*
+Pushes a copy of the element at the given valid index onto the stack.
+将 idx 位置上的值压入栈顶

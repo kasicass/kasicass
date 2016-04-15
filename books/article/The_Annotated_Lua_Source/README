@@ -1,0 +1,19 @@
+------------------------------------------
+-------------- NEW BOOK PLAN -------------
+------------------------------------------
+
+《Lua源码剖析》 -- The Annotated Lua Source (Lua 5.1.2)
+
+Purpose - 目标
+
+1. Analyze the archecture of Lua source, detailed explain echo module of lua implementation, like gc, compiling, vm.
+2. A detailed reference handbook of internal Lua function, making it easier while reading Lua source.
+3. Introduction to some useful patch for official lua source, like coco, JIT.
+
+1. 分析 Lua 源码结构，详细介绍 Lua 实现的各个模块，例如 gc、编译、虚拟机。
+2. 同时，对 Lua 源码中的每个函数进行注释，使作品成为一本阅读源码时必不可少的参考手册。
+3. 介绍一些有用的 patch ，例如 coco、JIT。
+
+
+Author : kasicass
+         fatfatson

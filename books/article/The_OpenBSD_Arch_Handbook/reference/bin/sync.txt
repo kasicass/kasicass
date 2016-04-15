@@ -1,0 +1,1 @@
+调用 sync()[unistd.h] 函数。

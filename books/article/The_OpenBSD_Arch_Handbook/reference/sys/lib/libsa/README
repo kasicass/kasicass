@@ -1,0 +1,10 @@
+libsa
+
+/sys/stand 里面是整个内核加载起来的代码，而 libsa 则是为 /sys/stand 提供最基本的一些函数。
+
+/sys/stand 代码里面也会用到 printf 等函数，但此时并不存在 libc 的概念，此类功能函数，则由 libsa 提供了。
+
+libsa 中的 sa 应取的是 stand 之意。
+
+因为硬件有所区别，除了 /sys/lib/libsa 之外，每个 /arch/xxx 平台上，也会有对应平台上的 libsa 的部分代码。
+

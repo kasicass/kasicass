@@ -1,0 +1,44 @@
+What Is Marshaling?
+什么是列集？
+
+Marshaling is the mechanism that enables a client in one process to transparently make interface function calls to local objects in another process or to remote objects running on other machines. For convenience, this chapter refers to both local and remote objects as remote objects and both local and remote servers as remote servers.3 Clients are not concerned with the differences. Regardless of the object's ultimate location, marshaling involves two steps. The first is to take an interface pointer in a server's own process and make the pointer available to code in the client process. This involves establishing some form of interprocess communication. The second step is to take the arguments to an interface call as passed from the client and transfer those arguments to the remote object's own implementation.
+
+列集是这样一种机制：它使得客户端对另一个进程（或在本地，或在远程机器）中的对象接口发起的调用具有透明性。为了方便，这一章里将把存在于另一个本地进程（不同于客户端所在的进程）中的对象和存在于远程进程中的对象统称为“远程对象”，提供它们的服务器进程都叫做“远程服务器”。在3种情况下客户端都是一样的没有区别。不管对象最终在哪里，列集都包括两个步骤。第一步是使创建于服务器进程内的接口指针能被客户端进程访问。这就要求建立某些进程间通信机制。第二步是保证客户端进程发起调用时提供的参数能正确传递给远程对象的实现方。
+
+In earlier chapters, I've shown a simple diagram in which the client always makes interface calls to an in-process object of some sort. The object can be the complete object implementation, a handler, or a proxy. A handler and a proxy are structurally identical and are often discussed interchangeably. A proxy, however, is completely aware of the nature of the connection it maintains to a remote object across whatever boundary is involved. A handler, on the other hand, might itself internally use a proxy to communicate with its own remote object. A handler doesn't need to be aware of the nature of the connection. From the client's perspective, however, the handler or proxy provides callable interface pointers as well as a complete in-process object. Thus, calls to remote objects are transparent because they appear in client code exactly as calls to in-process objects do.
+
+在前几章里，我曾展示了一张简单的图表来说明客户端对进程内对象的调用。这些对象可以是真实对象自身，也可是以句柄，或是一个代理。由于句柄和代理在结构上是等价的因此在讨论中常常不加区分二者。但是，代理自身需要维护一个跨越边界连到远程对象的连接，而一个句柄则可能是通过聚合了一个代理来与远程对象通信，句柄并不关心连接本身。但是从客户端的角度看，句柄和代理都是一个进程内指针，它们提供了可供调用的接口并且连接至远程对象。因此，它们的存在使得对远程对象的调用变得透明，就像是在调用进程内对象一样。
+
+Here is where the second step of marshaling comes into play. (We'll see the first step momentarily.) The client has pushed arguments onto the stack and made a function call through an interface pointer. If necessary, the call winds its way into the implementation of this function in a proxy. That proxy marshals the call by packing the arguments into a data structure that can be transmitted to another process or another machine. This data structure is then picked up by some piece of code in the object's own process, either a stub or the object itself, depending on the nature of the marshaling. That stub unpacks the data structure, pushes the arguments onto the stack, and then calls the actual object's implementation. On return, the stub packs the function's return value and any out-parameters into a data structure and transmits that structure back to the proxy. The proxy takes the return values, puts them in the appropriate places, and returns them to the client.
+
+下面来看列集过程的第二步。（……）客户端将参数压栈并在接口指针上发起一个函数调用。如果需要，那么调用最终将进入到代理对象对此函数的实现代码上。代理对此调用进行列集：将参数打包进一个数据结构中并将其传输到另一个进程或电脑上。然后在真实对象所在的进程里，会有一些代码来对收到的此数据结构进行解包，这些代码可能是对象自己，也可能是“存根代码”，取决于列集的类型。存根将数据解包并压至栈上，然后调用真正对象的实现代码，并将该调用的返回值及所有输出参数再次打包传回给代理。代理取出返回值，将其安置于合适的位置，然后返回给客户端。
+
+Different argument types, of course, are marshaled differently. A simple value such as a DWORD is marshaled by copying the value, but pointers to strings or structures are marshaled by copying the data pointed to. Whatever exists in the client's address space at the time of the call must be re-created in the server's address space, which is what the object will expect. This is the idea of transparency—neither client nor object can detect the boundaries between them.
+
+不同类型的参数列集方式也不一样。像DWORD这样的的简单类型列集时就是直接拷贝其值，但是对于指向字符串或其它数据结构的指针，列集时则需要拷贝指针所指向的数据本身。客户端进程空间内的所有东东（与调用有关的），都必须在服务器进程空间内重建，这正是对象所需要的。这就是透明性的表现：不管是客户端还是对象自己，都不会察觉到它们之间存在的边界。
+
+The first step in marshaling determines exactly how arguments are transmitted between processes, if they need to be transmitted at all. Basic marshaling architecture, also called custom marshaling, is what the remote object uses to control the nature of the connection between it and whatever proxy it requires. Through custom marshaling, an object specifies the CLSID of its proxy and completely controls interprocess (or intermachine) communication for all its interfaces (custom or standard) as a whole. This means that the object also controls how to marshal the arguments of all those interfaces. Various designs benefit tremendously from the object's control. Objects with an immutable state, for example, benefit because the proxy itself can simply be a complete copy of the remote object, thereby eliminating the need for any IPC at all! The next section examines the architecture that makes this possible, along with a few other cases in which custom marshaling is helpful.
+
+列集的第一步是决定怎样在进程之间传递参数（如果需要的话）。基础列集机制，又叫做自定义列集，被远程对象用来控制其与代理之间的连接属性。通过自定义列集，对象可以指定其代理对象的CLSID，并且对其所有参与跨进程通信的接口（无论是标准的还是自定义的）进行控制。这意味着对象也将控制如何列集这些接口需要的参数。对象全权控制自己的列集过程，这一点带来大量了极大的好处。比如，当对象的状态是只读的不变的时候，代理则可完全作为远程对象的一份拷贝（来直接实现对象的所有功能），免除了所有的跨进程通信。下一节将会考察这种自定义列集机制，以及它适用的一些其它情景。
+
+Custom marshaling is the fundamental marshaling mechanism. Microsoft recognizes, of course, that it's pointless to make every object implementation supply its own marshaling mechanism, so OLE also offers standard marshaling. With standard marshaling, OLE provides a generic proxy and a generic stub that communicate through system-standard RPC. The proxy and the stub both understand all the standard OLE-defined interfaces (barring those that cannot be marshaled at all or those for which support doesn't otherwise exist). Each interface is represented by its own small piece of code, called an interface marshaler, that understands the semantics of each member of the interface and how to marshal all the arguments of those functions appropriately. The interface marshaler actually performs the packing and unpacking of argument structures. This architecture allows you to plug in your own marshalers for custom interfaces as well, making those custom interfaces appear the same as standard interfaces to the rest of the system. Thus, objects are completely relieved from marshaling burdens if standard marshaling is suitable for the design.
+
+自定义列集是列集机制的基础。但微软也认为，让每一个对象都自己去实现一套列集机制也是没有必要的。因此，OLE提供了“标准列集机制”。在标准列集机制里，OLE提供了一个通用的代理和存根对象，它们使用标准RPC机制进行通信。这个通用代理和存根对象都清楚了解所有OLE自己定义的标准接口（除了那些根本不能列集或是尚未提供支持的接口）。（在通用代理存根对象中）每一个接口由一段叫做“接口列集器”的代码来表示，接口列集器了解它所对应接口的所有方法的语义，并且知道如何为这些函数正确列集参数。接口列集器实际上做的就是将参数打包或解包。在这种体系下，你可以为你的自定义接口提供自己的列集器，对于系统来说，这些自定义接口就与标准接口没有区别了。这样一来，只要标准列集机制够用，对象就完全不用再为列集的事操心了。
+
+The generic proxy and stub objects are nothing more than containers, or managers, for interface marshalers, regardless of whether you provide the marshaler itself. Thus, a proxy is often called a proxy manager and a stub a stub manager. The marshalers themselves contain an interface proxy, which resides in the proxy object, and an interface stub, which resides in the stub object. This chapter refers to an interface proxy as a facelet and an interface stub as a stublet to eliminate any confusion about the use of proxy and stub. The latter two terms are used exclusively to refer to the proxy and stub objects as a whole, not the specific interface pieces within them.
+
+所谓的“通用代理和存根对象”，不过就是一种容器，或叫做管理器，用来管理接口列集器，而不管这些接口列集器是系统还是你自己提供的。因此，一个代理通常也叫做代理管理器，存根也叫做存根管理器。接口列集器则包含了一个接口代理和一个接口存根，分别存在于代理管理器和存根管理器之内。这一章将用facelet来表示“接口代理”，用stublet来表示“接口存根”，以避免和术语“代理”、“存根”混淆。后者通常指的是整个代理对象及存根对象，而不是专指其内包含的某一个接口部份。
+
+It is vital to understand that standard marshaling is a specific instance of the generic custom marshaling architecture. With this in mind, we'll see first how custom marshaling works. But because standard marshaling is omnipresent on OLE-capable systems, we'll also spend considerable time dealing with it, especially with respect to how you create marshalers for your own custom interfaces.
+
+很关键的一点，是要理解，标准列集是自定义列集的一个特例。因此，我们首先会看看自定义列集是如何工作的。但是由于标准列集在OLE系统中的大量使用，我们也会花足够的时间来探讨它，尤其是怎样为你的自定义接口创建列集器。
+ 
+3 Let me remind you again that remote servers and objects are not yet supported (at the time of writing). This chapter however is written as if such support existed.
+ 
+
+
+
+
+
+
+? 1997 Microsoft Corporation. All rights reserved. Terms of use 

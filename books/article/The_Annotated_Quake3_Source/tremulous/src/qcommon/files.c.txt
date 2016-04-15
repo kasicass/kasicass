@@ -1,0 +1,51 @@
+做了一个隔离层，通过 FS_xxx 其他模块可以不用区分数据是从硬盘上的文件中读入还是 zip file 中读入。
+
+==================================
+
+qcommon/qcommon.h 中有几个 macro, 标记了一个 pack_t 里面的某某文件是否被打开了。
+// referenced flags
+// these are in loop specific order so don't change the order
+#define FS_GENERAL_REF      0x01
+#define FS_UI_REF           0x02	// ui.qvm
+#define FS_CGAME_REF        0x04	// cgame.qvm
+#define FS_QAGAME_REF       0x08	// game.qvm
+
+这里有个比较有意思的地方，FS_FOpenFileRead() 在查找 pak 中的这些文件时，是通过
+// game.qvm - 13
+// ZT`X!di`
+if (!(pak->referenced & FS_QAGAME_REF) && FS_ShiftedStrStr(filename, "ZT`X!di`", 13)) {
+	pak->referenced |= FS_QAGAME_REF;
+}
+
+FS_ShiftedStrStr() 会把 "ZT`X!di`" 所有 char + 13，得到 "game.qvm" 然后再 strstr()。我猜其目的是不然别人or作弊器通过查询"game.qvm"而获得有用的信息。
+
+==================================
+
+此文件总体分为三部分：
+1. dir search        保存每次读取文件时，需要便利哪些目录，类似 $PATH
+2. pack_t            存储 pak(zip) 文件的信息/结构
+3. fileHandleData_t  处理 open/close 等具体事情（同时针对 pak or disk file)
+
+==================================
+
+typedef struct {
+    qfile_ut    handleFiles;		// 具体的文件 handle
+    qboolean    handleSync;		// 
+    int         baseOffset;
+    int         fileSize;		// 文件大小
+    int         zipFilePos;		// 目前打开的 zip file 的位置
+    qboolean    zipFile;		// 是否为 zip file
+    qboolean    streamed;
+    char        name[MAX_ZPATH];	// 打开的文件名
+} fileHandleData_t;
+
+static fileHandleData_t fsh[MAX_FILE_HANDLES];  // MAX_FILE_HANDLES = 64
+最都同时可以打开 64 个 pak + disk file
+
+pack_t          描述一个 pak(zip) 文件信息，包含多个 fileInPack_t
+fileInPack_t    每个文件的文件名、在 pak 中的相对位置
+
+FS_Read 类的函数，可以从 pak + disk file 中读取
+FS_Write 类，只能对 disk file 进行
+ 
+

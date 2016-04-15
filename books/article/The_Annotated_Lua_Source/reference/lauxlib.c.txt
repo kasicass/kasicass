@@ -1,0 +1,11 @@
+Auxiliary functions for building Lua libraries
+用于撰写 Lua library 的辅助库
+
+
+const char *luaL_findtable (lua_State *L, int idx, const char *fname, int szhint);
+例如：fname = "a.b.c"
+察看 L.stack[idx].a.b.c 这个元素是否为 table，如果不存在，则自动创建新 table。其中 szhint 为 table 中 hash-table 的大小。返回后，L.stack[top - 1] == table c
+返回值：
+    NULL  - 成功
+    Other - 出错的 fname，比如 type(b) ~= 'table', 则返回 "b.c"
+

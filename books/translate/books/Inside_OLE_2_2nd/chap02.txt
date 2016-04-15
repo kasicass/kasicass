@@ -1,0 +1,44 @@
+Chapter 2 Objects and Interfaces
+第二章 对象与接口
+object n 1 syn THING, article; rel doodad; gadget 2 syn THING, being, entity, individual, material, matter, stuff, substance.
+
+—Webster's Collegiate Thesaurus, Merriam-Webster, 1976
+当你听到对象的时候，你肯定会像我一样有一个纠缠不清的问题：什么是对象？简单的说一个"对象"是一个的"东西"。正如我桌子上的半杯水（我的医生说我应该喝得更多一些）就是一个，如我的贝多芬的钢琴奏鸣曲全集的那12张CD也是，还如我的电脑显示器的按钮控件也是。
+Whenever you hear about objects, you probably have the same nagging question that I often do: just what is an object? For all the highly charged political and religious battles over this question, objects are simply things. The half-empty glass of water on my desk (my doctor says I should be drinking more) is a thing, just as the 12 CDs in the complete collection of Beethoven's piano sonatas are things, just as the button control on my computer screen is a thing.
+
+
+
+
+好奇之余，为扩大我的词汇量，我尝试着从韦氏词典上为“东西”寻找一个恰当的定义。词典上给出的10条定义里面我认为最恰当的一条是："3 b: 区别于其表现的具体存在", 这个定义有一个基本的含义：我桌子上的那杯水这个东西就是一杯水，并不依赖于对它的视觉，嗅觉，或者任何其他被我称之为接触面(接口)的其他知觉的感受。对，因为我们是通过我们的感觉器官去认知这个世界的。这些接触面决定了我们对于一件东西的认知：这个“东西”能做什么，我们怎么使用这个东西。换一句话说，我们的知觉是无法理解一个“东西”的本质的。所以我无可奈何的放弃了去寻求一件认知“东西”的本质的想法。当然，这样的一个难题同样也困扰了哲学家们3000年了或者更久。
+Out of curiosity, I ventured to look up a suitable definition of thing in Webster's companion dictionary to my thesaurus. (These too are things.) The best of the 10 definitions given is "3 b: the concrete entity as distinguished from its appearances." This definition has one primary implication: my glass of water the object is a glass of water—the object is not its look, its feel, or any other aspect of what I might call its interfaces, sensory or otherwise. Yet because I perceive the world through my senses, these interfaces define how I interact with this object, what I can do with the object, and how I use it. In other words, the true essence of an object is unavailable to me through my senses, so I'm left with no real way to discern the true object. This is, of course, one of those dilemmas that have occupied philosophers for the last, oh, 3000 years or so.
+
+
+
+
+
+但是，是否认识一个对象的本质对于我是否能使用这个对象是无关紧要的。通过对于这杯水的感知，毫无疑问的我可以使用它：端起杯子，把水倒进嘴里喝下去，当杯子空了的时候再向杯子里面加满水。如此简单。
+But whether I really know the object's true nature is immaterial to whether I can actually make use of the object. Through the interface of my glass of water, I can certainly make use of it by picking it up, tilting it so that the water runs into my mouth, refilling it when it's empty, and so on.
+
+
+
+
+
+我们理解对象组件模型（com）（ole也是如此）这种知觉的核心在于区分“对象是什么”和“对象如果被外部使用”。由于ole是由组件整合而成的，而这些组件又是用对象建造的，所以我们现在的兴趣所在当然就是这些对象是如何工作的！这就意味这我们现在需要学习COM这种对象模型。在第一章，我们知道了OLE的接口，学习了对象如何提供多个界面。本章将探究如何定义和标识一个界面，如何用C和C++实现一个界面（证明我们可以用C来处理COM和ole，尽管这可能是本书唯一一次直接使用C），以及实现多界面的种种技术如C++的多重继承。本章还将描述用于标示接口和对象类型的GUIDs(全局唯一标识符)，将介绍之后章节将反复强调的注意事项。我们同时还要检验一些涉及的规则和注意事项，标准com任务内存管理，标准错误类型，接口属性，以及我们在第一章见到的非常重要的“QueryInterface”函数的一些华丽的细节。我们将可以完全清晰的看到“QueryInterface”是如何支持他所标榜的“robust evolution of functionality over time”。
+
+The separation between what an object is and how that object is used by something external is at the core of how we understand objects in the Component Object Model (COM) (and thus OLE) sense. Again, because OLE is concerned with component integration and components are built of objects, it is our present interest to learn how these objects work, which means learning about COM, the object model. In Chapter 1, you saw what OLE calls an interface and learned how objects support multiple interfaces. This chapter explores these ideas further by looking at how to define and identify an interface, how to use and implement an interface in both C and C++ (proving that you can work with COM and OLE in C, although this will be the only time straight C is used in this book), and various techniques for implementing multiple interfaces, such as C++ multiple inheritance. This chapter will describe the globally unique identifiers (GUIDs) that are used to identify interfaces and object classes and introduce registry considerations that will be cropping up again and again in this book. We will also examine reference counting rules and considerations, standard COM task memory management, standard error types, interface properties, and some glorious details about the ever-so-important QueryInterface function that we met in Chapter 1. We'll see exactly how QueryInterface supports the notion of "robust evolution of functionality over time."
+
+
+
+
+
+本章我所涉及的话题几乎都是关于com的，而和ole直接相关的基本很少，因为com是所有我将要谈到的话题的最基本的技术。另外，本章的第一小节不会按照惯例将placing topics unrelated to programming mechanisms。一些关于内存管理及枚举类型的重要信息可能会出现在具体编程章节的开始部分。在这些章节之前甚至还有一些OLE/COM的API函数的介绍，以供有兴趣者查阅。本章之所以打断了讲组件关系模型，是因为COM是OLE中出COM之外的其他部门的核心。这里值得你花时间来阅读。
+I'll refer mostly to COM instead of OLE in this chapter because COM is the primary technology involved with these topics. In addition, this chapter doesn't exactly follow the convention of placing topics unrelated to programming mechanisms in the first sections of the chapter. Some important information about memory management and special types of objects called enumerators appears at the beginning of some of the programming sections, and earlier sections even introduce some OLE/COM API functions that are of particular interest. The reason for this break from the convention is that the information here, as part of the Component Object Model, is central to everything else in OLE. It is all well worth your time.
+
+
+
+
+
+
+通过本章，我们将会发现COM对于“什么是对象”的解答——理解了这个问题将有助于我们阅读这本书。我们将知道如何通过一个东西的接口和它进行交互，尽管这些接口并不是这个东西的本质。然后我们将正看到"按钮控件"或者我正在听的"贝多芬的音乐cd(Sonata 17, Op. 31, No. 2, "Tempest")"如何成为成为一个对象。
+Through the course of this chapter, we'll discover COM's answer to the question "What is an object?"—which will serve us well throughout this book. Then we can truly begin to see how a button control or the Beethoven CD I'm listening to (Sonata 17, Op. 31, No. 2, "Tempest") could become an object. What matters is not the nature of the thing, but how we communicate with that thing through whatever interfaces it shows us.
+

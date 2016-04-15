@@ -1,0 +1,2 @@
+一些“kernel 内使用的全局变量”的声明。比如：
+extern char hostname[MAXHOSTNAMELEN];

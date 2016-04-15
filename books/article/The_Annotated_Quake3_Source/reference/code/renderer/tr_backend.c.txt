@@ -1,0 +1,10 @@
+// 不知道拿来干啥的 
+
+RB_xxx - render backend ??
+
+
+// 将GL的状态设置为适合2D绘制的模式
+// glOrtho() 生成垂直的投影矩阵
+void RB_SetGL2D()
+
+

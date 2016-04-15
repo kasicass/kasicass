@@ -1,0 +1,14 @@
+﻿// entity 的类型
+typedef enum {
+	RT_MODEL,			// 模型 (md2/md3 ??)
+	RT_POLY,			// 多边形
+	RT_SPRITE,			// 
+	RT_BEAM,
+	RT_RAIL_CORE,
+	RT_RAIL_RINGS,
+	RT_LIGHTNING,
+	RT_PORTALSURFACE,		// doesn't draw anything, just info for portals
+
+	RT_MAX_REF_ENTITY_TYPE
+} refEntityType_t;
+

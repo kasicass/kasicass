@@ -1,0 +1,49 @@
+The Ultimate Question of Life, the Universe, and Objects (with Apologies to Douglas Adams)
+生命的终结问题：宇宙与对象（道格拉斯·亚当斯）
+
+
+
+You probably already have some idea that once you have your first interface pointer for any given object, you can use QueryInterface to learn what else the object can do for you. But this begs a key question: Given a way to identify an object of a class, how do you obtain your first interface pointer to it?
+你可能已经知道一旦你拥有了一个指针指向某个既定对象，你就可以使用QueryInterface去了解这个对象的其他功能。在这里，我们已经提出了一个非常关键的议题：虽然已经有了一种方式可以去标示一个类或者一个对象，但是你如何获得最初的那个指向这个对象或类的接口呢？
+
+
+
+This question is a central theme in this book: most chapters that follow generally deal with identifying different objects and components, the interfaces they support, techniques to obtain the first interface pointer, and what to do with the member functions of those interfaces. So the answer to this ultimate question (which is not "42," as it was in Douglas Adams's books) varies with each technology in OLE. In fact, there are four different answers to the question—four different ways to obtain that very important first pointer:
+这个问题是本章的中心议题。本章之后的章节将讲述如何标示不同类型的对象和组建，以及对象所支持的接口，获取其指针的技术，以及怎样使用这些接口特定功能。关于上文提到的问题的答案（当然不是道格拉斯·亚当斯小说里面提到的“42”）将随着OLE的技术的不同而变化。实际上这个问题有四个答案，也就是说有四种不同的方式来获取这个如此重要的指针：
+
+
+
+Call an API function that creates an object of only one type and returns only one type of interface pointer. Many OLE and COM API functions fit into this category—for example, CreateTypeLib, which always creates the same type of object—a new type library—and returns the same interface pointer, ICreateTypeLib.
+调用一个API函数来创建一个单一类型的对象同时返回一个指向单一类型的指针。大部分OLE和COM的API函数就是属于这种类型，如CreateTypeLib就常被用来创建相同类型的对象——一个新类型的库——同时返回相同的指针ICreateTypeLib。
+
+
+
+Call a member function through an interface of an object that you already have, which returns an interface pointer to a different object. This is generally how a client navigates through multiple objects in a component. For example, opening a stream within a storage in a compound file requires that you call IStorage::OpenStream to obtain the IStream pointer you need.
+通过调用一个已有对象的接口来调用某个函数，该函数将返回一个指向其他对象的指针。这个就是一个客户端能够在不同对象之间转换的一个方法。例如，从compound文件里面打开一个流就需要你调用IStorage::OpenStream函数来获取你所需要的IStream指针。
+
+
+
+
+Implement on an object of your own an interface through which other objects will pass their own interface pointers. A connectable object, for example, receives pointers to sink interfaces through IConnectionPoint::Advise.
+可以实现一个对象——通过该对象的接口可以传递其他对象接口的指针——可连接对象。举例如可以通过IConnectionPoint::Advise函数来接受指向某接受端的指针。
+
+
+
+Call an API function that given a class identifier creates an object and returns any type of interface pointer you request. The COM API function CoCreateInstance, the new operator for custom components, is the primary function in this category.
+调用API函数来创建某个给定类别标示的对象，同时返回你所需要的指针。COM的API函数CoCreateInstance——用户组建的new操作符——就是这种类别的最基本函数。
+
+
+
+As you can see, both OLE and your own component and object implementations will involve most of these techniques at some time or other. In each case, there is also a difference in how you identify the object or component you're trying to use. Let's first look at object identity along with other object properties before we examine interfaces more closely.
+正如你所看到的，无论OLE还是你自己的对象、组建在某些时候都会包含上面的某些技术或者全部。每一种方式，标识你将使用的对象和组建又不同。在我们更细微的测试接口之前让我们首先看看什么是对象类别和对象属性。
+
+ 
+
+
+
+
+Class, Type, and Prototype
+The words class and type are generally interchangeable concepts and are used that way in this book. In OLE, it is often useful to view a type as a specific instance of a prototype that describes the total signature of an object as the union of its supported interfaces (which must include at least IUnknown). Thus, a class or type is a particular implementation that supports the same interfaces as other classes of the same prototype, although each class differs in many ways. For example, the compound document content object is a prototype, but chart, table, text, sound, and video classes are specific instances (types) of that prototype. The importance of a prototype is that because objects with the same interfaces are polymorphic, a client needs to understand only how to work with a prototype to work with a wide range of different specific types. Thus, a compound document container can work with any compound document content object. Such clients are implemented according to a protocol that specifies how to work with a particular prototype, and that prototype then involves multiple interfaces.
+
+
+ 

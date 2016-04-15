@@ -1,0 +1,87 @@
+
+/*
+ * System startup; initialize the world, create process 0, mount root
+ * filesystem, and fork to create init and pagedaemon.  Most of the
+ * hard work is done in the lower-level initialization routines including
+ * startup(), which does memory initialization and autoconfiguration.
+ */
+/* XXX return int, so gcc -Werror won't complain */
+int
+main(void *framep)
+{
+	// ...
+
+	/*
+	 * Initialize the current process pointer (curproc) before
+	 * any possible traps/probes to simplify trap processing.
+	 */
+	curproc = p = &proc0;
+	p->p_cpu = curcpu();
+
+	/*
+	 * Initialize timeouts.
+	 */
+	timeout_startup();	/* timer system init */
+
+	/*
+	 * Attempt to find console and initialize
+	 * in case of early panic or other messages.
+	 */
+	config_init();		/* kern/subr_autoconf.c : init autoconfiguration data structures */
+                                /* 主要是 hardware device 的初始化 */
+
+	consinit();		/* machine dependence code */
+
+	KERNEL_LOCK_INIT();	/* lock init (only for multiprocessor)
+
+	uvm_init();		/* virtual memory system init, uvm/uvm_init.c */
+
+	disk_init();		/* must come before autoconfiguration */
+
+	tty_init();		/* initialise tty's */
+
+	cpu_startup();		/* Machine-dependent startup code */
+
+	/*
+	 * Initialize mbuf's.  Do this now because we might attempt to
+	 * allocate mbufs or mbuf clusters during autoconfiguration.
+	 */
+	mbinit();		/* mbuf init, sys/kern/uipc_mbuf.c */
+
+	/* Initialize sockets. */
+	soinit();		/* sys/kern/uipc_socket.c */
+
+	/*
+	 * Initialize process and pgrp structures.
+	 */
+	procinit();		/* sys/kern/kern_proc.c */
+
+	/* Initialize file locking. */
+	lf_init();		/* sys/kern/vfs_lockf.c */
+
+	/*
+	 * Initialize filedescriptors.
+	 */
+	filedesc_init();	/* sys/kern/kern_descrip.c */
+
+	/*
+	 * Initialize pipes.
+	 */
+	pipe_init();		/* sys/kern/sys_pipe.c */
+
+	/*
+	 * Initialize kqueues.
+	 */
+	kqueue_init();		/* sys/kern/kern_event.c */
+
+	/*
+	 * Create process 0 (the swapper).
+	 */
+
+	
+
+	
+
+
+
+
