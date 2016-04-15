@@ -7,6 +7,6 @@ setup(
   author_email="kasicass@163.com",
   ext_modules=[Extension(
     "noddy",
-    ["noddy.c"],
+    ["noddy.cpp"],
   )]
 )
