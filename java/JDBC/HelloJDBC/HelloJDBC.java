@@ -42,9 +42,11 @@ public class HelloJDBC {
             e.printStackTrace();
         } finally {
             try {
+                // rs.close() && stmt.close(), no needed. conn.close() already does that.
+                
+                //if (rs != null) rs.close();
+                //if (stmt != null) stmt.close();
                 if (conn != null) conn.close();
-                if (stmt != null) stmt.close();
-                if (rs != null) rs.close();
             } catch (SQLException e) {
                 // ignore
             }
