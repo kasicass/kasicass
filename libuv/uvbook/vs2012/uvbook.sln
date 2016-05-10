@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "helloworld", "helloworld.vcxproj", "{923549C7-54D2-4F9B-947F-4E7C8C8E50F5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_basic", "01_basic", "{A7E64CCE-4408-4814-859C-3096247A1A72}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "idle-basic", "idle-basic.vcxproj", "{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,8 +17,16 @@ Global
 		{923549C7-54D2-4F9B-947F-4E7C8C8E50F5}.Debug|Win32.Build.0 = Debug|Win32
 		{923549C7-54D2-4F9B-947F-4E7C8C8E50F5}.Release|Win32.ActiveCfg = Release|Win32
 		{923549C7-54D2-4F9B-947F-4E7C8C8E50F5}.Release|Win32.Build.0 = Release|Win32
+		{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}.Debug|Win32.Build.0 = Debug|Win32
+		{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}.Release|Win32.ActiveCfg = Release|Win32
+		{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{923549C7-54D2-4F9B-947F-4E7C8C8E50F5} = {A7E64CCE-4408-4814-859C-3096247A1A72}
+		{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596} = {A7E64CCE-4408-4814-859C-3096247A1A72}
 	EndGlobalSection
 EndGlobal
