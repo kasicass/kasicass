@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_basic", "01_basic", "{A7
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "idle-basic", "idle-basic.vcxproj", "{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_filesystem", "03_filesystem", "{36A95693-32E8-48B7-83D7-CD1922468D5D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uvcat", "chap03\uvcat.vcxproj", "{D32A60D7-BB55-4344-A3D9-16F6163FDD36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +25,10 @@ Global
 		{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}.Debug|Win32.Build.0 = Debug|Win32
 		{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}.Release|Win32.ActiveCfg = Release|Win32
 		{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}.Release|Win32.Build.0 = Release|Win32
+		{D32A60D7-BB55-4344-A3D9-16F6163FDD36}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D32A60D7-BB55-4344-A3D9-16F6163FDD36}.Debug|Win32.Build.0 = Debug|Win32
+		{D32A60D7-BB55-4344-A3D9-16F6163FDD36}.Release|Win32.ActiveCfg = Release|Win32
+		{D32A60D7-BB55-4344-A3D9-16F6163FDD36}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -28,5 +36,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{923549C7-54D2-4F9B-947F-4E7C8C8E50F5} = {A7E64CCE-4408-4814-859C-3096247A1A72}
 		{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596} = {A7E64CCE-4408-4814-859C-3096247A1A72}
+		{D32A60D7-BB55-4344-A3D9-16F6163FDD36} = {36A95693-32E8-48B7-83D7-CD1922468D5D}
 	EndGlobalSection
 EndGlobal
