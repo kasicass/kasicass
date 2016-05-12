@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "helloworld", "helloworld.vcxproj", "{923549C7-54D2-4F9B-947F-4E7C8C8E50F5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "helloworld", "chap02\helloworld.vcxproj", "{923549C7-54D2-4F9B-947F-4E7C8C8E50F5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_basic", "01_basic", "{A7E64CCE-4408-4814-859C-3096247A1A72}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_basic", "02_basic", "{A7E64CCE-4408-4814-859C-3096247A1A72}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "idle-basic", "idle-basic.vcxproj", "{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "idle-basic", "chap02\idle-basic.vcxproj", "{5D3C61A6-7BDA-4214-B8F4-7081C9BBF596}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_filesystem", "03_filesystem", "{36A95693-32E8-48B7-83D7-CD1922468D5D}"
 EndProject
