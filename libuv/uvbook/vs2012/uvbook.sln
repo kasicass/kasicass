@@ -15,6 +15,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uvtee", "chap03\uvtee.vcxpr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "onchange", "chap03\onchange.vcxproj", "{31F0FC74-6CA0-4945-8A16-38FE0F058069}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_networking", "04_networking", "{9BA82905-483A-4A81-911A-8DCACDDF98C7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tcp-echo-server", "chap04\tcp-echo-server.vcxproj", "{390A96E8-B0FF-4E95-BA79-F3C4D507A678}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -41,6 +45,10 @@ Global
 		{31F0FC74-6CA0-4945-8A16-38FE0F058069}.Debug|Win32.Build.0 = Debug|Win32
 		{31F0FC74-6CA0-4945-8A16-38FE0F058069}.Release|Win32.ActiveCfg = Release|Win32
 		{31F0FC74-6CA0-4945-8A16-38FE0F058069}.Release|Win32.Build.0 = Release|Win32
+		{390A96E8-B0FF-4E95-BA79-F3C4D507A678}.Debug|Win32.ActiveCfg = Debug|Win32
+		{390A96E8-B0FF-4E95-BA79-F3C4D507A678}.Debug|Win32.Build.0 = Debug|Win32
+		{390A96E8-B0FF-4E95-BA79-F3C4D507A678}.Release|Win32.ActiveCfg = Release|Win32
+		{390A96E8-B0FF-4E95-BA79-F3C4D507A678}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,5 +59,6 @@ Global
 		{D32A60D7-BB55-4344-A3D9-16F6163FDD36} = {36A95693-32E8-48B7-83D7-CD1922468D5D}
 		{232858A6-1A5C-4145-AFBC-154D18831D51} = {36A95693-32E8-48B7-83D7-CD1922468D5D}
 		{31F0FC74-6CA0-4945-8A16-38FE0F058069} = {36A95693-32E8-48B7-83D7-CD1922468D5D}
+		{390A96E8-B0FF-4E95-BA79-F3C4D507A678} = {9BA82905-483A-4A81-911A-8DCACDDF98C7}
 	EndGlobalSection
 EndGlobal
