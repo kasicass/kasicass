@@ -65,9 +65,13 @@ void on_new_connection(uv_stream_t *server, int status)
 	client = (uv_tcp_t*)malloc(sizeof(uv_tcp_t));
 	uv_tcp_init(loop, client);
 	if (uv_accept(server, (uv_stream_t*)client) == 0)
+	{
 		uv_read_start((uv_stream_t*)client, alloc_buffer, echo_read);
+	}
 	else
+	{
 		uv_close((uv_handle_t*)client, NULL);
+	}
 }
 
 int main()
