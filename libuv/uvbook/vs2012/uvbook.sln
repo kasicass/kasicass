@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_threading", "05_threadin
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "thread-create", "chap05\thread-create.vcxproj", "{9238F06C-D2CF-41AB-955C-B5495980B76D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "locks", "chap05\locks.vcxproj", "{E30023D0-929A-4F8D-B66D-C894F4FAA7EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -75,6 +77,10 @@ Global
 		{9238F06C-D2CF-41AB-955C-B5495980B76D}.Debug|Win32.Build.0 = Debug|Win32
 		{9238F06C-D2CF-41AB-955C-B5495980B76D}.Release|Win32.ActiveCfg = Release|Win32
 		{9238F06C-D2CF-41AB-955C-B5495980B76D}.Release|Win32.Build.0 = Release|Win32
+		{E30023D0-929A-4F8D-B66D-C894F4FAA7EF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E30023D0-929A-4F8D-B66D-C894F4FAA7EF}.Debug|Win32.Build.0 = Debug|Win32
+		{E30023D0-929A-4F8D-B66D-C894F4FAA7EF}.Release|Win32.ActiveCfg = Release|Win32
+		{E30023D0-929A-4F8D-B66D-C894F4FAA7EF}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,5 +96,6 @@ Global
 		{309A46AE-5EA6-44E2-A9A3-08FECCADACBF} = {9BA82905-483A-4A81-911A-8DCACDDF98C7}
 		{74F7D1FA-4F61-4907-B2C1-0B06D25BAED4} = {9BA82905-483A-4A81-911A-8DCACDDF98C7}
 		{9238F06C-D2CF-41AB-955C-B5495980B76D} = {34A01D80-0B2F-4F2B-8BE6-A88D9334127E}
+		{E30023D0-929A-4F8D-B66D-C894F4FAA7EF} = {34A01D80-0B2F-4F2B-8BE6-A88D9334127E}
 	EndGlobalSection
 EndGlobal
