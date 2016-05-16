@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "locks", "chap05\locks.vcxpr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "queue-work", "chap05\queue-work.vcxproj", "{9FCEBCD9-8E79-43B5-9BA7-232104D66EB1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "queue-cancel", "chap05\queue-cancel.vcxproj", "{A0EBD894-E752-4EC1-AB55-8EC4F5A806D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -87,6 +89,10 @@ Global
 		{9FCEBCD9-8E79-43B5-9BA7-232104D66EB1}.Debug|Win32.Build.0 = Debug|Win32
 		{9FCEBCD9-8E79-43B5-9BA7-232104D66EB1}.Release|Win32.ActiveCfg = Release|Win32
 		{9FCEBCD9-8E79-43B5-9BA7-232104D66EB1}.Release|Win32.Build.0 = Release|Win32
+		{A0EBD894-E752-4EC1-AB55-8EC4F5A806D8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A0EBD894-E752-4EC1-AB55-8EC4F5A806D8}.Debug|Win32.Build.0 = Debug|Win32
+		{A0EBD894-E752-4EC1-AB55-8EC4F5A806D8}.Release|Win32.ActiveCfg = Release|Win32
+		{A0EBD894-E752-4EC1-AB55-8EC4F5A806D8}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,5 +110,6 @@ Global
 		{9238F06C-D2CF-41AB-955C-B5495980B76D} = {34A01D80-0B2F-4F2B-8BE6-A88D9334127E}
 		{E30023D0-929A-4F8D-B66D-C894F4FAA7EF} = {34A01D80-0B2F-4F2B-8BE6-A88D9334127E}
 		{9FCEBCD9-8E79-43B5-9BA7-232104D66EB1} = {34A01D80-0B2F-4F2B-8BE6-A88D9334127E}
+		{A0EBD894-E752-4EC1-AB55-8EC4F5A806D8} = {34A01D80-0B2F-4F2B-8BE6-A88D9334127E}
 	EndGlobalSection
 EndGlobal
