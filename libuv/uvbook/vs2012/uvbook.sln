@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tcp-echo-server", "chap04\t
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tcp-echo-client", "chap04\tcp-echo-client.vcxproj", "{C1EAD00E-B4EA-4ECE-A33B-28935F063660}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dns", "chap04\dns.vcxproj", "{309A46AE-5EA6-44E2-A9A3-08FECCADACBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -55,6 +57,10 @@ Global
 		{C1EAD00E-B4EA-4ECE-A33B-28935F063660}.Debug|Win32.Build.0 = Debug|Win32
 		{C1EAD00E-B4EA-4ECE-A33B-28935F063660}.Release|Win32.ActiveCfg = Release|Win32
 		{C1EAD00E-B4EA-4ECE-A33B-28935F063660}.Release|Win32.Build.0 = Release|Win32
+		{309A46AE-5EA6-44E2-A9A3-08FECCADACBF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{309A46AE-5EA6-44E2-A9A3-08FECCADACBF}.Debug|Win32.Build.0 = Debug|Win32
+		{309A46AE-5EA6-44E2-A9A3-08FECCADACBF}.Release|Win32.ActiveCfg = Release|Win32
+		{309A46AE-5EA6-44E2-A9A3-08FECCADACBF}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +73,6 @@ Global
 		{31F0FC74-6CA0-4945-8A16-38FE0F058069} = {36A95693-32E8-48B7-83D7-CD1922468D5D}
 		{390A96E8-B0FF-4E95-BA79-F3C4D507A678} = {9BA82905-483A-4A81-911A-8DCACDDF98C7}
 		{C1EAD00E-B4EA-4ECE-A33B-28935F063660} = {9BA82905-483A-4A81-911A-8DCACDDF98C7}
+		{309A46AE-5EA6-44E2-A9A3-08FECCADACBF} = {9BA82905-483A-4A81-911A-8DCACDDF98C7}
 	EndGlobalSection
 EndGlobal
