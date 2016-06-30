@@ -1,0 +1,13 @@
+﻿<Application x:Class="ButtonTest01.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ButtonTest01"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="MyBrush" Color="Gold" />
+        <Style x:Key="GreenButtonStyle">
+            <Setter Property="Control.Background" Value="Green" />
+        </Style>
+        <local:BindingData x:Key="myDataSource" />
+    </Application.Resources>
+</Application>
