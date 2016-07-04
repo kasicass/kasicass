@@ -1,0 +1,20 @@
+﻿<Window x:Class="D3DHost.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i="clr-namespace:System.Windows.Interop;assembly=PresentationCore"
+    Title="MainWindow" Height="300" Width="350" Background="PaleGoldenrod">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" x:Name="imgelt">
+            <Image.Source>
+                <i:D3DImage x:Name="d3dimg" />
+            </Image.Source>
+        </Image>
+        <Button Grid.Row="1" x:Name="btnHello" Click="btnHello_Click">
+            D3D测试
+        </Button>
+    </Grid>
+</Window>
