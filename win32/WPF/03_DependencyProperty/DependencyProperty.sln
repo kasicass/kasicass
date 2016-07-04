@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonTest01", "ButtonTest01\ButtonTest01.csproj", "{EDCA4A3C-807B-410A-9B67-1189AB42657A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonTest02", "ButtonTest02\ButtonTest02.csproj", "{AB07EB89-251F-417B-BCB0-B58CC6B4A5E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonTest03", "ButtonTest03\ButtonTest03.csproj", "{CFD462F0-9704-4A77-BD42-A3AF0B419E67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{EDCA4A3C-807B-410A-9B67-1189AB42657A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDCA4A3C-807B-410A-9B67-1189AB42657A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDCA4A3C-807B-410A-9B67-1189AB42657A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB07EB89-251F-417B-BCB0-B58CC6B4A5E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB07EB89-251F-417B-BCB0-B58CC6B4A5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB07EB89-251F-417B-BCB0-B58CC6B4A5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB07EB89-251F-417B-BCB0-B58CC6B4A5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD462F0-9704-4A77-BD42-A3AF0B419E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD462F0-9704-4A77-BD42-A3AF0B419E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD462F0-9704-4A77-BD42-A3AF0B419E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD462F0-9704-4A77-BD42-A3AF0B419E67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

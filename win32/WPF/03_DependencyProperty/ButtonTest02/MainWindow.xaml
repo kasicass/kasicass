@@ -1,0 +1,14 @@
+﻿<Window x:Class="ButtonTest02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ButtonTest02"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <local:SpaceButton x:Name="btnSpace" Grid.Column="0" Grid.Row="0" Margin="5" Click="BtnSpace_Click" Text="设置按钮字符空格：2" />
+        <local:SpaceButton x:Name="winSpace" Grid.Column="0" Grid.Row="1" Margin="5" Click="WinSpace_Click" Text="设置窗体字符空格：2" />
+    </Grid>
+</Window>
