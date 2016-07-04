@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{24A94F76-F534-48D9-A10A-7605B6289699}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YoZuo.MonitorModule</RootNamespace>
+    <AssemblyName>YoZuo.MonitorModule</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Run\Workbench\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Parts\VideoHandle\VideoSearchPart.cs" />
+    <Compile Include="Parts\VideoHandle\VideoCompressPart.cs" />
+    <Compile Include="Parts\VideoHandle\VideoIncreasePart.cs" />
+    <Compile Include="Parts\VideoHandle\VideoHandleGroup.cs" />
+    <Compile Include="Parts\VideoMonitor\EMapPart.cs" />
+    <Compile Include="Parts\VideoMonitor\IntelligentVideoMonitorPart.cs" />
+    <Compile Include="Parts\VideoMonitor\TVWallPart.cs" />
+    <Compile Include="Parts\VideoMonitor\VideoMonitorPart.cs" />
+    <Compile Include="Parts\VideoReport\MonitorReportPart.cs" />
+    <Compile Include="Parts\VideoReport\VideoReportPart.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Resources\Resource.cs" />
+    <Compile Include="WorkbenchName.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YoZuo.Workbench\YoZuo.Workbench.csproj">
+      <Project>{D98F3FE7-84D7-41BB-A803-A745629F3BAD}</Project>
+      <Name>YoZuo.Workbench</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Illusion\Illusion.csproj">
+      <Project>{D91D9068-4F4B-48D7-B728-F2C2F8B9B127}</Project>
+      <Name>Illusion</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\StringResource.zh-cn.resx" />
+    <EmbeddedResource Include="Resources\StringResource.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="3d3cc7ad-4735-4d2e-a26a-b5a4e6fe2fa7" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="727c65d3-e842-4fc2-9eb9-d0f85ed8a5fe" name="Comment1">
+      <body>YoZuo UI Architecture
+
+Arthor: Yohan Zhou</body>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="33521f2d-7839-4f7c-9a08-32e9b1f201ef" name="YoZuo">
+      <childLayers>
+        <layer Id="fd638b2d-8449-4d5b-aa7b-d98ceaab03ba" name="YoZuo.Workbench">
+          <childLayers>
+            <layer Id="ade21675-d2ca-4428-9cb3-c314958fdc34" name="Workbench Widgets Management" />
+            <layer Id="7b002ed3-47ce-41f8-8cdf-2f1f4f11cfbd" name="Workbench ViewModels Infrastructure" />
+          </childLayers>
+        </layer>
+        <layer Id="cb23a477-3a18-4420-a163-8b487297a191" name="Illusion">
+          <childLayers>
+            <layer Id="46a6ca0e-d6a5-40e5-ace4-4a6e25bd62c4" name="Common Services&#xD;&#xA;&#xD;&#xA;IResourceService&#xD;&#xA;IConfigurationService&#xD;&#xA;......" />
+            <layer Id="c439b9b7-544e-4622-85e9-1fe370b82cca" name="Caliburn.Micro" />
+            <layer Id="e5552f04-0186-4c6d-a586-24ec98818715" name="Utilities" />
+          </childLayers>
+        </layer>
+        <layer Id="cd2a85e1-4efa-42f0-ac82-e4bcc60024c1" name="Presentation">
+          <childLayers>
+            <layer Id="1d208189-cc1d-4399-b4a2-b7e5fb1e528d" name="Default" />
+            <layer Id="750b330b-e34c-4a36-8641-c3df021c854c" name="Ribbon" />
+            <layer Id="427d122c-a15d-44ad-b7db-ab5c2d265dfe" name="Other..." />
+          </childLayers>
+        </layer>
+        <layer Id="35668d51-bc33-4ee9-8aed-44b6194c8bbc" name="Workbench">
+          <childLayers>
+            <layer Id="d27e228b-0f02-44a6-b493-63866ffda8aa" name="MonitorModule" />
+            <layer Id="9e19f2d8-b142-4341-9c6c-f0c4abae79c9" name="MonitorManagement" />
+            <layer Id="6ecf3075-92e1-43a7-9de9-15b403dd3270" name="MonitorLayout" />
+            <layer Id="44f4617e-2f34-4bc4-bd10-63d92aec616f" name="VideoSystem" />
+          </childLayers>
+        </layer>
+        <layer Id="16fcab0e-a112-4646-b7c1-d4be3b5d3b78" name="YoZuo">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="905dbd35-c4db-41ad-b351-33846bb31b6d" direction="Forward">
+              <layerMoniker Id="7b002ed3-47ce-41f8-8cdf-2f1f4f11cfbd" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="8b15c9e4-ebf8-4f31-9de2-d7ef78e8bbbc" name="BootStrapper" />
+          </childLayers>
+        </layer>
+      </childLayers>
+    </layer>
+  </layers>
+</layerModel>

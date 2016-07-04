@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D91D9068-4F4B-48D7-B728-F2C2F8B9B127}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Illusion</RootNamespace>
+    <AssemblyName>Illusion</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.1.1.0\lib\Net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caliburn.Micro\Action.cs" />
+    <Compile Include="Caliburn.Micro\ActionExecutionContext.cs" />
+    <Compile Include="Caliburn.Micro\ActionMessage.cs" />
+    <Compile Include="Caliburn.Micro\AssemblySource.cs" />
+    <Compile Include="Caliburn.Micro\AttachedCollection.cs" />
+    <Compile Include="Caliburn.Micro\Bind.cs" />
+    <Compile Include="Caliburn.Micro\BindingScope.cs" />
+    <Compile Include="Caliburn.Micro\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Caliburn.Micro\Bootstrapper.cs" />
+    <Compile Include="Caliburn.Micro\Conductor.cs" />
+    <Compile Include="Caliburn.Micro\ConductorBase.cs" />
+    <Compile Include="Caliburn.Micro\ConductorBaseWithActiveItem.cs" />
+    <Compile Include="Caliburn.Micro\ConductorWithCollectionAllActive.cs" />
+    <Compile Include="Caliburn.Micro\ConductorWithCollectionOneActive.cs" />
+    <Compile Include="Caliburn.Micro\ConventionManager.cs" />
+    <Compile Include="Caliburn.Micro\Coroutine.cs" />
+    <Compile Include="Caliburn.Micro\DefaultCloseStrategy.cs" />
+    <Compile Include="Caliburn.Micro\ElementConvention.cs" />
+    <Compile Include="Caliburn.Micro\EventAggregator.cs" />
+    <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
+    <Compile Include="Caliburn.Micro\IChild.cs" />
+    <Compile Include="Caliburn.Micro\IConductor.cs" />
+    <Compile Include="Caliburn.Micro\IHaveParameters.cs" />
+    <Compile Include="Caliburn.Micro\INPC.cs" />
+    <Compile Include="Caliburn.Micro\IoC.cs" />
+    <Compile Include="Caliburn.Micro\IResult.cs" />
+    <Compile Include="Caliburn.Micro\IScreen.cs" />
+    <Compile Include="Caliburn.Micro\IViewAware.cs" />
+    <Compile Include="Caliburn.Micro\Logging.cs" />
+    <Compile Include="Caliburn.Micro\Message.cs" />
+    <Compile Include="Caliburn.Micro\MessageBinder.cs" />
+    <Compile Include="Caliburn.Micro\Mouse.cs" />
+    <Compile Include="Caliburn.Micro\NameTransformer.cs" />
+    <Compile Include="Caliburn.Micro\Parameter.cs" />
+    <Compile Include="Caliburn.Micro\Parser.cs" />
+    <Compile Include="Caliburn.Micro\RegExHelper.cs" />
+    <Compile Include="Caliburn.Micro\ResultCompletionEventArgs.cs" />
+    <Compile Include="Caliburn.Micro\Screen.cs" />
+    <Compile Include="Caliburn.Micro\ScreenExtensions.cs" />
+    <Compile Include="Caliburn.Micro\SequentialResult.cs" />
+    <Compile Include="Caliburn.Micro\TypeDescriptor.cs" />
+    <Compile Include="Caliburn.Micro\TypeMappingConfiguration.cs" />
+    <Compile Include="Caliburn.Micro\View.cs" />
+    <Compile Include="Caliburn.Micro\ViewAware.cs" />
+    <Compile Include="Caliburn.Micro\ViewLocator.cs" />
+    <Compile Include="Caliburn.Micro\ViewModelBinder.cs" />
+    <Compile Include="Caliburn.Micro\ViewModelLocator.cs" />
+    <Compile Include="Caliburn.Micro\WindowManager.cs" />
+    <Compile Include="Resources\ExceptionString.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExceptionString.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ConfigurationService.cs" />
+    <Compile Include="Services\OptionService.cs" />
+    <Compile Include="Services\PresentationService.cs" />
+    <Compile Include="Services\StatusBarService.cs" />
+    <Compile Include="Util\BindingEngine.cs" />
+    <Compile Include="Util\NativeMethods.cs" />
+    <Compile Include="Views\Behavior.cs" />
+    <Compile Include="Views\ImageResourceExtension.cs" />
+    <Compile Include="Workbench\Option\IOptionPage.cs" />
+    <Compile Include="Workbench\Screen\DockScreen.cs" />
+    <Compile Include="Workbench\Part\PartMetadata.cs" />
+    <Compile Include="Workbench\IDisplay.cs" />
+    <Compile Include="Workbench\Part\IPart.cs" />
+    <Compile Include="Workbench\Part\MenuPart.cs" />
+    <Compile Include="Workbench\Part\MenuToolPart.cs" />
+    <Compile Include="Workbench\Part\PartManager.cs" />
+    <Compile Include="Workbench\Part\PartBase.cs" />
+    <Compile Include="Workbench\Part\ToolBarPart.cs" />
+    <Compile Include="Workbench\Screen\IScreenManager.cs" />
+    <Compile Include="Workbench\Screen\ScreenMetadata.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Undo\AbstractAction.cs" />
+    <Compile Include="Undo\ActionManager.cs" />
+    <Compile Include="Undo\Action\SetPropertyAction.cs" />
+    <Compile Include="Undo\History\IActionHistory.cs" />
+    <Compile Include="Undo\History\SimpleHistory.cs" />
+    <Compile Include="Undo\History\SimpleHistoryNode.cs" />
+    <Compile Include="Undo\IAction.cs" />
+    <Compile Include="Undo\Transaction\IMultiAction.cs" />
+    <Compile Include="Undo\Transaction\ITransaction.cs" />
+    <Compile Include="Undo\Transaction\MultiAction.cs" />
+    <Compile Include="Undo\Transaction\Transaction.cs" />
+    <Compile Include="Undo\Transaction\TransactionBase.cs" />
+    <Compile Include="Services\ThemeService.cs" />
+    <Compile Include="Views\Converter.cs" />
+    <Compile Include="Util\DynamicAccessEngine.cs" />
+    <Compile Include="Util\Extension.cs" />
+    <Compile Include="Util\PropertyObserver.cs" />
+    <Compile Include="Services\ResourceService.cs" />
+    <Compile Include="Views\BindableToolBarTray.cs" />
+    <Compile Include="Views\StringResourceExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExceptionString.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExceptionString.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
