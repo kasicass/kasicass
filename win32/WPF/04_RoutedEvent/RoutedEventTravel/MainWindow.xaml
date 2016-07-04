@@ -1,0 +1,22 @@
+﻿<Window x:Class="RoutedEventTravel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:RoutedEventTravel"
+        Title="MainWindow" Height="350" Width="525"
+        local:MySimpleButton.CustomClick="InsertList"
+        Loaded="Window_Loaded">
+    <Grid Margin="3" local:MySimpleButton.CustomClick="InsertList" Name="grid1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <local:MySimpleButton x:Name="simpleBtn" CustomClick="InsertList">
+            MySimpleButton
+        </local:MySimpleButton>
+        <ListBox Margin="5" Name="firstMessages" Grid.Row="1" />
+        <CheckBox Margin="5" Grid.Row="2" Name="chkHandle">Handle first event</CheckBox>
+        <Button Grid.Row="3" HorizontalAlignment="Right" Margin="5" Padding="3" Click="cmdClear_Click">Clear List</Button>
+    </Grid>
+</Window>
