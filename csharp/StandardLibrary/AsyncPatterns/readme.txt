@@ -1,0 +1,1 @@
+https://msdn.microsoft.com/en-us/library/jj152938(v=vs.110).aspx
