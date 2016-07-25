@@ -26,6 +26,8 @@ namespace TheMan
                 String s = new String(chars);
                 s = s.Trim();
                 System.Console.WriteLine("Output: " + s);
+
+                System.Console.WriteLine("ExitCode: {0}", my.ExitCode);
             }
             catch (Exception e)
             {

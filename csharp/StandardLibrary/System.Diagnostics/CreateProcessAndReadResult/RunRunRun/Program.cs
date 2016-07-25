@@ -6,7 +6,7 @@ namespace RunRunRun
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             Stream stdin = System.Console.OpenStandardInput();
             byte[] buf = new byte[128];
@@ -22,6 +22,8 @@ namespace RunRunRun
             {
                 System.Console.WriteLine("Err: " + e.Message);
             }
+
+            return 1;
         }
     }
 }
