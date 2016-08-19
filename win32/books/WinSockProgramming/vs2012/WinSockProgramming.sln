@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EchoClient", "chap01\EchoCl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "chap01", "chap01", "{5A1B1094-0AE4-4FAB-BC4E-952209F83A04}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EchoServer", "chap01\EchoServer.vcxproj", "{D2712407-6651-45CA-9BD3-EB4A41FB5721}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,11 +17,16 @@ Global
 		{31F36250-6663-4725-87C4-9CA12DD72CC5}.Debug|Win32.Build.0 = Debug|Win32
 		{31F36250-6663-4725-87C4-9CA12DD72CC5}.Release|Win32.ActiveCfg = Release|Win32
 		{31F36250-6663-4725-87C4-9CA12DD72CC5}.Release|Win32.Build.0 = Release|Win32
+		{D2712407-6651-45CA-9BD3-EB4A41FB5721}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D2712407-6651-45CA-9BD3-EB4A41FB5721}.Debug|Win32.Build.0 = Debug|Win32
+		{D2712407-6651-45CA-9BD3-EB4A41FB5721}.Release|Win32.ActiveCfg = Release|Win32
+		{D2712407-6651-45CA-9BD3-EB4A41FB5721}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{31F36250-6663-4725-87C4-9CA12DD72CC5} = {5A1B1094-0AE4-4FAB-BC4E-952209F83A04}
+		{D2712407-6651-45CA-9BD3-EB4A41FB5721} = {5A1B1094-0AE4-4FAB-BC4E-952209F83A04}
 	EndGlobalSection
 EndGlobal
