@@ -5,6 +5,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "chap01", "chap01", "{A347E1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpEchoClient", "TcpEchoClient\TcpEchoClient.csproj", "{D91EB220-E0E8-4E6D-B2F7-5636534C7227}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpEchoServer", "TcpEchoServer\TcpEchoServer.csproj", "{890E5927-075D-4F61-A4FF-F3BE224EE91B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +17,16 @@ Global
 		{D91EB220-E0E8-4E6D-B2F7-5636534C7227}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D91EB220-E0E8-4E6D-B2F7-5636534C7227}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D91EB220-E0E8-4E6D-B2F7-5636534C7227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{890E5927-075D-4F61-A4FF-F3BE224EE91B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{890E5927-075D-4F61-A4FF-F3BE224EE91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{890E5927-075D-4F61-A4FF-F3BE224EE91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{890E5927-075D-4F61-A4FF-F3BE224EE91B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D91EB220-E0E8-4E6D-B2F7-5636534C7227} = {A347E1C9-3DF4-4052-AEB1-1BC955377557}
+		{890E5927-075D-4F61-A4FF-F3BE224EE91B} = {A347E1C9-3DF4-4052-AEB1-1BC955377557}
 	EndGlobalSection
 EndGlobal
