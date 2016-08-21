@@ -12,6 +12,7 @@ ipch
 *.obj
 *.swp
 *.dll
+*.pdb
 
 # java
 *.class

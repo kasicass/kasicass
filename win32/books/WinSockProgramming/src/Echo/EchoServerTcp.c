@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	echo_soc = socket(AF_INET, SOCK_STREAM, 0);
 
 	serv_addr.sin_family = AF_INET;
-	serv_addr.sin_port   = port;
+	serv_addr.sin_port   = htons(port);
 	serv_addr.sin_addr.s_addr = INADDR_ANY;
 
 	result = bind(echo_soc, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
