@@ -1,0 +1,23 @@
+<Project
+  DefaultTargets="Build"
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <OutputType>winexe</OutputType>
+    <OutputPath>.\</OutputPath>
+    <AssemblyName>InheritAppAndWindow</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="InheritAppAndWindow.cs" />
+    <Compile Include="MyApplication.cs" />
+    <Compile Include="MyWindow.cs" />
+    <Reference Include="System" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+
+  <Import Project="$(MsbuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MsbuildBinPath)\Microsoft.WinFX.targets" />
+</Project>
