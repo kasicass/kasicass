@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://www.cse.unl.edu/~jgompert/OS/lesson6.htm -->
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:v = 
+"urn:schemas-microsoft-com:vml" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>Write Your Own Operating System - Lesson 6</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=Word.Document name=ProgId>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="Microsoft Word 9" name=Originator><LINK 
+href="./lesson6_files/filelist.xml" rel=File-List><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Joel Matthias Gompert</o:Author>
+  <o:LastAuthor>Joel Matthias Gompert</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>24</o:TotalTime>
+  <o:Created>2001-12-28T03:25:00Z</o:Created>
+  <o:LastSaved>2001-12-28T04:23:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>807</o:Words>
+  <o:Characters>4601</o:Characters>
+  <o:Company>The Flaming Gymsocks</o:Company>
+  <o:Lines>38</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>5650</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<STYLE>@page Section1 {size: 8.5in 11.0in; margin: 1.0in 1.25in 1.0in 1.25in; mso-header-margin: .5in; mso-footer-margin: .5in; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+LI.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+DIV.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+H1 {
+	FONT-SIZE: 16pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: Arial; mso-bidi-font-size: 12.0pt; mso-pagination: widow-orphan; mso-bidi-font-weight: normal; mso-style-next: Normal; mso-outline-level: 1; mso-bidi-font-family: "Courier New"; mso-font-kerning: 0pt
+}
+P.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+LI.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+DIV.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+P.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+DIV.Section1 {
+	page: Section1
+}
+OL {
+	MARGIN-BOTTOM: 0in
+}
+UL {
+	MARGIN-BOTTOM: 0in
+}
+</STYLE>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></HEAD>
+<BODY lang=EN-US style="tab-interval: .5in" vLink=purple link=blue>
+<DIV class=Section1>
+<P class=MsoTitle><A name=_Toc534120514>Write Your Own Operating System 
+Tutorial</A></P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 1pt; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: windowtext 0.75pt solid">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 0in; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none; mso-border-bottom-alt: solid windowtext .75pt; mso-padding-alt: 0in 0in 1.0pt 0in"><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN><A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson5.htm"><SPAN 
+style="mso-bookmark: _Toc534120514">Previous Lesson</SPAN><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN></A><SPAN 
+style="mso-bookmark: _Toc534120514"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><A 
+href="http://www.cse.unl.edu/~jgompert/OS/TableOfContents.htm"><SPAN 
+style="mso-bookmark: _Toc534120514">Table of Contents</SPAN><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN></A><SPAN 
+style="mso-bookmark: _Toc534120514"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><A href="http://www.cse.unl.edu/~jgompert/OS/lesson7.htm"><SPAN 
+style="mso-bookmark: _Toc534120514">Next Lesson</SPAN><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN></A><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN></P></DIV><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN>
+<H1><A name=_Toc534120519>Lesson 6: Boot Loader</A></H1>
+<P class=MsoNormal>Everything we’ve done so far has been placed entirely inside 
+the boot sector.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>We can’t make our 
+operating system very big at all if it is to fit in one sector.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>We need a way of expanding.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>We will do this by making a boot program 
+that simply loads an executable file off the disk and begins executing it.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>This is called a boot loader.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>This file loaded off the disk can be as 
+big as we want, since it will not be constrained to one sector.</P>
+<P class=MsoNormal>This is more difficult than anything else we’ve done so 
+far.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>It might be a good idea, now, 
+to locate a reference on the FAT file system (or the file system of your choice, 
+but I will be assuming the use of the FAT system).<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>I will give a brief overview of the boot 
+loading process.</P>
+<P class=MsoNormal>A floppy disk contains, in this order, the DOS Boot Record 
+(the first sector we have been working with), the File Allocation Table (FAT), 
+the Root Directory, and then the data contained in the files on the disk.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>(A hard disk is more complicated.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>It has a Master Boot Record and multiple 
+partitions.)<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Suppose we write an 
+operating system, compile/assemble it to a file named LOADER.BIN, and place it 
+on the disk.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The boot loader will 
+load it as follows.</P>
+<OL style="MARGIN-TOP: 0in" type=1>
+  <LI class=MsoNormal style="mso-list: l0 level1 lfo3; tab-stops: list .5in">The 
+  DOS Boot Record (DBR) is read to determine the size of the DBR, FAT, and Root 
+  Directory.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The location of each 
+  on the disk is then determined. 
+  <LI class=MsoNormal style="mso-list: l0 level1 lfo3; tab-stops: list .5in">The 
+  Root Directory is read in to memory. 
+  <LI class=MsoNormal style="mso-list: l0 level1 lfo3; tab-stops: list .5in">The 
+  Root Directory is searched for the file name LOADER.BIN.<SPAN 
+  style="mso-spacerun: yes">&nbsp; </SPAN>If found, we can look in the directory 
+  entry to find out which is the file’s first cluster (file allocation 
+  unit).<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If not found, we give an 
+  error message. 
+  <LI class=MsoNormal style="mso-list: l0 level1 lfo3; tab-stops: list .5in">The 
+  File Allocation Table is read off the disk in to memory. 
+  <LI class=MsoNormal 
+  style="mso-list: l0 level1 lfo3; tab-stops: list .5in">Starting with the 
+  file’s first cluster, we use the FAT to locate all the clusters belonging to 
+  the file.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>We read them all off 
+  the disk into memory at a specific location. 
+  <LI class=MsoNormal style="mso-list: l0 level1 lfo3; tab-stops: list .5in">We 
+  jump to that location to begin execution of the operating system. </LI></OL>
+<P class=MsoNormal>All of the reading from the disk will be done using calls to 
+BIOS.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If you feel adventurous, use 
+a reference of BIOS functions to learn how to read sectors from the disk and try 
+writing your own boot loader.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Otherwise, I have provided a slightly modified version of John S. Fine’s 
+<A href="http://www.cse.unl.edu/~jgompert/OS/BOOT12.ASM">FAT12 bootstrap 
+loader</A>.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If you can find a copy 
+of his utility “partcopy,” then use his compiling and installing instructions 
+(and let me know where to find it).<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Otherwise, copy the boot loader to the floppy disk using the same method 
+we have used in the previous lessons.</P>
+<P class=MsoNormal>There are many user-adjustable settings in John Fine’s 
+bootstrap loader.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>His loader 
+assumes the use of a FAT12 file system (the system that is used on floppy 
+disks).<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>For another system, you 
+will need to use a different loader.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Things you can adjust are the locations where the operating system and 
+various FAT data structures will be loaded into memory.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>You can also adjust the filename (of the 
+operating system) that the loader loads.</P>
+<P class=MsoNormal>By default, the loader loads a file named LOADER.BIN in the 
+root directory (if one exists) into memory starting at address 0x1000:0000.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>(This is adjustable by the %define 
+IMAGE_SEG).<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Thus you can 
+compile/assemble an operating system and copy it to the floppy disk as a file 
+named LOADER.BIN.</P>
+<P class=MsoNormal>As an example, we will take the Hello, World operating system 
+from <A href="http://www.cse.unl.edu/~jgompert/OS/lesson4.htm">Lesson 4</A> and 
+run it with our boot loader.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>We 
+cannot use the exact same source file from Lesson 4, however.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>We need to make a few changes.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>First, we need to take into account that 
+this file will now be loaded into a different location in memory (0x1000:0000 
+instead of 0000:7C00), and, secondly, we can get rid of the DOS Boot Record 
+data.</P>
+<P class=MsoNormal>We can start the code by setting up the data and stack 
+segments and the stack pointer.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>We 
+will do this as shown below.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The 
+current code segment is in the CS register, and the static data assembled into 
+the executable is here, so we will use this as the data segment as well.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>For now, we will use this as the stack 
+segment, but we will likely want to change this in the future.</P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>mov<SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; </SPAN>ax, cs<SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>; Get 
+the current segment<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>mov<SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; </SPAN>ds, ax<SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>; The 
+data is in this segment<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>cli<SPAN 
+style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>; disable interrupts while changing stack<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>mov<SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; </SPAN>ss, ax<SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>; 
+We'll use this segment for the stack too<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>mov<SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; </SPAN>sp, 0xfffe<SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; </SPAN>; Start the stack at the top 
+of the segment<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>sti<SPAN 
+style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>; Reenable interrupts<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal>Finally, we can get rid of some lines at the bottom of the 
+source code that adds the boot sector signature and the check to make sure the 
+file is exactly 1 sector long.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>All 
+of the other code should look familiar.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>The resulting file can be downloaded here: <A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson6.asm">lesson6.asm</A>.</P>
+<P class=MsoNormal>Assemble this file and copy it to your disk using the 
+following commands.</P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt 0.5in"><SPAN 
+style="FONT-FAMILY: 'Courier New'">nasmw lesson6.asm –o 
+lesson6.bin<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt 0.5in"><SPAN 
+style="FONT-FAMILY: 'Courier New'">copy lesson6.bin 
+a:\LOADER.BIN<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal>Then, assuming you have already installed the boot loader, 
+you can go ahead and boot with the disk.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Once you have this working, feel free to modify any other programs you 
+have written in previous lessons, so that you can try loading them with this 
+boot loader.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Most of the following 
+lessons will assume that you will be using this boot loader (or other boot 
+loader of your choice) to load your operating system file(s).</P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 1pt; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: windowtext 0.75pt solid">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 0in; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none; mso-border-bottom-alt: solid windowtext .75pt; mso-padding-alt: 0in 0in 1.0pt 0in">Now 
+we can make our operating system larger than a single sector.<SPAN 
+style="mso-bidi-font-weight: normal"><o:p></o:p></SPAN></P></DIV>
+<P class=MsoNormal><A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson5.htm">Previous Lesson</A><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><A href="http://www.cse.unl.edu/~jgompert/OS/TableOfContents.htm">Table 
+of Contents</A><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><A href="http://www.cse.unl.edu/~jgompert/OS/lesson7.htm">Next 
+Lesson</A><B style="mso-bidi-font-weight: normal"><o:p></o:p></B></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><B 
+style="mso-bidi-font-weight: normal">© 2001 by Joel Gompert<o:p></o:p></B></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><A 
+href="mailto:jgompert@cse.unl.edu">jgompert@cse.unl.edu</A></P>
+<P class=MsoNormal><A href="http://cse.unl.edu/~jgompert">HOME</A><B 
+style="mso-bidi-font-weight: normal"><o:p></o:p></B></P></DIV></BODY></HTML>

@@ -1,0 +1,423 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://www.cse.unl.edu/~jgompert/OS/lesson1.htm -->
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:v = 
+"urn:schemas-microsoft-com:vml" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>Write Your Own Operating System - Lesson 1</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=Word.Document name=ProgId>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="Microsoft Word 9" name=Originator><LINK 
+href="./lesson1_files/filelist.xml" rel=File-List><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Joel Matthias Gompert</o:Author>
+  <o:LastAuthor>Joel Matthias Gompert</o:LastAuthor>
+  <o:Revision>12</o:Revision>
+  <o:TotalTime>17</o:TotalTime>
+  <o:Created>2001-12-28T02:59:00Z</o:Created>
+  <o:LastSaved>2001-12-28T04:42:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1070</o:Words>
+  <o:Characters>6103</o:Characters>
+  <o:Company>The Flaming Gymsocks</o:Company>
+  <o:Lines>50</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>7494</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<STYLE>@page Section1 {size: 8.5in 11.0in; margin: 1.0in 1.25in 1.0in 1.25in; mso-header-margin: .5in; mso-footer-margin: .5in; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+LI.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+DIV.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+H1 {
+	FONT-SIZE: 16pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-bidi-font-weight: normal; mso-style-next: Normal; mso-outline-level: 1; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: "Courier New"; mso-font-kerning: 0pt
+}
+P.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+LI.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+DIV.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+P.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+DIV.Section1 {
+	page: Section1
+}
+</STYLE>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></HEAD>
+<BODY lang=EN-US style="tab-interval: .5in" vLink=purple link=blue>
+<DIV class=Section1>
+<P class=MsoTitle><A name=_Toc534120514>Write Your Own Operating System 
+Tutorial</A></P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 1pt; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: windowtext 0.75pt solid">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 0in; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none; mso-border-bottom-alt: solid windowtext .75pt; mso-padding-alt: 0in 0in 1.0pt 0in"><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN><A 
+href="http://www.cse.unl.edu/~jgompert/OS/introduction.htm"><SPAN 
+style="mso-bookmark: _Toc534120514">Previous</SPAN><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN></A><SPAN 
+style="mso-bookmark: _Toc534120514"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><A 
+href="http://www.cse.unl.edu/~jgompert/OS/TableOfContents.htm"><SPAN 
+style="mso-bookmark: _Toc534120514">Table of Contents</SPAN><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN></A><SPAN 
+style="mso-bookmark: _Toc534120514"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><A href="http://www.cse.unl.edu/~jgompert/OS/lesson2.htm"><SPAN 
+style="mso-bookmark: _Toc534120514">Next Lesson</SPAN><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN></A><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN></P></DIV><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN>
+<H1>Lesson 1: The Boot Sector</H1>
+<P class=MsoNormal>In this lesson we’ll learn about the contents of the boot 
+sector so that we can learn to write our own boot program.</P>
+<P class=MsoNormal>When the computer boots from a floppy, BIOS (Basic 
+Input/Output System) reads the disk and loads the first sector into memory at 
+address 0000:7C00.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This first 
+sector is called the DOS Boot Record (DBR).<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>BIOS jumps to the address 0x7C00 and 
+begins executing instructions there.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>It is these instructions (the “boot loader”) that will load the operating 
+system (OS) into memory and begin the OS’s boot process.</P>
+<P class=MsoNormal>The first thing to do is to take a look inside the Boot 
+Record.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The DOS utility DEBUG is a 
+widely available tool that can be used to view the contents of memory and 
+disks.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>We’ll use DEBUG to look at a 
+floppy disk’s Boot Record.</P>
+<P class=MsoNormal>At a DOS (or Windows) command prompt type <SPAN 
+style="FONT-FAMILY: 'Courier New'">debug</SPAN>.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>This will leave you with just a hyphen 
+as a prompt.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If you enter letter 
+‘d’ as a command and press Enter, it will show you a portion of the contents of 
+RAM.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Typing the question mark as a 
+command will give you a list of all the available commands in DEBUG.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>(<I>Be very careful when using the DEBUG 
+utility.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This utility can be used 
+to overwrite data on any disk drive, possibly causing loss of data.)</I></P>
+<P class=MsoNormal>Place a freshly formatted disk in the A: drive.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>To load the Boot Record off your floppy 
+disk, type the following command.</P>
+<P class=MsoNormal><SPAN style="FONT-FAMILY: 'Courier New'">-l 0 0 0 
+1<o:p></o:p></SPAN></P>
+<P class=MsoNormal>(The first character is the letter ‘<SPAN 
+style="FONT-FAMILY: 'Courier New'">l</SPAN>’, not the number ‘<SPAN 
+style="FONT-FAMILY: 'Courier New'">1</SPAN>’.)<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>This command loads sectors off a disk 
+into a portion of RAM.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The 4 
+numbers after the ‘<SPAN style="FONT-FAMILY: 'Courier New'">l</SPAN>’ represent 
+in order, the beginning address where you want the data loaded, the drive number 
+(0 for first floppy driver), the first sector on the disk to load, and how many 
+sectors to load.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Typing this 
+command will load the first sector of the floppy into memory starting at address 
+0.</P>
+<P class=MsoNormal>Now that we have the Boot Record loaded into memory, we want 
+to view its contents.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Type the 
+following command.</P>
+<P class=MsoNormal>-d 0</P>
+<P class=MsoNormal>What you see are 8 lines that represent the first 128 (0x80 
+in hex) bytes in the floppy’s Boot Record.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>The results (for my floppy disk) are the following.</P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AF6:0000<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>EB 3C 90 4D 53 44 4F 53-35 2E 30 00 02 
+01 01 00<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; 
+</SPAN>.&lt;.MSDOS5.0.....<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AF6:0010<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>02 E0 00 40 0B F0 09 00-12 00 02 00 00 
+00 00 00<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; 
+</SPAN>...@............<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AF6:0020<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>00 00 00 00 00 00 29 F6-63 30 88 4E 4F 
+20 4E 41<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>......).c0.NO 
+NA<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AF6:0030<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>4D 45 20 20 20 20 46 41-54 31 32 20 20 
+20 33 C9<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>ME<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>FAT12<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>3.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AF6:0040<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>8E D1 BC F0 7B 8E D9 B8-00 20 8E C0 FC 
+BD 00 7C<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>....{.... 
+.....|<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AF6:0050<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>38 4E 24 7D 24 8B C1 99-E8 3C 01 72 1C 
+83 EB 3A<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; 
+</SPAN>8N$}$....&lt;.r...:<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AF6:0060<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>66 A1 1C 7C 26 66 3B 07-26 8A 57 FC 75 
+06 80 CA<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; 
+</SPAN>f..|&amp;f;.&amp;.W.u...<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AF6:0070<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>02 88 56 02 80 C3 10 73-EB 33 C9 8A 46 
+10 98 F7<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; 
+</SPAN>..V....s.3..F...<o:p></o:p></SPAN></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>At first glance, this doesn’t tell me much.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>I can see that it looks like this is a 
+MS-DOS 5.0 disk with no name and a FAT12 file system.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The numbers in the far left column show 
+the memory addresses in RAM.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The 
+hexadecimal numbers in the middle show all the bytes in this portion of memory, 
+and the column on the right shows the ASCII characters that the hex bytes 
+represent (a period is shown if the byte does not translate to any visible 
+character).<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Some of the bytes you 
+see in this portion of the Boot Record are parts of instructions in the boot 
+loader, and some of them hold information about the disk such as the number of 
+bytes per sector, the number of sectors per track, etc…</P>
+<P class=MsoNormal>Now it’s time to take a glance at the code for the boot 
+loader.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Type the following 
+command.</P>
+<P class=MsoNormal><SPAN style="FONT-FAMILY: 'Courier New'">-u 
+0<o:p></o:p></SPAN></P>
+<P class=MsoNormal>This performs an “unassemble” operation.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>This shows us the same bytes as before 
+(starting with address 0), but this time DEBUG shows us the Intel instructions 
+that these bytes represent.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The 
+results for my floppy are the following.</P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0000 EB3C<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>JMP<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>003E<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0002 90<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>NOP<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0003 4D<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DEC<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>BP<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0004 53<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>PUSH<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>BX<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0005 44<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>INC<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>SP<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0006 4F<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DEC<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DI<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0007 53<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>PUSH<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>BX<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0008 352E30<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>XOR<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>AX,302E<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:000B 0002<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>ADD<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>[BP+SI],AL<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:000D 0101<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>ADD<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>[BX+DI],AX<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:000F 0002<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>ADD<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>[BP+SI],AL<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0011 E000<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>LOOPNZ<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>0013<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0013 40<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>INC<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>AX<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0014 0BF0<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>OR<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>SI,AX<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0016 0900<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>OR<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>[BX+SI],AX<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:0018 1200<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>ADC<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>AL,[BX+SI]<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:001A 0200<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>ADD<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>AL,[BX+SI]<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:001C 0000<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>ADD<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>[BX+SI],AL<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">0AF6:001E 0000<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>ADD<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>[BX+SI],AL</SPAN></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>The first instruction says to jump to address 0x3E.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The bytes after this are the data about 
+the disk I mentioned before and do not really correspond to instructions, but 
+DEBUG does its duty and tries to interpret them as such.</P>
+<P class=MsoNormal>The first instruction jumps over this data to the boot 
+program code that follows starting at address 0x3E.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Let’s look at the instructions 
+there.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Type</P>
+<P class=MsoNormal><SPAN style="FONT-FAMILY: 'Courier New'">-u 
+3E<o:p></o:p></SPAN></P>
+<P class=MsoNormal>Here you can see the beginning of the code that will load the 
+DOS (or Windows) operating system.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>This code (for MS-DOS) looks on the disk for the files IO.SYS and 
+MSDOS.SYS.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>These files contain the 
+code for the operating system.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The 
+boot loader code will load these files into memory and begin executing 
+them.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If the files are not found on 
+the disk, then the boot loader will display the famous error message.</P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">Invalid system disk<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">Disk I/O error<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-FAMILY: 'Courier New'">Replace the disk, and then press any 
+key<o:p></o:p></SPAN></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>This message can be seen if you look towards the end of the 
+DOS Boot Record.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>You can see this 
+on my floppy below.</P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">-d 
+180<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AFC:0180<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>18 01 27 0D 0A 49 6E 76-61 6C 69 64 20 
+73 79 73<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>..'..Invalid 
+sys<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AFC:0190<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>74 65 6D 20 64 69 73 6B-FF 0D 0A 44 69 
+73 6B 20<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>tem disk...Disk 
+<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AFC:01A0<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>49 2F 4F 20 65 72 72 6F-72 FF 0D 0A 52 
+65 70 6C<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>I/O 
+error...Repl<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AFC:01B0<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>61 63 65 20 74 68 65 20-64 69 73 6B 2C 
+20 61 6E<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>ace the disk, 
+an<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AFC:01C0<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>64 20 74 68 65 6E 20 70-72 65 73 73 20 
+61 6E 79<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>d then press 
+any<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AFC:01D0<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>20 6B 65 79 0D 0A 00 00-49 4F 20 20 20 
+20 20 20 <SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;</SPAN>key....IO<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AFC:01E0<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>53 59 53 4D 53 44 4F 53-20 20 20 53 59 
+53 7F 01<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>SYSMSDOS<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>SYS..<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt">0AFC:01F0<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>00 41 BB 00 07 60 66 6A-00 E9 3B FF 00 
+00 55 AA<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; 
+</SPAN>.A...`fj..;...U.</SPAN><B style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 9pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 12.0pt"><o:p></o:p></SPAN></B></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>This shows the very end of the Boot Record.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The Boot Record is exactly one sector 
+(512 bytes) on the disk.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If it is 
+loaded into memory starting with address 0, then the last byte will be in 
+address 0x1FF.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If you look at the 
+last two bytes of the Boot Record (0x1FE and 0x1FF), you will notice that they 
+are 0x55 and 0xAA.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The last two 
+bytes of the Boot Record <I>must</I> be set to these values or else BIOS will 
+not load the sector and begin executing it.</P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 1pt; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: windowtext 0.75pt solid">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 0in; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none; mso-border-bottom-alt: solid windowtext .75pt; mso-padding-alt: 0in 0in 1.0pt 0in">So, 
+to recap, the DOS Boot Record starts with an instruction to jump over the data 
+that follows that instruction.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>These 60 bytes of data starts at address 0x02 and ends on 0x3D, with the 
+boot code resuming at 0x3E and going all the way to 0x1FD, which is followed by 
+the two bytes, 0x55 and 0xAA.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>In 
+the next lesson we will use this knowledge to start making our own book 
+program.<SPAN style="mso-bidi-font-weight: normal"><o:p></o:p></SPAN></P></DIV>
+<P class=MsoNormal><A 
+href="http://www.cse.unl.edu/~jgompert/OS/introduction.htm">Previous</A><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><A href="http://www.cse.unl.edu/~jgompert/OS/TableOfContents.htm">Table 
+of Contents</A><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><A href="http://www.cse.unl.edu/~jgompert/OS/lesson2.htm">Next 
+Lesson</A></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><B 
+style="mso-bidi-font-weight: normal">© 2001 by Joel Gompert<o:p></o:p></B></P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><A 
+href="mailto:jgompert@cse.unl.edu">jgompert@cse.unl.edu</A></P>
+<P class=MsoNormal><A href="http://cse.unl.edu/~jgompert">HOME</A><B 
+style="mso-bidi-font-weight: normal"><o:p></o:p></B></P></DIV></BODY></HTML>

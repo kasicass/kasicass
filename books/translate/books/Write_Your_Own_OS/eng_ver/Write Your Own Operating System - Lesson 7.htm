@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://www.cse.unl.edu/~jgompert/OS/lesson7.htm -->
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:v = 
+"urn:schemas-microsoft-com:vml" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>Write Your Own Operating System - Lesson 7</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=Word.Document name=ProgId>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="Microsoft Word 9" name=Originator><LINK 
+href="./lesson7_files/filelist.xml" rel=File-List><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Joel Matthias Gompert</o:Author>
+  <o:LastAuthor>Joel Matthias Gompert</o:LastAuthor>
+  <o:Revision>18</o:Revision>
+  <o:TotalTime>35</o:TotalTime>
+  <o:Created>2001-12-28T03:27:00Z</o:Created>
+  <o:LastSaved>2001-12-28T04:37:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>822</o:Words>
+  <o:Characters>4686</o:Characters>
+  <o:Company>The Flaming Gymsocks</o:Company>
+  <o:Lines>39</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>5754</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<STYLE>@page Section1 {size: 8.5in 11.0in; margin: 1.0in 1.25in 1.0in 1.25in; mso-header-margin: .5in; mso-footer-margin: .5in; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+LI.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+DIV.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+H1 {
+	FONT-SIZE: 16pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-bidi-font-weight: normal; mso-bidi-font-size: 12.0pt; mso-style-next: Normal; mso-outline-level: 1; mso-bidi-font-family: "Courier New"; mso-font-kerning: 0pt
+}
+H2 {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-bidi-font-weight: normal; mso-style-next: Normal; mso-outline-level: 2
+}
+P.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+LI.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+DIV.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+P.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.MsoBodyTextIndent {
+	FONT-SIZE: 11pt; MARGIN: 0in 0in 0pt 0.5in; FONT-FAMILY: "Courier New"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold; mso-bidi-font-size: 12.0pt
+}
+LI.MsoBodyTextIndent {
+	FONT-SIZE: 11pt; MARGIN: 0in 0in 0pt 0.5in; FONT-FAMILY: "Courier New"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold; mso-bidi-font-size: 12.0pt
+}
+DIV.MsoBodyTextIndent {
+	FONT-SIZE: 11pt; MARGIN: 0in 0in 0pt 0.5in; FONT-FAMILY: "Courier New"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold; mso-bidi-font-size: 12.0pt
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+DIV.Section1 {
+	page: Section1
+}
+</STYLE>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026">
+  <o:colormru v:ext="edit" colors="#ffc,#ff9"/>
+  <o:colormenu v:ext="edit" fillcolor="#cff"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></HEAD>
+<BODY lang=EN-US style="tab-interval: .5in" vLink=purple link=blue>
+<P class=MsoTitle><A name=_Toc534120514>Write Your Own Operating System 
+Tutorial</A></P>
+<DIV class=Section1 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 1pt; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: windowtext 0.75pt solid"><A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson6.htm">Previous Lesson</A>&nbsp; 
+| &nbsp; <A href="http://www.cse.unl.edu/~jgompert/OS/TableOfContents.htm">Table 
+of Contents</A>&nbsp; | &nbsp;Next Lesson 
+<P></P></DIV><SPAN style="mso-bookmark: _Toc534120514"></SPAN>
+<H1 class=Section1><A name=_Toc534120520>Lesson 7: Start Saying Goodbye To 
+BIOS</A></H1>
+<P class=MsoNormal>Now that we have a boot loader that will load our operating 
+system, and thus can make our operating system larger than one sector, we can 
+now begin to add some complexity to our system. One of the first things to do is 
+to loosen our tie to BIOS. So far we have been using BIOS functions for all of 
+our input and output. BIOS hides all of the input and output from us with its 
+interface, so we don’t know exactly how it goes about performing its functions. 
+BIOS can often be slower than handling I/O by ourselves, and in doing it 
+ourselves, we can know exactly what is going on, thus giving us more power, 
+control, and flexibility with the design of our operating system.&nbsp; The 
+benefit to using BIOS is that&nbsp;the interface is very standard and should not 
+vary&nbsp;from machine to machine.&nbsp; On the other hand, BIOS can only be 
+used in real mode.&nbsp; Later on,&nbsp;if the operating system switches the 
+processor&nbsp;over to protected mode, then the BIOS functions are unusable. Of 
+course, my main reason for learning to perform the I/O myself it simply to see 
+how it is done. If anyone has any arguments for or against the use of BIOS for 
+I/O, let me know. Perhaps we could discuss it further.</P>
+<P class=MsoNormal>The area we will begin with is that of text output to the 
+screen.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>So far we have been using 
+BIOS interrupt 0x10, function 0x0E.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>We will begin performing text output ourselves.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Before we can even start to do this, we 
+need to know a few things. First of all, video memory is mapped to main memory 
+addresses starting at address 0xB0000 (flat address from base of the physical 
+address space).<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The region of 
+memory holding the text content of the screen starts at 0xB0000 for monochrome 
+displays and 0xB8000 for color displays.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Try the latter address first, and if you can’t get it working, perhaps 
+try the former.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>I will proceed 
+assuming the use of a color display.</P>
+<P class=MsoNormal>The first byte (0xB8000) holds the ASCII code for the 
+upper-leftmost character on the screen.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>The next byte (0xB8001) holds the color/style code for that 
+character.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>These bytes are followed 
+by two more bytes that hold the ASCII code and color/style code for the next 
+character to the right.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The video 
+memory continues alternating ASCII code and style/color code to the end of the 
+first row of text.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The next bytes 
+after this represent the first character on the second row, and so on for the 
+rest of the screen.</P>
+<P class=MsoNormal>So, all that is necessary to output text to the screen is to 
+write ASCII codes into this region of memory.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>(This is referred to as memory-mapped 
+I/O.)<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>However, you will now need to 
+keep track of the location of the cursor.</P>
+<P class=MsoNormal>Speaking of the cursor, you can write characters to anywhere 
+on the screen (anywhere in video memory).<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>But it will look odd to the user if they are typing on the keyboard and 
+characters are appearing one place on the screen and the little blinking cursor 
+is elsewhere on the screen.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The 
+video controller chip (6845 on the IBM PC) takes care of drawing the blinking 
+cursor on the screen; we just need to tell it where to move the cursor.</P>
+<P class=MsoNormal>The 6845 video controller is connected to I/O port 
+0x3B4-0x3B5 for a mono display and 0x3D4-0x3D5 for a color display. As far as I 
+can tell, the 6845 has various registers, and (assuming a color display) port 
+0x3D4 is used to indicate which port we would like to write to, and then we 
+write the data to port 0x3D5. Registers 14-15 tell the 6845 where to draw the 
+blinky cursor.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The following is 
+psuedo-code for moving the cursor.</P>
+<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+  <DIV class=Section1><FONT face="Courier New" size=2>outbyte(0x3D4, 
+  14);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  // write to register 14 first</FONT></DIV>
+  <DIV class=Section1><FONT face="Courier New" size=2>outbyte(0x3D5, 
+  (cursorpos&gt;&gt;8) &amp; 0xFF); // output high byte</FONT></DIV>
+  <DIV class=Section1><FONT face="Courier New" size=2>outbyte(0x3D4, 
+  15);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  // again to register 15</FONT></DIV>
+  <DIV class=Section1><FONT face="Courier New" size=2>outbyte(0x3D5, cursorpos 
+  &amp; 0xFF);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// low byte in this 
+  register</FONT></DIV></BLOCKQUOTE>
+<P class=MsoNormal>The cursor position (in cursorpos) is the character number, 
+starting with 0 and number all the characters in the order that they are 
+arranged in video memory.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>(The 
+offset in video memory for a given cursor position is <SPAN 
+style="FONT-FAMILY: 'Courier New'">cursorpos*2</SPAN> for the ASCII code and 
+<SPAN style="FONT-FAMILY: 'Courier New'">(cursorpos*2)+1</SPAN> for the 
+color/style code.)</P>
+<P class=MsoNormal>Using this region of video memory to output characters and 
+the I/O ports to tell the video controller where to draw the cursor, it is now 
+your job to write a text driver for your operating system. Create a set of 
+functions that you can call to output characters, strings, numbers, pointers, 
+etc to the screen without using BIOS (this means no software interrupts).<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Make sure that your text driver handles 
+scrolling the text on the screen upward before going off the bottom.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Write a function to clear the 
+screen.</P>
+<P class=MsoNormal>Try allowing the user to type characters with the keyboard 
+(you can still use BIOS for keyboard input for now), and echo each character to 
+the screen as it is typed.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If you 
+have any troubles writing your text driver, let me know and perhaps I can give 
+you some hints.</P>
+<P class=MsoNormal>As far as the color/style byte is concerned, you can simply 
+use 07 (white on black) for most purposes, but for those of you who are curious, 
+I will explain the different color/style settings. The color/style of a 
+character is one byte.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Those 8 bits 
+are used as follows.</P>
+<H2 class=Section1 style="MARGIN-LEFT: 0.5in"><A name=_Toc534120521>Bits 3-0 : 
+Foreground color</A></H2>
+<DIV class=Section1>
+<TABLE 
+style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; MARGIN-LEFT: 36.35pt; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-border-alt: solid windowtext .5pt" 
+cellSpacing=0 cellPadding=0 border=1>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=55>
+      <H2><A name=_Toc534120522>Bit</A></H2></TD>
+    <TD vAlign=top width=78>
+      <P class=MsoNormal>3</P></TD>
+    <TD vAlign=top width=48>
+      <P class=MsoNormal>2</P></TD>
+    <TD vAlign=top width=62>
+      <P class=MsoNormal>1</P></TD>
+    <TD vAlign=top width=53>
+      <P class=MsoNormal>0</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=55>
+      <H2><A name=_Toc534120523>Color</A></H2></TD>
+    <TD vAlign=top width=78>
+      <P class=MsoNormal>Intensity</P></TD>
+    <TD vAlign=top width=48>
+      <P class=MsoNormal>Red</P></TD>
+    <TD vAlign=top width=62>
+      <P class=MsoNormal>Green</P></TD>
+    <TD vAlign=top width=53>
+      <P class=MsoNormal>Blue</P></TD></TR></TBODY></TABLE></DIV>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>These four bits can be used in any and all 16 
+combinations.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If bit 3 is 1, it 
+indicates full intensity, 0 indicates half intensity.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>For example, 3 would be cyan (blue + 
+green) while 11 would be bright cyan (intensity+blue+green).</P>
+<H2 class=Section1 style="MARGIN-LEFT: 0.5in"><A name=_Toc534120524>Bit 5: 
+Reverse Video</A></H2>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in"><B 
+style="mso-bidi-font-weight: normal">Bit 6: Black on colored background, color 
+given by bits 3-0<o:p></o:p></B></P>
+<H2 class=Section1 style="MARGIN-LEFT: 0.5in"><A name=_Toc534120525>Bit 7: 
+Blinking text</A></H2>
+<DIV class=Section1 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 1pt; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: windowtext 0.75pt solid">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 0in; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none; mso-padding-alt: 0in 0in 1.0pt 0in; mso-border-bottom-alt: solid windowtext .75pt">For 
+example a code of 0x2C (00101100bin) would be reverse video bright red.<SPAN 
+style="mso-bidi-font-weight: normal"><o:p></o:p> </SPAN></P></DIV>
+<P class=MsoNormal><A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson6.htm">Previous Lesson</A>&nbsp; 
+| &nbsp;<A href="http://www.cse.unl.edu/~jgompert/OS/TableOfContents.htm">Table 
+of Contents</A>&nbsp; |&nbsp; Next Lesson</P>
+<DIV class=Section1>© 2001 by Joel Gompert </DIV>
+<P class=Section1></P>
+<DIV class=Section1><A 
+href="mailto:JGOMPERT@CSE.UNL.EDU">jgompert@cse.unl.edu</A> </DIV>
+<P class=Section1></P>
+<DIV class=Section1><A href="http://cse.unl.edu/~jgompert">HOME</A> </DIV>
+<P class=Section1></P></BODY></HTML>

@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://www.cse.unl.edu/~jgompert/OS/lesson2.htm -->
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>Write Your Own Operating System - Lesson 2</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=Word.Document name=ProgId>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="Microsoft Word 9" name=Originator><LINK 
+href="./lesson2_files/filelist.xml" rel=File-List><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Joel Matthias Gompert</o:Author>
+  <o:LastAuthor>Joel Matthias Gompert</o:LastAuthor>
+  <o:Revision>14</o:Revision>
+  <o:TotalTime>27</o:TotalTime>
+  <o:Created>2001-12-28T03:15:00Z</o:Created>
+  <o:LastSaved>2001-12-28T05:01:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>759</o:Words>
+  <o:Characters>4329</o:Characters>
+  <o:Company>The Flaming Gymsocks</o:Company>
+  <o:Lines>36</o:Lines>
+  <o:Paragraphs>8</o:Paragraphs>
+  <o:CharactersWithSpaces>5316</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<STYLE>@page Section1 {size: 8.5in 11.0in; margin: 1.0in 1.25in 1.0in 1.25in; mso-header-margin: .5in; mso-footer-margin: .5in; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+LI.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+DIV.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+H1 {
+	FONT-SIZE: 16pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-bidi-font-weight: normal; mso-style-next: Normal; mso-outline-level: 1; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: "Courier New"; mso-font-kerning: 0pt
+}
+P.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+LI.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+DIV.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+P.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+P.ComputerText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt 0.5in; FONT-FAMILY: "Courier New"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold; mso-style-name: "Computer Text"
+}
+LI.ComputerText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt 0.5in; FONT-FAMILY: "Courier New"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold; mso-style-name: "Computer Text"
+}
+DIV.ComputerText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt 0.5in; FONT-FAMILY: "Courier New"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold; mso-style-name: "Computer Text"
+}
+DIV.Section1 {
+	page: Section1
+}
+</STYLE>
+</HEAD>
+<BODY lang=EN-US style="tab-interval: .5in" vLink=purple link=blue>
+<DIV class=Section1>
+<P class=MsoTitle><A name=_Toc534120514>Write Your Own Operating System 
+Tutorial</A></P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 1pt; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: windowtext 0.75pt solid">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 0in; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none; mso-border-bottom-alt: solid windowtext .75pt; mso-padding-alt: 0in 0in 1.0pt 0in"><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN><AHREF="LESSON1.HTM"><SPAN 
+style="mso-bookmark: _Toc534120514">Previous 
+Lesson</SPAN><SPANSTYLE='MSO-BOOKMARK:_TOC534120514'></SPAN></A><SPAN 
+style="mso-bookmark: _Toc534120514"><SPANSTYLE='MSO-TAB-COUNT:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><A 
+href="http://www.cse.unl.edu/~jgompert/OS/TableOfContents.htm"><SPANSTYLE='MSO-BOOKMARK:_TOC534120514'>Table 
+of Contents</SPAN><SPANSTYLE='MSO-BOOKMARK:_TOC534120514'></SPAN></A><SPAN 
+style="mso-bookmark: _Toc534120514"><SPANSTYLE='MSO-TAB-COUNT:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson3.htm"><SPANSTYLE='MSO-BOOKMARK:_TOC534120514'>Next 
+Lesson</SPAN><SPAN style="mso-bookmark: _Toc534120514"></SPAN></A><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN></P></DIV><SPAN 
+style="mso-bookmark: _Toc534120514"></SPAN>
+<H1><A name=_Toc534120515>Lesson 2: Making Our First Bootable Disk</A></H1>
+<P class=MsoNormal>In this lesson, we will learn how to create a boot program on 
+a floppy disk.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>We will start by 
+modifying the Microsoft DOS Boot Record.</P>
+<P class=MsoNormal>For our purposes, we want to replace the boot loader code 
+without changing the other data in the boot sector.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>If we change the data to something 
+invalid, then DOS and Windows will not recognize the disk as being valid.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Windows will give an error saying the 
+disk is not formatted.<SPANSTYLE="MSO-SPACERUN: yes?>&nbsp; </SPAN>This will 
+cause you to be unable to access any of the files on the disk.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>However, we can change the boot program 
+code all we want and, as long as we don’t mess with the other data, DOS and 
+Windows will be able to read and write the files on the disk just fine.</P>
+<P class=MsoNormal>We will leave the first instruction (<SPAN 
+style="FONT-FAMILY: 'Courier New'">jmp 0x3E</SPAN>) alone, because we need to 
+jump over the Boot Record data.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Thus we can begin modifying the code at 0x3E.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Run the DOS DEBUG program and load the 
+first sector of a formatted floppy disk into memory at address 0.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Then type the command</P>
+<P class=ComputerText>-u 3E</P>
+<P class=ComputerText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>to view the instructions there.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Now, we will begin modifying the 
+code.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Type the command</P>
+<P class=ComputerText>-a 3E</P>
+<P class=ComputerText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>to begin assembling instructions.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The prompt changes from a hyphen to the 
+address at the location that we gave.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Type the following instruction and press enter.</P>
+<P class=ComputerText>jmp 3E</P>
+<P class=ComputerText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>The instruction is assembled to machine code and placed into 
+memory, and the following prompt is the next available memory after the 
+instruction you just entered.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Press 
+Enter once more to exit the assembly mode.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>The whole procedure on my computer looked like this.</P>
+<P class=ComputerText>-a 3E</P>
+<P class=ComputerText>0AFC:003E jmp 3E</P>
+<P class=ComputerText>0AFC:0040</P>
+<P class=ComputerText>-</P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><SPANSTYLE="FONT-FAMILY:'COURIER 
+New??><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal>The segment address (0x0AFC, in my case) can (an probably 
+will be) different on your computer, or even between different sessions of 
+DEBUG.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Now view the instruction you 
+just entered by giving the unassembled command.</P>
+<P class=ComputerText>-u 3E</P>
+<P class=ComputerText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>As you can see, the first instruction is now our jump 
+instruction.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This will create an 
+infinite loop.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If we quit DEBUG 
+now, no changes will be saved, but we can now write our modified boot sector 
+back to the disk (overwriting the previous one) by typing this command.</P>
+<P class=ComputerText>-w 0 0 0 1</P>
+<P class=ComputerText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>This "write" command uses the same syntax as the "load" 
+command.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This writes the data found 
+at memory address 0 to disk 0, starting with sector 0 and writing 1 sector.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><I>Be very careful when using the write 
+command.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This command can be used 
+to overwrite sectors on any drive, and cause loss of data.</I></P>
+<P class=MsoNormal>You can now boot with this floppy.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>When you boot, BIOS will load the first 
+sector off the disk into memory and begin execution at the beginning of the 
+sector.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This will be the jump to 
+0x3E instruction.<SPANSTYLE="MSO-SPACERUN: yes?>&nbsp; </SPAN>The instruction 
+there is one to jump to 0x3E, so this will continue forever.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Try it.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Boot up a computer with this disk.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Nothing appears to happen.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The computer will just sit there and do 
+nothing.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>But your new “operating 
+system” is running.</P>
+<P class=MsoNormal>Okay, I know what you’re saying, you want to see some sign 
+that the code you wrote is actually&nbsp;is running and that&nbsp;you haven’t 
+done something to mess up your computer.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>In order to do this, we are going to make function calls to BIOS (at 
+least at first).<SPANSTYLE="MSO-SPACERUN: yes?>&nbsp; </SPAN>As of the time of 
+this writing, you can find a short list of BIOS function calls at <AHREF="HTTP: 
+biosref.html? GI W0005997 
+users.win.be>http://users.win.be/W0005997/GI/biosref.html</A>.<SPANSTYLE="MSO-SPACERUN: 
+yes?>&nbsp; </SPAN>A longer list of software interrupts can be found at <A 
+href="http://burak1.virtualave.net/Interrup.txt">http://burak1.virtualave.net/Interrup.txt</A>, 
+but keep in mind that some of those interrupts are BIOS calls, while others are 
+MS-DOS calls which cannot be used since, of course, MS-DOS is not 
+running.<SPANSTYLE="MSO-SPACERUN: yes?>&nbsp; </SPAN>You would have to implement 
+those functions yourself before using them.</P>
+<P class=MsoNormal>We are going to use interrupt 0x10, function 0x0E to write a 
+character to the screen.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The 
+registers must be set as follows.</P>
+<P class=ComputerText>AH = 0x0E</P>
+<P class=ComputerText>AL = ASCII code of the character to be printed</P>
+<P class=ComputerText>BL = color/style of character</P>
+<P class=MsoNormal style="MARGIN-BOTTOM: 0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>Now, repeat the instructions in this lesson, only instead of 
+entering the jump instruction as we did before, this time enter the following 
+instructions.</P>
+<P class=ComputerText>-a 3E</P>
+<P class=ComputerText>0AF6:003E mov ah, 0e</P>
+<P class=ComputerText>0AF6:0040 mov al, 48</P>
+<P class=ComputerText>0AF6:0042 mov bl, 07</P>
+<P class=ComputerText>0AF6:0044 int 10</P>
+<P class=ComputerText>0AF6:0046 jmp 46</P>
+<P class=ComputerText>0AF6:0048</P>
+<P class=ComputerText>-<SPAN 
+style="FONT-FAMILY: 'Times New Roman'"><o:p></o:p></SPAN></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal>First we set AH to zero, AL to 0x48 (ASCII for the letter 
+‘H’), BL to 7 (color code for white-on-black), and then we call interrupt 0x10, 
+which handles the video controller.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>The last instruction creates an infinite loop like before, so things stop 
+there.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Save the modified boot 
+sector to a disk (-<SPAN style="FONT-FAMILY: 'Courier New'">w 0 0 0 1</SPAN>) 
+and try booting with the disk.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This 
+time you should see the character ‘H’ printed on the screen before the system 
+hangs.</P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 1pt; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: windowtext 0.75pt solid">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 0in; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none; mso-border-bottom-alt: solid windowtext .75pt; mso-padding-alt: 0in 0in 1.0pt 0in">Play 
+around with this for a while.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>You 
+can repeat the code for printing a character multiple times to print a phrase, 
+or you can try out other software interrupts.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>When you are done, continue on to the 
+next lesson where we will learn to use a full-blown assembler to write our 
+programs rather than DEBUG.<SPAN 
+style="mso-bidi-font-weight: normal"><o:p></o:p></SPAN></P></DIV>
+<P class=MsoNormal><A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson1.htm">Previous 
+Lesson</A><SPANSTYLE='MSO-TAB-COUNT:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><A href="http://www.cse.unl.edu/~jgompert/OS/TableOfContents.htm">Table 
+of Contents</A><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><AHREF="LESSON3.HTM">Next Lesson</A><B 
+style="mso-bidi-font-weight: normal"><o:p></o:p></B></P>
+<P class=MsoNormal 
+style="MARGIN-BOTTOM: 0pt"><BSTYLE='MSO-BIDI-FONT-WEIGHT:NORMAL'>© 2001 by Joel 
+Gompert<o:p></o:p></B></P>
+<P class=MsoNormal 
+style="MARGIN-BOTTOM: 0pt"><AHREF="MAILTO:JGOMPERT@CSE.UNL.EDU">jgompert@cse.unl.edu</A></P>
+<P class=MsoNormal><A 
+href="http://cse.unl.edu/~jgompert">HOME</A><BSTYLE='MSO-BIDI-FONT-WEIGHT:NORMAL'><o:p></o:p></B></P></DIV></BODY></HTML>

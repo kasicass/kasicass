@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://www.cse.unl.edu/~jgompert/OS/lesson3.htm -->
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:v = 
+"urn:schemas-microsoft-com:vml" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>Write Your Own Operating System - Lesson 3</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=Word.Document name=ProgId>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="Microsoft Word 9" name=Originator><LINK 
+href="./lesson3_files/filelist.xml" rel=File-List><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Joel Matthias Gompert</o:Author>
+  <o:LastAuthor>Joel Matthias Gompert</o:LastAuthor>
+  <o:Revision>10</o:Revision>
+  <o:TotalTime>20</o:TotalTime>
+  <o:Created>2001-12-28T03:19:00Z</o:Created>
+  <o:LastSaved>2001-12-28T05:04:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>526</o:Words>
+  <o:Characters>3001</o:Characters>
+  <o:Company>The Flaming Gymsocks</o:Company>
+  <o:Lines>25</o:Lines>
+  <o:Paragraphs>6</o:Paragraphs>
+  <o:CharactersWithSpaces>3685</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<STYLE>@page Section1 {size: 8.5in 11.0in; margin: 1.0in 1.25in 1.0in 1.25in; mso-header-margin: .5in; mso-footer-margin: .5in; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+LI.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+DIV.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-weight: bold
+}
+H1 {
+	FONT-SIZE: 16pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-bidi-font-weight: normal; mso-style-next: Normal; mso-outline-level: 1; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: "Courier New"; mso-font-kerning: 0pt
+}
+P.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+LI.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+DIV.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-font-kerning: 14.0pt
+}
+P.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoBodyText {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 12pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+DIV.Section1 {
+	page: Section1
+}
+</STYLE>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></HEAD>
+<BODY lang=EN-US style="tab-interval: .5in" vLink=purple link=blue>
+<DIV class=Section1>
+<P class=MsoTitle><A name=_Toc534120514>Write Your Own Operating System 
+Tutorial</A></P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 1pt; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: windowtext 0.75pt solid">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 0in; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none; mso-border-bottom-alt: solid windowtext .75pt; mso-padding-alt: 0in 0in 1.0pt 0in"><A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson2.htm">Previous 
+Lesson</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A 
+href="http://www.cse.unl.edu/~jgompert/OS/TableOfContents.htm">Table of 
+Contents</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson4.htm">Next 
+Lesson</A></P></DIV><SPAN style="mso-bookmark: _Toc534120514"></SPAN>
+<H1><A name=_Toc534120516>Lesson 3: NASM</A></H1>
+<P class=MsoNormal>In this lesson we will learn to use an assembler to write our 
+programs.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>In previous lessons we 
+have assembled them using DEBUG.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>After playing around with this for a while, you will quickly see that it 
+would be a pain to use DEBUG to create a program of more than a handful of 
+instructions (even harder to modify).<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>We need a simpler way.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>We 
+will start by using the “Netwide Assembler” (NASM).<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Go to the official web page at <A 
+href="http://nasm.sourceforge.net/index.php">http://nasm.sourceforge.net/index.php</A> 
+and download a copy of the assembler.</P>
+<P class=MsoNormal>Now we’ll use this assembler to create the same “operating 
+system” that we did at the end of <A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson2.htm">Lesson 2</A>.&nbsp; 
+Download the boot program <A 
+href="http://www.cse.unl.edu/~jgompert/OS/h.asm">h.asm</A> and take a look at 
+it.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The first instruction should be 
+somewhat familiar by now.&nbsp; This is the instruction to jump over the Boot 
+Record data.&nbsp; In this case, it’s a jump to the label <FONT 
+face="Courier New">begin</FONT> .&nbsp; After the jump instruction is 20 bytes 
+of data.&nbsp; This is the data that I read off my floppy disk using the DEBUG 
+program.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>These values should work 
+fine.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If you want, try replacing 
+the data with the data from your own disk.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Most of it should be the same.</P>
+<P class=MsoNormal>(NOTE: Keep in mind that numbers made up of more than 1 byte 
+will look “byte swapped” when viewed in DEBUG because on the Intel architecture, 
+the least significant byte is stored at the lowest memory address and vice 
+versa.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The bytes will look 
+backwards.)</P>
+<P class=MsoNormal>The code starting at the label <SPAN 
+style="FONT-FAMILY: 'Courier New'">begin</SPAN> should look similar to the code 
+we wrote for Lesson 2.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>It simply 
+prints the letter ‘H’ to the screen and loops forever.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>At the bottom of this file you will see 
+first a check to make sure the code all fits within 512 bytes (the size of one 
+sector), then the line beginning with the word “times” adds zeros to the end of 
+the file to pad the executable to 510 bytes.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Finally, the two-byte signature 0x55, 
+0xAA is added to the end of the file.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Assemble the file at the command prompt with the following command.</P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in"><SPAN 
+style="FONT-FAMILY: 'Courier New'">nasmw h.asm –o h.bin<o:p></o:p></SPAN></P>
+<P class=MsoNormal>This assembles the assembly file to a pure binary executable 
+<SPAN style="FONT-FAMILY: 'Courier New'">h.bin</SPAN>.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Check the size of the binary file.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>If we have done things right, it should 
+be exactly 512 bytes.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This is 
+exactly the size needed to fit in the boot sector of the floppy.</P>
+<P class=MsoNormal>Now we need to copy this file onto our floppy.&nbsp; With the 
+floppy in the disk, run DEBUG, and type the following commands</P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt 0.5in"><SPAN 
+style="FONT-FAMILY: 'Courier New'">debug<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt 0.5in"><SPAN 
+style="FONT-FAMILY: 'Courier New'">-n h.bin<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt 0.5in"><SPAN 
+style="FONT-FAMILY: 'Courier New'">-l 0</SPAN></P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt 0.5in"><SPAN 
+style="FONT-FAMILY: 'Courier New'"><o:p></o:p></SPAN>&nbsp;</P>
+<P class=MsoNormal>This loads our file into memory starting at address 0.&nbsp; 
+Use the dump (d) and unassemble (u) commands if you wish to confirm that our 
+file has assembled and been loaded correctly.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>You will be able to see the few 
+instructions that we have written.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Notice that the file has been correctly padded with zeros up until bytes 
+0x1FE and 0x1FF at the end of the sector.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Also note that DEBUG fills the CX register with the number of bytes 
+loaded from the file.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>(Display the 
+contents of the registers with the<SPAN style="FONT-FAMILY: 'Courier New'"> r 
+</SPAN>command.)</P>
+<P class=MsoNormal>With the floppy disk in the drive, write the file to the disk 
+with the usual command.</P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in"><SPAN 
+style="FONT-FAMILY: 'Courier New'">-w 0 0 0 1<o:p></o:p></SPAN></P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 1pt; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: windowtext 0.75pt solid">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0in; BORDER-TOP: medium none; PADDING-LEFT: 0in; PADDING-BOTTOM: 0in; BORDER-LEFT: medium none; PADDING-TOP: 0in; BORDER-BOTTOM: medium none; mso-border-bottom-alt: solid windowtext .75pt; mso-padding-alt: 0in 0in 1.0pt 0in">Reboot 
+the computer with the floppy and see the program in action.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Try some more things with the source 
+code, now. &nbsp; For example, maybe modify the code to print more 
+characters.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>When you are ready, 
+proceed to the next lesson where we will create a “Hello, World” operating 
+system.<SPAN style="mso-bidi-font-weight: normal"><o:p></o:p> </SPAN></P></DIV>
+<P class=MsoNormal><A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson2.htm">Previous 
+Lesson</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A 
+href="http://www.cse.unl.edu/~jgompert/OS/TableOfContents.htm">Table of 
+Contents</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A 
+href="http://www.cse.unl.edu/~jgompert/OS/lesson4.htm">Next Lesson</A><B 
+style="mso-bidi-font-weight: normal"><o:p></o:p></B></P>© 2001 by Joel 
+Gompert<BR><A href="mailto:jgompert@cse.unl.edu">jgompert@cse.unl.edu</A><BR><A 
+href="http://cse.unl.edu/~jgompert">HOME</A> 
+<P></P></DIV></BODY></HTML>
