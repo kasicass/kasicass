@@ -21,3 +21,6 @@ dist/
 target/
 
 node_modules/
+
+# erlang
+*.beam
