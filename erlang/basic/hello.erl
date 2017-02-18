@@ -1,4 +1,4 @@
-% hello.erl
+% escript hello.erl
 -export([main/1]).
 
 main([YourName]) ->
