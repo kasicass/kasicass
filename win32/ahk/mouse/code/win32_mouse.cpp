@@ -93,15 +93,17 @@ static char* MouseMessageName(WPARAM wParam)
     }
 }
 
+static bool s_activeWnd = false;
 static LRESULT CALLBACK mouse_ll( int nCode, WPARAM wParam, LPARAM lParam )
 {
-    if (nCode < 0)
+    if (nCode < 0 || !s_activeWnd)
         return CallNextHookEx(s_hook, nCode, wParam, lParam);
     
     MSLLHOOKSTRUCT *s = (MSLLHOOKSTRUCT*)lParam;
     if (s->flags & LLMHF_INJECTED)
     {
-        DbgViewPrintf("kasicass xx injected, %s\n", MouseMessageName(wParam));
+        DbgViewPrintf("kasicass xx injected, %s, (%d,%d)\n", MouseMessageName(wParam), s->pt.x, s->pt.y);
+        return 1;  // eat me
     }
     else
     {
@@ -124,6 +126,10 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_CREATE:
         s_hook = SetWindowsHookEx(WH_MOUSE_LL, (HOOKPROC)mouse_ll, GetModuleHandle(0), 0);
+        return 0;
+
+    case WM_ACTIVATEAPP:
+        s_activeWnd = !!wParam;
         return 0;
 
     case WM_LBUTTONDOWN:
