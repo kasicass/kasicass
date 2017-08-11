@@ -8,7 +8,13 @@
 #include <stdio.h>
 #include <string.h>
 
-static HHOOK s_hook;
+static HHOOK s_mouseHookLowLevel;
+static HHOOK s_keyboardHookLowLevel;
+
+static HHOOK s_mouseHook;
+static HHOOK s_keyboardHook;
+
+static HHOOK s_wndProcHook;
 
 LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
@@ -93,24 +99,99 @@ static char* MouseMessageName(WPARAM wParam)
     }
 }
 
+static char* KeyboardMessageName(WPARAM wParam)
+{
+    switch (wParam)
+    {
+    case WM_KEYDOWN: return "WM_KEYDOWN";
+    case WM_KEYUP: return "WM_KEYUP";
+    case WM_SYSKEYDOWN: return "WM_SYSKEYDOWN";
+    case WM_SYSKEYUP: return "WM_SYSKEYUP";
+    default: return "None";
+    }
+}
+
 static bool s_activeWnd = false;
 static LRESULT CALLBACK mouse_ll( int nCode, WPARAM wParam, LPARAM lParam )
 {
     if (nCode < 0 || !s_activeWnd)
-        return CallNextHookEx(s_hook, nCode, wParam, lParam);
+        return CallNextHookEx(s_mouseHookLowLevel, nCode, wParam, lParam);
     
     MSLLHOOKSTRUCT *s = (MSLLHOOKSTRUCT*)lParam;
     if (s->flags & LLMHF_INJECTED)
     {
-        DbgViewPrintf("kasicass xx injected, %s, (%d,%d)\n", MouseMessageName(wParam), s->pt.x, s->pt.y);
+        DbgViewPrintf("kasicass xx mouse_ll, %s, (%d,%d)\n", MouseMessageName(wParam), s->pt.x, s->pt.y);
         return 1;  // eat me
     }
     else
     {
-        // DbgViewPrintf("kasicass xx not-injected");
+        DbgViewPrintf("kasicass xx mouse_ll 2, %s\n", MouseMessageName(wParam));
     }
 
-    return CallNextHookEx(s_hook, nCode, wParam, lParam);
+    return CallNextHookEx(s_mouseHookLowLevel, nCode, wParam, lParam);
+}
+
+static LRESULT CALLBACK keyboard_ll( int nCode, WPARAM wParam, LPARAM lParam )
+{
+    if (nCode < 0 || !s_activeWnd)
+        return CallNextHookEx(s_keyboardHookLowLevel, nCode, wParam, lParam);
+    
+    KBDLLHOOKSTRUCT *s = (KBDLLHOOKSTRUCT*)lParam;
+	if (s->flags & LLKHF_INJECTED)
+    {
+        DbgViewPrintf("kasicass xx keyboard_ll, %s, %c\n", KeyboardMessageName(wParam), s->vkCode);
+        return 1;  // eat me
+    }
+    else
+    {
+        DbgViewPrintf("kasicass xx keyboard_ll 2, %s, %c\n", KeyboardMessageName(wParam), s->vkCode);
+    }
+
+    return CallNextHookEx(s_keyboardHookLowLevel, nCode, wParam, lParam);
+}
+
+static LRESULT CALLBACK mouse_2( int nCode, WPARAM wParam, LPARAM lParam )
+{
+    if (nCode < 0 || !s_activeWnd)
+        return CallNextHookEx(s_mouseHook, nCode, wParam, lParam);
+    
+    DbgViewPrintf("kasicass xx mouse, %s\n", MouseMessageName(wParam));
+
+    return CallNextHookEx(s_mouseHook, nCode, wParam, lParam);
+}
+
+static LRESULT CALLBACK keyboard_2( int nCode, WPARAM wParam, LPARAM lParam )
+{
+    if (nCode < 0 || !s_activeWnd)
+        return CallNextHookEx(s_keyboardHook, nCode, wParam, lParam);
+    
+    DbgViewPrintf("kasicass xx keyboard, %c\n", wParam);
+
+    return CallNextHookEx(s_keyboardHook, nCode, wParam, lParam);
+}
+
+static LRESULT CALLBACK wndproc_hook(int nCode, WPARAM wParam, LPARAM lParam)
+{
+    if (nCode < 0 || !s_activeWnd)
+        return CallNextHookEx(s_wndProcHook, nCode, wParam, lParam);
+
+    if (wParam == 0)
+    {
+        CWPSTRUCT *s = (CWPSTRUCT*)lParam;
+        DbgViewPrintf("kasicass xx wndproc, msg:0x%x\n", s->message);
+        /*
+        if (s->message == WM_KEYDOWN)
+        {
+            DbgViewPrintf("kasicass xx wndproc, WM_KEYDOWN, threadId:%u, char:%c\n", wParam, s->wParam);
+        }
+        else
+        {
+            DbgViewPrintf("kasicass xx wndproc, threadId:%u\n", wParam);
+        }
+        */
+    }
+
+    return CallNextHookEx(s_wndProcHook, nCode, wParam, lParam);
 }
 
 LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -125,11 +206,18 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_CREATE:
-        s_hook = SetWindowsHookEx(WH_MOUSE_LL, (HOOKPROC)mouse_ll, GetModuleHandle(0), 0);
+        //s_mouseHookLowLevel = SetWindowsHookEx(WH_MOUSE_LL, (HOOKPROC)mouse_ll, GetModuleHandle(0), 0);
+        //s_keyboardHookLowLevel = SetWindowsHookEx(WH_KEYBOARD_LL, (HOOKPROC)keyboard_ll, GetModuleHandle(0), 0);
+
+        s_mouseHook = SetWindowsHookEx(WH_MOUSE, (HOOKPROC)mouse_2, GetModuleHandle(0), GetCurrentThreadId());
+        s_keyboardHook = SetWindowsHookEx(WH_KEYBOARD, (HOOKPROC)keyboard_2, GetModuleHandle(0), GetCurrentThreadId());
+        
+        // s_wndProcHook = SetWindowsHookEx(WH_CALLWNDPROC, (HOOKPROC)wndproc_hook, GetModuleHandle(0), GetCurrentThreadId());
         return 0;
 
     case WM_ACTIVATEAPP:
         s_activeWnd = !!wParam;
+        s_activeWnd = true;
         return 0;
 
     case WM_LBUTTONDOWN:
