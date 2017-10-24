@@ -11,8 +11,9 @@
 
 import os
 from flask import Flask, render_template, session, redirect, url_for, flash
-from flask_script import Manager
+from flask_script import Manager, Shell
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate, MigrateCommand
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
@@ -29,6 +30,9 @@ app.config['SECRET_KEY'] = 'abc'  # for wtf
 db = SQLAlchemy(app)
 manager = Manager(app)
 bootstrap = Bootstrap(app)
+
+migrate = Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 
 class Role(db.Model):
 	__tablename__ = 'roles'
@@ -79,6 +83,12 @@ def user(name):
 @app.errorhandler(404)
 def page_not_found(e):
 	return render_template('404.html'), 404
+
+
+def make_shell_context():
+	return dict(app=app, db=db, User=User, Role=Role)
+
+manager.add_command("shell", Shell(make_context=make_shell_context))
 
 
 if __name__ == '__main__':
