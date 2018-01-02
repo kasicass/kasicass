@@ -3,7 +3,7 @@
 -export([twice/1, sum/2]).
 
 start() ->
-	register(example1, spawn(fun() ->
+	register(?MODULE, spawn(fun() ->
 			process_flag(trap_exit, true),
 			Port = open_port({spawn, "example1.exe"}, [{packet, 2}]),
 			loop(Port)
