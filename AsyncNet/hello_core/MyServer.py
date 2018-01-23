@@ -31,8 +31,6 @@ def main():
 			elif event == ASYNC_EVT_LEAVE:
 				print time.strftime('[%Y-%m-%d %H:%M:%S]'), 'leave hid=%xh'%hid
 				clients.remove(hid)
-			elif event == ASYNC_EVT_ESTAB:
-				print time.strftime('[%Y-%m-%d %H:%M:%S]'), 'estab hid=%xh'%hid
 			elif event == ASYNC_EVT_DATA:
 				print time.strftime('[%Y-%m-%d %H:%M:%S]'), 'recv hid=%xh'%hid, 'data', data
 
