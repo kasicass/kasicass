@@ -25,7 +25,8 @@ def main():
 				print time.strftime('[%Y-%m-%d %H:%M:%S]'), 'new hid=%xh'%hid
 				if core.get_mode(hid) == ASYNC_MODE_IN:
 					clients.add(hid)
-					print time.strftime('[%Y-%m-%d %H:%M:%S]'), 'accept hid=%xh'%hid
+					_, port, ip = core.parse_remote(data)
+					print time.strftime('[%Y-%m-%d %H:%M:%S]'), 'accept hid=%xh'%hid, 'from %s:%d'%(ip,port)
 			elif event == ASYNC_EVT_LEAVE:
 				print time.strftime('[%Y-%m-%d %H:%M:%S]'), 'leave hid=%xh'%hid
 				clients.remove(hid)
