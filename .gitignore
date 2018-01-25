@@ -17,6 +17,10 @@ ipch
 # java
 *.class
 
+# python
+*.pyc
+*.pyo
+
 dist/
 target/
 
