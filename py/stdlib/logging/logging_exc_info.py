@@ -14,8 +14,15 @@ def foo():
 	except:
 		logging.exception('woo!')
 
+def foo2():
+	try:
+		raise ValueError(10)
+	except:
+		logging.debug('cool!', exc_info=1)
+
 def bar():
 	foo()
+	foo2()
 
 bar()
 
