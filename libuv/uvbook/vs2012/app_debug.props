@@ -10,6 +10,7 @@
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)..\3rdparty\libuv\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)..\3rdparty\libuv\lib\$(Configuration)</AdditionalLibraryDirectories>
