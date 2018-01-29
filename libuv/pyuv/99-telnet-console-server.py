@@ -2,14 +2,68 @@
 
 from __future__ import print_function
 
+import sys
+import code
 import signal
 import pyuv
+from cStringIO import StringIO
+
+class TelnetConsole(code.InteractiveInterpreter):
+	def __init__(self, conn):
+		#super(TelnetConsole, self).__init__()
+		code.InteractiveInterpreter.__init__(self)
+		self.resetbuffer()
+		self.conn = conn
+
+	def resetbuffer(self):
+		self.buf = []
+
+	def push(self, line):
+		self.buf.append(line)
+		source = "\n".join(self.buf)
+		more = self.runsource(source, "<console>")
+		if not more:
+			self.resetbuffer()
+		return more
+
+	def write(self, data):
+		self.conn.write(data)
+
+	def writeWelcome(self):
+		cprt = 'Type "help", "copyright", "credits" or "license" for more information.'
+		self.write("Python %s on %s\n%s\n(%s)\n" % (sys.version, sys.platform, cprt, self.__class__.__name__))
+		self.writePrompt(0)
+
+	def writePrompt(self, more):
+		if more:
+			prompt = '... '
+		else:
+			prompt = '>>> '
+		self.write(prompt)
+
+	def handleData(self, line):
+		encoding = getattr(sys.stdin, "encoding", None)
+		if encoding and not isinstance(line, unicode):
+			line = line.decode(encoding)
+
+		stdoutBuff = StringIO()
+		old = sys.stdout
+		sys.stdout = stdoutBuff
+		more = self.push(line)
+		self.write(stdoutBuff.getvalue())
+		sys.stdout = old
+
+		self.writePrompt(more)
 
 class Connection(object):
 	def __init__(self, server, handle):
 		self.server = server
+
 		self.clientHandle = handle
 		self.clientHandle.start_read(self.onRead)
+
+		self.console = TelnetConsole(self)
+		self.console.writeWelcome()
 
 	def onRead(self, handle, data, error):
 		if data is None:
@@ -18,6 +72,9 @@ class Connection(object):
 			self.server.removeConnection(self)
 			return
 
+		self.console.handleData(data)
+
+	def write(self, data):
 		self.clientHandle.write(data)
 
 	def close(self):
@@ -54,8 +111,10 @@ class TelnetConsoleServer(object):
 		self.signalHandle.start(self.onSignal, signal.SIGINT)
 
 		self.connections = []
+		self.endpoint    = endpoint
 	
 	def run(self):
+		print('TelnetConsole runs on %s' % str(self.endpoint))
 		loop = pyuv.Loop.default_loop()
 		loop.run()
 
