@@ -28,3 +28,7 @@ node_modules/
 
 # erlang
 *.beam
+
+# librdkafka
+librdkafka-0.11.5
+
