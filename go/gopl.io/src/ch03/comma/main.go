@@ -37,7 +37,25 @@ func comma2(s string) string {
 	return buf.String()
 }
 
+func anagram(s1, s2 string) bool {
+	len1 := len(s1)
+	len2 := len(s2)
+	if len1 != len2 {
+		return false
+	}
+
+	for i := 0; i < len1; i++ {
+		if s1[i] != s2[len2-1-i] {
+			return false
+		}
+	}
+
+	return true
+}
+
 func main() {
 	fmt.Println(comma("1234567"))
 	fmt.Println(comma2("1234567"))
+	fmt.Println(anagram("hello1", "2olleh"))
+	fmt.Println(anagram("hello", "olleh"))
 }
