@@ -5,8 +5,8 @@ import (
 )
 
 func incr(p *int) int {
-	*p++;
-	return *p;
+	*p++
+	return *p
 }
 
 func main() {
