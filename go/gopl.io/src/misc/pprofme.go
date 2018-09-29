@@ -1,4 +1,5 @@
 // go tool pprof http://localhost:8000/debug/pprof/heap
+// browser: http://localhost:8000/debug/pprof/
 
 package main
 
