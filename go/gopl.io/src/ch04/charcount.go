@@ -11,7 +11,7 @@ import (
 
 func main() {
 	counts := make(map[rune]int)
-	var utflen [utf8.UTFMax+1]int
+	var utflen [utf8.UTFMax + 1]int
 	invalid := 0
 
 	in := bufio.NewReader(os.Stdin)
@@ -25,7 +25,7 @@ func main() {
 			os.Exit(1)
 		}
 		if r == unicode.ReplacementChar && n == 1 {
-			invalid++;
+			invalid++
 			continue
 		}
 		counts[r]++
