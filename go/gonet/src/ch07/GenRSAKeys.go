@@ -24,7 +24,7 @@ func main() {
 	fmt.Println("Public key exponent", publicKey.E)
 
 	saveGobKey("private.key", key)
-	saveGobKey("public.key", key)
+	saveGobKey("public.key", publicKey)
 
 	savePEMKey("private.pem", key)
 }
@@ -52,7 +52,7 @@ func savePEMKey(fileName string, key *rsa.PrivateKey) {
 
 func checkError(err error) {
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Fatal error: %s", err.Error())
+		fmt.Fprintf(os.Stderr, "Fatal error: %s\n", err.Error())
 		os.Exit(1)
 	}
 }
