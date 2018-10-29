@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <uv.h>
+#include <Windows.h>
 
 #define FIB_UNTIL 25
 uv_loop_t *loop;
@@ -22,12 +23,12 @@ void fib(uv_work_t *req)
 	else
 		Sleep(3*1000);
 	fib = fib_(n);
-	fprintf(stderr, "%dth fibonacci is %lu\n", n, fib);
+	fprintf(stderr, "%dth fibonacci is %lu (%lu)\n", n, fib, GetCurrentThreadId());
 }
 
 void after_fib(uv_work_t *req, int status)
 {
-	fprintf(stderr, "Done calculating %dth fibonacci\n", *(int*)req->data);
+	fprintf(stderr, "Done calculating %dth fibonacci(%lu)\n", *(int*)req->data, GetCurrentThreadId());
 }
 
 int main()
