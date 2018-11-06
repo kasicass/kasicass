@@ -17,7 +17,7 @@ int main(void)
 	mvprintw(row/2, (col-strlen(mesg))/2, "%s", mesg);
 	mvprintw(row-2,0,"This screen has %d rows and %d columes\n", row, col);
 
-	printw("Try resizeing your window*of possible) and then run this program again");
+	printw("Try resizeing your window(if possible) and then run this program again");
 	refresh();
 	getch();
 	endwin();
