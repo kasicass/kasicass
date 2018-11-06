@@ -3,6 +3,7 @@
 
 //! mode: exe
 //! int: obj
+//! flag: -Wall
 //! link: ncurses
 //! src: 02-init.c
 int main(void)
