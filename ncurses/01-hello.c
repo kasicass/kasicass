@@ -2,8 +2,9 @@
 #include <curses.h>
 
 //! mode: exe
+//! int: obj
 //! link: ncurses
-//! src: hello.c
+//! src: 01-hello.c
 int main(void)
 {
 	initscr();                // Start curses mode
