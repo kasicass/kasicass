@@ -36,3 +36,8 @@ librdkafka-0.11.5
 pkg/
 golang.org/
 github.com/
+
+# emake
+*.o
+*.p
+
