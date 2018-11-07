@@ -5,7 +5,7 @@
 //! int: obj
 //! flag: -Wall
 //! link: ncurses
-//! src: 02-init.c
+//! src: init_func_example.c
 int main(void)
 {
 	int ch;
