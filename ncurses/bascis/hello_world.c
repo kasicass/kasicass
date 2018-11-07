@@ -5,7 +5,7 @@
 //! int: obj
 //! flag: -Wall
 //! link: ncurses
-//! src: 01-hello.c
+//! src: hello_world.c
 int main(void)
 {
 	initscr();                // Start curses mode
