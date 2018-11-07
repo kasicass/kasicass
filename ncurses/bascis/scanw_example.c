@@ -1,3 +1,4 @@
+// http://www.tldp.org/HOWTO/NCURSES-Programming-HOWTO/scanw.html
 #include <ncurses.h>
 #include <string.h>
 
