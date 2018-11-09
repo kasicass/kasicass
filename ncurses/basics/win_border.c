@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 
 	initscr();
 	cbreak();              // Line buffering diabled, pass on everthing to me
-	keypad(stdscr, TRUE);  // I need that notify F1
+	keypad(stdscr, TRUE);  // I need that nifty F1
 
 	height = 3;
 	width = 10;
