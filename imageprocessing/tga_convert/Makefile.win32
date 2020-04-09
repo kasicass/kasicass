@@ -1,0 +1,11 @@
+SRC = main.c
+OBJ = main.obj
+CFLAGS = /c /Zc:wchar_t /fp:precise /D_WIN32_WINNT=0x0500 /D "_MBCS" /D "_CONSOLE" /MD
+LDFLAGS = /SUBSYSTEM:CONSOLE
+
+all:
+	cl $(CFLAGS) $(SRC)
+	link /OUT:tga_convert.exe $(LDFLAGS) $(OBJ)
+
+clean:
+	del *.obj *.exe *.res
